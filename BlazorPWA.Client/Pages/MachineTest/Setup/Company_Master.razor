@@ -1,0 +1,67 @@
+@page "/MachineTest/Setup/Company_Master"
+@inherits BasePage
+
+@using BlazorPWA.Shared.Models
+@using BlazorPWA.Shared.Data
+@using BlazorPWA.Shared.VMs
+
+
+
+
+<h1>ComapanyMaster</h1>
+<AuthorizeView Context="authContext" Policy="@Policies.IsAnonymousUser" Resource="typeof(Company_Master)">
+<Authorized>
+@if (!_loaded)
+{
+<XSProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else
+{
+<XSDataGrid ServerData="@(new Func<GridState<clsCompanyMasterVM>, Task<GridData<clsCompanyMasterVM>>>(ServerReload))"
+T="clsCompanyMasterVM"
+Dense="true" Bordered="true" Hover="true" ReadOnly="true"
+ColumnResizeMode="ResizeMode.Column"
+Filterable="true" @ref="_Grid" SelectedItemChanged="@RowClicked">
+<ToolBarContent>
+<XSButton DisableElevation=true Variant="Variant.Filled" Color="Color.Surface" @onclick="@(() => Save())"  StartIcon="@Icons.Material.Filled.Add" IconColor="Color.Primary">Add</XSButton>
+<XSButton DisableElevation=true Class="ml - 4" Variant="Variant.Filled" Color="Color.Surface" @onclick="@(() => ExportToExcel())"  StartIcon="@Icons.Material.Filled.Download" IconColor="Color.Primary">Export</XSButton>
+<XSSpacer />
+<XSTextBox T="string" ValueChanged="@(s => OnSearch(s))"   Placeholder="Search" Adornment="Adornment.Start"
+AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt - 0"></XSTextBox>
+</ToolBarContent>
+<Columns>
+@if (IsFinder == false)
+ {
+   <TemplateColumn Title="Actions" CellClass="d-flex justify-end">
+        <CellTemplate>
+                    <XSButtonFAB @onclick="@(() => View(@context.Item.ID))" Color="Color.Info" StartIcon="@Icons.Material.Outlined.ReadMore" Size="Size.Small" IconSize="Size.Small" />
+                    <XSButtonFAB @onclick="@(() => Edit(@context.Item.ID))" Color="Color.Tertiary" StartIcon="@Icons.Material.Outlined.Edit" Size="Size.Small" IconSize="Size.Small" />
+                    <XSButtonFAB @onclick="@(() => Delete(@context.Item.ID))" Color="Color.Secondary" StartIcon="@Icons.Material.Outlined.Delete" Size="Size.Small" IconSize="Size.Small" />
+        </CellTemplate>
+    </TemplateColumn>
+ }
+<PropertyColumn Property="x => x.ID" Title="Company Code"></PropertyColumn>
+<PropertyColumn Property="x => x.Description" Title="Company Name"></PropertyColumn>
+<PropertyColumn Property="x => x.Branch_Type" Title="Branch"></PropertyColumn>
+<PropertyColumn Property="x => x.Add1" Title="Address 1"></PropertyColumn>
+<PropertyColumn Property="x => x.Add2" Title="Address 2"></PropertyColumn>
+</Columns>
+<NoRecordsContent>
+   <MudText>No matching records found</MudText>
+</NoRecordsContent>
+<LoadingContent>
+  <MudText>Loading...</MudText>
+</LoadingContent>
+<PagerContent>
+    <MudDataGridPager T="clsCompanyMasterVM" PageSizeOptions=@(new int[] {5, 10, 25, 50, 100, int.MaxValue }) />
+</PagerContent>
+</XSDataGrid>
+}
+</Authorized>
+<NotAuthorized>
+<p>You are not authorized to access this resource!!</p>
+</NotAuthorized>
+</AuthorizeView>
+
+@code {
+}

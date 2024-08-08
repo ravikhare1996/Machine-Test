@@ -1,0 +1,149 @@
+{
+  "DocNo": "MachineTest",
+  "ID": "d8d004d9-7f5a-4ec4-8e30-d2c17e2323bb",
+  "Description": "MachineTest",
+  "_Type": null,
+  "ShortName": "MachineTest",
+  "Assembly_Name": "MachineTest",
+  "Project_Description": "MachineTest",
+  "SolutionRelatedPath": null,
+  "Customize_Assembly": false,
+  "Customize_AssemblyPath": null,
+  "Customize_AssemblyName": null,
+  "Custom_ProjectPath": null,
+  "Custom_Proj_Lang": null,
+  "Model_ProjectPath": null,
+  "Model_Language": "C#",
+  "Solution_Type": "BlazorPWA",
+  "Output_Type": null,
+  "UI_Type": null,
+  "Default_Template": null,
+  "InActivated": null,
+  "Modules": [
+    {
+      "ID": "cf767de6-f9bb-46e8-9188-3154eea0abeb",
+      "ParentID": "d8d004d9-7f5a-4ec4-8e30-d2c17e2323bb",
+      "ParentDocNo": "MachineTest",
+      "Seq_No": 1,
+      "Module_Name": "MachineTest",
+      "Folder_Name": "MachineTest",
+      "Namespace_Name": "MachineTest",
+      "Display_Name": "MachineTest",
+      "Inactive": false,
+      "SubModules": [
+        {
+          "ID": "830444fb-fc70-4ebc-8b8b-97618b517f09",
+          "ParentID": "cf767de6-f9bb-46e8-9188-3154eea0abeb",
+          "ParentDocNo": "MachineTest",
+          "Seq_No": 0,
+          "SubModule_Name": "Setup",
+          "Folder_Name": "Setup",
+          "Namespace_Name": "Setup",
+          "Display_Name": "Setup",
+          "Inactive": false
+        },
+        {
+          "ID": "55c3e72c-71ce-46a6-b8cc-f52a0900ef9c",
+          "ParentID": "cf767de6-f9bb-46e8-9188-3154eea0abeb",
+          "ParentDocNo": "MachineTest",
+          "Seq_No": 1,
+          "SubModule_Name": "Transaction",
+          "Folder_Name": "Transaction",
+          "Namespace_Name": "Transaction",
+          "Display_Name": "Transaction",
+          "Inactive": false
+        },
+        {
+          "ID": "cf9b82bc-f634-4b4f-b5d6-cb11dc274729",
+          "ParentID": "cf767de6-f9bb-46e8-9188-3154eea0abeb",
+          "ParentDocNo": "MachineTest",
+          "Seq_No": 2,
+          "SubModule_Name": "Report",
+          "Folder_Name": "Report",
+          "Namespace_Name": "Report",
+          "Display_Name": "Report",
+          "Inactive": false
+        }
+      ]
+    }
+  ],
+  "ParentID": null,
+  "ParentDocNo": null,
+  "Custom_SolutionPath": null,
+  "Ref_ProjectID": null,
+  "SolutionType": 5,
+  "DomainAssemblies": [
+    {
+      "ID": "32ec0cad-376f-4f14-b98f-55cd22e71804",
+      "ParentID": "d8d004d9-7f5a-4ec4-8e30-d2c17e2323bb",
+      "ParentDocNo": "MachineTest",
+      "Seq_No": 0,
+      "DomainLayerName": "BlazorPWA.Server",
+      "DomainAssemblyName": "BlazorPWA.Server",
+      "DomainProjectName": "BlazorPWA.Server.csproj",
+      "DomainProjectPath": "D:\\Official\\R$D\\BlazorTest\\MachineTest\\BlazorPWA.Server\\BlazorPWA.Server.csproj",
+      "Assembly_Type": 9,
+      "Output_Type": "Library"
+    },
+    {
+      "ID": "a6a7fb54-77f2-488b-a946-30ffdd0a7c72",
+      "ParentID": "d8d004d9-7f5a-4ec4-8e30-d2c17e2323bb",
+      "ParentDocNo": "MachineTest",
+      "Seq_No": 3,
+      "DomainLayerName": "BlazorPWA.Client",
+      "DomainAssemblyName": "BlazorPWA.Client",
+      "DomainProjectName": "BlazorPWA.Client.csproj",
+      "DomainProjectPath": "D:\\Official\\R$D\\BlazorTest\\MachineTest\\BlazorPWA.Client\\BlazorPWA.Client.csproj",
+      "Assembly_Type": 10,
+      "Output_Type": "Library"
+    },
+    {
+      "ID": "45232d20-f968-4e8e-a58c-1e383633fd70",
+      "ParentID": "d8d004d9-7f5a-4ec4-8e30-d2c17e2323bb",
+      "ParentDocNo": "MachineTest",
+      "Seq_No": 4,
+      "DomainLayerName": "BlazorPWA.Shared",
+      "DomainAssemblyName": "BlazorPWA.Shared",
+      "DomainProjectName": "BlazorPWA.Shared.csproj",
+      "DomainProjectPath": "D:\\Official\\R$D\\BlazorTest\\MachineTest\\BlazorPWA.Shared\\BlazorPWA.Shared.csproj",
+      "Assembly_Type": 11,
+      "Output_Type": "Library"
+    },
+    {
+      "ID": "ed3e49ad-4f60-4c40-939e-441b10a38ee5",
+      "ParentID": "d8d004d9-7f5a-4ec4-8e30-d2c17e2323bb",
+      "ParentDocNo": "MachineTest",
+      "Seq_No": 1,
+      "DomainLayerName": "MachineTest.WinFormUI",
+      "DomainAssemblyName": "MachineTest.WinFormUI",
+      "DomainProjectName": "WinFormUI3Tier.csproj",
+      "DomainProjectPath": "D:\\Official\\R$D\\BlazorTest\\MachineTest\\WinFormUI3Tier\\WinFormUI3Tier.csproj",
+      "Assembly_Type": 1,
+      "Output_Type": null
+    },
+    {
+      "ID": "85f59a45-6d97-470a-9927-1fe36f2b568a",
+      "ParentID": "d8d004d9-7f5a-4ec4-8e30-d2c17e2323bb",
+      "ParentDocNo": "MachineTest",
+      "Seq_No": 2,
+      "DomainLayerName": "MachineTest.Services",
+      "DomainAssemblyName": "MachineTest.Services",
+      "DomainProjectName": "BL.Services.csproj",
+      "DomainProjectPath": "D:\\Official\\R$D\\BlazorTest\\MachineTest\\BL.Services\\BL.Services.csproj",
+      "Assembly_Type": 2,
+      "Output_Type": "Library"
+    },
+    {
+      "ID": "b5d3baec-4848-4c32-9764-70eb28002b6e",
+      "ParentID": "d8d004d9-7f5a-4ec4-8e30-d2c17e2323bb",
+      "ParentDocNo": "MachineTest",
+      "Seq_No": 5,
+      "DomainLayerName": "MachineTest.Domain",
+      "DomainAssemblyName": "MachineTest.Domain",
+      "DomainProjectName": "BL.Models.csproj",
+      "DomainProjectPath": "D:\\Official\\R$D\\BlazorTest\\MachineTest\\BL.Models\\BL.Models.csproj",
+      "Assembly_Type": 5,
+      "Output_Type": "Library"
+    }
+  ]
+}

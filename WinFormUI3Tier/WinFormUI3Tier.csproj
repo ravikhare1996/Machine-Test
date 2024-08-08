@@ -1,0 +1,104 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows7.0</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <AssemblyName>WinFormUI3Tier</AssemblyName>
+    <AssemblyTitle>WinFormUI3Tier</AssemblyTitle>
+    <Product>WinFormUI3Tier</Product>
+    <Copyright>Copyright ©  2021</Copyright>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <Version>1.0.0.0</Version>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Controllers\**" />
+    <Compile Remove="Json\**" />
+    <Compile Remove="StatementEditor\**" />
+    <EmbeddedResource Remove="Controllers\**" />
+    <EmbeddedResource Remove="Json\**" />
+    <EmbeddedResource Remove="StatementEditor\**" />
+    <None Remove="Controllers\**" />
+    <None Remove="Json\**" />
+    <None Remove="StatementEditor\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Remove="D:\Official\XpertGitHubProjects\XpertStudio\packages\microsoft.dotnet.upgradeassistant.extensions.default.analyzers\0.4.410601\build\\WebTypeReplacements.typemap" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Designers\frmTimeSheetDashboard.cs" />
+    <Compile Remove="Designers\frmTimeSheetDashboard.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Designers\frmTimeSheetDashboard.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="common">
+      <HintPath>..\Libraries\OMS\common.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServices">
+      <HintPath>..\Libraries\OMS\CommonServices.dll</HintPath>
+    </Reference>
+    <Reference Include="XpertQueryBuilder">
+      <HintPath>..\Libraries\XpertStudio\XpertQueryBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="XpertStudio.Common">
+      <HintPath>..\Libraries\XpertStudio\XpertStudio.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BL.Services\BL.Services.csproj">
+      <Project>{782b1b56-8580-442d-a0ac-62ef0f65731f}</Project>
+      <Name>BL.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BlazorPWA.Common\BlazorPWA.Common.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ExternalAssemblies\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.3" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="FluentValidation" Version="11.4.0" />
+    <PackageReference Include="System.Text.Json" Version="7.0.3" />
+    <PackageReference Include="XpertStudio.Framework.WinFormUI" Version="4.2408.813" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="appsettings.json" />
+  </ItemGroup>  
+</Project>

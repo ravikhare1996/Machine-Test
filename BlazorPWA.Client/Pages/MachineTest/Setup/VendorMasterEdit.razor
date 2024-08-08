@@ -1,0 +1,29 @@
+@page "/MachineTest/Setup/VendorMasterEdit/{ID}/"
+
+
+@using System.ComponentModel.DataAnnotations
+@using BlazorPWA.Shared.Models
+@using BlazorPWA.Shared.Data
+@using Microsoft.AspNetCore.Components.Forms
+@using XpertStudio.Common.Data
+@using XpertStudio.Common.Enums
+@using BlazorPWA.Shared.VMs
+
+
+
+
+<AuthorizeView Context="authContext" Policy="@Policies.IsAnonymousUser" Resource="typeof(VendorMasterEdit)">
+<Authorized>
+<VendorMasterBasePage CrudType="XpertCrudTypes.Edit"  PageType="BlazorPWAPageTypes.Edit" CurrentID="@ID" ShowValidationSummary="true">
+</VendorMasterBasePage>
+</Authorized>
+<NotAuthorized>
+<p>You are not authorized to access this resource!!</p>
+</NotAuthorized>
+</AuthorizeView>
+
+@code 
+{
+[Parameter]public string ID { get; set; }
+
+}

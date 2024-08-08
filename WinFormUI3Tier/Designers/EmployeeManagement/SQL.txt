@@ -1,0 +1,156 @@
+CREATE TABLE [dbo].[TSPL_EMPLOYEE_MASTER](
+	[EMPLOYEE_CODE] [varchar](20) NOT NULL,
+	[EMPLOYEE_NAME] [varchar](50) NULL,
+	[CARD_NO] [varchar](50) NULL,
+	[DESIGNATION] [varchar](12) NULL,
+	[DATE_OF_JOINING] [date] NULL,
+	[DATE_OF_BIRTH] [date] NULL,
+	[NAME_OF_PREVIOUS_COMPANY] [varchar](100) NULL,
+	[GENDER] [varchar](50) NULL,
+	[DEPARTMENT] [varchar](12) NULL,
+	[STATUS] [varchar](10) NULL,
+	[ADDRESS1] [varchar](500) NULL,
+	[ADDRESS2] [varchar](500) NULL,
+	[PHONE_NO] [varchar](10) NULL,
+	[EMAIL_ID] [varchar](100) NULL,
+	[MOTHERS_NAME] [varchar](50) NULL,
+	[FATHERS_NAME] [varchar](50) NULL,
+	[SPOUSE_NAME] [varchar](50) NULL,
+	[MARITAL_STATUS] [varchar](50) NULL,
+	[DATE_OF_CONFIRMATION] [date] NULL,
+	[TYPE] [varchar](12) NULL,
+	[QUALIFICATION] [varchar](50) NULL,
+	[COLLEGE] [varchar](50) NULL,
+	[Comp_Code] [varchar](30) NULL,
+	[USER_CODE] [varchar](12) NULL,
+	[Notice_Days] [int] NOT NULL,
+	[Is_On_Notice] [int] NOT NULL,
+	[Notice_Start_Date] [date] NULL,
+	[Notice_End_Date] [date] NULL,
+	[Notice_Served_Days] [int] NOT NULL,
+	[Date_Of_Leaving] [date] NULL,
+	[Is_Document_Handover] [int] NOT NULL,
+	[Employee_Type] [varchar](50) NULL,
+	[Hired_By] [varchar](12) NULL,
+	[Reason_Code] [varchar](30) NULL,
+	[Site_Code] [varchar](20) NULL,
+	[Emp_Img] [image] NULL,
+	[Img_Path] [varchar](150) NULL,
+	[Salary_Code] [varchar](50) NULL,
+	[Document_Type] [varchar](20) NULL,
+	[Ticket_Task_Code] [varchar](20) NULL,
+	[Workinghour] [decimal](18, 2) NOT NULL,
+	[AttendanceType] [int] NOT NULL,
+	[EmployementNature] [varchar](20) NULL,
+	[PaymentType] [varchar](20) NULL,
+	[Shift_Code] [varchar](20) NULL,
+	[CreatedBy] [varchar](12) NULL,
+	[CreatedDatetime] [datetime] NULL,
+	[LastModifiedBy] [varchar](12) NULL,
+	[LastModifiedDatetime] [datetime] NULL,
+	[InActivated] [bit] NULL,
+	[IsDefault] [bit] NULL,
+	[Doc_Prefix] [varchar](20) NULL,
+	[Permanent_Ref_Person] [varchar](50) NULL,
+	[Permanent_Ref_Phone_No] [varchar](10) NULL,
+	[Parmanent_PINCODE] [varchar](6) NULL,
+	[Local_Ref_Person] [varchar](50) NULL,
+	[Local_Ref_Phone_No] [varchar](10) NULL,
+	[Local_PINCODE] [varchar](6) NULL,
+	[COMPANY_ADDRESS] [varchar](500) NULL,
+	[Comp_Ref_Person] [varchar](50) NULL,
+	[Comp_Ref_Phone_No] [varchar](10) NULL,
+	[Comp_PINCODE] [varchar](6) NULL,
+	[Category_Type] [varchar](20) NULL,
+	[PAN_NUMBER] [varchar](12) NULL,
+	[PAYMENT_TYPE] [varchar](20) NULL,
+	[PF_Phone_Number_Type] [varchar](20) NULL,
+	[ESI_Phone_Number_Type] [varchar](20) NULL,
+	[Bank_Name] [varchar](30) NULL,
+	[IFSC_Code] [varchar](15) NULL,
+	[Account_Email] [varchar](30) NULL,
+	[GST_Number] [varchar](15) NULL,
+	[Adhaar_Phone_Number] [varchar](10) NULL,
+	[GST_Phone_Number] [varchar](10) NULL,
+	[Adhaar_Address] [varchar](500) NULL,
+	[GST_Address] [varchar](500) NULL,
+	[Adhaar_Email] [varchar](30) NULL,
+	[GST_Email] [varchar](30) NULL,
+	[TDS_Phone_Number] [varchar](10) NULL,
+	[TDS_Address] [varchar](500) NULL,
+	[TDS_Email] [varchar](30) NULL,
+	[ROC_Phone_Number] [varchar](10) NULL,
+	[ROC_Address] [varchar](500) NULL,
+	[ROC_Email] [varchar](30) NULL,
+	[AdhaarProof] [image] NULL,
+	[AdhaarProof_ContentType] [varchar](30) NULL,
+	[AdhaarProof_FileName] [varchar](50) NULL,
+	[AdhaarProof_FilePath] [varchar](100) NULL,
+	[BankProof] [image] NULL,
+	[BankProof_ContentType] [varchar](30) NULL,
+	[BankProof_FileName] [varchar](50) NULL,
+	[BankProof_FilePath] [varchar](100) NULL,
+	[Account_Phone_Number] [varchar](10) NULL,
+	[PF_Phone_Number] [varchar](10) NULL,
+	[ESI_Phone_Number] [varchar](10) NULL,
+	[Amount] [decimal](18, 0) NULL,
+	[PF_Number] [varchar](20) NULL,
+	[ESI_Number] [varchar](20) NULL,
+	[Account_Number] [varchar](20) NULL,
+	[Adhaar_Number] [varchar](20) NULL,
+	[TDS_Number] [varchar](20) NULL,
+	[ROC_Number] [varchar](20) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[EMPLOYEE_CODE] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[TSPL_EMPLOYEE_MASTER] ADD  DEFAULT ((0)) FOR [Notice_Days]
+GO
+
+ALTER TABLE [dbo].[TSPL_EMPLOYEE_MASTER] ADD  DEFAULT ((0)) FOR [Is_On_Notice]
+GO
+
+ALTER TABLE [dbo].[TSPL_EMPLOYEE_MASTER] ADD  DEFAULT ((0)) FOR [Notice_Served_Days]
+GO
+
+ALTER TABLE [dbo].[TSPL_EMPLOYEE_MASTER] ADD  DEFAULT ((0)) FOR [Is_Document_Handover]
+GO
+
+ALTER TABLE [dbo].[TSPL_EMPLOYEE_MASTER] ADD  DEFAULT ((0)) FOR [Workinghour]
+GO
+
+ALTER TABLE [dbo].[TSPL_EMPLOYEE_MASTER] ADD  DEFAULT ((0)) FOR [AttendanceType]
+GO
+
+ALTER TABLE [dbo].[TSPL_EMPLOYEE_MASTER]  WITH NOCHECK ADD FOREIGN KEY([Comp_Code])
+REFERENCES [dbo].[TSPL_COMPANY_MASTER] ([Comp_Code])
+ON UPDATE CASCADE
+GO
+
+ALTER TABLE [dbo].[TSPL_EMPLOYEE_MASTER]  WITH NOCHECK ADD FOREIGN KEY([Hired_By])
+REFERENCES [dbo].[USER_MASTER] ([User_Code])
+GO
+
+ALTER TABLE [dbo].[TSPL_EMPLOYEE_MASTER]  WITH NOCHECK ADD FOREIGN KEY([Hired_By])
+REFERENCES [dbo].[USER_MASTER] ([User_Code])
+GO
+
+ALTER TABLE [dbo].[TSPL_EMPLOYEE_MASTER]  WITH NOCHECK ADD FOREIGN KEY([Reason_Code])
+REFERENCES [dbo].[TSPL_REASON_MASTER] ([REASON_CODE])
+ON UPDATE CASCADE
+GO
+
+ALTER TABLE [dbo].[TSPL_EMPLOYEE_MASTER]  WITH NOCHECK ADD FOREIGN KEY([Shift_Code])
+REFERENCES [dbo].[TSPL_HK_SHIFT_MASTER] ([Code])
+ON UPDATE CASCADE
+GO
+
+ALTER TABLE [dbo].[TSPL_EMPLOYEE_MASTER]  WITH NOCHECK ADD FOREIGN KEY([Site_Code])
+REFERENCES [dbo].[TSPL_HK_SITE_MASTER] ([Code])
+ON UPDATE CASCADE
+GO
+
+

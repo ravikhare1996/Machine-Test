@@ -1,0 +1,17 @@
+﻿<MudNavMenu Color="Color.Info">
+    <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
+    @*<MudNavLink Href="counter" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Add">Counter</MudNavLink>*@
+    @* <MudNavLink Href="fetchdata" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">Fetch data</MudNavLink> *@
+    <AuthorizeView Policy="IsSuperAdmin">
+        <Authorized>
+            <MudNavGroup Title="Admin">
+                <MudNavLink Href="admin/account-manager" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">Manage Accounts</MudNavLink>
+                <MudNavLink Href="/Admin/Roless/" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List"> Roles </MudNavLink>
+                <MudNavLink Href="/Admin/RoleClaimss/" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List"> Role Claims </MudNavLink>                
+                <MudNavLink Href="/Admin/UserRoless/" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List"> User Roles </MudNavLink>
+                <MudNavLink Href="/Admin/UpdateLicenses/" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List"> Update License </MudNavLink>
+            </MudNavGroup>
+        </Authorized>
+    </AuthorizeView>
+ <XpertMenu />
+</MudNavMenu>

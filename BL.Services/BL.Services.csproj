@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>BL.Services</AssemblyName>
+    <AssemblyTitle>BL.Services</AssemblyTitle>
+    <Product>BL.Services</Product>
+    <Copyright>Copyright ©  2021</Copyright>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <Version>1.0.0.0</Version>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="common, Version=2.0.6.36, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\OMS\common.dll</HintPath>
+    </Reference>
+    <Reference Include="XpertQueryBuilder">
+      <HintPath>..\Libraries\XpertStudio\XpertQueryBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="XpertStudio.Common">
+      <HintPath>..\Libraries\XpertStudio\XpertStudio.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DynamicExpresso.Core" Version="2.13.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.410601">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="XpertStudio.UI.Domain" Version="4.2408.813" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DomainServices\" />
+    <Folder Include="Commands\" />
+    <Folder Include="DomainRepositories\" />
+    <Folder Include="DomainServices\" />
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BL.Models\BL.Models.csproj">
+      <Project>{60b3fe03-6871-4612-bb5b-c802fa938e6e}</Project>
+      <Name>BL.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

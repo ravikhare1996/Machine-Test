@@ -1,0 +1,48 @@
+﻿@page "/register"
+@inject IAuthService AuthService
+@inject NavigationManager NavigationManager
+
+<h3>Register</h3>
+
+<EditForm Model="user" OnValidSubmit="@HandleRegistration">
+    @* <DataAnnotationsValidator /> *@
+    <MudCard>
+        <MudCardContent>
+            <MudTextField ReadOnly=false Label="First Name" HelperText="Max. 50 characters"
+                          @bind-Value="user.FirstName" For="@(() => user.FirstName)" />
+            <MudTextField ReadOnly=false Label="Last Name" HelperText="Max. 50 characters"
+                          @bind-Value="user.LastName" For="@(() => user.LastName)" />
+            <MudTextField ReadOnly=false Label="Display Name" HelperText="Max. 100 characters"
+                          @bind-Value="user.DisplayName" For="@(() => user.DisplayName)" />
+            <MudTextField ReadOnly=false Label="Email" HelperText="Max. 50 characters"
+                          @bind-Value="user.Email" For="@(() => user.Email)" />
+            <MudTextField ReadOnly=false Label="Password" HelperText="Max. 50 characters"
+                          @bind-Value="user.Password" For="@(() => user.Password)" InputType="InputType.Password" />
+            <MudTextField ReadOnly=false Label="Confirm Password" HelperText="Max. 50 characters"
+                          @bind-Value="user.ConfirmPassword" For="@(() => user.ConfirmPassword)" InputType="InputType.Password" />
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Register</MudButton>
+        </MudCardActions>
+    </MudCard>
+   
+    <MudCard >
+        <span>@message</span>
+    </MudCard>
+</EditForm>
+
+@code {
+    RegisterDto user = new RegisterDto();
+    string message = string.Empty;
+    string messageCssClass = string.Empty;
+
+    async Task HandleRegistration()
+    {
+        var result = await AuthService.Register(user);
+        message = result.Message;
+        if (result.Success)
+            NavigationManager.NavigateTo("/login");
+        else
+            messageCssClass = "text-danger";
+    }
+}

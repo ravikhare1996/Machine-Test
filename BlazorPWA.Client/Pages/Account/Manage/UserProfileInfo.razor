@@ -1,0 +1,76 @@
+﻿@page "/Account/Manage/ProfileInfo"
+@* <h1>User Profile</h1>
+ *@
+@if (@User==null)
+{
+    <MudAlert Severity="Severity.Error">Current user profile data not fetched!</MudAlert>
+}
+else
+{
+    <EditForm Model="@User" OnValidSubmit="OnValidSubmitAsync">
+        <DataAnnotationsValidator />
+        <MudCard>
+            <MudCardContent>
+                <MudTextField ReadOnly="true" @bind-Value="@User.UserId" Label="User Id" For="@(() => User.UserId)"></MudTextField>
+                <MudTextField ReadOnly="@ReadOnly" @bind-Value="@User.FirstName" Label="First Name" For="@(() => User.FirstName)"></MudTextField>
+                <MudTextField ReadOnly="@ReadOnly" @bind-Value="@User.LastName" Label="Last Name" For="@(() => User.LastName)"></MudTextField>
+                <MudTextField ReadOnly="@ReadOnly" @bind-Value="@User.DisplayName" Label="Display Name" For="@(() => User.DisplayName)"></MudTextField>
+                <MudTextField ReadOnly="true" @bind-Value="@User.UserName" Label="User Name" For="@(() => User.UserName)"></MudTextField>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Disabled="@ReadOnly" ButtonType="ButtonType.Submit">Update</MudButton>
+            </MudCardActions>
+        </MudCard>
+        
+    </EditForm>
+}
+
+@code {
+    [Inject] IUserAccountManager userAccountManager { get; set; }
+    [Parameter]
+    public string error { get; set; } = string.Empty;
+    private bool success;
+    [Parameter]
+    public UserAccountDto User { get; set; }
+    private bool ReadOnly = true;
+    // [Parameter]
+    // public bool ShowValidationSummary { get; set; }
+    protected async override Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        if (User == null)
+        {
+            error = "User Mode can not be null!";
+        }
+        else
+        {            
+            if (User.IsSuperUser == true)
+            {
+                ReadOnly = false;
+            }
+        }
+        
+    }
+    private async Task OnValidSubmitAsync(EditContext context)
+    {
+        error = string.Empty;
+        if (!string.IsNullOrEmpty(User.UserId))
+        {
+            var result = await userAccountManager.UpdateUserAccount(User);
+
+            if (result.Success)
+            {
+               
+                success = true;                
+            }
+            else
+            {                
+                error = result.Message;
+            }
+        }
+        else
+        {
+            error = "UserId is empty!";
+        }
+    }
+}

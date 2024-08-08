@@ -1,0 +1,108 @@
+﻿@page "/FinderDialog"
+@inherits XSListPage<IFinderData>
+@*
+@using BlazorPWA.Shared.Models
+@using BlazorPWA.Shared.Dtos
+@using BlazorPWA.Shared.Data
+@using BlazorPWATest.Domain.Entities*@
+@using MudBlazor.XS.Common
+@using XpertStudio.Common.Data
+
+@if (Header != null)
+{
+    <h1>@Header</h1>
+    <br />
+}
+
+@if (FinderPage != null && FinderUrl != null)
+{
+    <div>
+        @FinderComponentRenderer(FinderUrl)        
+    </div>       
+}
+else
+{
+    @if (!Loaded)
+    {
+        <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+    }
+    else
+    {
+        <MudTable ServerData="@(new Func<TableState, Task<TableData<IFinderData>>>(ServerReload))"
+                  Dense="true" Hover="true" @ref="mTable" SelectOnRowClick="true">
+            <ToolBarContent>
+                <MudSpacer />
+                <MudTextField T="string" ValueChanged="@(s => OnSearch(s))" Placeholder="Search" Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt - 0"></MudTextField>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh><MudTableSortLabel SortLabel="Code" T="IFinderData">Code</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortLabel="Name" T="IFinderData">Name</MudTableSortLabel></MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd @ondblclick="@(() => OnFinderDataChanged(@context))" DataLabel="Code">@context.Code</MudTd>
+                    <MudTd @ondblclick="@(() => OnFinderDataChanged(@context))" DataLabel="Name">@context.Name</MudTd>
+                </RowTemplate>
+                <NoRecordsContent>
+                    <MudText>No matching records found</MudText>
+                </NoRecordsContent>
+                <LoadingContent>
+                    <MudText>Loading...</MudText>
+                </LoadingContent>
+
+                @*             <PagerContent>
+    <MudTablePager PageSizeOptions="new int[] { 5, 10, 25, 50, 100, int.MaxValue }" />
+    </PagerContent> *@
+                
+            </MudTable>
+
+    }
+    
+}
+@* <div class="dialog-actions">
+    @if (IsMultiSelectFinder)
+    {
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => OnOKClick())">OK</MudButton>
+    }    
+</div>
+ *@
+@code {
+    //IFinderData selectedRow;
+
+    async Task OnOKClick()
+    {
+        await Task.Run(() =>
+        {
+            if (IsMultiSelectFinder==false)
+            {
+                SelectedData = this.SelectedFinderData;
+                HidePage = true;
+                SelectedDataChanged(SelectedData);
+            }
+            else
+            {
+                //SelectedItems = this.SelectedItems;
+                HidePage = true;
+                OnSelectedRowsChanged?.Invoke(this.SelectedItems);
+            }
+        });
+    }
+
+    async Task OnCancelClick()
+    {
+        await Task.Run(() =>
+        {
+            HidePage = true;
+            
+        });
+    }
+}
+
+<style>
+    .dialog-actions {
+        display: flex;
+        justify-content: center;
+        position:center;
+        text-align: center;
+    }
+</style>

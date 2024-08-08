@@ -1,0 +1,34 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>BL.Models</Name>
+    <Description>BL.Models</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>BL.Models</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="BL.Models.csproj" File="BL.Models.csproj" ReplaceParameters="true">
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="launchSettings.json">launchSettings.json</ProjectItem>
+      </Folder>
+      <Folder Name="Entities" TargetFolderName="Entities" />
+      <Folder Name="Models" TargetFolderName="Models">
+        <ProjectItem ReplaceParameters="true" TargetFileName="User.cs">User.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="UserValidator.cs">UserValidator.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="XpertEntityBase.cs">XpertEntityBase.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Rules" TargetFolderName="Rules" />
+      <Folder Name="StatementEditor" TargetFolderName="StatementEditor" />
+      <ProjectItem ReplaceParameters="true" TargetFileName="BL.Models.vstemplate">BL.Models.vstemplate</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

@@ -1,0 +1,90 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+    <Version>1.0.0.0</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="BlazorUtils\**" />
+	  <Content Remove="BlazorUtils\**" />
+	  <EmbeddedResource Remove="BlazorUtils\**" />
+	  <None Remove="BlazorUtils\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Services\AuthService\AuthService.cs" />
+	  <Compile Remove="Services\AuthService\IAuthService.cs" />
+	  <Compile Remove="Services\IPersonService.cs" />
+	  <Compile Remove="Services\IUploadService.cs" />
+	  <Compile Remove="Services\IUserService.cs" />
+	  <Compile Remove="Services\PersonService.cs" />
+	  <Compile Remove="Services\UploadService.cs" />
+	  <Compile Remove="Services\UserAccountManager\IUserAccountManager.cs" />
+	  <Compile Remove="Services\UserAccountManager\UserAccountManager.cs" />
+	  <Compile Remove="Services\UserService.cs" />
+	  <Compile Remove="Shared\LocalStorageService.cs" />
+	  <Compile Remove="Shared\PageHistoryState.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Remove="Pages\Account\Login.razor" />
+	  <Content Remove="Pages\Account\Logout.razor" />
+	  <Content Remove="Pages\Account\Register.razor" />
+	  <Content Remove="Shared\Components\ToolTip.razor" />
+	  <Content Remove="wwwroot\service-worker.js" />
+	  <Content Remove="wwwroot\service-worker.published.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+    <PackageReference Include="Blazored.LocalStorage" Version="4.4.0" />
+    <PackageReference Include="EPPlus" Version="6.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.28" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.28" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="6.0.28" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.28" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="6.0.28" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="6.0.4" />
+    <PackageReference Include="XS.MudBlazor" Version="4.2408.813" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="XpertStudio.Common">
+	    <HintPath>..\..\..\Libraries\XpertStudio\XpertStudio.Common.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="Pages\Login.razor" />
+	  <None Include="Pages\Logout.razor" />
+	  <None Include="Pages\Register.razor" />
+	  <None Include="Shared\Components\ToolTip.razor" />
+	  <None Include="wwwroot\css\bootstrap\bootstrap.min.css.map" />
+	  <None Include="wwwroot\css\open-iconic\FONT-LICENSE" />
+	  <None Include="wwwroot\css\open-iconic\font\fonts\open-iconic.svg" />
+	  <None Include="wwwroot\css\open-iconic\ICON-LICENSE" />
+	  <None Include="wwwroot\css\open-iconic\README.md" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\BlazorPWA.Common\BlazorPWA.Common.csproj" />
+	  <ProjectReference Include="..\BlazorPWA.Shared\BlazorPWA.Shared.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Update="Pages\Authentication.razor">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Pages\CommonServices\Finder\" />
+	  <Folder Include="Services\AuthService\" />
+	  <Folder Include="Services\UserAccountManager\" />
+	</ItemGroup>
+
+</Project>

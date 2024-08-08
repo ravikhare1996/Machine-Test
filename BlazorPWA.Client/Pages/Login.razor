@@ -1,0 +1,53 @@
+﻿@page "/login"
+@inject IAuthService AuthService
+@inject NavigationManager NavManager
+
+<PageTitle>Login</PageTitle>
+
+@if (ShowErrors)
+{    
+    <MudAlert Severity="Severity.Error">
+        @Error
+    </MudAlert>
+}
+
+
+<EditForm Model="loginDto" OnValidSubmit="HandleLogin">
+    <MudCard>
+        <MudCardContent>
+            <MudTextField ReadOnly=false Label="Email" HelperText="Enter a valid email."
+                          @bind-Value="loginDto.Email" For="@(() => loginDto.Email)" />
+            <MudTextField ReadOnly=false Label="Password" HelperText="Enter valid password."
+                          @bind-Value="loginDto.Password" For="@(() => loginDto.Password)" InputType="InputType.Password" />
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Login</MudButton>
+        </MudCardActions>
+    </MudCard>
+    
+</EditForm>
+
+@code {
+    private LoginDto loginDto = new LoginDto();
+    private bool ShowErrors;
+    private string Error = "";
+    bool isShow;
+
+    private async Task HandleLogin()
+    {
+        ShowErrors = false;
+
+        var result = await AuthService.Login(loginDto);
+
+        if (result.Success)
+        {
+            var returnUrl = NavManager.QueryString("returnUrl") ?? "/";
+            NavManager.NavigateTo(returnUrl);
+        }
+        else
+        {
+            ShowErrors = true;
+            Error = result.Message;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>WinFormUI3Tier</Name>
+    <Description>WinFormUI3Tier</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>WinFormUI3Tier</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="WinFormUI3Tier.csproj" File="WinFormUI3Tier.csproj" ReplaceParameters="true">
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="launchSettings.json">launchSettings.json</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.resx">Resources.resx</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.Designer.cs">Resources.Designer.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.settings">Settings.settings</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.Designer.cs">Settings.Designer.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Designers" TargetFolderName="Designers" />
+      <Folder Name="ExternalAssemblies" TargetFolderName="ExternalAssemblies" />
+      <ProjectItem ReplaceParameters="true" TargetFileName="App.config">App.config</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="appsettings.json">appsettings.json</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="appsettings.json">vstg0001.json</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MainForm.cs">MainForm.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MainForm.designer.cs">MainForm.designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MainForm.resx">MainForm.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="WinFormUI3Tier.vstemplate">WinFormUI3Tier.vstemplate</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="XpertSampleForm.cs">XpertSampleForm.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="XpertSampleForm.Designer.cs">XpertSampleForm.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="XpertSampleForm.resx">XpertSampleForm.resx</ProjectItem>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>XpertStudioVSIXPackage, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</Assembly>
+    <FullClassName>XpertStudioVSIXPackage.XSWizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>

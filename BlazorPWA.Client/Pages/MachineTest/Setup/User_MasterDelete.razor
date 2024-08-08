@@ -1,0 +1,29 @@
+@page "/MachineTest/Setup/User_MasterDelete/{ID}/"
+
+
+@using System.ComponentModel.DataAnnotations
+@using BlazorPWA.Shared.Models
+@using BlazorPWA.Shared.Data
+@using Microsoft.AspNetCore.Components.Forms
+@using XpertStudio.Common.Data
+@using XpertStudio.Common.Enums
+@using BlazorPWA.Shared.VMs
+
+
+
+
+<AuthorizeView Context="authContext" Policy="@Policies.IsAnonymousUser" Resource="typeof(User_MasterDelete)">
+<Authorized>
+<User_MasterBasePage CrudType="XpertCrudTypes.Delete"  PageType="BlazorPWAPageTypes.Delete" CurrentID="@ID" ReadOnly="true" ShowValidationSummary="true">
+</User_MasterBasePage>
+</Authorized>
+<NotAuthorized>
+<p>You are not authorized to access this resource!!</p>
+</NotAuthorized>
+</AuthorizeView>
+
+@code 
+{
+[Parameter]public string ID { get; set; }
+
+}

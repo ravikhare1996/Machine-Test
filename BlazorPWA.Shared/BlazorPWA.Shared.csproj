@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+    <Version>1.0.0.0</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Data\IResult.cs" />
+	  <Compile Remove="Data\PagedRequest.cs" />
+	  <Compile Remove="Data\PaginatedResult.cs" />
+	  <Compile Remove="Data\Result.cs" />
+	  <Compile Remove="DTOs\LoginDto.cs" />
+	  <Compile Remove="DTOs\RegisterDto.cs" />
+	  <Compile Remove="DTOs\UserAccountDto.cs" />
+	  <Compile Remove="Enums\Roles.cs" />
+	  <Compile Remove="Managers\IManager.cs" />
+	  <Compile Remove="Models\ServiceResponse.cs" />
+	  <Compile Remove="Models\User.cs" />
+	  <Compile Remove="Models\UserValidator.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="FluentValidation" Version="11.4.0" />
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+	  <PackageReference Include="XpertStudio.Framework.Domain" Version="4.2408.813" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="XpertStudio.Common">
+	    <HintPath>..\Libraries\XpertStudio\XpertStudio.Common.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="DTOs\" />
+	  <Folder Include="Enums\" />
+	  <Folder Include="Helpers\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\BlazorPWA.Common\BlazorPWA.Common.csproj" />
+	</ItemGroup>
+</Project>

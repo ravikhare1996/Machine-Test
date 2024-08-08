@@ -1,0 +1,108 @@
+@page "/MachineTest/Setup/ItemMasterBasePage/"
+@inherits BasePage
+
+@using System.ComponentModel.DataAnnotations
+@using BlazorPWA.Shared.Models
+@using BlazorPWA.Shared.Data
+@using Microsoft.AspNetCore.Components.Forms
+@using XpertStudio.Common.Data
+@using MudBlazor.Components.XS
+@using BlazorPWA.Client.Pages.MachineTest.Setup
+@using BlazorPWA.Shared.VMs
+@using Microsoft.JSInterop
+
+
+
+
+<AuthorizeView Context="authContext" Policy="@Policies.IsAnonymousUser" Resource="typeof(ItemMasterBasePage)">
+<Authorized>
+@if(PageType==XpertStudio.Common.Enums.BlazorPWAPageTypes.Create)
+{
+<h1>Create Item Master</h1>
+}
+else if(PageType==XpertStudio.Common.Enums.BlazorPWAPageTypes.Edit)
+{
+<h1>Edit Item Master</h1>
+}
+else if(PageType==XpertStudio.Common.Enums.BlazorPWAPageTypes.Delete)
+{
+<h1>Delete Item Master</h1>
+}
+else if(PageType==XpertStudio.Common.Enums.BlazorPWAPageTypes.View)
+{
+<h1>View Item Master</h1> 
+}
+else
+{
+<h1>Item Master</h1>
+}
+<br/>
+<EditForm  Model="@Model" OnValidSubmit="OnValidSubmit">
+<DataAnnotationsValidator/>
+<XSGrid>
+ <MudItem xs="12" sm="10">
+  <XSCard>
+   <MudCardContent>
+     <XSExpansionPanels MultiExpansion="true">
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>Basic Info</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSTextBox  @ref="txtItemCode" ReadOnly="@(PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.Create && ReadOnly == false ?  false : true)" Label="Item Code" HelperText="Max. 30 characters"
+@bind-Value="Model.ID" For="@(() => Model.ID)"/>
+<XSTextBox  @ref="txtDescription" ReadOnly=@(ReadOnly || false) Label="Item Name" HelperText="Max. 0 characters"
+@bind-Value="Model.Description" For="@(() => Model.Description)"/>
+<XSNumberBox  @ref="txtRate" @bind-Value="Model.Rate" Label="Rate" Variant="Variant.Text" ReadOnly=@(ReadOnly || false) />
+<XSTextBox  @ref="txtUom" ReadOnly=@(ReadOnly || false) Label="UOM" HelperText="Max. 0 characters"
+@bind-Value="Model.Uom" For="@(() => Model.Uom)"/>
+         </ChildContent>
+       </XSExpansionPanel>
+     </XSExpansionPanels>
+   </MudCardContent>
+   <MudCardActions>
+     <XSButton ButtonType="ButtonType.Button" Variant="Variant.Outlined" Color="Color.Primary" OnClick="NavigateToIndex" Class="mr - 4">Back</XSButton>
+     @if(CrudType==XpertStudio.Common.Enums.XpertCrudTypes.Create)
+      {
+        <XSButton ButtonType="ButtonType.Reset" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Reset</XSButton>
+        <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Save</XSButton>
+      }
+      @if(CrudType==XpertStudio.Common.Enums.XpertCrudTypes.Edit)
+       {
+         <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Edit</XSButton>
+       }
+       @if(CrudType==XpertStudio.Common.Enums.XpertCrudTypes.Delete)
+        {
+          <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Delete</XSButton>
+        }
+   </MudCardActions>
+  </XSCard>
+ </MudItem>
+@if (ShowValidationSummary==true)
+ {
+   <MudItem xs="12" sm="2">
+    <XSPaper Class="pa - 4 mud - height - full">
+     <MudText Typo="Typo.subtitle2">Validation Summary</MudText>
+     @if (success)
+      {
+       <MudText Color="Color.Success">Success</MudText>
+      }
+     else
+      {
+       <MudText Color="@Color.Error">
+        <ValidationSummary />
+       </MudText>
+      }
+    </XSPaper>
+   </MudItem>
+ }
+</XSGrid>
+</EditForm>
+</Authorized>
+<NotAuthorized>
+<p>You are not authorized to access this resource!!</p>
+</NotAuthorized>
+</AuthorizeView>
+
+@code {
+}

@@ -1,0 +1,26 @@
+@page "/MachineTest/Setup/Company_MasterCreate/"
+
+
+@using System.ComponentModel.DataAnnotations
+@using BlazorPWA.Shared.Models
+@using BlazorPWA.Shared.Data
+@using Microsoft.AspNetCore.Components.Forms
+@using XpertStudio.Common.Data
+@using XpertStudio.Common.Enums
+@using BlazorPWA.Shared.VMs
+
+
+
+
+<AuthorizeView Context="authContext" Policy="@Policies.IsAnonymousUser" Resource="typeof(Company_MasterCreate)">
+<Authorized>
+<Company_MasterBasePage CrudType="XpertCrudTypes.Create"  PageType="BlazorPWAPageTypes.Create" ShowValidationSummary="true">
+</Company_MasterBasePage>
+</Authorized>
+<NotAuthorized>
+<p>You are not authorized to access this resource!!</p>
+</NotAuthorized>
+</AuthorizeView>
+
+@code {
+}

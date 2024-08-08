@@ -1,0 +1,47 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>BlazorPWA.Shared</Name>
+    <Description>BlazorPWA.Shared</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>BlazorPWA.Shared</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="BlazorPWA.Shared.csproj" File="BlazorPWA.Shared.csproj" ReplaceParameters="true">
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="launchSettings.json">launchSettings.json</ProjectItem>
+      </Folder>
+      <Folder Name="Data" TargetFolderName="Data">
+        <ProjectItem ReplaceParameters="true" TargetFileName="ResultExtensions.cs">ResultExtensions.cs</ProjectItem>
+      </Folder>
+      <Folder Name="DTOs" TargetFolderName="DTOs" />
+      <Folder Name="Enums" TargetFolderName="Enums" />
+      <Folder Name="Helpers" TargetFolderName="Helpers" />
+      <Folder Name="Managers" TargetFolderName="Managers">
+        <ProjectItem ReplaceParameters="true" TargetFileName="CommonManager.cs">CommonManager.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="IGenericManager.cs">IGenericManager.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Models" TargetFolderName="Models">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Address.cs">Address.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="AddressValidator.cs">AddressValidator.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Gender.cs">Gender.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Upload.cs">Upload.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="UploadValidator.cs">UploadValidator.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Routes" TargetFolderName="Routes">
+        <ProjectItem ReplaceParameters="true" TargetFileName="CommonDBEndPoints.cs">CommonDBEndPoints.cs</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="BlazorPWA.Shared.vstemplate">BlazorPWA.Shared.vstemplate</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ServiceExtension.cs">ServiceExtension.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="WeatherForecast.cs">WeatherForecast.cs</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
