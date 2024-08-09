@@ -94,8 +94,8 @@ namespace BlazorPWA.Client.Pages
         //property to control the multi selection in finder and its dialog
         protected bool IsMultiSelectFinder { get; set; } = false;
 
-        [Parameter]
-        public List<IFinderData>? SelectedItems { get; set; }
+        //[Parameter]
+        //public List<IFinderData>? SelectedItems { get; set; }
 
         [Parameter]
         public EventCallback<List<T>> SelectedRowsChanged { get; set; }
@@ -441,7 +441,7 @@ namespace BlazorPWA.Client.Pages
             {
                 if (IsMultiSelectFinder)
                 {
-                    objFinderDialog.SelectedItems = SelectedItems;
+                    objFinderDialog.SelectedItems = SelectedValues?.Cast<IFinderData>().ToList();
                 }
                 else
                 {
@@ -1078,7 +1078,7 @@ namespace BlazorPWA.Client.Pages
         {
 
             // Do something with the new data
-            SelectedItems = selectedRows;
+            //SelectedValues = (IEnumerable<T>?)selectedRows;
             await SelectMultiOption(selectedRows?.Cast<T>().ToList());
            // await SelectOption((T)selectedRows?.FirstOrDefault());
             //IsOpen = false;

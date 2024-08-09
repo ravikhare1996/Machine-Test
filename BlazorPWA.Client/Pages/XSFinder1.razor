@@ -51,7 +51,7 @@
                         {
                             if (IsMultiSelectFinder)
                             {
-                                objFinderDialog.SelectedItems = SelectedItems;
+                                objFinderDialog.SelectedItems = SelectedValues?.Cast<IFinderData>().ToList();
                             }
                             else
                             {

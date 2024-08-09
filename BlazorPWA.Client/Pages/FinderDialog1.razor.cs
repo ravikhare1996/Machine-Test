@@ -153,11 +153,11 @@ namespace BlazorPWA.Client.Pages
                 else
                 {
                     builder.AddAttribute(1, "OnSelectedRowsChanged", new Action<List<IFinderData>>(OnFinderSelectedRowsChanged));
-                    //New Code(07082024)
-                    var items=new List<IFinderData>();
-                    items.Add(new FinderData() { Code = "I005", Name = "Bag" });
-                    items.Add(new FinderData() { Code = "I006", Name = "Mouse" });
                     builder.AddAttribute(2, "SelectedRows", SelectedItems?.ToList());
+                    //New Code(07082024)
+                    //var items=new List<IFinderData>();
+                    //items.Add(new FinderData() { Code = "I005", Name = "Bag" });
+                    //items.Add(new FinderData() { Code = "I006", Name = "Mouse" });
                     //builder.AddAttribute(2, "SelectedRows", items);
                 }
                 

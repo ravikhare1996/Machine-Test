@@ -3113,3 +3113,6 @@ XpertStudio.Framework.Exceptions.XSException: Method not found: 'System.Collecti
 2024-08-06 19:09:21.985 +05:30 [INF] Logger Intialized at:06-Aug-24 7:09:21 PM
 2024-08-06 19:09:33.480 +05:30 [INF] Metadata Extraction Started at:06-Aug-24 7:09:33 PM
 2024-08-06 19:09:39.335 +05:30 [INF] Metadata Extraction completed at:06-Aug-24 7:09:39 PM
+2024-08-08 18:08:19.154 +05:30 [INF] Logger Intialized at:08-Aug-24 6:08:19 PM
+2024-08-08 18:08:25.277 +05:30 [INF] Metadata Extraction Started at:08-Aug-24 6:08:25 PM
+2024-08-08 18:08:25.853 +05:30 [INF] Metadata Extraction completed at:08-Aug-24 6:08:25 PM

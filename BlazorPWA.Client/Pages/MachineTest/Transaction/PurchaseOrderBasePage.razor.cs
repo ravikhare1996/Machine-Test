@@ -27,8 +27,8 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
         private XSImage<IBrowserFile?>? pcbPhoto;
         private IXSUploadedFile? _UploadedfilePhoto;
         private string _ImageSrcfilePhoto = string.Empty;
-        private XSMultiSelectFinder1<FinderData?>? XpertMultiSelctFinder;
-        private IEnumerable<FinderData?> _POItemListValue;
+        private XSMultiSelectFinder1<FinderData>? XpertMultiSelctFinder;
+        private List<FinderData>? _POItemListValue;
         private XSDataGrid<clsPO_ItemVM>? gv1;
 
         [Inject]
@@ -67,14 +67,15 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
         [Inject]
         protected IItemMasterManager POItemListManager { get; set; }
 
-        protected IEnumerable<FinderData>? POItemListList { get; set; }
+        //protected IEnumerable<FinderData>? POItemListList { get; set; }
 
-        private IEnumerable<FinderData?> POItemListValue
+        private List<FinderData>? POItemListValue
         {
             get { return _POItemListValue; }
             set
             {
                 _POItemListValue = value;
+                
                 //if (value == null)
                 //{
                 //    _POItemListValue = POItemListList?.FirstOrDefault(d => d.IsDefault == true);
@@ -111,11 +112,11 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
                 }
                 if (Model.POItemList != null)
                 {
-                    //set POItemListData
-                    //var POItemListData = await POItemListManager.GetDataAsync(Model.POItemList);
-                    //if (POItemListData != null)
-                    //    POItemListValue = new FinderData() { Code = POItemListData.ID, Name = POItemListData.Description };
-                    //POItemListData = null;
+                    if (POItemListValue==null)
+                    {
+                        POItemListValue = new List<FinderData>();
+                    }
+                    POItemListValue.AddRange(Model.POItemList.Cast<FinderData>());                    
                 }
             }
             Context = new EditContext(Model);
@@ -286,7 +287,53 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
 
         private void SetSelecetdValues(EventArgs e)
         {
-            POItemListValue = XpertMultiSelctFinder?.SelectedValues.Cast<FinderData>();            
+            try
+            {
+                if (XpertMultiSelctFinder?.SelectedValues == null)
+                {
+                    return;
+                }
+                POItemListValue = XpertMultiSelctFinder?.SelectedValues?.Cast<FinderData>().ToList();
+                Model.POItemList = new List<clsFinderItemsVM>();
+                foreach (var item in POItemListValue)
+                {
+                    Model.POItemList.Add(new clsFinderItemsVM() { ParentID = Model.ID, RowNo = POItemListValue.ToList().IndexOf(item) + 1, Code = item.Code, Name = item.Name, IsDefault = item.IsDefault });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            
+        }
+        private string? DisplayItemList(FinderData currentData)
+        {
+            string strList=string.Empty;
+            try
+            {
+                if (XpertMultiSelctFinder==null || POItemListValue == null)
+                {
+                    return strList;
+                }
+                
+                //XpertMultiSelctFinder.SelectedValues = POItemListValue.Cast<FinderData>().ToList();
+                foreach (var item in POItemListValue)
+                {
+                    if (XpertCommonFunctions.myLen(strList) <= 0)
+                    {
+                        strList = strList + item.Code + "-" + item.Name;
+                    }
+                    else
+                    {
+                        strList = strList + "," + item.Code + "-" + item.Name;
+                    }
+                }
+                return strList;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }                      
         }
         //private async Task DisplayItemsCode(string Text)
         //{
@@ -298,7 +345,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
         //    //CurrentData.Description = XpertMultiSelctFinder.Text;
         //    //XpertMultiSelctFinder.SelectedItems
         //    // return XpertMultiSelctFinder.Text;
-            
+
         //}
     }
 }

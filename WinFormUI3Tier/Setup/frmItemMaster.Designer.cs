@@ -94,6 +94,7 @@
             gbxHeader.Size = new System.Drawing.Size(727, 332);
             gbxHeader.TabIndex = 0;
             gbxHeader.Text = "Basic Info";
+            gbxHeader.Visibility_Criteria = null;
             gbxHeader.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
             // 
             // txtUom
@@ -134,6 +135,8 @@
             txtUom.ReferenceTableName = null;
             txtUom.Size = new System.Drawing.Size(178, 20);
             txtUom.TabIndex = 7;
+            txtUom.Validation_Criteria = null;
+            txtUom.Visibility_Criteria = null;
             txtUom.XpertDisplayMember = null;
             txtUom.XpertValueMember = null;
             txtUom.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
@@ -162,12 +165,16 @@
             lblUom.SourceColumn = null;
             lblUom.TabIndex = 6;
             lblUom.Text = "UOM";
+            lblUom.Validation_Criteria = null;
+            lblUom.Visibility_Criteria = null;
             lblUom.XpertDisplayMember = null;
             lblUom.XpertValueMember = null;
             lblUom.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
             // 
             // txtRate
             // 
+            txtRate.Aggregate_Field = null;
+            txtRate.Aggregate_Type = null;
             txtRate.Calculation_Expression = null;
             txtRate.Calculation_Type = XS.WinForms.Controls.CalculationTypes.None;
             txtRate.CalculationExpression = null;
@@ -211,7 +218,9 @@
             txtRate.TabIndex = 5;
             txtRate.Text = "0";
             txtRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            txtRate.Validation_Criteria = null;
             txtRate.Value = 0D;
+            txtRate.Visibility_Criteria = null;
             txtRate.XpertDisplayMember = null;
             txtRate.XpertValueMember = null;
             txtRate.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
@@ -240,6 +249,8 @@
             lblRate.SourceColumn = null;
             lblRate.TabIndex = 4;
             lblRate.Text = "Rate";
+            lblRate.Validation_Criteria = null;
+            lblRate.Visibility_Criteria = null;
             lblRate.XpertDisplayMember = null;
             lblRate.XpertValueMember = null;
             lblRate.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
@@ -282,6 +293,8 @@
             txtDescription.ReferenceTableName = null;
             txtDescription.Size = new System.Drawing.Size(412, 20);
             txtDescription.TabIndex = 3;
+            txtDescription.Validation_Criteria = null;
+            txtDescription.Visibility_Criteria = null;
             txtDescription.XpertDisplayMember = null;
             txtDescription.XpertValueMember = null;
             txtDescription.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
@@ -310,6 +323,8 @@
             lblDescription.SourceColumn = null;
             lblDescription.TabIndex = 2;
             lblDescription.Text = "Item Name";
+            lblDescription.Validation_Criteria = null;
+            lblDescription.Visibility_Criteria = null;
             lblDescription.XpertDisplayMember = null;
             lblDescription.XpertValueMember = null;
             lblDescription.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
@@ -338,6 +353,8 @@
             lblDocNo.SourceColumn = null;
             lblDocNo.TabIndex = 1;
             lblDocNo.Text = "Item Code";
+            lblDocNo.Validation_Criteria = null;
+            lblDocNo.Visibility_Criteria = null;
             lblDocNo.XpertDisplayMember = null;
             lblDocNo.XpertValueMember = null;
             lblDocNo.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
@@ -382,8 +399,10 @@
             txtItemCode.Required = false;
             txtItemCode.Size = new System.Drawing.Size(258, 24);
             txtItemCode.TabIndex = 0;
+            txtItemCode.Validation_Criteria = null;
             txtItemCode.Value = "";
             txtItemCode.ValueMember = null;
+            txtItemCode.Visibility_Criteria = null;
             txtItemCode.XpertDisplayMember = null;
             txtItemCode.XpertValueMember = null;
             txtItemCode.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
