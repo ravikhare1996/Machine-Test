@@ -11,17 +11,18 @@ using XpertStudio.Framework;
 using XpertStudio.Framework.Attributes;
 using XpertStudio.Common.Attributes;
 using XpertStudio.Common.Enums;
-using XpertStudio.Common.Data;
 
 namespace BlazorPWA.Shared.VMs
 {
     [Description("frmPurchaseOrder")]
     [XSProgram(Module= "MachineTest", Program= "PurchaseOrder")]
     [XSCodeType(Type= XSCodeType.Standard)]
-    public partial class clsFinderItemsVM : XpertDomainChild,IFinderData
+    public partial class clsFinderItemsVM : XpertDomainChild, IXSFinderData
     {
         private int _RowNo;
-        private string _ParentID=string.Empty;
+        private string? _Code;
+        private string? _Name;
+        private string _ParentID;
 
         [DisplayName("Row No")]
         [GroupName("xpertGroupBox1")]
@@ -33,46 +34,29 @@ namespace BlazorPWA.Shared.VMs
             set { _RowNo=value; }
         }
 
+        [DisplayName("Code")]
+        [GroupName("xpertGroupBox1")]
+        public string? Code
+        {
+            get { return  _Code; }
+            set { _Code=value; }
+        }
+
+        [DisplayName("Name")]
+        [GroupName("xpertGroupBox1")]
+        [NotMapped]
+        public string? Name
+        {
+            get { return  _Name; }
+            set { _Name=value; }
+        }
+
         [Key]
         public override string ParentID
         {
             get { return  _ParentID; }
             set { _ParentID=value; }
         }
-        public string? Code
-        {
-            get;
-            set;
-        }
-        [NotMapped]
-        public string? Name
-        {
-            get;
-            set;
-        }
-        [NotMapped]
-        public string? Description
-        {
-            get;
-            set;
-        }
-        [NotMapped]
-        public string? Description2
-        {
-            get;
-            set;
-        }
-        [NotMapped]
-        public bool? IsDefault
-        {
-            get;
-            set;
-        }
-        [NotMapped]
-        public bool Selected
-        {
-            get;
-            set;
-        }
+
     }
 }

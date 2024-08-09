@@ -17,7 +17,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
     public partial class PurchaseOrder
     {
         private IEnumerable<clsPurchaseOrderVM>  _pagedData;
-        private MudDataGrid<clsPurchaseOrderVM>  _Grid;
+        private XSDataGrid<clsPurchaseOrderVM>  _Grid;
         private int _totalItems;
         private int _currentPage;
         private string searchString;
@@ -40,6 +40,10 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
               state.Page = 0;
             }
             await LoadData(state.Page, state.PageSize, state);
+            if (_Grid != null && SelectedItems != null)
+            {
+               SetSelectedItems(SelectedItems?.ToList());
+            }
             return new GridData<clsPurchaseOrderVM> { TotalItems = _totalItems, Items = _pagedData };
         }
 
@@ -104,6 +108,35 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
         private void RowClicked(clsPurchaseOrderVM item)
         {
             SelectedRowChanged(item);
+        }
+
+        private void SelectedItemsChanged(HashSet<clsPurchaseOrderVM> items)
+        {
+            var lst = new List<FinderData>();
+            if (items!=null)
+            {
+            foreach (var item in items)
+             {
+              lst.Add(new FinderData() { Code = item.ID, Name = item.Description });
+             }
+            }
+            SelectedRowsChanged(lst.ToList<IFinderData>());
+        }
+
+        private void SetSelectedItems(List<IFinderData>? selectedItems)
+        {
+            if (selectedItems==null)
+            {
+            return;
+            }
+            HashSet<clsPurchaseOrderVM> items = new HashSet<clsPurchaseOrderVM>();
+            foreach (var finderData in selectedItems)
+            {
+              var selItem = _pagedData.FirstOrDefault(itm => finderData.Code == itm.ID);
+              if (selItem != null)
+                items.Add(selItem);
+            }
+            _Grid.Selection= items;
         }
     }
 }

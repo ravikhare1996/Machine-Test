@@ -158,7 +158,7 @@ namespace BlazorPWA.Shared.VMs
             set { _filePhoto_ContentType=value; }
         }
 
-        [ForeignKey("ID")]
+        [ForeignKey("ParentID")]
         public virtual List<clsFinderItemsVM>? POItemList
         {
             get { return  _POItemList; }

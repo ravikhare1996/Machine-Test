@@ -148,6 +148,13 @@ namespace MachineTest.Domain.Entities
             set { _filePhoto=value; }
         }
 
+
+
+
+
+
+
+
         [XSCodeType(Type = XSCodeType.Custom)]
         [Column("filePhoto_FilePath", TypeName ="VARCHAR")]
         [DisplayName(" File Path")]
@@ -159,6 +166,13 @@ namespace MachineTest.Domain.Entities
             set { _filePhoto_FilePath=value; }
         }
 
+
+
+
+
+
+
+
         [XSCodeType(Type = XSCodeType.Custom)]
         [Column("File_Name", TypeName ="VARCHAR")]
         [GroupName("Photograph")]
@@ -167,6 +181,13 @@ namespace MachineTest.Domain.Entities
             get { return  _filePhoto_FileName; }
             set { _filePhoto_FileName=value; }
         }
+
+
+
+
+
+
+
 
         [XSCodeType(Type = XSCodeType.Custom)]
         [Column("Conytent_Type", TypeName ="VARCHAR")]
@@ -179,8 +200,7 @@ namespace MachineTest.Domain.Entities
         }
 
 
-        [ForeignKey("ID")]
-        [NotMapped]
+        [ForeignKey("ParentID")]
         public virtual List<clsFinderItems>? POItemList
         {
             get { return  _POItemList; }
@@ -188,7 +208,6 @@ namespace MachineTest.Domain.Entities
         }
 
         [ForeignKey("ParentID")]
-        
         public virtual List<clsPO_Item>? PO_Items
         {
             get { return  _PO_Items; }
@@ -207,6 +226,13 @@ namespace MachineTest.Domain.Entities
                 _CreateDate = value;
             }
         }
+
+
+
+
+
+
+
 
 
 

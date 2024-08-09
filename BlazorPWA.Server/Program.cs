@@ -6,6 +6,8 @@ global using Microsoft.EntityFrameworkCore;
 global using MudBlazor.XS.Common.Helpers;
 global using XpertStudio.Common.Attributes;
 global using XpertStudio.Common.Enums;
+global using XpertStudio.Common.Data;
+
 using BL.Services;
 using BlazorPWA.Server;
 using BlazorPWA.Server.Controllers;

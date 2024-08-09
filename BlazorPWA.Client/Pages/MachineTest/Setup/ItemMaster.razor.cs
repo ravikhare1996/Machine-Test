@@ -11,7 +11,6 @@ using XpertStudio.Common.Enums;
 using XpertStudio.Common.Attributes;
 using BlazorPWA.Shared.VMs;
 
-
 namespace BlazorPWA.Client.Pages.MachineTest.Setup
 {
     [XSCodeType(Type= XSCodeType.Standard)]
@@ -30,7 +29,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         protected async override Task  OnInitializedAsync()
         {
             await base.OnInitializedAsync();
-            _totalItems = await Manager.GetCount();            
+            _totalItems = await Manager.GetCount();
             _loaded = true;
         }
 
@@ -43,7 +42,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
             await LoadData(state.Page, state.PageSize, state);
             if (_Grid != null && SelectedItems != null)
             {
-                SetSelectedItems(SelectedItems?.ToList());
+               SetSelectedItems(SelectedItems?.ToList());
             }
             return new GridData<clsItemMasterVM> { TotalItems = _totalItems, Items = _pagedData };
         }
@@ -52,7 +51,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         {
             string[] orderings = null;
             var request = new PagedRequest { PageNumber = (pageNumber) * state.PageSize,PageSize = pageSize , SearchString = searchString, Orderby = orderings };
-            _pagedData =  await Manager.GetAllAsync(request);            
+            _pagedData =  await Manager.GetAllAsync(request);
         }
 
         private void OnSearch(string text)
@@ -110,34 +109,32 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         {
             SelectedRowChanged(item);
         }
-        void SelectedItemsChanged(HashSet<clsItemMasterVM> items)
-        {            
+
+        private void SelectedItemsChanged(HashSet<clsItemMasterVM> items)
+        {
             var lst = new List<FinderData>();
             if (items!=null)
-            {                
-                foreach (var item in items)
-                {
-                    lst.Add(new FinderData() { Code = item.ID, Name = item.Description });
-                }               
+            {
+            foreach (var item in items)
+             {
+              lst.Add(new FinderData() { Code = item.ID, Name = item.Description });
+             }
             }
             SelectedRowsChanged(lst.ToList<IFinderData>());
         }
+
         private void SetSelectedItems(List<IFinderData>? selectedItems)
         {
             if (selectedItems==null)
             {
-                return;
+            return;
             }
             HashSet<clsItemMasterVM> items = new HashSet<clsItemMasterVM>();
             foreach (var finderData in selectedItems)
             {
-                foreach (var item in _pagedData)
-                {
-                    if (finderData.Code == item.ID)
-                    {
-                        items.Add(item);
-                    }
-                }
+              var selItem = _pagedData.FirstOrDefault(itm => finderData.Code == itm.ID);
+              if (selItem != null)
+                items.Add(selItem);
             }
             _Grid.Selection= items;
         }

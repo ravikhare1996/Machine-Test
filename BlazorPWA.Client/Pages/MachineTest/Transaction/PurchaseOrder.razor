@@ -10,57 +10,62 @@
 
 <h1>Purchase Order</h1>
 <AuthorizeView Context="authContext" Policy="@Policies.IsAnonymousUser" Resource="typeof(PurchaseOrder)">
-    <Authorized>
-        @if (!_loaded)
-        {
-            <XSProgressCircular Color="Color.Primary" Indeterminate="true" />
-        }
-        else
-        {
-            <XSDataGrid MultiSelection="true" ServerData="@(new Func<GridState<clsPurchaseOrderVM>, Task<GridData<clsPurchaseOrderVM>>>(ServerReload))"
-                        T="clsPurchaseOrderVM"
-                        Dense="true" Bordered="true" Hover="true" ReadOnly="true"
-                        ColumnResizeMode="ResizeMode.Column"
-                        Filterable="true" @ref="_Grid" SelectedItemChanged="@RowClicked">
-                <ToolBarContent>
-                    <XSButton DisableElevation=true Variant="Variant.Filled" Color="Color.Surface" @onclick="@(() => Save())" StartIcon="@Icons.Material.Filled.Add" IconColor="Color.Primary">Add</XSButton>
-                    <XSButton DisableElevation=true Class="ml - 4" Variant="Variant.Filled" Color="Color.Surface" @onclick="@(() => ExportToExcel())" StartIcon="@Icons.Material.Filled.Download" IconColor="Color.Primary">Export</XSButton>
-                    <XSSpacer />
-                    <XSTextBox T="string" ValueChanged="@(s => OnSearch(s))" Placeholder="Search" Adornment="Adornment.Start"
-                               AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt - 0"></XSTextBox>
-                </ToolBarContent>
-                <Columns>
-                    @if (IsFinder == false)
-                    {
-                        <TemplateColumn Title="Actions" CellClass="d-flex justify-end">
-                            <CellTemplate>
-                                <XSButtonFAB @onclick="@(() => View(@context.Item.ID))" Color="Color.Info" StartIcon="@Icons.Material.Outlined.ReadMore" Size="Size.Small" IconSize="Size.Small" />
-                                <XSButtonFAB @onclick="@(() => Edit(@context.Item.ID))" Color="Color.Tertiary" StartIcon="@Icons.Material.Outlined.Edit" Size="Size.Small" IconSize="Size.Small" />
-                                <XSButtonFAB @onclick="@(() => Delete(@context.Item.ID))" Color="Color.Secondary" StartIcon="@Icons.Material.Outlined.Delete" Size="Size.Small" IconSize="Size.Small" />
-                            </CellTemplate>
-                        </TemplateColumn>
-                    }
-                    <PropertyColumn Property="x => x.ID" Title="PO No"></PropertyColumn>
-                    <PropertyColumn Property="x => x.Description" Title="Comments"></PropertyColumn>
-                    <PropertyColumn Property="x => x.PODate" Title="Date"></PropertyColumn>
-                    <PropertyColumn Property="x => x.POTotAmt" Title="Amount"></PropertyColumn>
-                    <PropertyColumn Property="x => x.PORemarks" Title="Remarks"></PropertyColumn>
-                </Columns>
-                <NoRecordsContent>
-                    <MudText>No matching records found</MudText>
-                </NoRecordsContent>
-                <LoadingContent>
-                    <MudText>Loading...</MudText>
-                </LoadingContent>
-                <PagerContent>
-                    <MudDataGridPager T="clsPurchaseOrderVM" PageSizeOptions=@(new int[] {5, 10, 25, 50, 100, int.MaxValue }) />
-                </PagerContent>
-            </XSDataGrid>
-        }
-    </Authorized>
-    <NotAuthorized>
-        <p>You are not authorized to access this resource!!</p>
-    </NotAuthorized>
+<Authorized>
+@if (!_loaded)
+{
+<XSProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else
+{
+<XSDataGrid MultiSelection="IsMultiSelect" ServerData="@(new Func<GridState<clsPurchaseOrderVM>, Task<GridData<clsPurchaseOrderVM>>>(ServerReload))"
+T="clsPurchaseOrderVM"
+Dense="true" Bordered="true" Hover="true" ReadOnly="true"
+ColumnResizeMode="ResizeMode.Column"
+SelectedItemsChanged="@SelectedItemsChanged" 
+Filterable="true" @ref="_Grid" SelectedItemChanged="@RowClicked">
+<ToolBarContent>
+<XSButton DisableElevation=true Variant="Variant.Filled" Color="Color.Surface" @onclick="@(() => Save())"  StartIcon="@Icons.Material.Filled.Add" IconColor="Color.Primary">Add</XSButton>
+<XSButton DisableElevation=true Class="ml - 4" Variant="Variant.Filled" Color="Color.Surface" @onclick="@(() => ExportToExcel())"  StartIcon="@Icons.Material.Filled.Download" IconColor="Color.Primary">Export</XSButton>
+<XSSpacer />
+<XSTextBox T="string" ValueChanged="@(s => OnSearch(s))"   Placeholder="Search" Adornment="Adornment.Start"
+AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt - 0"></XSTextBox>
+</ToolBarContent>
+<Columns>
+@if (@IsMultiSelect == true)
+{
+<SelectColumn T="clsPurchaseOrderVM" />
+}
+@if (IsFinder == false)
+ {
+   <TemplateColumn Title="Actions" CellClass="d-flex justify-end">
+        <CellTemplate>
+                    <XSButtonFAB @onclick="@(() => View(@context.Item.ID))" Color="Color.Info" StartIcon="@Icons.Material.Outlined.ReadMore" Size="Size.Small" IconSize="Size.Small" />
+                    <XSButtonFAB @onclick="@(() => Edit(@context.Item.ID))" Color="Color.Tertiary" StartIcon="@Icons.Material.Outlined.Edit" Size="Size.Small" IconSize="Size.Small" />
+                    <XSButtonFAB @onclick="@(() => Delete(@context.Item.ID))" Color="Color.Secondary" StartIcon="@Icons.Material.Outlined.Delete" Size="Size.Small" IconSize="Size.Small" />
+        </CellTemplate>
+    </TemplateColumn>
+ }
+<PropertyColumn Property="x => x.ID" Title="PO No"></PropertyColumn>
+<PropertyColumn Property="x => x.Description" Title="Comments"></PropertyColumn>
+<PropertyColumn Property="x => x.PODate" Title="Date"></PropertyColumn>
+<PropertyColumn Property="x => x.POTotAmt" Title="Amount"></PropertyColumn>
+<PropertyColumn Property="x => x.PORemarks" Title="Remarks"></PropertyColumn>
+</Columns>
+<NoRecordsContent>
+   <MudText>No matching records found</MudText>
+</NoRecordsContent>
+<LoadingContent>
+  <MudText>Loading...</MudText>
+</LoadingContent>
+<PagerContent>
+    <MudDataGridPager T="clsPurchaseOrderVM" PageSizeOptions=@(new int[] {5, 10, 25, 50, 100, int.MaxValue }) />
+</PagerContent>
+</XSDataGrid>
+}
+</Authorized>
+<NotAuthorized>
+<p>You are not authorized to access this resource!!</p>
+</NotAuthorized>
 </AuthorizeView>
 
 @code {

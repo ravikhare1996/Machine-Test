@@ -20,12 +20,14 @@ namespace MachineTest.Domain.Entities
     [XSProgram(Module= "MachineTest", Program= "PurchaseOrder")]
     [XSCodeType(Type= XSCodeType.Standard)]
     [PrimaryKey("ParentID","RowNo")]
-    public partial class clsFinderItems : XpertDomainChild
+    public partial class clsFinderItems : XpertDomainChild, IXSFinderData
     {
         private int _RowNo;
+        private string? _Code;
+        private string? _Name;
         private string _ParentID;
 
-        [Column("Row No", Order =2)]
+        [Column("RowNo", Order =2)]
         [DisplayName("Row No")]
         [GroupName("xpertGroupBox1")]
         [XpertRequired]
@@ -34,6 +36,25 @@ namespace MachineTest.Domain.Entities
         {
             get { return  _RowNo; }
             set { _RowNo=value; }
+        }
+
+        [Column("Code", TypeName ="VARCHAR")]
+        [DisplayName("Code")]
+        [GroupName("xpertGroupBox1")]
+        public string? Code
+        {
+            get { return  _Code; }
+            set { _Code=value; }
+        }
+
+        [Column("Name", TypeName ="VARCHAR")]
+        [DisplayName("Name")]
+        [GroupName("xpertGroupBox1")]
+        [NotMapped]
+        public string? Name
+        {
+            get { return  _Name; }
+            set { _Name=value; }
         }
 
         [Key]
