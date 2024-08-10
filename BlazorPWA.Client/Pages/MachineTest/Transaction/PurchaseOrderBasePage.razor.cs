@@ -26,8 +26,8 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
         private XSImage<IBrowserFile?>? pcbPhoto;
         private IXSUploadedFile? _UploadedfilePhoto;
         private string _ImageSrcfilePhoto = string.Empty;
-        private XSMultiSelectFinder<FinderData?>? XpertMultiSelctFinder;
-        private List<FinderData>? _POItemListValue;
+        private XSMultiSelectFinder<CustomFinderData?>? XpertMultiSelctFinder;
+        private List<CustomFinderData>? _POItemListValue;
         private XSDataGrid<clsPO_ItemVM>? gv1;
 
         [Inject]
@@ -63,9 +63,9 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             get { return Model.POTotAmt == Model.Document_Amount ? true : false; }
         }
 
-        protected IEnumerable<FinderData>? POItemListList { get; set; }
+        protected IEnumerable<CustomFinderData>? POItemListList { get; set; }
 
-        private List<FinderData>? POItemListValue
+        private List<CustomFinderData>? POItemListValue
         {
             get { return _POItemListValue; }
             set
@@ -100,9 +100,9 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
                 {
                     if (POItemListValue == null)
                     {
-                        POItemListValue = new List<FinderData>();
+                        POItemListValue = new List<CustomFinderData>();
                     }
-                    POItemListValue.AddRange(Model.POItemList.Cast<IXSFinderData>().Select(item => new FinderData { Code = item.Code, Name = item.Name }));
+                    POItemListValue.AddRange(Model.POItemList.Cast<IXSFinderData>().Select(item => new CustomFinderData { Code = item.Code, Name = item.Name }));
                 }
             }
             Context = new EditContext(Model);
@@ -200,7 +200,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             return CurrentData.Code + "-" + CurrentData.Name;
         }
 
-        private string DisplayPOItemList(FinderData CurrentData)
+        private string DisplayPOItemList(CustomFinderData CurrentData)
         {
             string strList = string.Empty;
             try
@@ -236,7 +236,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
                 {
                     return;
                 }
-                POItemListValue = XpertMultiSelctFinder?.SelectedValues?.Cast<FinderData>().ToList();
+                POItemListValue = XpertMultiSelctFinder?.SelectedValues?.Cast<CustomFinderData>().ToList();
                 Model.POItemList = new List<clsFinderItemsVM>();
                 foreach (var item in POItemListValue)
                 {
@@ -246,6 +246,26 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        [XSCodeType(Type = XSCodeType.Custom)]
+        private async Task GetPOItemListFinder(EventArgs args)
+        {
+            try
+            {
+                await Task.Run(() =>
+                {
+                    if (XpertMultiSelctFinder == null)
+                    {
+                        return;
+                    }
+                    XpertMultiSelctFinder.CustomFinderParameters = new XSCustomFinderParameters() { ReportID = "POItemList", Query = "Select ICode, IName from tspl_item_Master", CodeColumn = "ICode", NameColumn = "IName" };
+                });
+            }
+            catch (Exception ex)
+            {
+                this.MyMessageBoxShow("Purchase Order", ex.Message);
             }
         }
 
@@ -299,17 +319,6 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
                 Console.WriteLine($"An error occurred while opening the file: {ex.Message}");
                 throw;
             }
-        }
-        private async Task ValidatingParametersPOItemslist(EventArgs e)
-        {
-            await Task.Run(() =>
-            {
-                if (XpertMultiSelctFinder == null)
-                {
-                    return;
-                }
-                XpertMultiSelctFinder.CustomFinderParameters = new XSCustomFinderParameters() { ReportID = "POItemList", Query = "Select ICode,IName from TSPL_ITEM_MASTER", CodeColumn = "ICode", NameColumn = "IName" };
-            });
         }
     }
 }

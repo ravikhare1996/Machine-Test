@@ -14,6 +14,6 @@ namespace BlazorPWA.Shared.Managers
     {
          Task<IEnumerable<FinderData>?> GetPOVCodeList(clsPurchaseOrderVM entity);
 
-         Task<IEnumerable<FinderData>?> GetPOItemListList(clsPurchaseOrderVM entity);
+         Task<IEnumerable<CustomFinderData>?> GetPOItemListList(clsPurchaseOrderVM entity);
     }
 }

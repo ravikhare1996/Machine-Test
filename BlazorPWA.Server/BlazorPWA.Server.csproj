@@ -65,9 +65,9 @@
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.2.0" />
-    <PackageReference Include="XpertStudio.UI.Domain" Version="4.2408.1021" />
+    <PackageReference Include="XpertStudio.UI.Domain" Version="4.2408.1100" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
-    <PackageReference Include="XS.ASPNetCore.Server" Version="4.2408.1021" />
+    <PackageReference Include="XS.ASPNetCore.Server" Version="4.2408.1100" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -391,6 +391,11 @@ namespace MachineTest.Services.DomainRepositories
             }
         }
 [XSCodeType(Type = XSCodeType.Custom)]
+        public Task<IEnumerable<FinderData>> GetPOItemListList(string FinderType, string WhereExpression)
+        {
+            throw new NotImplementedException();
+        }
+[XSCodeType(Type = XSCodeType.Custom)]
         public async Task<IEnumerable<FinderData>> GetStatusList(string FinderType, string WhereExpression)
         {
             List<FinderData> StatusList = new List<FinderData>();
@@ -407,11 +412,6 @@ namespace MachineTest.Services.DomainRepositories
             {
                 throw;
             }
-        }
-        [XSCodeType(Type = XSCodeType.Custom)]
-        public Task<IEnumerable<FinderData>> GetPOItemListList(string FinderType, string WhereExpression)
-        {
-            throw new NotImplementedException();
         }
     }
 }
