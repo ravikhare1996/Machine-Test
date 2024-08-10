@@ -1356,7 +1356,7 @@
             txtItems.Datasource_Assembly = "BlazorPWA.Client";
             txtItems.Datasource_Namespace = "BlazorPWA.Client.Pages.MachineTest.Setup";
             txtItems.Datasource_Program = "ItemMaster";
-            txtItems.Datasource_Type = XpertStudio.Common.Enums.XpertFinderConfigType.Pages;
+            txtItems.Datasource_Type = XpertStudio.Common.Enums.XpertFinderConfigType.Database;
             txtItems.Display_Name = "Item List";
             txtItems.DisplayMember = null;
             txtItems.Enum_Name = null;
@@ -1365,7 +1365,7 @@
             txtItems.Field_Type = XpertStudio.Common.Enums.XpertFieldTypes.MultiSelectFinder;
             txtItems.Generated = false;
             txtItems.Key = false;
-            txtItems.Key_Column_Name = null;
+            txtItems.Key_Column_Name = "ICode";
             txtItems.Key_Property = null;
             txtItems.Key_Value = null;
             txtItems.Location = new System.Drawing.Point(194, 71);
@@ -1383,7 +1383,7 @@
             txtItems.MyReadOnly = false;
             txtItems.MyToolTipText = null;
             txtItems.Name = "txtItems";
-            txtItems.Name_Column_Name = null;
+            txtItems.Name_Column_Name = "IName";
             txtItems.Name_Property = null;
             txtItems.Name_Value = null;
             txtItems.Page_Key_Property = "ID";
@@ -1396,7 +1396,7 @@
             txtItems.Size = new System.Drawing.Size(233, 25);
             txtItems.SQLMethodName = null;
             txtItems.TabIndex = 0;
-            txtItems.Table_Name = null;
+            txtItems.Table_Name = "TSPL_ITEM_MASTER";
             txtItems.Tag_Column_Name = null;
             txtItems.Tag_Property = null;
             txtItems.Validation_Criteria = null;

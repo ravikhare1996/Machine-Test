@@ -27,7 +27,7 @@ else
         <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
     }
     else
-    {
+    {        
         <MudTable ServerData="@(new Func<TableState, Task<TableData<IFinderData>>>(ServerReload))"
                   Dense="true" Hover="true" @ref="mTable" SelectOnRowClick="true">
             <ToolBarContent>

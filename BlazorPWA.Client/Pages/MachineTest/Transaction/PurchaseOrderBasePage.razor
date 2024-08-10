@@ -10,7 +10,6 @@
 @using BlazorPWA.Client.Pages.MachineTest.Transaction
 @using BlazorPWA.Shared.VMs
 @using Microsoft.JSInterop
-@using BlazorPWA.Client.Pages.MachineTest.Setup
 
 
 
@@ -96,10 +95,11 @@
                                                 <MudText Class="mt-1"><strong>xpertGroupBox1</strong></MudText>
                                             </TitleContent>
                                             <ChildContent>
-                                                <XSMultiSelectFinder T="FinderData" @ref="XpertMultiSelctFinder" FinderPage="typeof(ItemMaster)" FinderUrl="/MachineTest/Setup/ItemMaster" Label="Select Item List" @bind-SelectedValues="POItemListValue" Required="true" ReadOnly=@(ReadOnly || false)
+                                                <XSMultiSelectFinder1 T="CustomFinderData" @ref="XpertMultiSelctFinder" Label="Select Item List" @bind-SelectedValues="POItemListValue" Required="true" ReadOnly=@(ReadOnly || false)
                                                                      Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
                                                                      AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
-                                                                     @onblur="@SetSelectedValuesPOItemList" ToStringFunc="@DisplayPOItemList" />
+                                                                     @onblur="@SetSelectedValuesPOItemList" ToStringFunc="@DisplayPOItemList"
+                                                                     FinderPage="typeof(XSCustomFinderViewer1)" FinderUrl="/XSFinderViewer1" IsCustomFinder="true" ValidatingParameters="@ValidatingParametersPOItemslist" />
                                             </ChildContent>
                                         </XSExpansionPanel>
                                     </XSExpansionPanels>

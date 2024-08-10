@@ -19,5 +19,7 @@ namespace MachineTest.Services.DomainServices
          ICommand<IEnumerable<clsPurchaseOrder>> GetAllCommand(int start, int pageSize);
 
          Task<IEnumerable<FinderData>> GetPOVCodeList(string FinderType, string WhereExpression);
+
+         Task<IEnumerable<FinderData>> GetPOItemListList(string FinderType, string WhereExpression);
     }
 }

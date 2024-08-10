@@ -23,7 +23,8 @@
                           OnKeyUp="@this.OnInputKeyUp" autocomplete=@("mud-disabled-"+Guid.NewGuid()) KeyUpPreventDefault="KeyUpPreventDefault"
                           Placeholder="@Placeholder" Immediate="true"
                           InputMode="@InputMode" Pattern="@Pattern"
-                          T="string" />
+                          T="string" 
+                          @onclick="ValidateParameters" />
 
                 @if (ShowProgressIndicator && IsLoading)
                 {
@@ -64,7 +65,7 @@
                         }
                         else
                         {
-                            <FinderDialog1 @ref=objFinderDialog IsMultiSelectFinder="@IsMultiSelectFinder" @onclick="ValidateParameters" FinderPage="FinderPage" FinderUrl="FinderUrl" OnSelectedDataChanged="OnFinderDataChanged" OnSelectedRowsChanged="OnFinderSelectedRowsChanged" />
+                            <FinderDialog1 @ref=objFinderDialog IsMultiSelectFinder="@IsMultiSelectFinder" FinderPage="FinderPage" FinderUrl="FinderUrl" OnSelectedDataChanged="OnFinderDataChanged" OnSelectedRowsChanged="OnFinderSelectedRowsChanged" />
                         }                        
                     }
                     else if (GetPaginatedDataMethod!=null)

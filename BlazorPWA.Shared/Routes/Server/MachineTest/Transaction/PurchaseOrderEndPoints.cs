@@ -83,6 +83,21 @@ namespace BlazorPWA.Shared.Routes
         {
             return $"api/PurchaseOrder/GetPOVCodeList?type={GetPOVCodeFinderType(entity)}&whereClause={GetPOVCodeFinderWhereClause(entity)}";
         }
+
+        public static string GetPOItemListList(clsPurchaseOrderVM entity)
+        {
+            return $"api/PurchaseOrder/GetPOItemListList?type={GetPOItemListFinderType(entity)}&whereClause={GetPOItemListFinderWhereClause(entity)}";
+        }
+[XSCodeType(Type= XSCodeType.Custom)]
+        public static string? GetPOItemListFinderType(clsPurchaseOrderVM entity)
+        {
+            return null;
+        }
+[XSCodeType(Type= XSCodeType.Custom)]
+        public static string? GetPOItemListFinderWhereClause(clsPurchaseOrderVM entity)
+        {
+            return null;
+        }
 [XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetStatusFinderType(clsPurchaseOrderVM entity)
         {

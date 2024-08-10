@@ -28,7 +28,7 @@ namespace BlazorPWA.Shared
                     }
                 }
             }
-            //self.AddScoped<ITrainManager,TrainManager>();
+            self.AddScoped<IManager,CommonManager>();
             //self.AddScoped<ICoolieManager, CoolieManager>();
             //self.AddScoped<IStationManager, StationManager>();
         }

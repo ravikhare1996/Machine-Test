@@ -99,9 +99,12 @@ namespace BlazorPWA.Client.Pages
 
         [Parameter]
         public EventCallback<List<T>> SelectedRowsChanged { get; set; }
-        protected async Task ValidateParameters()
+        protected async Task ValidateParameters(EventArgs e)
         {
-            await ValidatingParameters.InvokeAsync(new EventArgs());
+            if (ValidatingParameters.HasDelegate)
+            {
+                await ValidatingParameters.InvokeAsync(e);
+            }            
         }
         private FinderDialog1? objFinderDialog;
         protected string Classname =>

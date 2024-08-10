@@ -390,6 +390,33 @@ namespace MachineTest.Services.DomainRepositories
             throw;
             }
         }
+
+        public async virtual Task<IEnumerable<FinderData>> GetPOItemListList(string FinderType, string WhereExpression)
+        {
+            try
+            {
+            var objList = new List<FinderData>();
+            await Task.Run(() =>
+            {
+            var objTr = new FinderData();
+            var qry = " select [ICode] as Code,[IName] as Name from [TSPL_ITEM_MASTER] ";
+            var dt = XSDBFunctionality.GetDataTable(qry);
+            foreach (DataRow item in dt.Rows)
+            {
+            objTr = new FinderData();
+            objTr.Code = XpertCommonFunctions.myCstr(item["Code"]);
+            objTr.Name = XpertCommonFunctions.myCstr(item["Name"]);
+            objList.Add(objTr);
+            }
+            });
+            return objList;
+            }
+            catch (Exception ex)
+            {
+            Serilog.Log.Fatal(ex.ToString());
+            throw;
+            }
+        }
 [XSCodeType(Type = XSCodeType.Custom)]
         public async Task<IEnumerable<FinderData>> GetStatusList(string FinderType, string WhereExpression)
         {
