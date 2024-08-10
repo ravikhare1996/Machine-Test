@@ -95,11 +95,11 @@
                                                 <MudText Class="mt-1"><strong>xpertGroupBox1</strong></MudText>
                                             </TitleContent>
                                             <ChildContent>
-                                                <XSMultiSelectFinder1 T="CustomFinderData" @ref="XpertMultiSelctFinder" Label="Select Item List" @bind-SelectedValues="POItemListValue" Required="true" ReadOnly=@(ReadOnly || false)
+                                                <XSMultiSelectFinder T="CustomFinderData" @ref="XpertMultiSelctFinder" Label="Select Item List" @bind-SelectedValues="POItemListValue" Required="true" ReadOnly=@(ReadOnly || false)
                                                                      Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
                                                                      AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
-                                                                     @onblur="@SetSelectedValuesPOItemList" ToStringFunc="@DisplayPOItemList"
-                                                                     FinderPage="typeof(XSCustomFinderViewer1)" FinderUrl="/XSFinderViewer1" IsCustomFinder="true" ValidatingParameters="@ValidatingParametersPOItemslist" />
+                                                                     @onblur="@SetSelectedValuesPOItemList" ToStringFunc="@DisplayPOItemList" 
+                                                                     FinderPage="typeof(XSCustomFinderViewer)" FinderUrl="/XSFinderViewer" IsCustomFinder="true" ValidatingParameters="@ValidatingParametersPOItemslist" />
                                             </ChildContent>
                                         </XSExpansionPanel>
                                     </XSExpansionPanels>

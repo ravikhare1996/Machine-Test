@@ -7,7 +7,6 @@ using XpertStudio.Common.Functions;
 using System.Data;
 using BlazorPWA.Shared.VMs;
 using Microsoft.JSInterop;
-using Microsoft.AspNetCore.Components.Web;
 
 namespace BlazorPWA.Client.Pages.MachineTest.Transaction
 {
@@ -27,7 +26,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
         private XSImage<IBrowserFile?>? pcbPhoto;
         private IXSUploadedFile? _UploadedfilePhoto;
         private string _ImageSrcfilePhoto = string.Empty;
-        private XSMultiSelectFinder1<CustomFinderData?>? XpertMultiSelctFinder;
+        private XSMultiSelectFinder<CustomFinderData?>? XpertMultiSelctFinder;
         private List<CustomFinderData>? _POItemListValue;
         private XSDataGrid<clsPO_ItemVM>? gv1;
 
@@ -64,7 +63,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             get { return Model.POTotAmt == Model.Document_Amount ? true : false; }
         }
 
-        protected IEnumerable<CustomFinderData>? POItemListList { get; set; }
+        protected IEnumerable<FinderData>? POItemListList { get; set; }
 
         private List<CustomFinderData>? POItemListValue
         {
@@ -83,8 +82,6 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
         protected async override Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
-            
-            
             //get all Lists
             if (CrudType == XpertCrudTypes.Create)
             {
@@ -106,7 +103,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
                         POItemListValue = new List<CustomFinderData>();
                     }
                     POItemListValue.AddRange(Model.POItemList.Cast<IXSFinderData>().Select(item => new CustomFinderData { Code = item.Code, Name = item.Name }));
-                }                
+                }
             }
             Context = new EditContext(Model);
             if (ReadOnly == false)
@@ -212,7 +209,6 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
                 {
                     return strList;
                 }
-                
                 foreach (var item in POItemListValue)
                 {
                     if (XpertCommonFunctions.myLen(strList) <= 0)
@@ -304,17 +300,6 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
                 throw;
             }
         }
-        //private async Task<IEnumerable<FinderData>> SearchPOItemList(string value)
-        //{
-        //    await Task.Delay(5);
-        //    POItemListList = await Manager.GetPOItemListList(Model);
-        //    POItemListValue = POItemListValue.Where(val => Model.POItemList.All(itm => itm.Code == val.Code)).ToList();
-        //    if (string.IsNullOrEmpty(value))
-        //    {
-        //        return POItemListList;
-        //    }
-        //    return POItemListList.Where(x => x.Name.Contains(value, StringComparison.InvariantCultureIgnoreCase));
-        //}
         private async Task ValidatingParametersPOItemslist(EventArgs e)
         {
             await Task.Run(() =>
@@ -322,17 +307,9 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
                 if (XpertMultiSelctFinder == null)
                 {
                     return;
-                }                
+                }
                 XpertMultiSelctFinder.CustomFinderParameters = new XSCustomFinderParameters() { ReportID = "POItemList", Query = "Select ICode,IName from TSPL_ITEM_MASTER", CodeColumn = "ICode", NameColumn = "IName" };
-            });            
-        }
-        private async Task ValidateParameters(EventArgs e)
-        {
-            if (XpertMultiSelctFinder == null)
-            {
-                return;
-            }            
-           await  XpertMultiSelctFinder.ValidatingParameters.InvokeAsync(e);
+            });
         }
     }
 }

@@ -157,6 +157,8 @@ namespace MachineTest.Domain.Entities
 
 
 
+
+
         [XSCodeType(Type = XSCodeType.Custom)]
         [Column("filePhoto_FilePath", TypeName ="VARCHAR")]
         [DisplayName(" File Path")]
@@ -177,6 +179,8 @@ namespace MachineTest.Domain.Entities
 
 
 
+
+
         [XSCodeType(Type = XSCodeType.Custom)]
         [Column("File_Name", TypeName ="VARCHAR")]
         [GroupName("Photograph")]
@@ -185,6 +189,8 @@ namespace MachineTest.Domain.Entities
             get { return  _filePhoto_FileName; }
             set { _filePhoto_FileName=value; }
         }
+
+
 
 
 
@@ -232,6 +238,8 @@ namespace MachineTest.Domain.Entities
                 _CreateDate = value;
             }
         }
+
+
 
 
 
