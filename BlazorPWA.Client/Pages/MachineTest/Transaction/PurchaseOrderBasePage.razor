@@ -95,7 +95,7 @@
                                                 <MudText Class="mt-1"><strong>xpertGroupBox1</strong></MudText>
                                             </TitleContent>
                                             <ChildContent>
-                                                <XSMultiSelectFinder T="CustomFinderData" @ref="XpertMultiSelctFinder" Label="Select Item List" @bind-SelectedValues="POItemListValue" Required="true" ReadOnly=@(ReadOnly || false)
+                                                <XSMultiSelectFinder T="FinderData" @ref="XpertMultiSelctFinder" Label="Select Item List" @bind-SelectedValues="POItemListValue" Required="true" ReadOnly=@(ReadOnly || false)
                                                                      Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
                                                                      AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
                                                                      @onblur="@SetSelectedValuesPOItemList" ToStringFunc="@DisplayPOItemList" 

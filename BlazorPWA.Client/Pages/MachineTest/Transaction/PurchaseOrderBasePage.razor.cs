@@ -26,8 +26,8 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
         private XSImage<IBrowserFile?>? pcbPhoto;
         private IXSUploadedFile? _UploadedfilePhoto;
         private string _ImageSrcfilePhoto = string.Empty;
-        private XSMultiSelectFinder<CustomFinderData?>? XpertMultiSelctFinder;
-        private List<CustomFinderData>? _POItemListValue;
+        private XSMultiSelectFinder<FinderData?>? XpertMultiSelctFinder;
+        private List<FinderData>? _POItemListValue;
         private XSDataGrid<clsPO_ItemVM>? gv1;
 
         [Inject]
@@ -65,7 +65,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
 
         protected IEnumerable<FinderData>? POItemListList { get; set; }
 
-        private List<CustomFinderData>? POItemListValue
+        private List<FinderData>? POItemListValue
         {
             get { return _POItemListValue; }
             set
@@ -100,9 +100,9 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
                 {
                     if (POItemListValue == null)
                     {
-                        POItemListValue = new List<CustomFinderData>();
+                        POItemListValue = new List<FinderData>();
                     }
-                    POItemListValue.AddRange(Model.POItemList.Cast<IXSFinderData>().Select(item => new CustomFinderData { Code = item.Code, Name = item.Name }));
+                    POItemListValue.AddRange(Model.POItemList.Cast<IXSFinderData>().Select(item => new FinderData { Code = item.Code, Name = item.Name }));
                 }
             }
             Context = new EditContext(Model);
@@ -236,7 +236,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
                 {
                     return;
                 }
-                POItemListValue = XpertMultiSelctFinder?.SelectedValues?.Cast<CustomFinderData>().ToList();
+                POItemListValue = XpertMultiSelctFinder?.SelectedValues?.Cast<FinderData>().ToList();
                 Model.POItemList = new List<clsFinderItemsVM>();
                 foreach (var item in POItemListValue)
                 {
