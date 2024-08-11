@@ -17,10 +17,11 @@
 }
 else
 {
-<XSDataGrid ServerData="@(new Func<GridState<clsEmployeeVM>, Task<GridData<clsEmployeeVM>>>(ServerReload))"
+<XSDataGrid MultiSelection="IsMultiSelect" ServerData="@(new Func<GridState<clsEmployeeVM>, Task<GridData<clsEmployeeVM>>>(ServerReload))"
 T="clsEmployeeVM"
 Dense="true" Bordered="true" Hover="true" ReadOnly="true"
 ColumnResizeMode="ResizeMode.Column"
+SelectedItemsChanged="@SelectedItemsChanged" 
 Filterable="true" @ref="_Grid" SelectedItemChanged="@RowClicked">
 <ToolBarContent>
 <XSButton DisableElevation=true Variant="Variant.Filled" Color="Color.Surface" @onclick="@(() => Save())"  StartIcon="@Icons.Material.Filled.Add" IconColor="Color.Primary">Add</XSButton>
@@ -30,6 +31,10 @@ Filterable="true" @ref="_Grid" SelectedItemChanged="@RowClicked">
 AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt - 0"></XSTextBox>
 </ToolBarContent>
 <Columns>
+@if (@IsMultiSelect == true)
+{
+<SelectColumn T="clsEmployeeVM" />
+}
 @if (IsFinder == false)
  {
    <TemplateColumn Title="Actions" CellClass="d-flex justify-end">

@@ -15,326 +15,326 @@
 
 
 <AuthorizeView Context="authContext" Policy="@Policies.IsAnonymousUser" Resource="typeof(EmployeeMasterBasePage)">
-    <Authorized>
-        @if (PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.Create)
+<Authorized>
+@if(PageType==XpertStudio.Common.Enums.BlazorPWAPageTypes.Create)
+{
+<h1>Create Employee Master</h1>
+}
+else if(PageType==XpertStudio.Common.Enums.BlazorPWAPageTypes.Edit)
+{
+<h1>Edit Employee Master</h1>
+}
+else if(PageType==XpertStudio.Common.Enums.BlazorPWAPageTypes.Delete)
+{
+<h1>Delete Employee Master</h1>
+}
+else if(PageType==XpertStudio.Common.Enums.BlazorPWAPageTypes.View)
+{
+<h1>View Employee Master</h1> 
+}
+else
+{
+<h1>Employee Master</h1>
+}
+<br/>
+<EditForm  Model="@Model" OnValidSubmit="OnValidSubmit">
+<DataAnnotationsValidator/>
+<XSGrid>
+ <MudItem xs="12" sm="10">
+  <XSCard>
+   <MudCardContent>
+     <XSTabs Elevation="2" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa - 6">
+<MudTabPanel Text="General">
+     <XSExpansionPanels MultiExpansion="true">
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>General Information</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSTextBox  @ref="dfndEmployeeCode" ReadOnly="@(PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.Create && ReadOnly == false ?  false : true)" Label="Employee Code" HelperText="Max. 30 characters"
+@bind-Value="Model.ID" For="@(() => Model.ID)"/>
+<XSTextBox  @ref="txtEmployeeName" ReadOnly=@(ReadOnly || false) Label="Employee Name" HelperText="Max. 50 characters"
+@bind-Value="Model.Description" For="@(() => Model.Description)"/>
+<XSTextBox  @ref="txtFathersName" ReadOnly=@(ReadOnly || false) Label="Employee Name" HelperText="Max. 50 characters"
+@bind-Value="Model.Fathers_Name" For="@(() => Model.Fathers_Name)"/>
+<XSTextBox  @ref="txtMothersName" ReadOnly=@(ReadOnly || false) Label="Mothers Name" HelperText="Max. 50 characters"
+@bind-Value="Model.Mothers_Name" For="@(() => Model.Mothers_Name)"/>
+<XSTextBox  @ref="txtEmailID" ReadOnly=@(ReadOnly || false) Label="EMAIL_ID" HelperText="Max. 100 characters"
+@bind-Value="Model.EMAIL_ID" For="@(() => Model.EMAIL_ID)"/>
+<XSTextBox  @ref="txtContactNumber" ReadOnly=@(ReadOnly || false) Label="Phone Number" HelperText="Max. 10 characters"
+@bind-Value="Model.PHONE_NO" For="@(() => Model.PHONE_NO)"/>
+         </ChildContent>
+       </XSExpansionPanel>
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>Biographical</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSDropdown   @ref="dpCategory" Text="Select Category" @bind-Value="Category_TypeValue" HelperText="String"  CloseIcon="@Icons.Material.Filled.Flag" AdornmentColor="Color.Primary"
+ReadOnly=@(ReadOnly || false) Label="Category">
+@if (Category_TypeList != null)
+{
+@foreach (FinderData item in Category_TypeList)
+ {
+ <MudSelectItem T="FinderData" Value=item>@item.Name</MudSelectItem>
+ }
+}
+</XSDropdown>
+<XSDatePicker  @ref="dtpDateofJoining" Label="Date of Joining" @bind-Date="Model.DATE_OF_JOINING" ReadOnly=@(ReadOnly || false) DateFormat="dd/MM/yyyy"/>
+<XSDatePicker  @ref="dtpDateofBirth" Label="Date of Birth" @bind-Date="Model.DATE_OF_BIRTH" ReadOnly=@(ReadOnly || false) DateFormat="dd/MM/yyyy"/>
+<XSTextBox  @ref="txtPanNumber" ReadOnly=@(ReadOnly || false) Label="PAN NUMBER" HelperText="Max. 12 characters"
+@bind-Value="Model.PAN_NUMBER" For="@(() => Model.PAN_NUMBER)"/>
+<XSImage DisplayImage="true" ImageSrc="@_ImageSrcEmp_Photo" Width="135" Height="128" ObjectFit="ObjectFit.Fill" Fluid="false" Hidden="false" T="IBrowserFile" AppendMultipleFiles="false"  @ref="pcbPhoto"  Disabled=@(ReadOnly || false) MaxSize="10" MinSize="0"  CurrentFile="_UploadedEmp_Photo" OnOpenFile="OnEmp_PhotoOpen" OnFilesChanged="OnEmp_PhotoChanged" />
+         </ChildContent>
+       </XSExpansionPanel>
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>Local Address</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSTextBox  @ref="txtLocalAddress" ReadOnly=@(ReadOnly || false) Label="Address" HelperText="Max. 500 characters"
+@bind-Value="Model.ADDRESS2" For="@(() => Model.ADDRESS2)"/>
+<XSTextBox  @ref="txtLocalRefPerson" ReadOnly=@(ReadOnly || false) Label="Ref. Person" HelperText="Max. 50 characters"
+@bind-Value="Model.Local_Ref_Person" For="@(() => Model.Local_Ref_Person)"/>
+<XSTextBox  @ref="txtLocalPINCODE" ReadOnly=@(ReadOnly || false) Label="PINCODE" HelperText="Max. 6 characters"
+@bind-Value="Model.Local_PINCODE" For="@(() => Model.Local_PINCODE)"/>
+<XSTextBox  @ref="txtLocalRefPhoneNo" ReadOnly=@(ReadOnly || false) Label="Phone Number" HelperText="Max. 10 characters"
+@bind-Value="Model.Local_Ref_Phone_No" For="@(() => Model.Local_Ref_Phone_No)"/>
+         </ChildContent>
+       </XSExpansionPanel>
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>Permanent Address</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSTextBox  @ref="txtPermanentAddress" ReadOnly=@(ReadOnly || false) Label="Address" HelperText="Max. 500 characters"
+@bind-Value="Model.ADDRESS1" For="@(() => Model.ADDRESS1)"/>
+<XSTextBox  @ref="txtPermanentRefPerson" ReadOnly=@(ReadOnly || false) Label="Ref. Person" HelperText="Max. 50 characters"
+@bind-Value="Model.Permanent_Ref_Person" For="@(() => Model.Permanent_Ref_Person)"/>
+<XSTextBox  @ref="txtParmanentPINCODE" ReadOnly=@(ReadOnly || false) Label="PINCODE" HelperText="Max. 6 characters"
+@bind-Value="Model.Parmanent_PINCODE" For="@(() => Model.Parmanent_PINCODE)"/>
+<XSTextBox  @ref="txtPermanentRefPhoneNo" ReadOnly=@(ReadOnly || false) Label="Phone Number" HelperText="Max. 10 characters"
+@bind-Value="Model.Permanent_Ref_Phone_No" For="@(() => Model.Permanent_Ref_Phone_No)"/>
+         </ChildContent>
+       </XSExpansionPanel>
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>Company Details</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSTextBox  @ref="txtCOMPANYADDRESS" ReadOnly=@(ReadOnly || false) Label="Address" HelperText="Max. 500 characters"
+@bind-Value="Model.COMPANY_ADDRESS" For="@(() => Model.COMPANY_ADDRESS)"/>
+<XSTextBox  @ref="txtCompRefPerson" ReadOnly=@(ReadOnly || false) Label="Ref. Person" HelperText="Max. 50 characters"
+@bind-Value="Model.Comp_Ref_Person" For="@(() => Model.Comp_Ref_Person)"/>
+<XSTextBox  @ref="txtCompCode" ReadOnly=@(ReadOnly || false) Label="Company Name" HelperText="Max. 30 characters"
+@bind-Value="Model.CompanyCode" For="@(() => Model.CompanyCode)"/>
+<XSTextBox  @ref="txtCompPINCODE" ReadOnly=@(ReadOnly || false) Label="PINCODE" HelperText="Max. 6 characters"
+@bind-Value="Model.Comp_PINCODE" For="@(() => Model.Comp_PINCODE)"/>
+<XSTextBox  @ref="txtCompRefPhoneNo" ReadOnly=@(ReadOnly || false) Label="Phone Number" HelperText="Max. 10 characters"
+@bind-Value="Model.Comp_Ref_Phone_No" For="@(() => Model.Comp_Ref_Phone_No)"/>
+         </ChildContent>
+       </XSExpansionPanel>
+     </XSExpansionPanels>
+</MudTabPanel>
+<MudTabPanel Text="Salary Information">
+     <XSExpansionPanels MultiExpansion="true">
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>Salary Information</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSFinder  T="FinderData" @ref="fndDesignation"  Label="Select DESIGNATION"  @bind-Value="DESIGNATIONValue" Required="true" ReadOnly=@(ReadOnly || false)
+SearchFunc="@SearchDESIGNATION"  Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
+AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
+ ToStringFunc="@DisplayDESIGNATION"  /> 
+<XSDropdown   @ref="dpPaymentType" Text="Select PAYMENT TYPE" @bind-Value="PAYMENT_TYPEValue" HelperText="String"  CloseIcon="@Icons.Material.Filled.Flag" AdornmentColor="Color.Primary"
+ReadOnly=@(ReadOnly || false) Label="PAYMENT TYPE">
+@if (PAYMENT_TYPEList != null)
+{
+@foreach (FinderData item in PAYMENT_TYPEList)
+ {
+ <MudSelectItem T="FinderData" Value=item>@item.Name</MudSelectItem>
+ }
+}
+</XSDropdown>
+<XSNumberBox  @ref="xpertNumberBox5" @bind-Value="Model.Amount" Label="Amount" Variant="Variant.Text" ReadOnly=@(ReadOnly || false) />
+         </ChildContent>
+       </XSExpansionPanel>
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>PF Details</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSDropdown   @ref="txtPhoneNumberType" Text="Select Phone Number Type" @bind-Value="PF_Phone_Number_TypeValue" HelperText="String"  CloseIcon="@Icons.Material.Filled.Flag" AdornmentColor="Color.Primary"
+ReadOnly=@(ReadOnly || false) Label="Phone Number Type">
+@if (PF_Phone_Number_TypeList != null)
+{
+@foreach (FinderData item in PF_Phone_Number_TypeList)
+ {
+ <MudSelectItem T="FinderData" Value=item>@item.Name</MudSelectItem>
+ }
+}
+</XSDropdown>
+<XSTextBox  @ref="txtPFPhoneNumber" ReadOnly=@(ReadOnly || false) Label="PF Phone Number" HelperText="Max. 10 characters"
+@bind-Value="Model.PF_Phone_Number" For="@(() => Model.PF_Phone_Number)"/>
+<XSTextBox  @ref="txtPFNumber" ReadOnly=@(ReadOnly || false) Label="PF Number" HelperText="Max. 20 characters"
+@bind-Value="Model.PF_Number" For="@(() => Model.PF_Number)"/>
+         </ChildContent>
+       </XSExpansionPanel>
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>ESI Details</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSDropdown   @ref="dpESIPhoneNumberType" Text="Select Phone Number Type" @bind-Value="ESI_Phone_Number_TypeValue" HelperText="String"  CloseIcon="@Icons.Material.Filled.Flag" AdornmentColor="Color.Primary"
+ReadOnly=@(ReadOnly || false) Label="Phone Number Type">
+@if (ESI_Phone_Number_TypeList != null)
+{
+@foreach (FinderData item in ESI_Phone_Number_TypeList)
+ {
+ <MudSelectItem T="FinderData" Value=item>@item.Name</MudSelectItem>
+ }
+}
+</XSDropdown>
+<XSTextBox  @ref="txtESIPhoneNumber" ReadOnly=@(ReadOnly || false) Label="ESI Phone Number" HelperText="Max. 10 characters"
+@bind-Value="Model.ESI_Phone_Number" For="@(() => Model.ESI_Phone_Number)"/>
+<XSTextBox  @ref="txtESINumber" ReadOnly=@(ReadOnly || false) Label="ESI Number" HelperText="Max. 20 characters"
+@bind-Value="Model.ESI_Number" For="@(() => Model.ESI_Number)"/>
+         </ChildContent>
+       </XSExpansionPanel>
+     </XSExpansionPanels>
+</MudTabPanel>
+<MudTabPanel Text="Standard Information">
+     <XSExpansionPanels MultiExpansion="true">
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>Bank Details</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSTextBox  @ref="txtBankName" ReadOnly=@(ReadOnly || false) Label="Bank Name" HelperText="Max. 30 characters"
+@bind-Value="Model.Bank_Name" For="@(() => Model.Bank_Name)"/>
+<XSTextBox  @ref="txtAccountNumber" ReadOnly=@(ReadOnly || false) Label="Account Number" HelperText="Max. 20 characters"
+@bind-Value="Model.Account_Number" For="@(() => Model.Account_Number)"/>
+<XSTextBox  @ref="txtIFSCCode" ReadOnly=@(ReadOnly || false) Label="IFSC Code" HelperText="Max. 20 characters"
+@bind-Value="Model.IFSC_Code" For="@(() => Model.IFSC_Code)"/>
+<XSFileUploadOpen Hidden="false" T="IBrowserFile" AppendMultipleFiles="false"  @ref="fileBankProof"  Disabled=@(ReadOnly || false) MaxSize="0.5" MinSize="0"  CurrentFile="_UploadedBankProof" OnOpenFile="OnBankProofOpen" OnFilesChanged="OnBankProofChanged" />
+<XSTextBox  @ref="txtAccountEmail" ReadOnly=@(ReadOnly || false) Label="Bank Email" HelperText="Max. 30 characters"
+@bind-Value="Model.Account_Email" For="@(() => Model.Account_Email)"/>
+<XSTextBox  @ref="txtAccountPhoneNumber" ReadOnly=@(ReadOnly || false) Label="Account Phone Number" HelperText="Max. 10 characters"
+@bind-Value="Model.Account_Phone_Number" For="@(() => Model.Account_Phone_Number)"/>
+         </ChildContent>
+       </XSExpansionPanel>
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>Adhaar Details</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSTextBox  @ref="txtAdhaarNumber" ReadOnly=@(ReadOnly || false) Label="Adhaar Number" HelperText="Max. 20 characters"
+@bind-Value="Model.Adhaar_Number" For="@(() => Model.Adhaar_Number)"/>
+<XSTextBox  @ref="txtAdhaarAddress" ReadOnly=@(ReadOnly || false) Label="Adhaar Address" HelperText="Max. 100 characters"
+@bind-Value="Model.Adhaar_Address" For="@(() => Model.Adhaar_Address)"/>
+<XSTextBox  @ref="txtAdhaarEmail" ReadOnly=@(ReadOnly || false) Label="Adhaar Email" HelperText="Max. 30 characters"
+@bind-Value="Model.Adhaar_Email" For="@(() => Model.Adhaar_Email)"/>
+<XSFileUploadOpen Hidden="false" T="IBrowserFile" AppendMultipleFiles="false"  @ref="fileAdhaarProof"  Disabled=@(ReadOnly || false) MaxSize="0.5" MinSize="0"  CurrentFile="_UploadedAdhaarProof" OnOpenFile="OnAdhaarProofOpen" OnFilesChanged="OnAdhaarProofChanged" />
+<XSTextBox  @ref="txtAdhaarPhoneNumber" ReadOnly=@(ReadOnly || false) Label="Adhaar Phone Number" HelperText="Max. 10 characters"
+@bind-Value="Model.Adhaar_Phone_Number" For="@(() => Model.Adhaar_Phone_Number)"/>
+         </ChildContent>
+       </XSExpansionPanel>
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>GST Details</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSTextBox  @ref="txtGSTNumber" ReadOnly=@(ReadOnly || false) Label="GST Number" HelperText="Max. 15 characters"
+@bind-Value="Model.GST_Number" For="@(() => Model.GST_Number)"/>
+<XSTextBox  @ref="txtGSTAddress" ReadOnly=@(ReadOnly || false) Label="GST Address" HelperText="Max. 100 characters"
+@bind-Value="Model.GST_Address" For="@(() => Model.GST_Address)"/>
+<XSTextBox  @ref="txtGSTEmail" ReadOnly=@(ReadOnly || false) Label="GST Email" HelperText="Max. 30 characters"
+@bind-Value="Model.GST_Email" For="@(() => Model.GST_Email)"/>
+<XSTextBox  @ref="txtGSTPhoneNumber" ReadOnly=@(ReadOnly || false) Label="GST Phone Number" HelperText="Max. 10 characters"
+@bind-Value="Model.GST_Phone_Number" For="@(() => Model.GST_Phone_Number)"/>
+         </ChildContent>
+       </XSExpansionPanel>
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>TDS Details</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSTextBox  @ref="txtTDSAddress" ReadOnly=@(ReadOnly || false) Label="TDS Address" HelperText="Max. 100 characters"
+@bind-Value="Model.TDS_Address" For="@(() => Model.TDS_Address)"/>
+<XSTextBox  @ref="txtTDSEmail" ReadOnly=@(ReadOnly || false) Label="TDS Email" HelperText="Max. 30 characters"
+@bind-Value="Model.TDS_Email" For="@(() => Model.TDS_Email)"/>
+<XSTextBox  @ref="txtTDSPhoneNumber" ReadOnly=@(ReadOnly || false) Label="TDS Phone Number" HelperText="Max. 10 characters"
+@bind-Value="Model.TDS_Phone_Number" For="@(() => Model.TDS_Phone_Number)"/>
+<XSTextBox  @ref="txtTDSNumber" ReadOnly=@(ReadOnly || false) Label="TDS Number" HelperText="Max. 20 characters"
+@bind-Value="Model.TDS_Number" For="@(() => Model.TDS_Number)"/>
+         </ChildContent>
+       </XSExpansionPanel>
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>ROC Details</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSTextBox  @ref="txtROCPhoneNumber" ReadOnly=@(ReadOnly || false) Label="ROC Phone Number" HelperText="Max. 10 characters"
+@bind-Value="Model.ROC_Phone_Number" For="@(() => Model.ROC_Phone_Number)"/>
+<XSTextBox  @ref="txtROCAddress" ReadOnly=@(ReadOnly || false) Label="ROC Address" HelperText="Max. 100 characters"
+@bind-Value="Model.ROC_Address" For="@(() => Model.ROC_Address)"/>
+<XSTextBox  @ref="txtROCEmail" ReadOnly=@(ReadOnly || false) Label="ROC Email" HelperText="Max. 30 characters"
+@bind-Value="Model.ROC_Email" For="@(() => Model.ROC_Email)"/>
+<XSTextBox  @ref="txtROCNumber" ReadOnly=@(ReadOnly || false) Label="ROC Number" HelperText="Max. 20 characters"
+@bind-Value="Model.ROC_Number" For="@(() => Model.ROC_Number)"/>
+         </ChildContent>
+       </XSExpansionPanel>
+     </XSExpansionPanels>
+</MudTabPanel>
+    </XSTabs>
+   </MudCardContent>
+   <MudCardContent>
+     <XSExpansionPanels MultiExpansion="true">
+     </XSExpansionPanels>
+   </MudCardContent>
+   <MudCardActions>
+     <XSButton ButtonType="ButtonType.Button" Variant="Variant.Outlined" Color="Color.Primary" OnClick="NavigateToIndex" Class="mr - 4">Back</XSButton>
+     @if(CrudType==XpertStudio.Common.Enums.XpertCrudTypes.Create)
+      {
+        <XSButton ButtonType="ButtonType.Reset" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Reset</XSButton>
+        <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Save</XSButton>
+      }
+      @if(CrudType==XpertStudio.Common.Enums.XpertCrudTypes.Edit)
+       {
+         <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Edit</XSButton>
+       }
+       @if(CrudType==XpertStudio.Common.Enums.XpertCrudTypes.Delete)
         {
-            <h1>Create Employee Master</h1>
+          <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Delete</XSButton>
         }
-        else if (PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.Edit)
-        {
-            <h1>Edit Employee Master</h1>
-        }
-        else if (PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.Delete)
-        {
-            <h1>Delete Employee Master</h1>
-        }
-        else if (PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.View)
-        {
-            <h1>View Employee Master</h1>
-        }
-        else
-        {
-            <h1>Employee Master</h1>
-        }
-        <br />
-        <EditForm Model="@Model" OnValidSubmit="OnValidSubmit">
-            <DataAnnotationsValidator />
-            <XSGrid>
-                <MudItem xs="12" sm="10">
-                    <XSCard>
-                        <MudCardContent>
-                            <XSTabs Elevation="2" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa - 6">
-                                <MudTabPanel Text="General">
-                                    <XSExpansionPanels MultiExpansion="true">
-                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                            <TitleContent>
-                                                <MudText Class="mt-1"><strong>General Information</strong></MudText>
-                                            </TitleContent>
-                                            <ChildContent>
-                                                <XSTextBox @ref="dfndEmployeeCode" ReadOnly="@(PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.Create && ReadOnly == false ?  false : true)" Label="Employee Code" HelperText="Max. 30 characters"
-                                                           @bind-Value="Model.ID" For="@(() => Model.ID)" />
-                                                <XSTextBox @ref="txtEmployeeName" ReadOnly=@(ReadOnly || false) Label="Employee Name" HelperText="Max. 50 characters"
-                                                           @bind-Value="Model.Description" For="@(() => Model.Description)" />
-                                                <XSTextBox @ref="txtFathersName" ReadOnly=@(ReadOnly || false) Label="Employee Name" HelperText="Max. 50 characters"
-                                                           @bind-Value="Model.Fathers_Name" For="@(() => Model.Fathers_Name)" />
-                                                <XSTextBox @ref="txtMothersName" ReadOnly=@(ReadOnly || false) Label="Mothers Name" HelperText="Max. 50 characters"
-                                                           @bind-Value="Model.Mothers_Name" For="@(() => Model.Mothers_Name)" />
-                                                <XSTextBox @ref="txtEmailID" ReadOnly=@(ReadOnly || false) Label="EMAIL_ID" HelperText="Max. 100 characters"
-                                                           @bind-Value="Model.EMAIL_ID" For="@(() => Model.EMAIL_ID)" />
-                                                <XSTextBox @ref="txtContactNumber" ReadOnly=@(ReadOnly || false) Label="Phone Number" HelperText="Max. 10 characters"
-                                                           @bind-Value="Model.PHONE_NO" For="@(() => Model.PHONE_NO)" />
-                                            </ChildContent>
-                                        </XSExpansionPanel>
-                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                            <TitleContent>
-                                                <MudText Class="mt-1"><strong>Biographical</strong></MudText>
-                                            </TitleContent>
-                                            <ChildContent>
-                                                <XSDropdown @ref="dpCategory" Text="Select Category" @bind-Value="Category_TypeValue" HelperText="String" CloseIcon="@Icons.Material.Filled.Flag" AdornmentColor="Color.Primary"
-                                                            ReadOnly=@(ReadOnly || false) Label="Category">
-                                                    @if (Category_TypeList != null)
-                                                    {
-                                                        @foreach (FinderData item in Category_TypeList)
-                                                        {
-                                                            <MudSelectItem T="FinderData" Value=item>@item.Name</MudSelectItem>
-                                                        }
-                                                    }
-                                                </XSDropdown>
-                                                <XSDatePicker @ref="dtpDateofJoining" Label="Date of Joining" @bind-Date="Model.DATE_OF_JOINING" ReadOnly=@(ReadOnly || false) DateFormat="dd/MM/yyyy" />
-                                                <XSDatePicker @ref="dtpDateofBirth" Label="Date of Birth" @bind-Date="Model.DATE_OF_BIRTH" ReadOnly=@(ReadOnly || false) DateFormat="dd/MM/yyyy" />
-                                                <XSTextBox @ref="txtPanNumber" ReadOnly=@(ReadOnly || false) Label="PAN NUMBER" HelperText="Max. 12 characters"
-                                                           @bind-Value="Model.PAN_NUMBER" For="@(() => Model.PAN_NUMBER)" />
-                                                <XSImage DisplayImage="true" ImageSrc="@_ImageSrcEmp_Photo" Width="135" Height="128" ObjectFit="ObjectFit.Fill" Fluid="false" Hidden="false" T="IBrowserFile" AppendMultipleFiles="false" @ref="pcbPhoto" Disabled=@(ReadOnly || false) MaxSize="10" MinSize="0" CurrentFile="_UploadedEmp_Photo" OnOpenFile="OnEmp_PhotoOpen" OnFilesChanged="OnEmp_PhotoChanged" />
-                                            </ChildContent>
-                                        </XSExpansionPanel>
-                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                            <TitleContent>
-                                                <MudText Class="mt-1"><strong>Local Address</strong></MudText>
-                                            </TitleContent>
-                                            <ChildContent>
-                                                <XSTextBox @ref="txtLocalAddress" ReadOnly=@(ReadOnly || false) Label="Address" HelperText="Max. 500 characters"
-                                                           @bind-Value="Model.ADDRESS2" For="@(() => Model.ADDRESS2)" />
-                                                <XSTextBox @ref="txtLocalRefPerson" ReadOnly=@(ReadOnly || false) Label="Ref. Person" HelperText="Max. 50 characters"
-                                                           @bind-Value="Model.Local_Ref_Person" For="@(() => Model.Local_Ref_Person)" />
-                                                <XSTextBox @ref="txtLocalPINCODE" ReadOnly=@(ReadOnly || false) Label="PINCODE" HelperText="Max. 6 characters"
-                                                           @bind-Value="Model.Local_PINCODE" For="@(() => Model.Local_PINCODE)" />
-                                                <XSTextBox @ref="txtLocalRefPhoneNo" ReadOnly=@(ReadOnly || false) Label="Phone Number" HelperText="Max. 10 characters"
-                                                           @bind-Value="Model.Local_Ref_Phone_No" For="@(() => Model.Local_Ref_Phone_No)" />
-                                            </ChildContent>
-                                        </XSExpansionPanel>
-                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                            <TitleContent>
-                                                <MudText Class="mt-1"><strong>Permanent Address</strong></MudText>
-                                            </TitleContent>
-                                            <ChildContent>
-                                                <XSTextBox @ref="txtPermanentAddress" ReadOnly=@(ReadOnly || false) Label="Address" HelperText="Max. 500 characters"
-                                                           @bind-Value="Model.ADDRESS1" For="@(() => Model.ADDRESS1)" />
-                                                <XSTextBox @ref="txtPermanentRefPerson" ReadOnly=@(ReadOnly || false) Label="Ref. Person" HelperText="Max. 50 characters"
-                                                           @bind-Value="Model.Permanent_Ref_Person" For="@(() => Model.Permanent_Ref_Person)" />
-                                                <XSTextBox @ref="txtParmanentPINCODE" ReadOnly=@(ReadOnly || false) Label="PINCODE" HelperText="Max. 6 characters"
-                                                           @bind-Value="Model.Parmanent_PINCODE" For="@(() => Model.Parmanent_PINCODE)" />
-                                                <XSTextBox @ref="txtPermanentRefPhoneNo" ReadOnly=@(ReadOnly || false) Label="Phone Number" HelperText="Max. 10 characters"
-                                                           @bind-Value="Model.Permanent_Ref_Phone_No" For="@(() => Model.Permanent_Ref_Phone_No)" />
-                                            </ChildContent>
-                                        </XSExpansionPanel>
-                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                            <TitleContent>
-                                                <MudText Class="mt-1"><strong>Company Details</strong></MudText>
-                                            </TitleContent>
-                                            <ChildContent>
-                                                <XSTextBox @ref="txtCOMPANYADDRESS" ReadOnly=@(ReadOnly || false) Label="Address" HelperText="Max. 500 characters"
-                                                           @bind-Value="Model.COMPANY_ADDRESS" For="@(() => Model.COMPANY_ADDRESS)" />
-                                                <XSTextBox @ref="txtCompRefPerson" ReadOnly=@(ReadOnly || false) Label="Ref. Person" HelperText="Max. 50 characters"
-                                                           @bind-Value="Model.Comp_Ref_Person" For="@(() => Model.Comp_Ref_Person)" />
-                                                <XSTextBox @ref="txtCompCode" ReadOnly=@(ReadOnly || false) Label="Company Name" HelperText="Max. 30 characters"
-                                                           @bind-Value="Model.CompanyCode" For="@(() => Model.CompanyCode)" />
-                                                <XSTextBox @ref="txtCompPINCODE" ReadOnly=@(ReadOnly || false) Label="PINCODE" HelperText="Max. 6 characters"
-                                                           @bind-Value="Model.Comp_PINCODE" For="@(() => Model.Comp_PINCODE)" />
-                                                <XSTextBox @ref="txtCompRefPhoneNo" ReadOnly=@(ReadOnly || false) Label="Phone Number" HelperText="Max. 10 characters"
-                                                           @bind-Value="Model.Comp_Ref_Phone_No" For="@(() => Model.Comp_Ref_Phone_No)" />
-                                            </ChildContent>
-                                        </XSExpansionPanel>
-                                    </XSExpansionPanels>
-                                </MudTabPanel>
-                                <MudTabPanel Text="Salary Information">
-                                    <XSExpansionPanels MultiExpansion="true">
-                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                            <TitleContent>
-                                                <MudText Class="mt-1"><strong>Salary Information</strong></MudText>
-                                            </TitleContent>
-                                            <ChildContent>
-                                                <XSFinder T="FinderData" @ref="fndDesignation" Label="Select DESIGNATION" @bind-Value="DESIGNATIONValue" Required="true" ReadOnly=@(ReadOnly || false)
-                                                          SearchFunc="@SearchDESIGNATION" Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
-                                                          AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
-                                                          ToStringFunc="@DisplayDESIGNATION" />
-                                                <XSDropdown @ref="dpPaymentType" Text="Select PAYMENT TYPE" @bind-Value="PAYMENT_TYPEValue" HelperText="String" CloseIcon="@Icons.Material.Filled.Flag" AdornmentColor="Color.Primary"
-                                                            ReadOnly=@(ReadOnly || false) Label="PAYMENT TYPE">
-                                                    @if (PAYMENT_TYPEList != null)
-                                                    {
-                                                        @foreach (FinderData item in PAYMENT_TYPEList)
-                                                        {
-                                                            <MudSelectItem T="FinderData" Value=item>@item.Name</MudSelectItem>
-                                                        }
-                                                    }
-                                                </XSDropdown>
-                                                <XSNumberBox @ref="xpertNumberBox5" @bind-Value="Model.Amount" Label="Amount" Variant="Variant.Text" ReadOnly=@(ReadOnly || false) />
-                                            </ChildContent>
-                                        </XSExpansionPanel>
-                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                            <TitleContent>
-                                                <MudText Class="mt-1"><strong>PF Details</strong></MudText>
-                                            </TitleContent>
-                                            <ChildContent>
-                                                <XSDropdown @ref="txtPhoneNumberType" Text="Select Phone Number Type" @bind-Value="PF_Phone_Number_TypeValue" HelperText="String" CloseIcon="@Icons.Material.Filled.Flag" AdornmentColor="Color.Primary"
-                                                            ReadOnly=@(ReadOnly || false) Label="Phone Number Type">
-                                                    @if (PF_Phone_Number_TypeList != null)
-                                                    {
-                                                        @foreach (FinderData item in PF_Phone_Number_TypeList)
-                                                        {
-                                                            <MudSelectItem T="FinderData" Value=item>@item.Name</MudSelectItem>
-                                                        }
-                                                    }
-                                                </XSDropdown>
-                                                <XSTextBox @ref="txtPFPhoneNumber" ReadOnly=@(ReadOnly || false) Label="PF Phone Number" HelperText="Max. 10 characters"
-                                                           @bind-Value="Model.PF_Phone_Number" For="@(() => Model.PF_Phone_Number)" />
-                                                <XSTextBox @ref="txtPFNumber" ReadOnly=@(ReadOnly || false) Label="PF Number" HelperText="Max. 20 characters"
-                                                           @bind-Value="Model.PF_Number" For="@(() => Model.PF_Number)" />
-                                            </ChildContent>
-                                        </XSExpansionPanel>
-                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                            <TitleContent>
-                                                <MudText Class="mt-1"><strong>ESI Details</strong></MudText>
-                                            </TitleContent>
-                                            <ChildContent>
-                                                <XSDropdown @ref="dpESIPhoneNumberType" Text="Select Phone Number Type" @bind-Value="ESI_Phone_Number_TypeValue" HelperText="String" CloseIcon="@Icons.Material.Filled.Flag" AdornmentColor="Color.Primary"
-                                                            ReadOnly=@(ReadOnly || false) Label="Phone Number Type">
-                                                    @if (ESI_Phone_Number_TypeList != null)
-                                                    {
-                                                        @foreach (FinderData item in ESI_Phone_Number_TypeList)
-                                                        {
-                                                            <MudSelectItem T="FinderData" Value=item>@item.Name</MudSelectItem>
-                                                        }
-                                                    }
-                                                </XSDropdown>
-                                                <XSTextBox @ref="txtESIPhoneNumber" ReadOnly=@(ReadOnly || false) Label="ESI Phone Number" HelperText="Max. 10 characters"
-                                                           @bind-Value="Model.ESI_Phone_Number" For="@(() => Model.ESI_Phone_Number)" />
-                                                <XSTextBox @ref="txtESINumber" ReadOnly=@(ReadOnly || false) Label="ESI Number" HelperText="Max. 20 characters"
-                                                           @bind-Value="Model.ESI_Number" For="@(() => Model.ESI_Number)" />
-                                            </ChildContent>
-                                        </XSExpansionPanel>
-                                    </XSExpansionPanels>
-                                </MudTabPanel>
-                                <MudTabPanel Text="Standard Information">
-                                    <XSExpansionPanels MultiExpansion="true">
-                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                            <TitleContent>
-                                                <MudText Class="mt-1"><strong>Bank Details</strong></MudText>
-                                            </TitleContent>
-                                            <ChildContent>
-                                                <XSTextBox @ref="txtBankName" ReadOnly=@(ReadOnly || false) Label="Bank Name" HelperText="Max. 30 characters"
-                                                           @bind-Value="Model.Bank_Name" For="@(() => Model.Bank_Name)" />
-                                                <XSTextBox @ref="txtAccountNumber" ReadOnly=@(ReadOnly || false) Label="Account Number" HelperText="Max. 20 characters"
-                                                           @bind-Value="Model.Account_Number" For="@(() => Model.Account_Number)" />
-                                                <XSTextBox @ref="txtIFSCCode" ReadOnly=@(ReadOnly || false) Label="IFSC Code" HelperText="Max. 20 characters"
-                                                           @bind-Value="Model.IFSC_Code" For="@(() => Model.IFSC_Code)" />
-                                                <XSFileUploadOpen Hidden="false" T="IBrowserFile" AppendMultipleFiles="false" @ref="fileBankProof" Disabled=@(ReadOnly || false) MaxSize="0.5" MinSize="0" CurrentFile="_UploadedBankProof" OnOpenFile="OnBankProofOpen" OnFilesChanged="OnBankProofChanged" />
-                                                <XSTextBox @ref="txtAccountEmail" ReadOnly=@(ReadOnly || false) Label="Bank Email" HelperText="Max. 30 characters"
-                                                           @bind-Value="Model.Account_Email" For="@(() => Model.Account_Email)" />
-                                                <XSTextBox @ref="txtAccountPhoneNumber" ReadOnly=@(ReadOnly || false) Label="Account Phone Number" HelperText="Max. 10 characters"
-                                                           @bind-Value="Model.Account_Phone_Number" For="@(() => Model.Account_Phone_Number)" />
-                                            </ChildContent>
-                                        </XSExpansionPanel>
-                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                            <TitleContent>
-                                                <MudText Class="mt-1"><strong>Adhaar Details</strong></MudText>
-                                            </TitleContent>
-                                            <ChildContent>
-                                                <XSTextBox @ref="txtAdhaarNumber" ReadOnly=@(ReadOnly || false) Label="Adhaar Number" HelperText="Max. 20 characters"
-                                                           @bind-Value="Model.Adhaar_Number" For="@(() => Model.Adhaar_Number)" />
-                                                <XSTextBox @ref="txtAdhaarAddress" ReadOnly=@(ReadOnly || false) Label="Adhaar Address" HelperText="Max. 100 characters"
-                                                           @bind-Value="Model.Adhaar_Address" For="@(() => Model.Adhaar_Address)" />
-                                                <XSTextBox @ref="txtAdhaarEmail" ReadOnly=@(ReadOnly || false) Label="Adhaar Email" HelperText="Max. 30 characters"
-                                                           @bind-Value="Model.Adhaar_Email" For="@(() => Model.Adhaar_Email)" />
-                                                <XSFileUploadOpen Hidden="false" T="IBrowserFile" AppendMultipleFiles="false" @ref="fileAdhaarProof" Disabled=@(ReadOnly || false) MaxSize="0.5" MinSize="0" CurrentFile="_UploadedAdhaarProof" OnOpenFile="OnAdhaarProofOpen" OnFilesChanged="OnAdhaarProofChanged" />
-                                                <XSTextBox @ref="txtAdhaarPhoneNumber" ReadOnly=@(ReadOnly || false) Label="Adhaar Phone Number" HelperText="Max. 10 characters"
-                                                           @bind-Value="Model.Adhaar_Phone_Number" For="@(() => Model.Adhaar_Phone_Number)" />
-                                            </ChildContent>
-                                        </XSExpansionPanel>
-                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                            <TitleContent>
-                                                <MudText Class="mt-1"><strong>GST Details</strong></MudText>
-                                            </TitleContent>
-                                            <ChildContent>
-                                                <XSTextBox @ref="txtGSTNumber" ReadOnly=@(ReadOnly || false) Label="GST Number" HelperText="Max. 15 characters"
-                                                           @bind-Value="Model.GST_Number" For="@(() => Model.GST_Number)" />
-                                                <XSTextBox @ref="txtGSTAddress" ReadOnly=@(ReadOnly || false) Label="GST Address" HelperText="Max. 100 characters"
-                                                           @bind-Value="Model.GST_Address" For="@(() => Model.GST_Address)" />
-                                                <XSTextBox @ref="txtGSTEmail" ReadOnly=@(ReadOnly || false) Label="GST Email" HelperText="Max. 30 characters"
-                                                           @bind-Value="Model.GST_Email" For="@(() => Model.GST_Email)" />
-                                                <XSTextBox @ref="txtGSTPhoneNumber" ReadOnly=@(ReadOnly || false) Label="GST Phone Number" HelperText="Max. 10 characters"
-                                                           @bind-Value="Model.GST_Phone_Number" For="@(() => Model.GST_Phone_Number)" />
-                                            </ChildContent>
-                                        </XSExpansionPanel>
-                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                            <TitleContent>
-                                                <MudText Class="mt-1"><strong>TDS Details</strong></MudText>
-                                            </TitleContent>
-                                            <ChildContent>
-                                                <XSTextBox @ref="txtTDSAddress" ReadOnly=@(ReadOnly || false) Label="TDS Address" HelperText="Max. 100 characters"
-                                                           @bind-Value="Model.TDS_Address" For="@(() => Model.TDS_Address)" />
-                                                <XSTextBox @ref="txtTDSEmail" ReadOnly=@(ReadOnly || false) Label="TDS Email" HelperText="Max. 30 characters"
-                                                           @bind-Value="Model.TDS_Email" For="@(() => Model.TDS_Email)" />
-                                                <XSTextBox @ref="txtTDSPhoneNumber" ReadOnly=@(ReadOnly || false) Label="TDS Phone Number" HelperText="Max. 10 characters"
-                                                           @bind-Value="Model.TDS_Phone_Number" For="@(() => Model.TDS_Phone_Number)" />
-                                                <XSTextBox @ref="txtTDSNumber" ReadOnly=@(ReadOnly || false) Label="TDS Number" HelperText="Max. 20 characters"
-                                                           @bind-Value="Model.TDS_Number" For="@(() => Model.TDS_Number)" />
-                                            </ChildContent>
-                                        </XSExpansionPanel>
-                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                            <TitleContent>
-                                                <MudText Class="mt-1"><strong>ROC Details</strong></MudText>
-                                            </TitleContent>
-                                            <ChildContent>
-                                                <XSTextBox @ref="txtROCPhoneNumber" ReadOnly=@(ReadOnly || false) Label="ROC Phone Number" HelperText="Max. 10 characters"
-                                                           @bind-Value="Model.ROC_Phone_Number" For="@(() => Model.ROC_Phone_Number)" />
-                                                <XSTextBox @ref="txtROCAddress" ReadOnly=@(ReadOnly || false) Label="ROC Address" HelperText="Max. 100 characters"
-                                                           @bind-Value="Model.ROC_Address" For="@(() => Model.ROC_Address)" />
-                                                <XSTextBox @ref="txtROCEmail" ReadOnly=@(ReadOnly || false) Label="ROC Email" HelperText="Max. 30 characters"
-                                                           @bind-Value="Model.ROC_Email" For="@(() => Model.ROC_Email)" />
-                                                <XSTextBox @ref="txtROCNumber" ReadOnly=@(ReadOnly || false) Label="ROC Number" HelperText="Max. 20 characters"
-                                                           @bind-Value="Model.ROC_Number" For="@(() => Model.ROC_Number)" />
-                                            </ChildContent>
-                                        </XSExpansionPanel>
-                                    </XSExpansionPanels>
-                                </MudTabPanel>
-                            </XSTabs>
-                        </MudCardContent>
-                        <MudCardContent>
-                            <XSExpansionPanels MultiExpansion="true">
-                            </XSExpansionPanels>
-                        </MudCardContent>
-                        <MudCardActions>
-                            <XSButton ButtonType="ButtonType.Button" Variant="Variant.Outlined" Color="Color.Primary" OnClick="NavigateToIndex" Class="mr - 4">Back</XSButton>
-                            @if (CrudType == XpertStudio.Common.Enums.XpertCrudTypes.Create)
-                            {
-                                <XSButton ButtonType="ButtonType.Reset" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Reset</XSButton>
-                                <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Save</XSButton>
-                            }
-                            @if (CrudType == XpertStudio.Common.Enums.XpertCrudTypes.Edit)
-                            {
-                                <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Edit</XSButton>
-                            }
-                            @if (CrudType == XpertStudio.Common.Enums.XpertCrudTypes.Delete)
-                            {
-                                <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Delete</XSButton>
-                            }
-                        </MudCardActions>
-                    </XSCard>
-                </MudItem>
-                @if (ShowValidationSummary == true)
-                {
-                    <MudItem xs="12" sm="2">
-                        <XSPaper Class="pa - 4 mud - height - full">
-                            <MudText Typo="Typo.subtitle2">Validation Summary</MudText>
-                            @if (success)
-                            {
-                                <MudText Color="Color.Success">Success</MudText>
-                            }
-                            else
-                            {
-                                <MudText Color="@Color.Error">
-                                    <ValidationSummary />
-                                </MudText>
-                            }
-                        </XSPaper>
-                    </MudItem>
-                }
-            </XSGrid>
-        </EditForm>
-    </Authorized>
-    <NotAuthorized>
-        <p>You are not authorized to access this resource!!</p>
-    </NotAuthorized>
+   </MudCardActions>
+  </XSCard>
+ </MudItem>
+@if (ShowValidationSummary==true)
+ {
+   <MudItem xs="12" sm="2">
+    <XSPaper Class="pa - 4 mud - height - full">
+     <MudText Typo="Typo.subtitle2">Validation Summary</MudText>
+     @if (success)
+      {
+       <MudText Color="Color.Success">Success</MudText>
+      }
+     else
+      {
+       <MudText Color="@Color.Error">
+        <ValidationSummary />
+       </MudText>
+      }
+    </XSPaper>
+   </MudItem>
+ }
+</XSGrid>
+</EditForm>
+</Authorized>
+<NotAuthorized>
+<p>You are not authorized to access this resource!!</p>
+</NotAuthorized>
 </AuthorizeView>
 
 @code {

@@ -63,6 +63,7 @@
                     }
                     else if (GetPaginatedDataMethod != null)
                     {
+                        <FinderDialog1 @ref=objFinderDialog IsMultiSelectFinder="@IsMultiSelectFinder" GetPaginatedDataAsync="GetPaginatedDataMethod" TotalItems="TotalRows" OnSelectedDataChanged="OnFinderDataChanged" OnSelectedRowsChanged="OnFinderSelectedRowsChanged" />
                         //New Code(07082024)
                         if (objFinderDialog != null)
                         {
@@ -75,11 +76,11 @@
                             {
                                 objFinderDialog.SelectedFinderData = SelectedData;
                             }                            
-                        }
-                        <FinderDialog1 @ref=objFinderDialog IsMultiSelectFinder="@IsMultiSelectFinder" GetPaginatedDataAsync="GetPaginatedDataMethod" TotalItems="TotalRows" OnSelectedDataChanged="OnFinderDataChanged" OnSelectedRowsChanged="OnFinderSelectedRowsChanged" />
+                        }                        
                     }
                     else if (DataSource != null)
                     {
+                        <FinderDialog1 @ref=objFinderDialog IsMultiSelectFinder="@IsMultiSelectFinder" DataSource="DataSource" OnSelectedDataChanged="OnFinderDataChanged" OnSelectedRowsChanged="OnFinderSelectedRowsChanged" SelectedData="SelectedData" />
                         //New Code(07082024)
                         if (objFinderDialog != null)
                         {
@@ -92,24 +93,10 @@
                             {
                                 objFinderDialog.SelectedFinderData = SelectedData;
                             }                            
-                        }
-                        <FinderDialog1 @ref=objFinderDialog IsMultiSelectFinder="@IsMultiSelectFinder" DataSource="DataSource" OnSelectedDataChanged="OnFinderDataChanged" OnSelectedRowsChanged="OnFinderSelectedRowsChanged" SelectedData="SelectedData" />
+                        }                        
                     }
                     else if (_items != null && _items.Length != 0)
-                    {
-                        //New Code(07082024)
-                        if (objFinderDialog != null)
-                        {
-                            objFinderDialog.IsCustomFinder = IsCustomFinder;
-                            if (IsMultiSelectFinder)
-                            {
-                                objFinderDialog.SelectedItems = SelectedValues?.Cast<IFinderData>().ToList();
-                            }
-                            else
-                            {
-                                objFinderDialog.SelectedFinderData = SelectedData;
-                            }                            
-                        }
+                    {                        
                         @if (BeforeItemsTemplate != null)
                         {
                             <div class="pa-1">
@@ -117,6 +104,19 @@
                             </div>
                         }
                         <FinderDialog1 @ref=objFinderDialog IsMultiSelectFinder="@IsMultiSelectFinder" Items="(IEnumerable<IFinderData>)_items.ToList()" OnSelectedDataChanged="OnFinderDataChanged" OnSelectedRowsChanged="OnFinderSelectedRowsChanged" SelectedData="SelectedData" />
+                        //New Code(07082024)
+                        if (objFinderDialog != null)
+                        {
+                            objFinderDialog.IsCustomFinder = IsCustomFinder;
+                            if (IsMultiSelectFinder)
+                            {
+                                objFinderDialog.SelectedItems = SelectedValues?.Cast<IFinderData>().ToList();
+                            }
+                            else
+                            {
+                                objFinderDialog.SelectedFinderData = SelectedData;
+                            }
+                        }
                     }
 
 

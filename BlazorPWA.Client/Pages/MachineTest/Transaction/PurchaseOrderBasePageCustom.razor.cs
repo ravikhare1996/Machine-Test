@@ -19,7 +19,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             try
             {
                 string sql = "select CreateDate from TSPL_PO where POCode='" + Model.ID + "'";
-                var strDate=XpertCommonFunctions.myCDate( (await (Manager as PurchaseOrderManager).getSingleValue<DateTime?>(sql)));
+                var strDate = XpertCommonFunctions.myCDate((await (Manager as PurchaseOrderManager).getSingleValue<DateTime?>(sql)));
                 // Now parse the string to DateTime
                 //strDate = strDate.Trim('"', ' ');
 

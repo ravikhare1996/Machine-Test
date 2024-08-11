@@ -193,6 +193,7 @@
             gbxHeader.Size = new System.Drawing.Size(781, 516);
             gbxHeader.TabIndex = 0;
             gbxHeader.Text = "Basic Info";
+            gbxHeader.Visibility_Criteria = null;
             gbxHeader.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
             gbxHeader.Click += gbxHeader_Click;
             // 
@@ -208,6 +209,7 @@
             ExtraDetails.Size = new System.Drawing.Size(706, 171);
             ExtraDetails.TabIndex = 2;
             ExtraDetails.Text = "Advance Details";
+            ExtraDetails.Visibility_Criteria = null;
             ExtraDetails.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
             // 
             // xpertPageView2
@@ -1839,6 +1841,7 @@
             xpertGroupBox1.Size = new System.Drawing.Size(781, 516);
             xpertGroupBox1.TabIndex = 0;
             xpertGroupBox1.Text = "xpertGroupBox1";
+            xpertGroupBox1.Visibility_Criteria = null;
             xpertGroupBox1.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
             // 
             // frmCompanyMaster

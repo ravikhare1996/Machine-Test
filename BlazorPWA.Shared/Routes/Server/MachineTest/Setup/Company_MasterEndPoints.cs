@@ -93,57 +93,35 @@ namespace BlazorPWA.Shared.Routes
         {
             return $"api/Company_Master/GetStateList?type={GetStateFinderType(entity)}&whereClause={GetStateFinderWhereClause(entity)}";
         }
-
-        [XSCodeType(Type= XSCodeType.Custom)]
+[XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetCompany_TypeFinderType(clsCompanyMasterVM entity)
         {
             return null;
         }
-
-
-
-
-        [XSCodeType(Type= XSCodeType.Custom)]
+[XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetCompany_TypeFinderWhereClause(clsCompanyMasterVM entity)
         {
             return null;
         }
-
-
-
-
-        [XSCodeType(Type= XSCodeType.Custom)]
+[XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetProductFinderType(clsCompanyMasterVM entity)
         {
             return null;
         }
-
-
-
-
-        [XSCodeType(Type= XSCodeType.Custom)]
+[XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetProductFinderWhereClause(clsCompanyMasterVM entity)
         {
             return null;
         }
-
-
-
-
-        [XSCodeType(Type= XSCodeType.Custom)]
+[XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetStateFinderType(clsCompanyMasterVM entity)
         {
             return null;
         }
-
-
-
-
-        [XSCodeType(Type= XSCodeType.Custom)]
+[XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetStateFinderWhereClause(clsCompanyMasterVM entity)
         {
             return null;
         }
-
     }
 }

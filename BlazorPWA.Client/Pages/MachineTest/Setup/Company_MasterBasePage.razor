@@ -16,182 +16,182 @@
 
 
 <AuthorizeView Context="authContext" Policy="@Policies.IsAnonymousUser" Resource="typeof(Company_MasterBasePage)">
-<Authorized>
-@if(PageType==XpertStudio.Common.Enums.BlazorPWAPageTypes.Create)
-{
-<h1>Create ComapanyMaster</h1>
-}
-else if(PageType==XpertStudio.Common.Enums.BlazorPWAPageTypes.Edit)
-{
-<h1>Edit ComapanyMaster</h1>
-}
-else if(PageType==XpertStudio.Common.Enums.BlazorPWAPageTypes.Delete)
-{
-<h1>Delete ComapanyMaster</h1>
-}
-else if(PageType==XpertStudio.Common.Enums.BlazorPWAPageTypes.View)
-{
-<h1>View ComapanyMaster</h1> 
-}
-else
-{
-<h1>ComapanyMaster</h1>
-}
-<br/>
-<EditForm  Model="@Model" OnValidSubmit="OnValidSubmit">
-<DataAnnotationsValidator/>
-<XSGrid>
- <MudItem xs="12" sm="10">
-  <XSCard>
-   <MudCardContent>
-     <XSTabs Elevation="2" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa - 6">
-<MudTabPanel Text="General">
-     <XSExpansionPanels MultiExpansion="true">
-       <XSExpansionPanel IsExpanded=true HideIcon=true>
-         <TitleContent>
-           <MudText Class="mt-1"><strong>Basic Info</strong></MudText>
-         </TitleContent>
-         <ChildContent>
-<XSTextBox  @ref="fndCompanyCode" ReadOnly="@(PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.Create && ReadOnly == false ?  false : true)" Label="Company Code" HelperText="Max. 30 characters"
-@bind-Value="Model.ID" For="@(() => Model.ID)"/>
-<XSTextBox  @ref="txtDescription" ReadOnly=@(ReadOnly || false) Label="Company Name" HelperText="Max. 0 characters"
-@bind-Value="Model.Description" For="@(() => Model.Description)"/>
-<XSDropdown  @ref="ddlBranchSelect" Placeholder="Select Branch" @bind-Value=" Model.Branch_Type" HelperText="String"  CloseIcon="@Icons.Material.Filled.Flag" AdornmentColor="Color.Primary"
-ReadOnly=@(ReadOnly || false) Label="Branch">
-@foreach (clsBranchType item in Enum.GetValues(typeof(clsBranchType)))
- {
- <MudSelectItem T=clsBranchType? Value="@item">@item</MudSelectItem>
- }
-</XSDropdown>
-
-<XSTextBox  @ref="txtAdd1" ReadOnly=@(ReadOnly || false) Label="Address 1" HelperText="Max. 0 characters"
-@bind-Value="Model.Add1" For="@(() => Model.Add1)"/>
-<XSTextBox  @ref="txtAdd2" ReadOnly=@(ReadOnly || false) Label="Address 2" HelperText="Max. 0 characters"
-@bind-Value="Model.Add2" For="@(() => Model.Add2)"/>
-<XSTextBox  @ref="txtAdd3" ReadOnly=@(ReadOnly || false) Label="Address 3" HelperText="Max. 0 characters"
-@bind-Value="Model.Add3" For="@(() => Model.Add3)"/>
-<XSFinder  T="FinderData" @ref="fndState"  Label="Select State"  @bind-Value="StateValue" Required="true" ReadOnly=@(ReadOnly || false)
-SearchFunc="@SearchState"  Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
-AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
- ToStringFunc="@DisplayState"  /> 
-<XSTextBox  @ref="txtCityCode" ReadOnly=@(ReadOnly || false) Label="City Code" HelperText="Max. 0 characters"
-@bind-Value="Model.City_Code" For="@(() => Model.City_Code)"/>
-<XSTextBox  @ref="txtTelephone1" ReadOnly=@(ReadOnly || false) Label="Phone 1" HelperText="Max. 0 characters"
-@bind-Value="Model.Phone1" For="@(() => Model.Phone1)"/>
-<XSTextBox  @ref="txtPinCode" ReadOnly=@(ReadOnly || false) Label="Pin Code" HelperText="Max. 0 characters"
-@bind-Value="Model.Pincode" For="@(() => Model.Pincode)"/>
-<XSTextBox  @ref="txtEmail" ReadOnly=@(ReadOnly || false) Label="Email" HelperText="Max. 0 characters"
-@bind-Value="Model.Email" For="@(() => Model.Email)"/>
-<XSTextBox  @ref="txtTelephone2" ReadOnly=@(ReadOnly || false) Label="Telephone" HelperText="Max. 0 characters"
-@bind-Value="Model.Phone2" For="@(() => Model.Phone2)"/>
-<XSFinder  T="FinderData" @ref="fndProduct"  Label="Select Product"  @bind-Value="ProductValue" Required="true" ReadOnly=@(ReadOnly || false)
-SearchFunc="@SearchProduct"  Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
-AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
- ToStringFunc="@DisplayProduct"  /> 
-<XSTextBox  @ref="txtLocationSegment" ReadOnly=@(ReadOnly || false) Label="Location Segment" HelperText="Max. 0 characters"
-@bind-Value="Model.Comp_Loc_Seg" For="@(() => Model.Comp_Loc_Seg)"/>
-<XSDropdown   @ref="ddlCompanyType" Text="Select Company Type" @bind-Value="Company_TypeValue" HelperText="String"  CloseIcon="@Icons.Material.Filled.Flag" AdornmentColor="Color.Primary"
-ReadOnly=@(ReadOnly || false) Label="Company Type">
-@if (Company_TypeList != null)
-{
-@foreach (FinderData item in Company_TypeList)
- {
- <MudSelectItem T="FinderData" Value=item>@item.Name</MudSelectItem>
- }
-}
-</XSDropdown>
-<XSNumberBox  @ref="txtNonAnalyzedWork" @bind-Value="Model.Non_Analyzed_Work_Hour" Label="Non Analyzed Work Hour" Variant="Variant.Text" ReadOnly=@(ReadOnly || false) />
-         </ChildContent>
-       </XSExpansionPanel>
-     </XSExpansionPanels>
-</MudTabPanel>
-<MudTabPanel Text="Others">
-     <XSExpansionPanels MultiExpansion="true">
-     </XSExpansionPanels>
-</MudTabPanel>
-    </XSTabs>
-   </MudCardContent>
-   <MudCardContent>
-     <XSTabs Elevation="2" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa - 6">
-<MudTabPanel Text=" Email Port Setting">
-     <XSExpansionPanels MultiExpansion="true">
-       <XSExpansionPanel IsExpanded=true HideIcon=true>
-         <TitleContent>
-           <MudText Class="mt-1"><strong> Email Port Setting</strong></MudText>
-         </TitleContent>
-         <ChildContent>
-<XSTextBox  @ref="txtSMTPClient" ReadOnly=@(ReadOnly || false) Label="SMTP Client" HelperText="Max. 0 characters"
-@bind-Value="Model.SMTP_Client" For="@(() => Model.SMTP_Client)"/>
-<XSTextBox  @ref="txtPort" ReadOnly=@(ReadOnly || false) Label="Port" HelperText="Max. 0 characters"
-@bind-Value="Model.Port" For="@(() => Model.Port)"/>
-<XSTextBox  @ref="txtEmailIDFrom" ReadOnly=@(ReadOnly || false) Label="EmailID From" HelperText="Max. 0 characters"
-@bind-Value="Model.EmailID_From" For="@(() => Model.EmailID_From)"/>
-<XSTextBox  @ref="txtPassword" ReadOnly=@(ReadOnly || false) Label="Password" HelperText="Max. 0 characters"
-@bind-Value="Model.Password" For="@(() => Model.Password)"/>
-         </ChildContent>
-       </XSExpansionPanel>
-     </XSExpansionPanels>
-</MudTabPanel>
-<MudTabPanel Text="SMS Service Setting">
-     <XSExpansionPanels MultiExpansion="true">
-     </XSExpansionPanels>
-</MudTabPanel>
-<MudTabPanel Text="WeekEnd Setting">
-     <XSExpansionPanels MultiExpansion="true">
-     </XSExpansionPanels>
-</MudTabPanel>
-<MudTabPanel Text="Expiry Rule">
-     <XSExpansionPanels MultiExpansion="true">
-     </XSExpansionPanels>
-</MudTabPanel>
-    </XSTabs>
-   </MudCardContent>
-   <MudCardContent>
-     <XSExpansionPanels MultiExpansion="true">
-     </XSExpansionPanels>
-   </MudCardContent>
-   <MudCardActions>
-     <XSButton ButtonType="ButtonType.Button" Variant="Variant.Outlined" Color="Color.Primary" OnClick="NavigateToIndex" Class="mr - 4">Back</XSButton>
-     @if(CrudType==XpertStudio.Common.Enums.XpertCrudTypes.Create)
-      {
-        <XSButton ButtonType="ButtonType.Reset" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Reset</XSButton>
-        <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Save</XSButton>
-      }
-      @if(CrudType==XpertStudio.Common.Enums.XpertCrudTypes.Edit)
-       {
-         <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Edit</XSButton>
-       }
-       @if(CrudType==XpertStudio.Common.Enums.XpertCrudTypes.Delete)
+    <Authorized>
+        @if (PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.Create)
         {
-          <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Delete</XSButton>
+            <h1>Create ComapanyMaster</h1>
         }
-   </MudCardActions>
-  </XSCard>
- </MudItem>
-@if (ShowValidationSummary==true)
- {
-   <MudItem xs="12" sm="2">
-    <XSPaper Class="pa - 4 mud - height - full">
-     <MudText Typo="Typo.subtitle2">Validation Summary</MudText>
-     @if (success)
-      {
-       <MudText Color="Color.Success">Success</MudText>
-      }
-     else
-      {
-       <MudText Color="@Color.Error">
-        <ValidationSummary />
-       </MudText>
-      }
-    </XSPaper>
-   </MudItem>
- }
-</XSGrid>
-</EditForm>
-</Authorized>
-<NotAuthorized>
-<p>You are not authorized to access this resource!!</p>
-</NotAuthorized>
+        else if (PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.Edit)
+        {
+            <h1>Edit ComapanyMaster</h1>
+        }
+        else if (PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.Delete)
+        {
+            <h1>Delete ComapanyMaster</h1>
+        }
+        else if (PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.View)
+        {
+            <h1>View ComapanyMaster</h1>
+        }
+        else
+        {
+            <h1>ComapanyMaster</h1>
+        }
+        <br />
+        <EditForm Model="@Model" OnValidSubmit="OnValidSubmit">
+            <DataAnnotationsValidator />
+            <XSGrid>
+                <MudItem xs="12" sm="10">
+                    <XSCard>
+                        <MudCardContent>
+                            <XSTabs Elevation="2" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa - 6">
+                                <MudTabPanel Text="General">
+                                    <XSExpansionPanels MultiExpansion="true">
+                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
+                                            <TitleContent>
+                                                <MudText Class="mt-1"><strong>Basic Info</strong></MudText>
+                                            </TitleContent>
+                                            <ChildContent>
+                                                <XSTextBox @ref="fndCompanyCode" ReadOnly="@(PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.Create && ReadOnly == false ?  false : true)" Label="Company Code" HelperText="Max. 30 characters"
+                                                           @bind-Value="Model.ID" For="@(() => Model.ID)" />
+                                                <XSTextBox @ref="txtDescription" ReadOnly=@(ReadOnly || false) Label="Company Name" HelperText="Max. 0 characters"
+                                                           @bind-Value="Model.Description" For="@(() => Model.Description)" />
+                                                <XSDropdown @ref="ddlBranchSelect" Placeholder="Select Branch" @bind-Value=" Model.Branch_Type" HelperText="String" CloseIcon="@Icons.Material.Filled.Flag" AdornmentColor="Color.Primary"
+                                                            ReadOnly=@(ReadOnly || false) Label="Branch">
+                                                    @foreach (clsBranchType item in Enum.GetValues(typeof(clsBranchType)))
+                                                    {
+                                                        <MudSelectItem T=clsBranchType? Value="@item">@item</MudSelectItem>
+                                                    }
+                                                </XSDropdown>
+
+                                                <XSTextBox @ref="txtAdd1" ReadOnly=@(ReadOnly || false) Label="Address 1" HelperText="Max. 0 characters"
+                                                           @bind-Value="Model.Add1" For="@(() => Model.Add1)" />
+                                                <XSTextBox @ref="txtAdd2" ReadOnly=@(ReadOnly || false) Label="Address 2" HelperText="Max. 0 characters"
+                                                           @bind-Value="Model.Add2" For="@(() => Model.Add2)" />
+                                                <XSTextBox @ref="txtAdd3" ReadOnly=@(ReadOnly || false) Label="Address 3" HelperText="Max. 0 characters"
+                                                           @bind-Value="Model.Add3" For="@(() => Model.Add3)" />
+                                                <XSFinder T="FinderData" @ref="fndState" Label="Select State" @bind-Value="StateValue" Required="true" ReadOnly=@(ReadOnly || false)
+                                                          SearchFunc="@SearchState" Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
+                                                          AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
+                                                          ToStringFunc="@DisplayState" />
+                                                <XSTextBox @ref="txtCityCode" ReadOnly=@(ReadOnly || false) Label="City Code" HelperText="Max. 0 characters"
+                                                           @bind-Value="Model.City_Code" For="@(() => Model.City_Code)" />
+                                                <XSTextBox @ref="txtTelephone1" ReadOnly=@(ReadOnly || false) Label="Phone 1" HelperText="Max. 0 characters"
+                                                           @bind-Value="Model.Phone1" For="@(() => Model.Phone1)" />
+                                                <XSTextBox @ref="txtPinCode" ReadOnly=@(ReadOnly || false) Label="Pin Code" HelperText="Max. 0 characters"
+                                                           @bind-Value="Model.Pincode" For="@(() => Model.Pincode)" />
+                                                <XSTextBox @ref="txtEmail" ReadOnly=@(ReadOnly || false) Label="Email" HelperText="Max. 0 characters"
+                                                           @bind-Value="Model.Email" For="@(() => Model.Email)" />
+                                                <XSTextBox @ref="txtTelephone2" ReadOnly=@(ReadOnly || false) Label="Telephone" HelperText="Max. 0 characters"
+                                                           @bind-Value="Model.Phone2" For="@(() => Model.Phone2)" />
+                                                <XSFinder T="FinderData" @ref="fndProduct" Label="Select Product" @bind-Value="ProductValue" Required="true" ReadOnly=@(ReadOnly || false)
+                                                          SearchFunc="@SearchProduct" Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
+                                                          AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
+                                                          ToStringFunc="@DisplayProduct" />
+                                                <XSTextBox @ref="txtLocationSegment" ReadOnly=@(ReadOnly || false) Label="Location Segment" HelperText="Max. 0 characters"
+                                                           @bind-Value="Model.Comp_Loc_Seg" For="@(() => Model.Comp_Loc_Seg)" />
+                                                <XSDropdown @ref="ddlCompanyType" Text="Select Company Type" @bind-Value="Company_TypeValue" HelperText="String" CloseIcon="@Icons.Material.Filled.Flag" AdornmentColor="Color.Primary"
+                                                            ReadOnly=@(ReadOnly || false) Label="Company Type">
+                                                    @if (Company_TypeList != null)
+                                                    {
+                                                        @foreach (FinderData item in Company_TypeList)
+                                                        {
+                                                            <MudSelectItem T="FinderData" Value=item>@item.Name</MudSelectItem>
+                                                        }
+                                                    }
+                                                </XSDropdown>
+                                                <XSNumberBox @ref="txtNonAnalyzedWork" @bind-Value="Model.Non_Analyzed_Work_Hour" Label="Non Analyzed Work Hour" Variant="Variant.Text" ReadOnly=@(ReadOnly || false) />
+                                            </ChildContent>
+                                        </XSExpansionPanel>
+                                    </XSExpansionPanels>
+                                </MudTabPanel>
+                                <MudTabPanel Text="Others">
+                                    <XSExpansionPanels MultiExpansion="true">
+                                    </XSExpansionPanels>
+                                </MudTabPanel>
+                            </XSTabs>
+                        </MudCardContent>
+                        <MudCardContent>
+                            <XSTabs Elevation="2" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa - 6">
+                                <MudTabPanel Text=" Email Port Setting">
+                                    <XSExpansionPanels MultiExpansion="true">
+                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
+                                            <TitleContent>
+                                                <MudText Class="mt-1"><strong> Email Port Setting</strong></MudText>
+                                            </TitleContent>
+                                            <ChildContent>
+                                                <XSTextBox @ref="txtSMTPClient" ReadOnly=@(ReadOnly || false) Label="SMTP Client" HelperText="Max. 0 characters"
+                                                           @bind-Value="Model.SMTP_Client" For="@(() => Model.SMTP_Client)" />
+                                                <XSTextBox @ref="txtPort" ReadOnly=@(ReadOnly || false) Label="Port" HelperText="Max. 0 characters"
+                                                           @bind-Value="Model.Port" For="@(() => Model.Port)" />
+                                                <XSTextBox @ref="txtEmailIDFrom" ReadOnly=@(ReadOnly || false) Label="EmailID From" HelperText="Max. 0 characters"
+                                                           @bind-Value="Model.EmailID_From" For="@(() => Model.EmailID_From)" />
+                                                <XSTextBox @ref="txtPassword" ReadOnly=@(ReadOnly || false) Label="Password" HelperText="Max. 0 characters"
+                                                           @bind-Value="Model.Password" For="@(() => Model.Password)" />
+                                            </ChildContent>
+                                        </XSExpansionPanel>
+                                    </XSExpansionPanels>
+                                </MudTabPanel>
+                                <MudTabPanel Text="SMS Service Setting">
+                                    <XSExpansionPanels MultiExpansion="true">
+                                    </XSExpansionPanels>
+                                </MudTabPanel>
+                                <MudTabPanel Text="WeekEnd Setting">
+                                    <XSExpansionPanels MultiExpansion="true">
+                                    </XSExpansionPanels>
+                                </MudTabPanel>
+                                <MudTabPanel Text="Expiry Rule">
+                                    <XSExpansionPanels MultiExpansion="true">
+                                    </XSExpansionPanels>
+                                </MudTabPanel>
+                            </XSTabs>
+                        </MudCardContent>
+                        <MudCardContent>
+                            <XSExpansionPanels MultiExpansion="true">
+                            </XSExpansionPanels>
+                        </MudCardContent>
+                        <MudCardActions>
+                            <XSButton ButtonType="ButtonType.Button" Variant="Variant.Outlined" Color="Color.Primary" OnClick="NavigateToIndex" Class="mr - 4">Back</XSButton>
+                            @if (CrudType == XpertStudio.Common.Enums.XpertCrudTypes.Create)
+                            {
+                                <XSButton ButtonType="ButtonType.Reset" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Reset</XSButton>
+                                <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Save</XSButton>
+                            }
+                            @if (CrudType == XpertStudio.Common.Enums.XpertCrudTypes.Edit)
+                            {
+                                <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Edit</XSButton>
+                            }
+                            @if (CrudType == XpertStudio.Common.Enums.XpertCrudTypes.Delete)
+                            {
+                                <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Delete</XSButton>
+                            }
+                        </MudCardActions>
+                    </XSCard>
+                </MudItem>
+                @if (ShowValidationSummary == true)
+                {
+                    <MudItem xs="12" sm="2">
+                        <XSPaper Class="pa - 4 mud - height - full">
+                            <MudText Typo="Typo.subtitle2">Validation Summary</MudText>
+                            @if (success)
+                            {
+                                <MudText Color="Color.Success">Success</MudText>
+                            }
+                            else
+                            {
+                                <MudText Color="@Color.Error">
+                                    <ValidationSummary />
+                                </MudText>
+                            }
+                        </XSPaper>
+                    </MudItem>
+                }
+            </XSGrid>
+        </EditForm>
+    </Authorized>
+    <NotAuthorized>
+        <p>You are not authorized to access this resource!!</p>
+    </NotAuthorized>
 </AuthorizeView>
 
 @code {

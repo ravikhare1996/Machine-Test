@@ -7,12 +7,12 @@ using XpertStudio.Common.Functions;
 using System.Data;
 using BlazorPWA.Shared.VMs;
 using Microsoft.JSInterop;
-using BlazorPWA.Common.Enums;
+
 
 namespace BlazorPWA.Client.Pages.MachineTest.Setup
 {
-    [XSProgram(Module= "MachineTest", Program= "Company_Master")]
-    [XSCodeType(Type= XSCodeType.Standard)]
+    [XSProgram(Module = "MachineTest", Program = "Company_Master")]
+    [XSCodeType(Type = XSCodeType.Standard)]
     public partial class Company_MasterBasePage
     {
         private bool success;
@@ -57,14 +57,15 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         private FinderData? Company_TypeValue
         {
             get { return _Company_TypeValue; }
-            set { 
-            if (value == null)
+            set
             {
-              value = Company_TypeList.FirstOrDefault(d => d.IsDefault == true);
+                if (value == null)
+                {
+                    value = Company_TypeList.FirstOrDefault(d => d.IsDefault == true);
+                }
+                _Company_TypeValue = value;
+                Model.Company_Type = value?.Code;
             }
-            _Company_TypeValue = value;
-            Model.Company_Type = value?.Code;
-             }
         }
 
         protected IEnumerable<FinderData>? ProductList { get; set; }
@@ -72,14 +73,15 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         private FinderData? ProductValue
         {
             get { return _ProductValue; }
-            set { 
-            if (value == null)
+            set
             {
-              value = ProductList.FirstOrDefault(d => d.IsDefault == true);
+                if (value == null)
+                {
+                    value = ProductList.FirstOrDefault(d => d.IsDefault == true);
+                }
+                _ProductValue = value;
+                Model.Product = value?.Code;
             }
-            _ProductValue = value;
-            Model.Product = value?.Code;
-             }
         }
 
         protected IEnumerable<FinderData>? StateList { get; set; }
@@ -87,58 +89,59 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         private FinderData? StateValue
         {
             get { return _StateValue; }
-            set { 
-            if (value == null)
+            set
             {
-              value = StateList.FirstOrDefault(d => d.IsDefault == true);
+                if (value == null)
+                {
+                    value = StateList.FirstOrDefault(d => d.IsDefault == true);
+                }
+                _StateValue = value;
+                Model.State = value?.Code;
             }
-            _StateValue = value;
-            Model.State = value?.Code;
-             }
         }
 
-        protected async override Task  OnInitializedAsync()
+        protected async override Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
             //get all Lists
             Company_TypeList = await Manager.GetCompany_TypeList(Model);
-            if (CrudType==XpertCrudTypes.Create )
+            if (CrudType == XpertCrudTypes.Create)
             {
-              Model = new clsCompanyMasterVM();
+                Model = new clsCompanyMasterVM();
             }
             else
             {
-              Model = await Manager.GetDataAsync(CurrentID);
-            Company_TypeValue = new FinderData() { Code = Model.Company_Type, Name = "NA" };
-            ProductValue = new FinderData() { Code = Model.Product, Name = "NA" };
-            StateValue = new FinderData() { Code = Model.State, Name = "NA" };
+                Model = await Manager.GetDataAsync(CurrentID);
+                Company_TypeValue = new FinderData() { Code = Model.Company_Type, Name = "NA" };
+                ProductValue = new FinderData() { Code = Model.Product, Name = "NA" };
+                StateValue = new FinderData() { Code = Model.State, Name = "NA" };
             }
             Context = new EditContext(Model);
-            if (ReadOnly==false)
+            if (ReadOnly == false)
             {
-              ReadOnly = CrudType == XpertCrudTypes.View ? true : false;
+                ReadOnly = CrudType == XpertCrudTypes.View ? true : false;
             }
             StateHasChanged();
         }
 
-        private async Task  OnCreate(EditContext context)
+        private async Task OnCreate(EditContext context)
         {
-            Model=await Manager.SaveAsync(Model);
+            Model = await Manager.SaveAsync(Model);
             success = true;
             StateHasChanged();
             _snackBar.Add("Record Added.", MudBlazor.Severity.Success);
             UriHelper.NavigateTo("/MachineTest/Setup/Company_MasterEdit/" + Model.ID);
         }
 
-        private async Task  OnEdit(EditContext context)
+        private async Task OnEdit(EditContext context)
         {
-            Model=await Manager.EditAsync(Model);
+            Model = await Manager.EditAsync(Model);
             success = true;
             StateHasChanged();
             _snackBar.Add("Record Updated.", MudBlazor.Severity.Success);
         }
 
-        private async Task  OnDelete(EditContext context)
+        private async Task OnDelete(EditContext context)
         {
             await Manager.DeleteAsync(Model.ID);
             success = true;
@@ -147,40 +150,40 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
             UriHelper.NavigateTo("/MachineTest/Setup/Company_Master/");
         }
 
-        protected void  NavigateToIndex()
+        protected void NavigateToIndex()
         {
-            if (PageHistoryState.GetGoBackPage()!=null)
+            if (PageHistoryState.GetGoBackPage() != null)
             {
-              UriHelper.NavigateTo(PageHistoryState.GetGoBackPage());
+                UriHelper.NavigateTo(PageHistoryState.GetGoBackPage());
             }
         }
 
-        private async void  OnValidSubmit(EditContext context)
+        private async void OnValidSubmit(EditContext context)
         {
-            if (CrudType==XpertCrudTypes.Create)
+            if (CrudType == XpertCrudTypes.Create)
             {
-            await OnCreate(context);
+                await OnCreate(context);
             }
-            else if (CrudType==XpertCrudTypes.Edit)
+            else if (CrudType == XpertCrudTypes.Edit)
             {
-              await OnEdit(context);
+                await OnEdit(context);
             }
             else if (CrudType == XpertCrudTypes.Delete)
             {
-              await OnDelete(context);
+                await OnDelete(context);
             }
-            else if (CrudType==XpertCrudTypes.View)
+            else if (CrudType == XpertCrudTypes.View)
             {
-              Model=await  Manager.GetDataAsync(CurrentID);
+                Model = await Manager.GetDataAsync(CurrentID);
             }
         }
 
-        private async Task<IEnumerable<FinderData>>  SearchCompany_Type(string value)
+        private async Task<IEnumerable<FinderData>> SearchCompany_Type(string value)
         {
             await Task.Delay(5);
             if (string.IsNullOrEmpty(value))
             {
-            return Company_TypeList;
+                return Company_TypeList;
             }
             return Company_TypeList.Where(x => x.Name.Contains(value, StringComparison.InvariantCultureIgnoreCase));
         }
@@ -189,19 +192,19 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         {
             if (CurrentData == null)
             {
-            return string.Empty;
+                return string.Empty;
             }
-            return CurrentData.Code + "-" + CurrentData.Name; 
+            return CurrentData.Code + "-" + CurrentData.Name;
         }
 
-        private async Task<IEnumerable<FinderData>>  SearchProduct(string value)
+        private async Task<IEnumerable<FinderData>> SearchProduct(string value)
         {
             await Task.Delay(5);
             ProductList = await Manager.GetProductList(Model);
-            ProductValue= ProductList.FirstOrDefault(val =>val.Code==Model.Product);
+            ProductValue = ProductList.FirstOrDefault(val => val.Code == Model.Product);
             if (string.IsNullOrEmpty(value))
             {
-            return ProductList;
+                return ProductList;
             }
             return ProductList.Where(x => x.Name.Contains(value, StringComparison.InvariantCultureIgnoreCase));
         }
@@ -210,19 +213,19 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         {
             if (CurrentData == null)
             {
-            return string.Empty;
+                return string.Empty;
             }
-            return CurrentData.Code + "-" + CurrentData.Name; 
+            return CurrentData.Code + "-" + CurrentData.Name;
         }
 
-        private async Task<IEnumerable<FinderData>>  SearchState(string value)
+        private async Task<IEnumerable<FinderData>> SearchState(string value)
         {
             await Task.Delay(5);
             StateList = await Manager.GetStateList(Model);
-            StateValue= StateList.FirstOrDefault(val =>val.Code==Model.State);
+            StateValue = StateList.FirstOrDefault(val => val.Code == Model.State);
             if (string.IsNullOrEmpty(value))
             {
-            return StateList;
+                return StateList;
             }
             return StateList.Where(x => x.Name.Contains(value, StringComparison.InvariantCultureIgnoreCase));
         }
@@ -231,30 +234,28 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         {
             if (CurrentData == null)
             {
-            return string.Empty;
+                return string.Empty;
             }
-            return CurrentData.Code + "-" + CurrentData.Name; 
+            return CurrentData.Code + "-" + CurrentData.Name;
         }
-
-        [XSCodeType(Type= XSCodeType.Custom)]
-        private async Task  UpdateCompany_TypeList()
+        [XSCodeType(Type = XSCodeType.Custom)]
+        private async Task UpdateCompany_TypeList()
         {
-            if (ddlCompanyType!=null)
+            if (ddlCompanyType != null)
             {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Code");
-            dt.Columns.Add("Name");
-            DataRow dr;
-            //add Internal
-            dr = dt.NewRow();
-            dr["Code"] = "Internal";
-            dr["Name"] = "Internal";
-            //add External
-            dr = dt.NewRow();
-            dr["Code"] = "External";
-            dr["Name"] = "External";
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Code");
+                dt.Columns.Add("Name");
+                DataRow dr;
+                //add Internal
+                dr = dt.NewRow();
+                dr["Code"] = "Internal";
+                dr["Name"] = "Internal";
+                //add External
+                dr = dt.NewRow();
+                dr["Code"] = "External";
+                dr["Name"] = "External";
             }
         }
-
     }
 }

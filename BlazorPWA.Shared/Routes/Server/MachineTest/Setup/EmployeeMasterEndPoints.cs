@@ -103,381 +103,55 @@ namespace BlazorPWA.Shared.Routes
         {
             return $"api/EmployeeMaster/GetESI_Phone_Number_TypeList?type={GetESI_Phone_Number_TypeFinderType(entity)}&whereClause={GetESI_Phone_Number_TypeFinderWhereClause(entity)}";
         }
-
-        [XSCodeType(Type= XSCodeType.Custom)]
+[XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetCategory_TypeFinderType(clsEmployeeVM entity)
         {
             return null;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        [XSCodeType(Type= XSCodeType.Custom)]
+[XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetCategory_TypeFinderWhereClause(clsEmployeeVM entity)
         {
             return null;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        [XSCodeType(Type= XSCodeType.Custom)]
+[XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetPAYMENT_TYPEFinderType(clsEmployeeVM entity)
         {
             return null;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        [XSCodeType(Type= XSCodeType.Custom)]
+[XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetPAYMENT_TYPEFinderWhereClause(clsEmployeeVM entity)
         {
             return null;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        [XSCodeType(Type= XSCodeType.Custom)]
+[XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetDESIGNATIONFinderType(clsEmployeeVM entity)
         {
             return null;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        [XSCodeType(Type= XSCodeType.Custom)]
+[XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetDESIGNATIONFinderWhereClause(clsEmployeeVM entity)
         {
             return null;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        [XSCodeType(Type= XSCodeType.Custom)]
+[XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetPF_Phone_Number_TypeFinderType(clsEmployeeVM entity)
         {
             return null;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        [XSCodeType(Type= XSCodeType.Custom)]
+[XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetPF_Phone_Number_TypeFinderWhereClause(clsEmployeeVM entity)
         {
             return null;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        [XSCodeType(Type= XSCodeType.Custom)]
+[XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetESI_Phone_Number_TypeFinderType(clsEmployeeVM entity)
         {
             return null;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        [XSCodeType(Type= XSCodeType.Custom)]
+[XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetESI_Phone_Number_TypeFinderWhereClause(clsEmployeeVM entity)
         {
             return null;
         }
-
     }
 }

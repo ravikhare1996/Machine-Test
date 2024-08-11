@@ -228,6 +228,7 @@ namespace MachineTest.Domain.Entities
 
 
 
+
         [DefaultValue("")]
         [Column("Port", TypeName ="VARCHAR")]
         [DisplayName("Port")]
@@ -242,6 +243,7 @@ namespace MachineTest.Domain.Entities
 
 
 
+
         [DefaultValue("")]
         [Column("EmailID_From", TypeName ="VARCHAR")]
         [DisplayName("EmailID From")]
@@ -253,6 +255,7 @@ namespace MachineTest.Domain.Entities
             get { return  _EmailID_From; }
             set { _EmailID_From=value; }
         }
+
 
 
 

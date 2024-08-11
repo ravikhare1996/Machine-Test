@@ -10,8 +10,8 @@ using Microsoft.JSInterop;
 
 namespace BlazorPWA.Client.Pages.MachineTest.Setup
 {
-    [XSProgram(Module = "MachineTest", Program = "EmployeeMaster")]
-    [XSCodeType(Type = XSCodeType.Standard)]
+    [XSProgram(Module= "MachineTest", Program= "EmployeeMaster")]
+    [XSCodeType(Type= XSCodeType.Standard)]
     public partial class EmployeeMasterBasePage
     {
         private bool success;
@@ -98,15 +98,14 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         private FinderData? PAYMENT_TYPEValue
         {
             get { return _PAYMENT_TYPEValue; }
-            set
+            set { 
+            if (value == null)
             {
-                if (value == null)
-                {
-                    value = PAYMENT_TYPEList.FirstOrDefault(d => d.IsDefault == true);
-                }
-                _PAYMENT_TYPEValue = value;
-                Model.PAYMENT_TYPE = value?.Code;
+              value = PAYMENT_TYPEList.FirstOrDefault(d => d.IsDefault == true);
             }
+            _PAYMENT_TYPEValue = value;
+            Model.PAYMENT_TYPE = value?.Code;
+             }
         }
 
         protected IEnumerable<FinderData>? DESIGNATIONList { get; set; }
@@ -114,15 +113,14 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         private FinderData? DESIGNATIONValue
         {
             get { return _DESIGNATIONValue; }
-            set
+            set { 
+            if (value == null)
             {
-                if (value == null)
-                {
-                    value = DESIGNATIONList.FirstOrDefault(d => d.IsDefault == true);
-                }
-                _DESIGNATIONValue = value;
-                Model.DESIGNATION = value?.Code;
+              value = DESIGNATIONList.FirstOrDefault(d => d.IsDefault == true);
             }
+            _DESIGNATIONValue = value;
+            Model.DESIGNATION = value?.Code;
+             }
         }
 
         protected IEnumerable<FinderData>? Category_TypeList { get; set; }
@@ -130,15 +128,14 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         private FinderData? Category_TypeValue
         {
             get { return _Category_TypeValue; }
-            set
+            set { 
+            if (value == null)
             {
-                if (value == null)
-                {
-                    value = Category_TypeList.FirstOrDefault(d => d.IsDefault == true);
-                }
-                _Category_TypeValue = value;
-                Model.Category_Type = value?.Code;
+              value = Category_TypeList.FirstOrDefault(d => d.IsDefault == true);
             }
+            _Category_TypeValue = value;
+            Model.Category_Type = value?.Code;
+             }
         }
 
         protected IEnumerable<FinderData>? PF_Phone_Number_TypeList { get; set; }
@@ -146,15 +143,14 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         private FinderData? PF_Phone_Number_TypeValue
         {
             get { return _PF_Phone_Number_TypeValue; }
-            set
+            set { 
+            if (value == null)
             {
-                if (value == null)
-                {
-                    value = PF_Phone_Number_TypeList.FirstOrDefault(d => d.IsDefault == true);
-                }
-                _PF_Phone_Number_TypeValue = value;
-                Model.PF_Phone_Number_Type = value?.Code;
+              value = PF_Phone_Number_TypeList.FirstOrDefault(d => d.IsDefault == true);
             }
+            _PF_Phone_Number_TypeValue = value;
+            Model.PF_Phone_Number_Type = value?.Code;
+             }
         }
 
         protected IEnumerable<FinderData>? ESI_Phone_Number_TypeList { get; set; }
@@ -162,18 +158,17 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         private FinderData? ESI_Phone_Number_TypeValue
         {
             get { return _ESI_Phone_Number_TypeValue; }
-            set
+            set { 
+            if (value == null)
             {
-                if (value == null)
-                {
-                    value = ESI_Phone_Number_TypeList.FirstOrDefault(d => d.IsDefault == true);
-                }
-                _ESI_Phone_Number_TypeValue = value;
-                Model.ESI_Phone_Number_Type = value?.Code;
+              value = ESI_Phone_Number_TypeList.FirstOrDefault(d => d.IsDefault == true);
             }
+            _ESI_Phone_Number_TypeValue = value;
+            Model.ESI_Phone_Number_Type = value?.Code;
+             }
         }
 
-        protected async override Task OnInitializedAsync()
+        protected async override Task  OnInitializedAsync()
         {
             await base.OnInitializedAsync();
             //get all Lists
@@ -181,58 +176,58 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
             Category_TypeList = await Manager.GetCategory_TypeList(Model);
             PF_Phone_Number_TypeList = await Manager.GetPF_Phone_Number_TypeList(Model);
             ESI_Phone_Number_TypeList = await Manager.GetESI_Phone_Number_TypeList(Model);
-            if (CrudType == XpertCrudTypes.Create)
+            if (CrudType==XpertCrudTypes.Create )
             {
-                Model = new clsEmployeeVM();
+              Model = new clsEmployeeVM();
             }
             else
             {
-                Model = await Manager.GetDataAsync(CurrentID);
-                PAYMENT_TYPEValue = new FinderData() { Code = Model.PAYMENT_TYPE, Name = "NA" };
-                DESIGNATIONValue = new FinderData() { Code = Model.DESIGNATION, Name = "NA" };
-                if (Model.BankProof != null)
-                {
-                    _UploadedBankProof = new XSUploadedFile(name: Model.BankProof_FileName, contentType: Model.BankProof_ContentType, data: Model.BankProof) { File_Path = Model.BankProof_FilePath };
-                }
-                if (Model.AdhaarProof != null)
-                {
-                    _UploadedAdhaarProof = new XSUploadedFile(name: Model.AdhaarProof_FileName, contentType: Model.AdhaarProof_ContentType, data: Model.AdhaarProof) { File_Path = Model.AdhaarProof_FilePath };
-                }
-                Category_TypeValue = new FinderData() { Code = Model.Category_Type, Name = "NA" };
-                if (Model.Emp_Photo != null)
-                {
-                    _UploadedEmp_Photo = new XSUploadedFile(name: Model.Emp_Photo_FileName, contentType: Model.Emp_Photo_ContentType, data: Model.Emp_Photo) { File_Path = Model.Emp_Photo_FilePath };
-                    _ImageSrcEmp_Photo = XpertCommonFunctions.GetImageByByteArr(Model.Emp_Photo);
-                }
-                PF_Phone_Number_TypeValue = new FinderData() { Code = Model.PF_Phone_Number_Type, Name = "NA" };
-                ESI_Phone_Number_TypeValue = new FinderData() { Code = Model.ESI_Phone_Number_Type, Name = "NA" };
+              Model = await Manager.GetDataAsync(CurrentID);
+            PAYMENT_TYPEValue = new FinderData() { Code = Model.PAYMENT_TYPE, Name = "NA" };
+            DESIGNATIONValue = new FinderData() { Code = Model.DESIGNATION, Name = "NA" };
+            if (Model.BankProof!=null)
+            {
+            _UploadedBankProof = new XSUploadedFile(name:Model.BankProof_FileName,contentType:Model.BankProof_ContentType,data:Model.BankProof) { File_Path=Model.BankProof_FilePath };
+            }
+            if (Model.AdhaarProof!=null)
+            {
+            _UploadedAdhaarProof = new XSUploadedFile(name:Model.AdhaarProof_FileName,contentType:Model.AdhaarProof_ContentType,data:Model.AdhaarProof) { File_Path=Model.AdhaarProof_FilePath };
+            }
+            Category_TypeValue = new FinderData() { Code = Model.Category_Type, Name = "NA" };
+            if (Model.Emp_Photo!=null)
+            {
+            _UploadedEmp_Photo = new XSUploadedFile(name:Model.Emp_Photo_FileName,contentType:Model.Emp_Photo_ContentType,data:Model.Emp_Photo) { File_Path=Model.Emp_Photo_FilePath };
+            _ImageSrcEmp_Photo = XpertCommonFunctions.GetImageByByteArr(Model.Emp_Photo);
+            }
+            PF_Phone_Number_TypeValue = new FinderData() { Code = Model.PF_Phone_Number_Type, Name = "NA" };
+            ESI_Phone_Number_TypeValue = new FinderData() { Code = Model.ESI_Phone_Number_Type, Name = "NA" };
             }
             Context = new EditContext(Model);
-            if (ReadOnly == false)
+            if (ReadOnly==false)
             {
-                ReadOnly = CrudType == XpertCrudTypes.View ? true : false;
+              ReadOnly = CrudType == XpertCrudTypes.View ? true : false;
             }
             StateHasChanged();
         }
 
-        private async Task OnCreate(EditContext context)
+        private async Task  OnCreate(EditContext context)
         {
-            Model = await Manager.SaveAsync(Model);
+            Model=await Manager.SaveAsync(Model);
             success = true;
             StateHasChanged();
             _snackBar.Add("Record Added.", MudBlazor.Severity.Success);
             UriHelper.NavigateTo("/MachineTest/Setup/EmployeeMasterEdit/" + Model.ID);
         }
 
-        private async Task OnEdit(EditContext context)
+        private async Task  OnEdit(EditContext context)
         {
-            Model = await Manager.EditAsync(Model);
+            Model=await Manager.EditAsync(Model);
             success = true;
             StateHasChanged();
             _snackBar.Add("Record Updated.", MudBlazor.Severity.Success);
         }
 
-        private async Task OnDelete(EditContext context)
+        private async Task  OnDelete(EditContext context)
         {
             await Manager.DeleteAsync(Model.ID);
             success = true;
@@ -241,40 +236,40 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
             UriHelper.NavigateTo("/MachineTest/Setup/EmployeeMaster/");
         }
 
-        protected void NavigateToIndex()
+        protected void  NavigateToIndex()
         {
-            if (PageHistoryState.GetGoBackPage() != null)
+            if (PageHistoryState.GetGoBackPage()!=null)
             {
-                UriHelper.NavigateTo(PageHistoryState.GetGoBackPage());
+              UriHelper.NavigateTo(PageHistoryState.GetGoBackPage());
             }
         }
 
-        private async void OnValidSubmit(EditContext context)
+        private async void  OnValidSubmit(EditContext context)
         {
-            if (CrudType == XpertCrudTypes.Create)
+            if (CrudType==XpertCrudTypes.Create)
             {
-                await OnCreate(context);
+            await OnCreate(context);
             }
-            else if (CrudType == XpertCrudTypes.Edit)
+            else if (CrudType==XpertCrudTypes.Edit)
             {
-                await OnEdit(context);
+              await OnEdit(context);
             }
             else if (CrudType == XpertCrudTypes.Delete)
             {
-                await OnDelete(context);
+              await OnDelete(context);
             }
-            else if (CrudType == XpertCrudTypes.View)
+            else if (CrudType==XpertCrudTypes.View)
             {
-                Model = await Manager.GetDataAsync(CurrentID);
+              Model=await  Manager.GetDataAsync(CurrentID);
             }
         }
 
-        private async Task<IEnumerable<FinderData>> SearchPAYMENT_TYPE(string value)
+        private async Task<IEnumerable<FinderData>>  SearchPAYMENT_TYPE(string value)
         {
             await Task.Delay(5);
             if (string.IsNullOrEmpty(value))
             {
-                return PAYMENT_TYPEList;
+            return PAYMENT_TYPEList;
             }
             return PAYMENT_TYPEList.Where(x => x.Name.Contains(value, StringComparison.InvariantCultureIgnoreCase));
         }
@@ -283,19 +278,19 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         {
             if (CurrentData == null)
             {
-                return string.Empty;
+            return string.Empty;
             }
-            return CurrentData.Code + "-" + CurrentData.Name;
+            return CurrentData.Code + "-" + CurrentData.Name; 
         }
 
-        private async Task<IEnumerable<FinderData>> SearchDESIGNATION(string value)
+        private async Task<IEnumerable<FinderData>>  SearchDESIGNATION(string value)
         {
             await Task.Delay(5);
             DESIGNATIONList = await Manager.GetDESIGNATIONList(Model);
-            DESIGNATIONValue = DESIGNATIONList.FirstOrDefault(val => val.Code == Model.DESIGNATION);
+            DESIGNATIONValue= DESIGNATIONList.FirstOrDefault(val =>val.Code==Model.DESIGNATION);
             if (string.IsNullOrEmpty(value))
             {
-                return DESIGNATIONList;
+            return DESIGNATIONList;
             }
             return DESIGNATIONList.Where(x => x.Name.Contains(value, StringComparison.InvariantCultureIgnoreCase));
         }
@@ -304,17 +299,17 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         {
             if (CurrentData == null)
             {
-                return string.Empty;
+            return string.Empty;
             }
-            return CurrentData.Code + "-" + CurrentData.Name;
+            return CurrentData.Code + "-" + CurrentData.Name; 
         }
 
-        private async Task<IEnumerable<FinderData>> SearchCategory_Type(string value)
+        private async Task<IEnumerable<FinderData>>  SearchCategory_Type(string value)
         {
             await Task.Delay(5);
             if (string.IsNullOrEmpty(value))
             {
-                return Category_TypeList;
+            return Category_TypeList;
             }
             return Category_TypeList.Where(x => x.Name.Contains(value, StringComparison.InvariantCultureIgnoreCase));
         }
@@ -323,17 +318,17 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         {
             if (CurrentData == null)
             {
-                return string.Empty;
+            return string.Empty;
             }
-            return CurrentData.Code + "-" + CurrentData.Name;
+            return CurrentData.Code + "-" + CurrentData.Name; 
         }
 
-        private async Task<IEnumerable<FinderData>> SearchPF_Phone_Number_Type(string value)
+        private async Task<IEnumerable<FinderData>>  SearchPF_Phone_Number_Type(string value)
         {
             await Task.Delay(5);
             if (string.IsNullOrEmpty(value))
             {
-                return PF_Phone_Number_TypeList;
+            return PF_Phone_Number_TypeList;
             }
             return PF_Phone_Number_TypeList.Where(x => x.Name.Contains(value, StringComparison.InvariantCultureIgnoreCase));
         }
@@ -342,17 +337,17 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         {
             if (CurrentData == null)
             {
-                return string.Empty;
+            return string.Empty;
             }
-            return CurrentData.Code + "-" + CurrentData.Name;
+            return CurrentData.Code + "-" + CurrentData.Name; 
         }
 
-        private async Task<IEnumerable<FinderData>> SearchESI_Phone_Number_Type(string value)
+        private async Task<IEnumerable<FinderData>>  SearchESI_Phone_Number_Type(string value)
         {
             await Task.Delay(5);
             if (string.IsNullOrEmpty(value))
             {
-                return ESI_Phone_Number_TypeList;
+            return ESI_Phone_Number_TypeList;
             }
             return ESI_Phone_Number_TypeList.Where(x => x.Name.Contains(value, StringComparison.InvariantCultureIgnoreCase));
         }
@@ -361,12 +356,11 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         {
             if (CurrentData == null)
             {
-                return string.Empty;
+            return string.Empty;
             }
-            return CurrentData.Code + "-" + CurrentData.Name;
+            return CurrentData.Code + "-" + CurrentData.Name; 
         }
-
-        [XSCodeType(Type = XSCodeType.Custom)]
+[XSCodeType(Type = XSCodeType.Custom)]
         private async Task UpdatePAYMENT_TYPEList()
         {
             if (dpPaymentType != null)
@@ -389,12 +383,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
                 dr["Name"] = "Monthly";
             }
         }
-
-
-
-
-
-        [XSCodeType(Type = XSCodeType.Custom)]
+[XSCodeType(Type = XSCodeType.Custom)]
         private async Task UpdateCategory_TypeList()
         {
             if (dpCategory != null)
@@ -413,10 +402,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
                 dr["Name"] = "Individual";
             }
         }
-
-
-
-        [XSCodeType(Type = XSCodeType.Custom)]
+[XSCodeType(Type = XSCodeType.Custom)]
         private async Task UpdatePF_Phone_Number_TypeList()
         {
             if (txtPhoneNumberType != null)
@@ -435,10 +421,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
                 dr["Name"] = "Personal";
             }
         }
-
-
-
-        [XSCodeType(Type = XSCodeType.Custom)]
+[XSCodeType(Type = XSCodeType.Custom)]
         private async Task UpdateESI_Phone_Number_TypeList()
         {
             if (dpESIPhoneNumberType != null)
@@ -458,160 +441,157 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
             }
         }
 
-
-        private async Task OnBankProofChanged(InputFileChangeEventArgs e)
+        private async Task  OnBankProofChanged(InputFileChangeEventArgs e)
         {
             try
             {
-                var selectedFile = e.GetMultipleFiles()?.FirstOrDefault();
-                if (selectedFile == null)
-                {
-                    return;
-                }
-                if (selectedFile?.Size > fileBankProof.MaxSize * 1024 * 1024 || selectedFile?.Size < fileBankProof.MinSize * 1024 * 1024)
-                {
-                    _snackBar.Add($"File {selectedFile.Name} is not within the allowed size limits.(" + fileBankProof.MinSize + "," + fileBankProof.MaxSize + ")", Severity.Error);
-                    return;
-                }
-                using var stream = selectedFile?.OpenReadStream();
-                using var memoryStream = new MemoryStream();
-                await stream.CopyToAsync(memoryStream);
-                //map data to model properties
-                //File_Path will be set if file is saved in disk instead of database at server side logic 
-                Model.BankProof_FilePath = null;
-                //set Fiel_Name
-                Model.BankProof_FileName = selectedFile.Name;
-                //set content
-                Model.BankProof = memoryStream.ToArray();
-                //set content_Type
-                Model.BankProof_ContentType = selectedFile.ContentType;
-                //_ImageSrcBankProof = XpertCommonFunctions.GetImageByByteArr(Model.BankProof);
+            var selectedFile = e.GetMultipleFiles()?.FirstOrDefault();
+            if (selectedFile == null)
+            {
+              return;
+            }
+            if (selectedFile?.Size > fileBankProof.MaxSize * 1024 * 1024 || selectedFile?.Size < fileBankProof.MinSize * 1024 * 1024)
+            {
+              _snackBar.Add($"File {selectedFile.Name} is not within the allowed size limits.("+fileBankProof.MinSize + ","+fileBankProof.MaxSize + ")", Severity.Error);
+              return;
+            }
+            using var stream = selectedFile?.OpenReadStream();
+            using var memoryStream = new MemoryStream();
+            await stream.CopyToAsync(memoryStream);
+            //map data to model properties
+            //File_Path will be set if file is saved in disk instead of database at server side logic 
+            Model.BankProof_FilePath = null;
+            //set Fiel_Name
+            Model.BankProof_FileName = selectedFile.Name;
+            //set content
+            Model.BankProof = memoryStream.ToArray();
+            //set content_Type
+            Model.BankProof_ContentType = selectedFile.ContentType;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred while browsing the file: {ex.Message}");
-                throw;
+            Console.WriteLine($"An error occurred while browsing the file: {ex.Message}");
+            throw;
             }
         }
 
-        private async Task OnBankProofOpen(IXSUploadedFile? file)
+        private async Task  OnBankProofOpen(IXSUploadedFile? file)
         {
             try
             {
-                if (file?.File_Content != null)
-                {
-                    var fileData = file?.File_Content;
-                    await JSRuntime.InvokeVoidAsync("openFileFromBytes", Convert.ToBase64String(fileData), file.Content_Type);
-                }
+            if (file?.File_Content != null)
+              {
+                var fileData = file?.File_Content;
+                await JSRuntime.InvokeVoidAsync("openFileFromBytes", Convert.ToBase64String(fileData), file.Content_Type);
+              }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred while opening the file: {ex.Message}");
-                throw;
+            Console.WriteLine($"An error occurred while opening the file: {ex.Message}");
+            throw;
             }
         }
 
-        private async Task OnAdhaarProofChanged(InputFileChangeEventArgs e)
+        private async Task  OnAdhaarProofChanged(InputFileChangeEventArgs e)
         {
             try
             {
-                var selectedFile = e.GetMultipleFiles()?.FirstOrDefault();
-                if (selectedFile == null)
-                {
-                    return;
-                }
-                if (selectedFile?.Size > fileAdhaarProof.MaxSize * 1024 * 1024 || selectedFile?.Size < fileAdhaarProof.MinSize * 1024 * 1024)
-                {
-                    _snackBar.Add($"File {selectedFile.Name} is not within the allowed size limits.(" + fileAdhaarProof.MinSize + "," + fileAdhaarProof.MaxSize + ")", Severity.Error);
-                    return;
-                }
-                using var stream = selectedFile?.OpenReadStream();
-                using var memoryStream = new MemoryStream();
-                await stream.CopyToAsync(memoryStream);
-                //map data to model properties
-                //File_Path will be set if file is saved in disk instead of database at server side logic 
-                Model.AdhaarProof_FilePath = null;
-                //set Fiel_Name
-                Model.AdhaarProof_FileName = selectedFile.Name;
-                //set content
-                Model.AdhaarProof = memoryStream.ToArray();
-                //set content_Type
-                Model.AdhaarProof_ContentType = selectedFile.ContentType;
-                //_ImageSrcAdhaarProof = XpertCommonFunctions.GetImageByByteArr(Model.AdhaarProof);
+            var selectedFile = e.GetMultipleFiles()?.FirstOrDefault();
+            if (selectedFile == null)
+            {
+              return;
+            }
+            if (selectedFile?.Size > fileAdhaarProof.MaxSize * 1024 * 1024 || selectedFile?.Size < fileAdhaarProof.MinSize * 1024 * 1024)
+            {
+              _snackBar.Add($"File {selectedFile.Name} is not within the allowed size limits.("+fileAdhaarProof.MinSize + ","+fileAdhaarProof.MaxSize + ")", Severity.Error);
+              return;
+            }
+            using var stream = selectedFile?.OpenReadStream();
+            using var memoryStream = new MemoryStream();
+            await stream.CopyToAsync(memoryStream);
+            //map data to model properties
+            //File_Path will be set if file is saved in disk instead of database at server side logic 
+            Model.AdhaarProof_FilePath = null;
+            //set Fiel_Name
+            Model.AdhaarProof_FileName = selectedFile.Name;
+            //set content
+            Model.AdhaarProof = memoryStream.ToArray();
+            //set content_Type
+            Model.AdhaarProof_ContentType = selectedFile.ContentType;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred while browsing the file: {ex.Message}");
-                throw;
+            Console.WriteLine($"An error occurred while browsing the file: {ex.Message}");
+            throw;
             }
         }
 
-        private async Task OnAdhaarProofOpen(IXSUploadedFile? file)
+        private async Task  OnAdhaarProofOpen(IXSUploadedFile? file)
         {
             try
             {
-                if (file?.File_Content != null)
-                {
-                    var fileData = file?.File_Content;
-                    await JSRuntime.InvokeVoidAsync("openFileFromBytes", Convert.ToBase64String(fileData), file.Content_Type);
-                }
+            if (file?.File_Content != null)
+              {
+                var fileData = file?.File_Content;
+                await JSRuntime.InvokeVoidAsync("openFileFromBytes", Convert.ToBase64String(fileData), file.Content_Type);
+              }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred while opening the file: {ex.Message}");
-                throw;
+            Console.WriteLine($"An error occurred while opening the file: {ex.Message}");
+            throw;
             }
         }
 
-        private async Task OnEmp_PhotoChanged(InputFileChangeEventArgs e)
+        private async Task  OnEmp_PhotoChanged(InputFileChangeEventArgs e)
         {
             try
             {
-                var selectedFile = e.GetMultipleFiles()?.FirstOrDefault();
-                if (selectedFile == null)
-                {
-                    return;
-                }
-                if (selectedFile?.Size > pcbPhoto.MaxSize * 1024 * 1024 || selectedFile?.Size < pcbPhoto.MinSize * 1024 * 1024)
-                {
-                    _snackBar.Add($"File {selectedFile.Name} is not within the allowed size limits.(" + pcbPhoto.MinSize + "," + pcbPhoto.MaxSize + ")", Severity.Error);
-                    return;
-                }
-                using var stream = selectedFile?.OpenReadStream();
-                using var memoryStream = new MemoryStream();
-                await stream.CopyToAsync(memoryStream);
-                //map data to model properties
-                //File_Path will be set if file is saved in disk instead of database at server side logic 
-                Model.Emp_Photo_FilePath = null;
-                //set Fiel_Name
-                Model.Emp_Photo_FileName = selectedFile.Name;
-                //set content
-                Model.Emp_Photo = memoryStream.ToArray();
-                //set content_Type
-                Model.Emp_Photo_ContentType = selectedFile.ContentType;
-                _ImageSrcEmp_Photo = XpertCommonFunctions.GetImageByByteArr(Model.Emp_Photo);
+            var selectedFile = e.GetMultipleFiles()?.FirstOrDefault();
+            if (selectedFile == null)
+            {
+              return;
+            }
+            if (selectedFile?.Size > pcbPhoto.MaxSize * 1024 * 1024 || selectedFile?.Size < pcbPhoto.MinSize * 1024 * 1024)
+            {
+              _snackBar.Add($"File {selectedFile.Name} is not within the allowed size limits.("+pcbPhoto.MinSize + ","+pcbPhoto.MaxSize + ")", Severity.Error);
+              return;
+            }
+            using var stream = selectedFile?.OpenReadStream();
+            using var memoryStream = new MemoryStream();
+            await stream.CopyToAsync(memoryStream);
+            //map data to model properties
+            //File_Path will be set if file is saved in disk instead of database at server side logic 
+            Model.Emp_Photo_FilePath = null;
+            //set Fiel_Name
+            Model.Emp_Photo_FileName = selectedFile.Name;
+            //set content
+            Model.Emp_Photo = memoryStream.ToArray();
+            //set content_Type
+            Model.Emp_Photo_ContentType = selectedFile.ContentType;
+            _ImageSrcEmp_Photo = XpertCommonFunctions.GetImageByByteArr(Model.Emp_Photo);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred while browsing the file: {ex.Message}");
-                throw;
+            Console.WriteLine($"An error occurred while browsing the file: {ex.Message}");
+            throw;
             }
         }
 
-        private async Task OnEmp_PhotoOpen(IXSUploadedFile? file)
+        private async Task  OnEmp_PhotoOpen(IXSUploadedFile? file)
         {
             try
             {
-                if (file?.File_Content != null)
-                {
-                    var fileData = file?.File_Content;
-                    await JSRuntime.InvokeVoidAsync("openFileFromBytes", Convert.ToBase64String(fileData), file.Content_Type);
-                }
+            if (file?.File_Content != null)
+              {
+                var fileData = file?.File_Content;
+                await JSRuntime.InvokeVoidAsync("openFileFromBytes", Convert.ToBase64String(fileData), file.Content_Type);
+              }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred while opening the file: {ex.Message}");
-                throw;
+            Console.WriteLine($"An error occurred while opening the file: {ex.Message}");
+            throw;
             }
         }
     }
