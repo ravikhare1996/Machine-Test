@@ -8,120 +8,160 @@
 }
 else
 {
-    <MudDataGrid ServerData="@(new Func<GridState<ICustomFinderData>, Task<GridData<ICustomFinderData>>>(ServerReload))"
-                 T="ICustomFinderData" MultiSelection=@IsMultiSelect
-                 Dense="true" Bordered="true" Hover="true" ReadOnly="true"
-                 ColumnResizeMode="ResizeMode.Column"
-                 SelectedItemsChanged="@SelectedItemsChanged"
-                 Filterable="true" @ref="_Grid" SelectedItemChanged="@RowClicked">
-        <ToolBarContent>
-            <MudButton DisableElevation=true Class="ml - 4" Variant="Variant.Filled" Color="Color.Surface" @onclick="@(() => ExportToExcel())" StartIcon="@Icons.Material.Filled.Download" IconColor="Color.Primary">Export</MudButton>
-            <MudSpacer />
-            <MudTextField T="string" ValueChanged="@(s => OnSearch(s))" Placeholder="Search" Adornment="Adornment.Start"
-                          AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt - 0"></MudTextField>
-        </ToolBarContent>
+    @if (@IsCustomFinder)
+    {
+        <XSDataGrid ServerData="@(new Func<GridState<ICustomFinderData>, Task<GridData<ICustomFinderData>>>(ServerReloadCustom))"
+                     T="ICustomFinderData" MultiSelection=@IsMultiSelect
+                     Dense="true" Bordered="true" Hover="true" ReadOnly="true"
+                     ColumnResizeMode="ResizeMode.Column"
+                     SelectedItemsChanged="@SelectedItemsChangedCustom"
+                    Filterable="true" @ref="_GridCustom" SelectedItemChanged="@RowClickedCustom">
+            <ToolBarContent>
+                <MudButton DisableElevation=true Class="ml - 4" Variant="Variant.Filled" Color="Color.Surface" @onclick="@(() => ExportToExcel())" StartIcon="@Icons.Material.Filled.Download" IconColor="Color.Primary">Export</MudButton>
+                <MudSpacer />
+                <MudTextField T="string" ValueChanged="@(s => OnSearch(s))" Placeholder="Search" Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt - 0"></MudTextField>
+            </ToolBarContent>
 
-        <Columns>
-            @if (@IsMultiSelect == true)
-            {
-                <SelectColumn T="ICustomFinderData" />
-            }
-            <PropertyColumn Property="x => x.Code" Title="Code"></PropertyColumn>
-            <PropertyColumn Property="x => x.Description" Title="Name"></PropertyColumn>
-            @* Other columns of DataTable here *@
-            @foreach (string col in columns)
-            {
-                string column = "Description" + (columns.IndexOf(col) + 2).ToString();
-                if (columns.IndexOf(col) == 0)
+            <Columns>
+                @if (@IsMultiSelect == true)
                 {
-                    <PropertyColumn Property="x => x.Description2" Title="@col" Hidden="false"></PropertyColumn>
+                    <SelectColumn T="ICustomFinderData" />
                 }
-                else if (columns.IndexOf(col) == 1)
-                {
-                    <PropertyColumn Property="x => x.Description3" Title="@col" Hidden="false"></PropertyColumn>
-                }
-                else if (columns.IndexOf(col) == 2)
-                {
-                    <PropertyColumn Property="x => x.Description4" Title="@col" Hidden="false"></PropertyColumn>
-                }
-                else if (columns.IndexOf(col) == 3)
-                {
-                    <PropertyColumn Property="x => x.Description5" Title="@col" Hidden="false"></PropertyColumn>
-                }
-                else if (columns.IndexOf(col) == 4)
-                {
-                    <PropertyColumn Property="x => x.Description6" Title="@col" Hidden="false"></PropertyColumn>
-                }
-                else if (columns.IndexOf(col) == 5)
-                {
-                    <PropertyColumn Property="x => x.Description7" Title="@col" Hidden="false"></PropertyColumn>
-                }
-                else if (columns.IndexOf(col) == 6)
-                {
-                    <PropertyColumn Property="x => x.Description8" Title="@col" Hidden="false"></PropertyColumn>
-                }
-                else if (columns.IndexOf(col) == 7)
-                {
-                    <PropertyColumn Property="x => x.Description9" Title="@col" Hidden="false"></PropertyColumn>
-                }
-                else if (columns.IndexOf(col) == 8)
-                {
-                    <PropertyColumn Property="x => x.Description10" Title="@col" Hidden="false"></PropertyColumn>
-                }
-                else if (columns.IndexOf(col) == 9)
-                {
-                    <PropertyColumn Property="x => x.Description11" Title="@col" Hidden="false"></PropertyColumn>
-                }
-                else if (columns.IndexOf(col) == 10)
-                {
-                    <PropertyColumn Property="x => x.Description12" Title="@col" Hidden="false"></PropertyColumn>
-                }
-                else if (columns.IndexOf(col) == 11)
-                {
-                    <PropertyColumn Property="x => x.Description13" Title="@col" Hidden="false"></PropertyColumn>
-                }
-                else if (columns.IndexOf(col) == 12)
-                {
-                    <PropertyColumn Property="x => x.Description14" Title="@col" Hidden="false"></PropertyColumn>
-                }
-                else if (columns.IndexOf(col) == 13)
-                {
-                    <PropertyColumn Property="x => x.Description15" Title="@col" Hidden="false"></PropertyColumn>
-                }
-                else if (columns.IndexOf(col) == 14)
-                {
-                    <PropertyColumn Property="x => x.Description16" Title="@col" Hidden="false"></PropertyColumn>
-                }
-                else if (columns.IndexOf(col) == 15)
-                {
-                    <PropertyColumn Property="x => x.Description17" Title="@col" Hidden="false"></PropertyColumn>
-                }
-                else if (columns.IndexOf(col) == 16)
-                {
-                    <PropertyColumn Property="x => x.Description18" Title="@col" Hidden="false"></PropertyColumn>
-                }
-                else if (columns.IndexOf(col) == 17)
-                {
-                    <PropertyColumn Property="x => x.Description19" Title="@col" Hidden="false"></PropertyColumn>
-                }
-                else if (columns.IndexOf(col) == 18)
-                {
-                    <PropertyColumn Property="x => x.Description20" Title="@col" Hidden="false"></PropertyColumn>
-                }
+                <PropertyColumn Property="x => x.Code" Title="Code"></PropertyColumn>
+                <PropertyColumn Property="x => x.Name" Title="Name"></PropertyColumn>
+                @* Other columns of DataTable here *@
 
-            }
-        </Columns>
-        <NoRecordsContent>
-            <MudText>No matching records found</MudText>
-        </NoRecordsContent>
-        <LoadingContent>
-            <MudText>Loading...</MudText>
-        </LoadingContent>
+                @foreach (string col in columns)
+                {
+                    string column = "Description" + (columns.IndexOf(col) + 2).ToString();
+                    if (columns.IndexOf(col) == 0)
+                    {
+                        <PropertyColumn Property="x => x.Description2" Title="@col" Hidden="false"></PropertyColumn>
+                    }
+                    else if (columns.IndexOf(col) == 1)
+                    {
+                        <PropertyColumn Property="x => x.Description3" Title="@col" Hidden="false"></PropertyColumn>
+                    }
+                    else if (columns.IndexOf(col) == 2)
+                    {
+                        <PropertyColumn Property="x => x.Description4" Title="@col" Hidden="false"></PropertyColumn>
+                    }
+                    else if (columns.IndexOf(col) == 3)
+                    {
+                        <PropertyColumn Property="x => x.Description5" Title="@col" Hidden="false"></PropertyColumn>
+                    }
+                    else if (columns.IndexOf(col) == 4)
+                    {
+                        <PropertyColumn Property="x => x.Description6" Title="@col" Hidden="false"></PropertyColumn>
+                    }
+                    else if (columns.IndexOf(col) == 5)
+                    {
+                        <PropertyColumn Property="x => x.Description7" Title="@col" Hidden="false"></PropertyColumn>
+                    }
+                    else if (columns.IndexOf(col) == 6)
+                    {
+                        <PropertyColumn Property="x => x.Description8" Title="@col" Hidden="false"></PropertyColumn>
+                    }
+                    else if (columns.IndexOf(col) == 7)
+                    {
+                        <PropertyColumn Property="x => x.Description9" Title="@col" Hidden="false"></PropertyColumn>
+                    }
+                    else if (columns.IndexOf(col) == 8)
+                    {
+                        <PropertyColumn Property="x => x.Description10" Title="@col" Hidden="false"></PropertyColumn>
+                    }
+                    else if (columns.IndexOf(col) == 9)
+                    {
+                        <PropertyColumn Property="x => x.Description11" Title="@col" Hidden="false"></PropertyColumn>
+                    }
+                    else if (columns.IndexOf(col) == 10)
+                    {
+                        <PropertyColumn Property="x => x.Description12" Title="@col" Hidden="false"></PropertyColumn>
+                    }
+                    else if (columns.IndexOf(col) == 11)
+                    {
+                        <PropertyColumn Property="x => x.Description13" Title="@col" Hidden="false"></PropertyColumn>
+                    }
+                    else if (columns.IndexOf(col) == 12)
+                    {
+                        <PropertyColumn Property="x => x.Description14" Title="@col" Hidden="false"></PropertyColumn>
+                    }
+                    else if (columns.IndexOf(col) == 13)
+                    {
+                        <PropertyColumn Property="x => x.Description15" Title="@col" Hidden="false"></PropertyColumn>
+                    }
+                    else if (columns.IndexOf(col) == 14)
+                    {
+                        <PropertyColumn Property="x => x.Description16" Title="@col" Hidden="false"></PropertyColumn>
+                    }
+                    else if (columns.IndexOf(col) == 15)
+                    {
+                        <PropertyColumn Property="x => x.Description17" Title="@col" Hidden="false"></PropertyColumn>
+                    }
+                    else if (columns.IndexOf(col) == 16)
+                    {
+                        <PropertyColumn Property="x => x.Description18" Title="@col" Hidden="false"></PropertyColumn>
+                    }
+                    else if (columns.IndexOf(col) == 17)
+                    {
+                        <PropertyColumn Property="x => x.Description19" Title="@col" Hidden="false"></PropertyColumn>
+                    }
+                    else if (columns.IndexOf(col) == 18)
+                    {
+                        <PropertyColumn Property="x => x.Description20" Title="@col" Hidden="false"></PropertyColumn>
+                    }
 
-        <PagerContent>
-            <MudDataGridPager T="ICustomFinderData" PageSizeOptions=@(new int[] {5, 10, 25, 50, 100, int.MaxValue }) />
-        </PagerContent>
-    </MudDataGrid>
+                }
+            </Columns>
+            <NoRecordsContent>
+                <MudText>No matching records found</MudText>
+            </NoRecordsContent>
+            <LoadingContent>
+                <MudText>Loading...</MudText>
+            </LoadingContent>
+
+            <PagerContent>
+                <MudDataGridPager T="ICustomFinderData" PageSizeOptions=@(new int[] {5, 10, 25, 50, 100, int.MaxValue }) />
+            </PagerContent>
+        </XSDataGrid>
+    }
+    else
+    {
+        <XSDataGrid ServerData="@(new Func<GridState<IFinderData>, Task<GridData<IFinderData>>>(ServerReload))"
+                     T="IFinderData" MultiSelection=@IsMultiSelect
+                     Dense="true" Bordered="true" Hover="true" ReadOnly="true"
+                     ColumnResizeMode="ResizeMode.Column"
+                     SelectedItemsChanged="@SelectedItemsChanged"
+                     Filterable="true" @ref="_Grid" SelectedItemChanged="@RowClicked">
+            <ToolBarContent>
+                <MudButton DisableElevation=true Class="ml - 4" Variant="Variant.Filled" Color="Color.Surface" @onclick="@(() => ExportToExcel())" StartIcon="@Icons.Material.Filled.Download" IconColor="Color.Primary">Export</MudButton>
+                <MudSpacer />
+                <MudTextField T="string" ValueChanged="@(s => OnSearch(s))" Placeholder="Search" Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt - 0"></MudTextField>
+            </ToolBarContent>
+
+            <Columns>
+                @if (@IsMultiSelect == true)
+                {
+                    <SelectColumn T="IFinderData" />
+                }
+                <PropertyColumn Property="x => x.Code" Title="Code"></PropertyColumn>
+                <PropertyColumn Property="x => x.Name" Title="Name"></PropertyColumn>
+            </Columns>
+            <NoRecordsContent>
+                <MudText>No matching records found</MudText>
+            </NoRecordsContent>
+            <LoadingContent>
+                <MudText>Loading...</MudText>
+            </LoadingContent>
+
+            <PagerContent>
+                <MudDataGridPager T="IFinderData" PageSizeOptions=@(new int[] {5, 10, 25, 50, 100, int.MaxValue }) />
+            </PagerContent>
+        </XSDataGrid>
+    }
+
 }
 
 @code {

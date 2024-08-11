@@ -45,6 +45,7 @@ namespace BlazorPWA.Client.Pages
         //property to control the multi selection in finder and its dialog
         [Parameter]
         public bool IsMultiSelectFinder { get; set; } = false;
+        public bool IsCustomFinder { get; set; }=false;
         protected async override Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
@@ -100,7 +101,7 @@ namespace BlazorPWA.Client.Pages
             }
             else
             {
-                if (Items==null)
+                if (Items == null)
                 {
                     return;
                 }
@@ -131,60 +132,73 @@ namespace BlazorPWA.Client.Pages
         //Finder rendering logic
         private RenderFragment? FinderComponentRenderer(string? componentUrl)
         {
-            if (componentUrl == null || FinderPage == null)
-                return null;
-            return builder =>
+            try
             {
+                if (componentUrl == null || FinderPage == null)
+                    return null;
+                return builder =>
+                {
 #pragma warning disable IL2072
-                builder.OpenComponent(0, FinderPage);
+                    builder.OpenComponent(0, FinderPage);
 #pragma warning restore IL2072
-                //builder.AddAttribute(1, "ChildContent", (RenderFragment)(builder2 =>
-                //{
-                //    //builder2.OpenComponent(0, Type.GetType(componentUrl));
-                //    builder2.OpenComponent(0, FinderPage);
-                //    builder2.CloseComponent();
-                //}));
-                if (IsMultiSelectFinder==false)
-                {
-                    builder.AddAttribute(1, "OnSelectedDataChanged", new Action<IFinderData>(OnFinderDataChanged));
-                    //New Code(07082024)
-                    builder.AddAttribute(2, "SelectedData", SelectedData);
-                }
-                else
-                {
-                    builder.AddAttribute(1, "OnSelectedRowsChanged", new Action<List<IFinderData>>(OnFinderSelectedRowsChanged));
-                    builder.AddAttribute(2, "SelectedRows", SelectedItems?.ToList());
-                    //New Code(07082024)
-                    //var items=new List<IFinderData>();
-                    //items.Add(new FinderData() { Code = "I005", Name = "Bag" });
-                    //items.Add(new FinderData() { Code = "I006", Name = "Mouse" });
-                    //builder.AddAttribute(2, "SelectedRows", items);
-                }
-                
-                if (CustomFinderParameters != null)
-                {
-                    //New Code(07082024)
-                    builder.AddAttribute(3, "ReportID", CustomFinderParameters.ReportID);
-                    builder.AddAttribute(4, "Query", CustomFinderParameters.Query);
-                    builder.AddAttribute(5, "CodeColumn", CustomFinderParameters.CodeColumn);
-                    builder.AddAttribute(6, "NameColumn", CustomFinderParameters.NameColumn);
-                    builder.AddAttribute(7, "WhereClause", CustomFinderParameters.WhereClause);
-                    builder.AddAttribute(8, "strCurrCode", CustomFinderParameters.strCurrCode);
-                    builder.AddAttribute(9, "strOrderByColumns", CustomFinderParameters.strOrderByColumns);
-                    builder.AddAttribute(10, "isShowSelectForm", CustomFinderParameters.isShowSelectForm);
-                    builder.AddAttribute(11, "strFormName", CustomFinderParameters.strFormName);
-                    builder.AddAttribute(12, "DateColumn", CustomFinderParameters.DateColumn);
-                    builder.AddAttribute(13, "IsMultiSelect", IsMultiSelectFinder);
-                }
-                else
-                {
-                    //New Code(07082024)
-                    builder.AddAttribute(3, "IsFinder", true);
-                    builder.AddAttribute(4, "IsMultiSelect", IsMultiSelectFinder);
-                }
-                
-                builder.CloseComponent();
-            };
+                    //builder.AddAttribute(1, "ChildContent", (RenderFragment)(builder2 =>
+                    //{
+                    //    //builder2.OpenComponent(0, Type.GetType(componentUrl));
+                    //    builder2.OpenComponent(0, FinderPage);
+                    //    builder2.CloseComponent();
+                    //}));
+                    if (IsMultiSelectFinder == false)
+                    {
+                        builder.AddAttribute(1, "OnSelectedDataChanged", new Action<IFinderData>(OnFinderDataChanged));
+                        //New Code(07082024)
+                        builder.AddAttribute(2, "SelectedData", SelectedData);
+                    }
+                    else
+                    {
+                        builder.AddAttribute(1, "OnSelectedRowsChanged", new Action<List<IFinderData>>(OnFinderSelectedRowsChanged));
+                        builder.AddAttribute(2, "SelectedRows", SelectedItems?.ToList());
+                        //New Code(07082024)
+                        //var items=new List<IFinderData>();
+                        //items.Add(new FinderData() { Code = "I005", Name = "Bag" });
+                        //items.Add(new FinderData() { Code = "I006", Name = "Mouse" });
+                        //builder.AddAttribute(2, "SelectedRows", items);
+                    }
+
+                    if (CustomFinderParameters != null)
+                    {
+                        //New Code(07082024)
+                        builder.AddAttribute(3, "ReportID", CustomFinderParameters.ReportID);
+                        builder.AddAttribute(4, "Query", CustomFinderParameters.Query);
+                        builder.AddAttribute(5, "CodeColumn", CustomFinderParameters.CodeColumn);
+                        builder.AddAttribute(6, "NameColumn", CustomFinderParameters.NameColumn);
+                        builder.AddAttribute(7, "WhereClause", CustomFinderParameters.WhereClause);
+                        builder.AddAttribute(8, "strCurrCode", CustomFinderParameters.strCurrCode);
+                        builder.AddAttribute(9, "strOrderByColumns", CustomFinderParameters.strOrderByColumns);
+                        builder.AddAttribute(10, "isShowSelectForm", CustomFinderParameters.isShowSelectForm);
+                        builder.AddAttribute(11, "strFormName", CustomFinderParameters.strFormName);
+                        builder.AddAttribute(12, "DateColumn", CustomFinderParameters.DateColumn);
+                        builder.AddAttribute(13, "IsMultiSelect", IsMultiSelectFinder);
+                        builder.AddAttribute(14, "dt", CustomFinderParameters.dt);
+                        builder.AddAttribute(15, "GetPaginatedDataMethod", CustomFinderParameters.GetPaginatedDataMethod);
+                        builder.AddAttribute(16, "Items", CustomFinderParameters.Items);
+                        builder.AddAttribute(17, "IsCustomFinder", CustomFinderParameters.IsCustomFinder);
+                    }
+                    else
+                    {
+                        //New Code(07082024)
+                        builder.AddAttribute(3, "IsFinder", true);
+                        builder.AddAttribute(4, "IsMultiSelect", IsMultiSelectFinder);
+                        builder.AddAttribute(5, "IsCustomFinder", IsCustomFinder);
+                    }
+
+                    builder.CloseComponent();
+                };
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            
         }
         public void OnFinderDataChanged(IFinderData selectedData)
         {
@@ -205,6 +219,6 @@ namespace BlazorPWA.Client.Pages
             //HidePage = true;
             OnSelectedRowsChanged?.Invoke(this.SelectedItems);
         }
-        
+
     }
 }

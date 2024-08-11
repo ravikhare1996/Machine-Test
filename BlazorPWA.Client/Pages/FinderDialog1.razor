@@ -1,4 +1,4 @@
-﻿@page "/FinderDialog"
+﻿@page "/FinderDialog1"
 @inherits XSListPage<IFinderData>
 @*
 @using BlazorPWA.Shared.Models
@@ -13,21 +13,55 @@
     <h1>@Header</h1>
     <br />
 }
+@if (Loaded)
+{
+    @if (FinderPage != null && FinderUrl != null)
+    {        
+        if (IsCustomFinder)
+        {
+            if (CustomFinderParameters != null)
+            {
+                CustomFinderParameters.IsCustomFinder = IsCustomFinder;
+                <div>
+                    @FinderComponentRenderer(FinderUrl)
+                </div>
+            }
+        }
+        else
+        {
+            <div>
+                @FinderComponentRenderer(FinderUrl)
+            </div>
+        }        
+    }
+    else
+    {
+        FinderPage = typeof(XSCustomFinderViewer1);
+        FinderUrl = "/XSFinderViewer1";
+        CustomFinderParameters = new XSCustomFinderParameters();
+        if (DataSource != null)
+        {
+            CustomFinderParameters.dt = DataSource;
+        }
+        else if (GetPaginatedDataAsync != null)
+        {
+            CustomFinderParameters.GetPaginatedDataMethod = GetPaginatedDataAsync;
+        }
+        else if (Items != null)
+        {
+            CustomFinderParameters.Items = Items;
+        }
+        CustomFinderParameters.IsCustomFinder = IsCustomFinder;
+        <div>
+            @FinderComponentRenderer(FinderUrl)
+        </div>
 
-@if (FinderPage != null && FinderUrl != null)
-{
-    <div>
-        @FinderComponentRenderer(FinderUrl)        
-    </div>       
-}
-else
-{
-    @if (!Loaded)
+        @* @if (!Loaded)
     {
         <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
     }
     else
-    {        
+    {
         <MudTable ServerData="@(new Func<TableState, Task<TableData<IFinderData>>>(ServerReload))"
                   Dense="true" Hover="true" @ref="mTable" SelectOnRowClick="true">
             <ToolBarContent>
@@ -49,21 +83,16 @@ else
                 <LoadingContent>
                     <MudText>Loading...</MudText>
                 </LoadingContent>
-
-                @*             <PagerContent>
-    <MudTablePager PageSizeOptions="new int[] { 5, 10, 25, 50, 100, int.MaxValue }" />
-    </PagerContent> *@
-                
             </MudTable>
-
+    } *@
     }
-    
 }
+
 @* <div class="dialog-actions">
     @if (IsMultiSelectFinder)
     {
         <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => OnOKClick())">OK</MudButton>
-    }    
+    }
 </div>
  *@
 @code {
@@ -73,7 +102,7 @@ else
     {
         await Task.Run(() =>
         {
-            if (IsMultiSelectFinder==false)
+            if (IsMultiSelectFinder == false)
             {
                 SelectedData = this.SelectedFinderData;
                 HidePage = true;
@@ -93,7 +122,7 @@ else
         await Task.Run(() =>
         {
             HidePage = true;
-            
+
         });
     }
 }
@@ -102,7 +131,7 @@ else
     .dialog-actions {
         display: flex;
         justify-content: center;
-        position:center;
+        position: center;
         text-align: center;
     }
 </style>

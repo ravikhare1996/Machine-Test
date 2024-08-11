@@ -17,7 +17,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
         private bool success;
         private XSTextBox<string?>? txtRemarks;
         private XSTextBox<string?>? txtComments;
-        private XSFinder<FinderData?>? txtVendor;
+        private XSFinder1<FinderData?>? txtVendor;
         private FinderData? _POVCodeValue;
         private XSTextBox<string?>? txtPOCode;
         private XSDatePicker? dtpPODate;
@@ -26,7 +26,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
         private XSImage<IBrowserFile?>? pcbPhoto;
         private IXSUploadedFile? _UploadedfilePhoto;
         private string _ImageSrcfilePhoto = string.Empty;
-        private XSMultiSelectFinder<CustomFinderData?>? XpertMultiSelctFinder;
+        private XSMultiSelectFinder1<CustomFinderData?>? XpertMultiSelctFinder;
         private List<CustomFinderData>? _POItemListValue;
         private XSDataGrid<clsPO_ItemVM>? gv1;
 
@@ -181,7 +181,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
 
         private async Task<IEnumerable<FinderData>> SearchPOVCode(string value)
         {
-            await Task.Delay(5);
+            //await Task.Delay(5);
             POVCodeList = await Manager.GetPOVCodeList(Model);
             POVCodeValue = POVCodeList.FirstOrDefault(val => val.Code == Model.POVCode);
             if (string.IsNullOrEmpty(value))
@@ -204,7 +204,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
         {
             string strList = string.Empty;
             try
-            {
+            {                
                 if (XpertMultiSelctFinder == null || POItemListValue == null)
                 {
                     return strList;
@@ -220,6 +220,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
                         strList = strList + "," + item.Code + "-" + item.Name;
                     }
                 }
+
                 return strList;
             }
             catch (Exception)
@@ -228,20 +229,24 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             }
         }
 
-        private void SetSelectedValuesPOItemList(EventArgs e)
+        private async Task  SetSelectedValuesPOItemList(EventArgs e)
         {
             try
             {
-                if (XpertMultiSelctFinder?.SelectedValues == null)
+                await Task.Run(() => 
                 {
-                    return;
-                }
-                POItemListValue = XpertMultiSelctFinder?.SelectedValues?.Cast<CustomFinderData>().ToList();
-                Model.POItemList = new List<clsFinderItemsVM>();
-                foreach (var item in POItemListValue)
-                {
-                    Model.POItemList.Add(new clsFinderItemsVM() { ParentID = Model.ID, RowNo = POItemListValue.ToList().IndexOf(item) + 1, Code = item.Code, Name = item.Name });
-                }
+                    if (XpertMultiSelctFinder?.SelectedValues == null)
+                    {
+                        return;
+                    }
+                    POItemListValue = XpertMultiSelctFinder?.SelectedValues?.Cast<CustomFinderData>().ToList();
+                    Model.POItemList = new List<clsFinderItemsVM>();
+                    foreach (var item in POItemListValue)
+                    {
+                        Model.POItemList.Add(new clsFinderItemsVM() { ParentID = Model.ID, RowNo = POItemListValue.ToList().IndexOf(item) + 1, Code = item.Code, Name = item.Name });
+                    }
+                });
+                
             }
             catch (Exception)
             {
@@ -260,7 +265,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
                     {
                         return;
                     }
-                    XpertMultiSelctFinder.CustomFinderParameters = new XSCustomFinderParameters() { ReportID = "POItemList", Query = "Select ICode, IName from tspl_item_Master", CodeColumn = "ICode", NameColumn = "IName" };
+                    XpertMultiSelctFinder.CustomFinderParameters = new XSCustomFinderParameters() { ReportID = "POItemList", Query = "Select ICode, IName from tspl_item_Master", CodeColumn = "ICode", NameColumn = "IName",IsCustomFinder=true };
                 });
             }
             catch (Exception ex)

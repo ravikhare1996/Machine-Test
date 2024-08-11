@@ -1,4 +1,4 @@
-﻿@using  XpertStudio.Common.Data
+﻿@using XpertStudio.Common.Data
 
 @inherits MudBaseInput<T>
 
@@ -23,8 +23,7 @@
                           OnKeyUp="@this.OnInputKeyUp" autocomplete=@("mud-disabled-"+Guid.NewGuid()) KeyUpPreventDefault="KeyUpPreventDefault"
                           Placeholder="@Placeholder" Immediate="true"
                           InputMode="@InputMode" Pattern="@Pattern"
-                          T="string" 
-                          @onclick="ValidateParameters" />
+                          T="string" @onclick="ValidateParameters" />
 
                 @if (ShowProgressIndicator && IsLoading)
                 {
@@ -47,9 +46,11 @@
                     }
                     else if (FinderPage != null && FinderUrl != null)
                     {
+                        <FinderDialog1 @ref=objFinderDialog IsMultiSelectFinder="@IsMultiSelectFinder" FinderPage="FinderPage" FinderUrl="FinderUrl" OnSelectedDataChanged="OnFinderDataChanged" OnSelectedRowsChanged="OnFinderSelectedRowsChanged" />
                         //New Code(07082024)
                         if (objFinderDialog != null)
                         {
+                            objFinderDialog.IsCustomFinder = IsCustomFinder;
                             if (IsMultiSelectFinder)
                             {
                                 objFinderDialog.SelectedItems = SelectedValues?.Cast<IFinderData>().ToList();
@@ -57,39 +58,68 @@
                             else
                             {
                                 objFinderDialog.SelectedFinderData = SelectedData;
-                            }
-                        }
-                        if (IsCustomFinder == false)
-                        {
-                            <FinderDialog1 @ref=objFinderDialog IsMultiSelectFinder="@IsMultiSelectFinder" FinderPage="FinderPage" FinderUrl="FinderUrl" OnSelectedDataChanged="OnFinderDataChanged" OnSelectedRowsChanged="OnFinderSelectedRowsChanged" />
-                        }
-                        else
-                        {
-                            <FinderDialog1 @ref=objFinderDialog IsMultiSelectFinder="@IsMultiSelectFinder" FinderPage="FinderPage" FinderUrl="FinderUrl" OnSelectedDataChanged="OnFinderDataChanged" OnSelectedRowsChanged="OnFinderSelectedRowsChanged" />
-                        }                        
+                            }                            
+                        }                                                
                     }
-                    else if (GetPaginatedDataMethod!=null)
+                    else if (GetPaginatedDataMethod != null)
                     {
+                        //New Code(07082024)
+                        if (objFinderDialog != null)
+                        {
+                            objFinderDialog.IsCustomFinder = IsCustomFinder;
+                            if (IsMultiSelectFinder)
+                            {
+                                objFinderDialog.SelectedItems = SelectedValues?.Cast<IFinderData>().ToList();
+                            }
+                            else
+                            {
+                                objFinderDialog.SelectedFinderData = SelectedData;
+                            }                            
+                        }
                         <FinderDialog1 @ref=objFinderDialog IsMultiSelectFinder="@IsMultiSelectFinder" GetPaginatedDataAsync="GetPaginatedDataMethod" TotalItems="TotalRows" OnSelectedDataChanged="OnFinderDataChanged" OnSelectedRowsChanged="OnFinderSelectedRowsChanged" />
                     }
                     else if (DataSource != null)
                     {
+                        //New Code(07082024)
+                        if (objFinderDialog != null)
+                        {
+                            objFinderDialog.IsCustomFinder = IsCustomFinder;
+                            if (IsMultiSelectFinder)
+                            {
+                                objFinderDialog.SelectedItems = SelectedValues?.Cast<IFinderData>().ToList();
+                            }
+                            else
+                            {
+                                objFinderDialog.SelectedFinderData = SelectedData;
+                            }                            
+                        }
                         <FinderDialog1 @ref=objFinderDialog IsMultiSelectFinder="@IsMultiSelectFinder" DataSource="DataSource" OnSelectedDataChanged="OnFinderDataChanged" OnSelectedRowsChanged="OnFinderSelectedRowsChanged" SelectedData="SelectedData" />
                     }
                     else if (_items != null && _items.Length != 0)
                     {
+                        //New Code(07082024)
+                        if (objFinderDialog != null)
+                        {
+                            objFinderDialog.IsCustomFinder = IsCustomFinder;
+                            if (IsMultiSelectFinder)
+                            {
+                                objFinderDialog.SelectedItems = SelectedValues?.Cast<IFinderData>().ToList();
+                            }
+                            else
+                            {
+                                objFinderDialog.SelectedFinderData = SelectedData;
+                            }                            
+                        }
                         @if (BeforeItemsTemplate != null)
                         {
                             <div class="pa-1">
                                 @BeforeItemsTemplate
                             </div>
                         }
-
                         <FinderDialog1 @ref=objFinderDialog IsMultiSelectFinder="@IsMultiSelectFinder" Items="(IEnumerable<IFinderData>)_items.ToList()" OnSelectedDataChanged="OnFinderDataChanged" OnSelectedRowsChanged="OnFinderSelectedRowsChanged" SelectedData="SelectedData" />
-                        
                     }
-                    
-                    
+
+
                     else if (NoItemsTemplate != null)
                     {
                         @if (BeforeItemsTemplate != null)

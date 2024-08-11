@@ -23,7 +23,7 @@ using MudBlazor.XS.Common;
 namespace BlazorPWA.Client.Pages
 {
 #nullable enable
-    public partial class XSFinder1<T> : MudBaseInput<T>, IXSCommonInput<T>,IXpertEntryBase, IDisposable
+    public partial class XSFinder1<T> : MudBaseInput<T>, IXSCommonInput<T>, IXpertEntryBase, IDisposable
     {
         /// <summary>
         /// We need a random id for the year items in the year list so we can scroll to the item safely in every DatePicker.
@@ -104,7 +104,7 @@ namespace BlazorPWA.Client.Pages
             if (ValidatingParameters.HasDelegate)
             {
                 await ValidatingParameters.InvokeAsync(e);
-            }            
+            }
         }
         private FinderDialog1? objFinderDialog;
         protected string Classname =>
@@ -214,7 +214,7 @@ namespace BlazorPWA.Client.Pages
             {
                 if (_toStringFunc == value)
                     return;
-                _toStringFunc = value;                
+                _toStringFunc = value;
                 Converter = new Converter<T>
                 {
                     SetFunc = _toStringFunc ?? (x => x?.ToString()),
@@ -337,7 +337,7 @@ namespace BlazorPWA.Client.Pages
         /// </summary>
         [Parameter]
         [Category(CategoryTypes.FormComponent.ListBehavior)]
-        public RenderFragment?  BeforeItemsTemplate { get; set; }
+        public RenderFragment? BeforeItemsTemplate { get; set; }
 
         /// <summary>
         /// Optional presentation template that is always shown at the bottom of the list
@@ -432,7 +432,7 @@ namespace BlazorPWA.Client.Pages
         private string CurrentIcon => !string.IsNullOrWhiteSpace(AdornmentIcon) ? AdornmentIcon : _isOpen ? CloseIcon : OpenIcon;
 
         public XSFinder1()
-        {                       
+        {
             Adornment = Adornment.End;
             IconSize = Size.Medium;
             if (SelectedData == null)
@@ -440,7 +440,7 @@ namespace BlazorPWA.Client.Pages
                 SelectedData = new FinderData();
             }
             //New Code(07082024)
-            if (objFinderDialog!=null)
+            if (objFinderDialog != null)
             {
                 if (IsMultiSelectFinder)
                 {
@@ -481,7 +481,7 @@ namespace BlazorPWA.Client.Pages
         }
         public async Task SelectMultiOption(List<T>? values)
         {
-            if (values==null)
+            if (values == null)
             {
                 return;
             }
@@ -493,12 +493,12 @@ namespace BlazorPWA.Client.Pages
                     //set first item so that Value property can be updated and validated
                     await SetValueAsync(values.FirstOrDefault());
                 }
-                
-                SelectedValues = values;                
-                await SelectedRowsChanged.InvokeAsync();                
+
+                SelectedValues = values;
+                await SelectedRowsChanged.InvokeAsync();
                 if (_items != null)
                     _selectedListItemIndex = Array.IndexOf(_items, values);
-                var optionText = XpertCommonFunctions.GetMulcallStringWithComma(values?.Cast<IFinderData>().Select(x=>x.Code+"-"+ x.Name).ToList());
+                var optionText = XpertCommonFunctions.GetMulcallStringWithComma(values?.Cast<IFinderData>().Select(x => x.Code + "-" + x.Name).ToList());
                 if (!_isCleared)
                     await SetTextAsync(optionText, false);
                 _timer?.Dispose();
@@ -570,12 +570,12 @@ namespace BlazorPWA.Client.Pages
 
         protected override void OnInitialized()
         {
-            if (Value!=null)
+            if (Value != null)
             {
                 var text = GetItemString(Value);
                 if (!string.IsNullOrWhiteSpace(text))
                     Text = text;
-            }           
+            }
         }
 
         protected override void OnAfterRender(bool firstRender)
@@ -607,23 +607,23 @@ namespace BlazorPWA.Client.Pages
         protected override async Task UpdateValuePropertyAsync(bool updateText)
         {
             _timer?.Dispose();
-            
+
             if (ResetValueOnEmptyText && string.IsNullOrWhiteSpace(Text))
             {
                 await SetValueAsync(default(T), updateText);
             }
-                
+
             if (DebounceInterval <= 0)
                 await OnSearchAsync();
             else
             {
                 _timer = new Timer(OnTimerComplete, null, DebounceInterval, Timeout.Infinite);
             }
-                
+
         }
         protected override async Task SetValueAsync(T? value, bool updateText = true, bool force = false)
         {
-            if (value!=null)
+            if (value != null)
             {
                 await base.SetValueAsync(value, updateText, force);
             }
@@ -649,7 +649,7 @@ namespace BlazorPWA.Client.Pages
         /// </remarks>
         private async Task OnSearchAsync()
         {
-            
+
             if (MinCharacters > 0 && (string.IsNullOrWhiteSpace(Text) || Text.Length < MinCharacters))
             {
                 IsOpen = false;
@@ -667,23 +667,23 @@ namespace BlazorPWA.Client.Pages
                 {
                     IsOpen = true;
                 }
-                
+
                 searchingWhileSelected = !Strict && Value != null && (Value.ToString() == Text || (ToStringFunc != null && ToStringFunc(Value) == Text)); //search while selected if enabled and the Text is equivalent to the Value
                 var searchText = searchingWhileSelected ? string.Empty : Text;
 
                 var searchTask = SearchFuncWithCancel != null ?
                     SearchFuncWithCancel(searchText, _cancellationTokenSrc?.Token) :
-                   (SearchFunc!=null? SearchFunc(searchText):null);
+                   (SearchFunc != null ? SearchFunc(searchText) : null);
 
                 _currentSearchTask = searchTask;
 
                 StateHasChanged();
-                if (searchTask!=null)
+                if (searchTask != null)
                 {
                     var searchItems = await searchTask ?? Enumerable.Empty<T>();
                     searchedItems = searchItems.ToArray();
                 }
-                
+
             }
             catch (TaskCanceledException)
             {
@@ -807,12 +807,12 @@ namespace BlazorPWA.Client.Pages
                     }
                     else
                     {
-                        if (_enabledItemIndices!=null)
+                        if (_enabledItemIndices != null)
                         {
                             var increment = _enabledItemIndices.ElementAtOrDefault(_enabledItemIndices.IndexOf(_selectedListItemIndex) + 1) - _selectedListItemIndex;
                             await SelectNextItem(increment < 0 ? 1 : increment);
                         }
-                        
+
                     }
                     break;
                 case "ArrowUp":
@@ -826,11 +826,11 @@ namespace BlazorPWA.Client.Pages
                     }
                     else
                     {
-                        if (_enabledItemIndices!=null)
+                        if (_enabledItemIndices != null)
                         {
                             var decrement = _selectedListItemIndex - _enabledItemIndices.ElementAtOrDefault(_enabledItemIndices.IndexOf(_selectedListItemIndex) - 1);
                             await SelectNextItem(-(decrement < 0 ? 1 : decrement));
-                        }                        
+                        }
                     }
                     break;
                 case "Escape":
@@ -857,7 +857,7 @@ namespace BlazorPWA.Client.Pages
 
         private ValueTask SelectNextItem(int increment)
         {
-            if (_enabledItemIndices!=null)
+            if (_enabledItemIndices != null)
             {
                 if (increment == 0 || _items == null || _items.Length == 0 || !_enabledItemIndices.Any())
                     return ValueTask.CompletedTask;
@@ -867,7 +867,7 @@ namespace BlazorPWA.Client.Pages
                 if (increment == 0 || _items == null || _items.Length == 0)
                     return ValueTask.CompletedTask;
             }
-            
+
             // if we are at the end, or the beginning we just do an rollover
             _selectedListItemIndex = Math.Clamp(value: (10 * _items.Length + _selectedListItemIndex + increment) % _items.Length, min: 0, max: _items.Length - 1);
             return ScrollToListItem(_selectedListItemIndex);
@@ -891,7 +891,7 @@ namespace BlazorPWA.Client.Pages
         {
             var id = GetListItemId(index);
             //id of the scrolled element
-            if (ScrollManager!=null)
+            if (ScrollManager != null)
             {
                 return ScrollManager.ScrollToListItemAsync(id);
             }
@@ -905,7 +905,7 @@ namespace BlazorPWA.Client.Pages
         private ValueTask RestoreScrollPositionAsync()
         {
             if (_selectedListItemIndex != 0) return ValueTask.CompletedTask;
-            if (ScrollManager!=null)
+            if (ScrollManager != null)
             {
                 return ScrollManager.ScrollToListItemAsync(GetListItemId(0));
             }
@@ -913,7 +913,7 @@ namespace BlazorPWA.Client.Pages
             {
                 return ValueTask.CompletedTask;
             }
-           
+
         }
 
         private string GetListItemId(in int index)
@@ -970,8 +970,8 @@ namespace BlazorPWA.Client.Pages
             _timer?.Dispose();
             var value = Converter.Get(Text);
             if (value != null)
-            return SetValueAsync(value, updateText: false);
-            else    
+                return SetValueAsync(value, updateText: false);
+            else
                 return Task.CompletedTask;
         }
 
@@ -996,14 +996,14 @@ namespace BlazorPWA.Client.Pages
         /// </summary>
         public override ValueTask FocusAsync()
         {
-            if (_elementReference!=null)
+            if (_elementReference != null)
             {
                 return _elementReference.FocusAsync();
             }
             else
             {
                 return base.FocusAsync();
-            }            
+            }
         }
 
         /// <summary>
@@ -1011,7 +1011,7 @@ namespace BlazorPWA.Client.Pages
         /// </summary>
         public override ValueTask BlurAsync()
         {
-            if (_elementReference!=null)
+            if (_elementReference != null)
             {
                 return _elementReference.BlurAsync();
             }
@@ -1019,7 +1019,7 @@ namespace BlazorPWA.Client.Pages
             {
                 return base.BlurAsync();
             }
-            
+
         }
 
         /// <summary>
@@ -1027,7 +1027,7 @@ namespace BlazorPWA.Client.Pages
         /// </summary>
         public override ValueTask SelectAsync()
         {
-            if (_elementReference!=null)
+            if (_elementReference != null)
             {
                 return _elementReference.SelectAsync();
             }
@@ -1042,15 +1042,15 @@ namespace BlazorPWA.Client.Pages
         /// </summary>
         public override ValueTask SelectRangeAsync(int pos1, int pos2)
         {
-            if (_elementReference!=null)
+            if (_elementReference != null)
             {
                 return _elementReference.SelectRangeAsync(pos1, pos2);
             }
             else
             {
-                return base.SelectRangeAsync(pos1,pos2);
+                return base.SelectRangeAsync(pos1, pos2);
             }
-            
+
         }
 
         private async Task OnTextChanged(string text)
@@ -1066,7 +1066,7 @@ namespace BlazorPWA.Client.Pages
 
         public async void OnFinderDataChanged(IFinderData selectedData)
         {
-            if (selectedData!=null)
+            if (selectedData != null)
             {
                 // Do something with the new data
                 SelectedData = selectedData;
@@ -1081,26 +1081,26 @@ namespace BlazorPWA.Client.Pages
         {
 
             // Do something with the new data
-            //SelectedValues = (IEnumerable<T>?)selectedRows;
+            //SelectedItems = selectedRows;
             await SelectMultiOption(selectedRows?.Cast<T>().ToList());
-           // await SelectOption((T)selectedRows?.FirstOrDefault());
+            // await SelectOption((T)selectedRows?.FirstOrDefault());
             //IsOpen = false;
             //SelectedDataChanged(this.SelectedData);
         }
         private T? _Value;
         public new T? Value
         {
-            get 
+            get
             {
                 return _Value;
             }
             set
             {
                 _Value = value;
-                if (_Value!=null)
+                if (_Value != null)
                 {
                     SetValueAsync(_Value).AndForget();
-                }                
+                }
                 //Value = _Text;
                 ForceUpdate().AndForget();
             }
@@ -1108,7 +1108,7 @@ namespace BlazorPWA.Client.Pages
         private List<T>? _selectedValues = new List<T>();
         [Parameter]
         [Category(CategoryTypes.FormComponent.Data)]
-        public IEnumerable<T>? SelectedValues 
+        public IEnumerable<T>? SelectedValues
         {
             get
             {
@@ -1129,14 +1129,14 @@ namespace BlazorPWA.Client.Pages
                 //SelectionChangedFromOutside?.Invoke(_selectedValues);
                 if (!IsMultiSelectFinder)
                 {
-                    if (_selectedValues!=null && _selectedValues.First()!=null)
+                    if (_selectedValues != null && _selectedValues.First() != null)
                     {
                         SetValueAsync(_selectedValues.First()).AndForget();
-                    }                    
+                    }
                 }
-                   
+
                 else
-                {                    
+                {
                     SetTextAsync(string.Join("-", _selectedValues.Select(x => Converter.Set(x))), updateValue: false).AndForget();
                 }
                 //SelectedValuesChanged.InvokeAsync(new HashSet<T>(SelectedValues, _comparer));
