@@ -19,7 +19,6 @@ using MachineTest.Services.Interfaces;
 using common.OFM;
 using XpertStudio.Common.Data;
 using DynamicExpresso;
-using Microsoft.Data.SqlClient;
 
 namespace MachineTest.Services.DomainRepositories
 {
@@ -136,13 +135,13 @@ namespace MachineTest.Services.DomainRepositories
                 using (var context = GetDbContextDomain())
                 {
                     var results = await context.Set<clsPurchaseOrder>()
-                    .Where(p => p.ID == Doc_No)
+                   .Where(p => p.ID == Doc_No)
                     .Include(b0 => b0.POItemList)
                     .Include(b1 => b1.PO_Items)
-                    .ToListAsync();
+                   .ToListAsync();
                     foreach (var item in results.FirstOrDefault().PO_Items)
                     {
-                        item.ItemName =XpertCommonFunctions.myCstr(XSDBFunctionality.getSingleValue("select IName from TSPL_ITEM_MASTER where ICode='"+ item.POICode +"'"));
+                        item.ItemName = XpertCommonFunctions.myCstr(XSDBFunctionality.getSingleValue("select IName from TSPL_ITEM_MASTER where ICode='" + item.POICode + "'"));
                     }
                     return results.FirstOrDefault();
                 }
@@ -152,89 +151,6 @@ namespace MachineTest.Services.DomainRepositories
                 throw;
             }
         }
-
-        public async Task<clsPurchaseOrder> GetDataAsync2(string Doc_No)
-        {
-            if (string.IsNullOrEmpty(Doc_No))
-            {
-                return null;
-            }
-
-            using (var context = GetDbContextDomain())
-            {
-                var result = await context.Set<clsPurchaseOrder>()
-                    .Where(p => p.ID == Doc_No)
-                    .Include(b0 => b0.POItemList)
-                    .Include(b1 => b1.PO_Items)
-                    .Select(po => new clsPurchaseOrder
-                    {
-                        // Map properties of clsPurchaseOrder
-                        ID = po.ID,
-                        POItemList = po.POItemList,
-                        PO_Items = po.PO_Items.Select(item => new clsPO_Item
-                        {
-                            RowNo = item.RowNo,
-                            POICode = item.POICode,
-                            ItemName = context.Set<clsItemMaster>()
-                             .Where(im => im.ID == item.POICode)
-                             .Select(im => im.Description)
-                             .FirstOrDefault(),
-                            POIAmt = item.POIAmt,
-                            POIQty = item.POIQty,
-                            POIRate = item.POIRate,
-                            ParentID = item.ParentID,
-                            POIUOM = item.POIUOM,
-                            TotalQty = item.TotalQty,
-                        }).ToList()
-                    })
-                    .FirstOrDefaultAsync();
-
-                return result;
-            }
-        }
-        public async Task<clsPurchaseOrder> GetDataAsync3(string Doc_No)
-        {
-            if (string.IsNullOrEmpty(Doc_No))
-            {
-                return null;
-            }
-
-            using (var context = GetDbContextDomain())
-            {
-                var query = @"
-            SELECT po.*, p.POISNo, p.POICode, p.POIQty, p.POIRate, p.POIAmt, p.POIUOM, 
-            im.IName as ItemName 
-            FROM TSPL_PO po
-            INNER JOIN TSPL_PO_Item p ON po.POCode = p.POCode
-            INNER JOIN TSPL_ITEM_MASTER im ON p.POICode = im.ICode
-            WHERE po.POCode = @Doc_No";
-
-                var purchaseOrder = await context.Set<clsPurchaseOrder>()
-                    .FromSqlRaw(query, new SqlParameter("@Doc_No", Doc_No))
-                    .AsNoTracking()
-                    .FirstOrDefaultAsync();
-
-                if (purchaseOrder != null)
-                {
-                    // Manually load and map PO_Items to include ItemName
-                    var poItemsQuery = @"
-                SELECT p.POCode,p.POISNo, p.POICode, p.POIQty, p.POIRate, p.POIAmt, p.POIUOM, 
-                im.IName as ItemName 
-                FROM TSPL_PO_Item p
-                INNER JOIN TSPL_ITEM_MASTER im ON p.POICode = im.ICode
-                WHERE p.POCode = @Doc_No";
-
-                    var poItems = await context.Set<clsPO_Item>()
-                        .FromSqlRaw(poItemsQuery, new SqlParameter("@Doc_No", Doc_No))
-                        .ToListAsync();
-
-                    purchaseOrder.PO_Items = poItems;
-                }
-
-                return purchaseOrder;
-            }
-        }
-
 
         public async Task<IEnumerable<clsPurchaseOrder>> GetAllAsync(int start, int pageSize, string SearchString = "", string OrderBy = "")
         {

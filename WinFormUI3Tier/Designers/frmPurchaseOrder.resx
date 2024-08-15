@@ -120,7 +120,7 @@
   <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="xpertGridViewDecimalColumn1.XpertBindingSource" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="xpertGridViewDecimalColumn11.XpertBindingSource" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAEZYUy5XaW5Gb3Jtcy5Db250cm9scywgQ3VsdHVyZT1uZXV0cmFs
         LCBQdWJsaWNLZXlUb2tlbj0wYmU4MmQ5YjMxNTY4ZmFlDAMAAABEWHBlcnRTdHVkaW8uQ29tbW9uLCBD
@@ -175,7 +175,7 @@
         AwAAABEKAAAAAAAAAAs=
 </value>
   </data>
-  <data name="xpertGridViewLabelColumn1.XpertBindingSource" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="xpertGridViewLabelColumn5.XpertBindingSource" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAEZYUy5XaW5Gb3Jtcy5Db250cm9scywgQ3VsdHVyZT1uZXV0cmFs
         LCBQdWJsaWNLZXlUb2tlbj0wYmU4MmQ5YjMxNTY4ZmFlDAMAAABEWHBlcnRTdHVkaW8uQ29tbW9uLCBD
@@ -230,7 +230,7 @@
         AwAAABEKAAAAAAAAAAs=
 </value>
   </data>
-  <data name="xpertGridViewLabelColumn2.XpertBindingSource" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="xpertGridViewLabelColumn6.XpertBindingSource" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAEZYUy5XaW5Gb3Jtcy5Db250cm9scywgQ3VsdHVyZT1uZXV0cmFs
         LCBQdWJsaWNLZXlUb2tlbj0wYmU4MmQ5YjMxNTY4ZmFlDAMAAABEWHBlcnRTdHVkaW8uQ29tbW9uLCBD
@@ -285,7 +285,7 @@
         AwAAABEKAAAAAAAAAAs=
 </value>
   </data>
-  <data name="xpertGridViewDecimalColumn2.XpertBindingSource" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="xpertGridViewDecimalColumn12.XpertBindingSource" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAEZYUy5XaW5Gb3Jtcy5Db250cm9scywgQ3VsdHVyZT1uZXV0cmFs
         LCBQdWJsaWNLZXlUb2tlbj0wYmU4MmQ5YjMxNTY4ZmFlDAMAAABEWHBlcnRTdHVkaW8uQ29tbW9uLCBD
@@ -340,7 +340,7 @@
         AwAAABEKAAAAAAAAAAs=
 </value>
   </data>
-  <data name="xpertGridViewDecimalColumn3.XpertBindingSource" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="xpertGridViewDecimalColumn13.XpertBindingSource" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAEZYUy5XaW5Gb3Jtcy5Db250cm9scywgQ3VsdHVyZT1uZXV0cmFs
         LCBQdWJsaWNLZXlUb2tlbj0wYmU4MmQ5YjMxNTY4ZmFlDAMAAABEWHBlcnRTdHVkaW8uQ29tbW9uLCBD
@@ -395,7 +395,7 @@
         AwAAABEKAAAAAAAAAAs=
 </value>
   </data>
-  <data name="xpertGridViewDecimalColumn4.XpertBindingSource" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="xpertGridViewDecimalColumn14.XpertBindingSource" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAEZYUy5XaW5Gb3Jtcy5Db250cm9scywgQ3VsdHVyZT1uZXV0cmFs
         LCBQdWJsaWNLZXlUb2tlbj0wYmU4MmQ5YjMxNTY4ZmFlDAMAAABEWHBlcnRTdHVkaW8uQ29tbW9uLCBD
@@ -450,7 +450,7 @@
         AwAAABEKAAAAAAAAAAs=
 </value>
   </data>
-  <data name="xpertGridViewDecimalColumn5.XpertBindingSource" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="xpertGridViewDecimalColumn15.XpertBindingSource" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAEZYUy5XaW5Gb3Jtcy5Db250cm9scywgQ3VsdHVyZT1uZXV0cmFs
         LCBQdWJsaWNLZXlUb2tlbj0wYmU4MmQ5YjMxNTY4ZmFlDAMAAABEWHBlcnRTdHVkaW8uQ29tbW9uLCBD
@@ -512,7 +512,7 @@
     <value>False</value>
   </metadata>
   <metadata name="$this.CodeGenerated" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
+    <value>True</value>
   </metadata>
   <data name="resource.Assemblies" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>

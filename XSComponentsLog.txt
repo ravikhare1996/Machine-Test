@@ -729,3 +729,6 @@ XpertStudio.Framework.Exceptions.XSException: The solution directory does not ap
 2024-08-14 11:47:32.889 +05:30 [INF] Metadata Extraction Started at:14-Aug-24 11:47:32 AM
 2024-08-14 11:47:48.486 +05:30 [INF] Metadata Extraction Started at:14-Aug-24 11:47:48 AM
 2024-08-14 11:47:49.378 +05:30 [INF] Metadata Extraction completed at:14-Aug-24 11:47:49 AM
+2024-08-15 21:00:23.391 +05:30 [INF] Logger Intialized at:15-Aug-24 9:00:23 PM
+2024-08-15 21:00:31.456 +05:30 [INF] Metadata Extraction Started at:15-Aug-24 9:00:31 PM
+2024-08-15 21:00:32.320 +05:30 [INF] Metadata Extraction completed at:15-Aug-24 9:00:32 PM
