@@ -10,6 +10,7 @@
 @using BlazorPWA.Client.Pages.MachineTest.Transaction
 @using BlazorPWA.Shared.VMs
 @using Microsoft.JSInterop
+@using BlazorPWA.Client.Pages.MachineTest.Setup
 
 
 
@@ -92,14 +93,24 @@ AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
      <XSExpansionPanels MultiExpansion="true">
        <XSExpansionPanel IsExpanded=true HideIcon=true>
          <TitleContent>
-           <MudText Class="mt-1"><strong>xpertGroupBox1</strong></MudText>
+           <MudText Class="mt-1"><strong>Testing</strong></MudText>
          </TitleContent>
          <ChildContent>
-<XSMultiSelectFinder T="CustomFinderData" @ref="XpertMultiSelctFinder" Label="Select Item List" @bind-SelectedValues="POItemListValue"  Required="true" ReadOnly=@(ReadOnly || false)
+<XSMultiSelectFinder  T="FinderData" @ref="XpertMultiSelctFinder" FinderPage="typeof(ItemMaster)" FinderUrl="/MachineTest/Setup/ItemMaster" Label="Select Item List"  @bind-SelectedValues="POItemListValue" Required="true" ReadOnly=@(ReadOnly || false)
 Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
 AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
-@onblur="@SetSelectedValuesPOItemList" ToStringFunc="@DisplayPOItemList" 
- FinderPage="typeof(XSCustomFinderViewer)" FinderUrl=" /XSFinderViewer" IsCustomFinder="true" ValidatingParameters="GetPOItemListFinder" /> 
+@onblur="@SetSelectedValuesPOItemList" ToStringFunc="@DisplayPOItemList"  /> 
+         </ChildContent>
+       </XSExpansionPanel>
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>Options</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSRadioGroup @ref="xpertRadioButton1" @bind-Value="Model.PO_Options">
+<XSRadio T="string" Value="@("Option1")" Color="Color.Primary">Option1</XSRadio>
+<XSRadio T="string" Value="@("Option2")" Color="Color.Primary">Option2</XSRadio>
+</XSRadioGroup>
          </ChildContent>
        </XSExpansionPanel>
      </XSExpansionPanels>

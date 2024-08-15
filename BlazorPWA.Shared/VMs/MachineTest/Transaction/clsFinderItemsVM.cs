@@ -25,7 +25,7 @@ namespace BlazorPWA.Shared.VMs
         private string _ParentID;
 
         [DisplayName("Row No")]
-        [GroupName("xpertGroupBox1")]
+        [GroupName("Testing")]
         [XpertRequired]
         [Key]
         public override int RowNo
@@ -35,7 +35,7 @@ namespace BlazorPWA.Shared.VMs
         }
 
         [DisplayName("Code")]
-        [GroupName("xpertGroupBox1")]
+        [GroupName("Testing")]
         public string? Code
         {
             get { return  _Code; }
@@ -43,7 +43,7 @@ namespace BlazorPWA.Shared.VMs
         }
 
         [DisplayName("Name")]
-        [GroupName("xpertGroupBox1")]
+        [GroupName("Testing")]
         [NotMapped]
         public string? Name
         {

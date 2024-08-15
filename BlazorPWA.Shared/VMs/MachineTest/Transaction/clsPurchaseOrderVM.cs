@@ -32,6 +32,7 @@ namespace BlazorPWA.Shared.VMs
         private string? _filePhoto_FilePath;
         private string? _filePhoto_FileName;
         private string? _filePhoto_ContentType;
+        private string? _PO_Options = "False";
         private List<clsFinderItemsVM>? _POItemList;
         private List<clsPO_ItemVM>? _PO_Items;
 
@@ -156,6 +157,15 @@ namespace BlazorPWA.Shared.VMs
         {
             get { return  _filePhoto_ContentType; }
             set { _filePhoto_ContentType=value; }
+        }
+
+        [DefaultValue("False")]
+        [DisplayName("Option1")]
+        [GroupName("Options")]
+        public string? PO_Options
+        {
+            get { return  _PO_Options; }
+            set { _PO_Options=value; }
         }
 
         [ForeignKey("ParentID")]

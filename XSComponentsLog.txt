@@ -538,3 +538,194 @@ XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Object reference n
 2024-08-11 21:00:18.057 +05:30 [INF] Logger Intialized at:11-Aug-24 9:00:18 PM
 2024-08-11 21:00:22.298 +05:30 [INF] Metadata Extraction Started at:11-Aug-24 9:00:22 PM
 2024-08-11 21:00:22.856 +05:30 [INF] Metadata Extraction completed at:11-Aug-24 9:00:22 PM
+2024-08-12 13:05:57.633 +05:30 [INF] Logger Intialized at:12-Aug-24 1:05:57 PM
+2024-08-12 13:06:06.723 +05:30 [INF] Metadata Extraction Started at:12-Aug-24 1:06:06 PM
+2024-08-12 13:06:07.333 +05:30 [INF] Metadata Extraction completed at:12-Aug-24 1:06:07 PM
+2024-08-12 13:08:18.590 +05:30 [INF] Logger Intialized at:12-Aug-24 1:08:18 PM
+2024-08-12 13:12:48.868 +05:30 [INF] Metadata Extraction Started at:12-Aug-24 1:12:48 PM
+2024-08-12 13:12:49.386 +05:30 [INF] Metadata Extraction completed at:12-Aug-24 1:12:49 PM
+2024-08-12 13:13:04.055 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAGenerator.cs at line 272: Unknown Control Type!!
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Unknown Control Type!!
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Unknown Control Type!!
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Unknown Control Type!!
+ ---> System.Exception: Unknown Control Type!!
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.GenerateSectionCode(clsFormSection sec, List`1 Body, List`1 usingDirectives) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 1410
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.GetGenerator(List`1 exclusions) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 664
+   --- End of inner exception stack trace ---
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.GetGenerator(List`1 exclusions) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 968
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.<Generate>b__7_0() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 72
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.Generate() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 70
+   --- End of inner exception stack trace ---
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.Generate() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 78
+   at XpertStudio.CodeGeneration.BlazorPWAGenerator.Generate() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAGenerator.cs:line 70
+   --- End of inner exception stack trace ---
+   at XpertStudio.CodeGeneration.BlazorPWAGenerator.Generate() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAGenerator.cs:line 272
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 630
+2024-08-12 13:13:04.055 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs at line 721: Unknown Control Type!!
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Unknown Control Type!!
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Unknown Control Type!!
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Unknown Control Type!!
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Unknown Control Type!!
+ ---> System.Exception: Unknown Control Type!!
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.GenerateSectionCode(clsFormSection sec, List`1 Body, List`1 usingDirectives) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 1410
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.GetGenerator(List`1 exclusions) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 664
+   --- End of inner exception stack trace ---
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.GetGenerator(List`1 exclusions) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 968
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.<Generate>b__7_0() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 72
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.Generate() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 70
+   --- End of inner exception stack trace ---
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.Generate() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 78
+   at XpertStudio.CodeGeneration.BlazorPWAGenerator.Generate() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAGenerator.cs:line 70
+   --- End of inner exception stack trace ---
+   at XpertStudio.CodeGeneration.BlazorPWAGenerator.Generate() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAGenerator.cs:line 272
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 630
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 721
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 64
+2024-08-12 13:13:04.055 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs at line 78: Unknown Control Type!!
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Unknown Control Type!!
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Unknown Control Type!!
+ ---> System.Exception: Unknown Control Type!!
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.GenerateSectionCode(clsFormSection sec, List`1 Body, List`1 usingDirectives) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 1410
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.GetGenerator(List`1 exclusions) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 664
+   --- End of inner exception stack trace ---
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.GetGenerator(List`1 exclusions) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 968
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.<Generate>b__7_0() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 72
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.Generate() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 70
+   --- End of inner exception stack trace ---
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.Generate() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 78
+   at XpertStudio.CodeGeneration.BlazorPWAGenerator.Generate() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAGenerator.cs:line 70
+2024-08-12 13:13:04.055 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs at line 77: Unknown Control Type!!
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Unknown Control Type!!
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Unknown Control Type!!
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Unknown Control Type!!
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Unknown Control Type!!
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Unknown Control Type!!
+ ---> System.Exception: Unknown Control Type!!
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.GenerateSectionCode(clsFormSection sec, List`1 Body, List`1 usingDirectives) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 1410
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.GetGenerator(List`1 exclusions) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 664
+   --- End of inner exception stack trace ---
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.GetGenerator(List`1 exclusions) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 968
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.<Generate>b__7_0() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 72
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.Generate() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 70
+   --- End of inner exception stack trace ---
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.Generate() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 78
+   at XpertStudio.CodeGeneration.BlazorPWAGenerator.Generate() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAGenerator.cs:line 70
+   --- End of inner exception stack trace ---
+   at XpertStudio.CodeGeneration.BlazorPWAGenerator.Generate() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAGenerator.cs:line 272
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 630
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 721
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 64
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 77
+   at XpertStudio.Framework.WinFormUI.XpertBaseForm.ExecuteGenerationAsync(Boolean value, Boolean IsCodeGeneration) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\BaseForms\XpertBaseForm.cs:line 3517
+   at XpertStudio.Framework.WinFormUI.XpertBaseForm.SetCodeGeneratedAsync(Boolean value) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\BaseForms\XpertBaseForm.cs:line 3621
+2024-08-12 13:13:04.055 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs at line 968: Unknown Control Type!!
+XpertStudio.Framework.Exceptions.XSException: Unknown Control Type!!
+ ---> System.Exception: Unknown Control Type!!
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.GenerateSectionCode(clsFormSection sec, List`1 Body, List`1 usingDirectives) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 1410
+   at XpertStudio.CodeGeneration.BlazorPWAPageGeneration.GetGenerator(List`1 exclusions) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\BlazorPWAPageGeneration.cs:line 664
+   --- End of inner exception stack trace ---
+2024-08-12 17:58:23.116 +05:30 [INF] Logger Intialized at:12-Aug-24 5:58:23 PM
+2024-08-12 17:58:27.451 +05:30 [INF] Metadata Extraction Started at:12-Aug-24 5:58:27 PM
+2024-08-12 17:58:27.989 +05:30 [INF] Metadata Extraction completed at:12-Aug-24 5:58:27 PM
+2024-08-12 19:29:31.737 +05:30 [INF] Logger Intialized at:12-Aug-24 7:29:31 PM
+2024-08-12 19:29:36.591 +05:30 [INF] Metadata Extraction Started at:12-Aug-24 7:29:36 PM
+2024-08-12 19:29:37.457 +05:30 [INF] Metadata Extraction completed at:12-Aug-24 7:29:37 PM
+2024-08-12 19:33:27.608 +05:30 [INF] Logger Intialized at:12-Aug-24 7:33:27 PM
+2024-08-12 19:45:04.594 +05:30 [INF] Logger Intialized at:12-Aug-24 7:45:04 PM
+2024-08-12 19:45:10.018 +05:30 [INF] Metadata Extraction Started at:12-Aug-24 7:45:10 PM
+2024-08-12 19:45:11.052 +05:30 [INF] Metadata Extraction completed at:12-Aug-24 7:45:11 PM
+2024-08-12 19:49:19.718 +05:30 [INF] Logger Intialized at:12-Aug-24 7:49:19 PM
+2024-08-12 19:49:39.910 +05:30 [INF] Metadata Extraction Started at:12-Aug-24 7:49:39 PM
+2024-08-12 19:49:41.051 +05:30 [INF] Metadata Extraction completed at:12-Aug-24 7:49:41 PM
+2024-08-14 00:14:21.454 +05:30 [INF] Logger Intialized at:14-Aug-24 12:14:21 AM
+2024-08-14 00:14:30.898 +05:30 [INF] Metadata Extraction Started at:14-Aug-24 12:14:30 AM
+2024-08-14 00:14:30.909 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs at line 180: The file is not within the solution directory.
+XpertStudio.Framework.Exceptions.XSException: The file is not within the solution directory.
+ ---> System.InvalidOperationException: The file is not within the solution directory.
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.GetRelativePath(String solutionDir, String filePath)
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form)
+   --- End of inner exception stack trace ---
+2024-08-14 00:15:12.441 +05:30 [INF] Metadata Extraction Started at:14-Aug-24 12:15:12 AM
+2024-08-14 00:15:12.441 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs at line 180: The file is not within the solution directory.
+XpertStudio.Framework.Exceptions.XSException: The file is not within the solution directory.
+ ---> System.InvalidOperationException: The file is not within the solution directory.
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.GetRelativePath(String solutionDir, String filePath)
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form)
+   --- End of inner exception stack trace ---
+2024-08-14 09:36:10.623 +05:30 [INF] Logger Intialized at:14-Aug-24 9:36:10 AM
+2024-08-14 09:36:16.739 +05:30 [INF] Metadata Extraction Started at:14-Aug-24 9:36:16 AM
+2024-08-14 09:36:25.697 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs at line 181: The file is not within the solution directory.
+XpertStudio.Framework.Exceptions.XSException: The file is not within the solution directory.
+ ---> System.InvalidOperationException: The file is not within the solution directory.
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.GetRelativePath(String solutionDir, String filePath)
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form)
+   --- End of inner exception stack trace ---
+2024-08-14 09:36:35.857 +05:30 [INF] Metadata Extraction Started at:14-Aug-24 9:36:35 AM
+2024-08-14 09:37:21.534 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs at line 181: The file is not within the solution directory.
+XpertStudio.Framework.Exceptions.XSException: The file is not within the solution directory.
+ ---> System.InvalidOperationException: The file is not within the solution directory.
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.GetRelativePath(String solutionDir, String filePath)
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form)
+   --- End of inner exception stack trace ---
+2024-08-14 09:46:00.798 +05:30 [INF] Metadata Extraction Started at:14-Aug-24 9:46:00 AM
+2024-08-14 09:46:16.103 +05:30 [INF] Metadata Extraction Started at:14-Aug-24 9:46:16 AM
+2024-08-14 09:46:17.711 +05:30 [INF] Metadata Extraction completed at:14-Aug-24 9:46:17 AM
+2024-08-14 10:43:48.704 +05:30 [INF] Logger Intialized at:14-Aug-24 10:43:48 AM
+2024-08-14 10:43:56.904 +05:30 [INF] Metadata Extraction Started at:14-Aug-24 10:43:56 AM
+2024-08-14 10:43:57.154 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs at line 181: Form File Path-D:\Official\Machine Test\WinFormUI3Tier\Designers\frmPurchaseOrder.cs does not exists!!
+XpertStudio.Framework.Exceptions.XSException: Form File Path-D:\Official\Machine Test\WinFormUI3Tier\Designers\frmPurchaseOrder.cs does not exists!!
+ ---> System.Exception: Form File Path-D:\Official\Machine Test\WinFormUI3Tier\Designers\frmPurchaseOrder.cs does not exists!!
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form)
+   --- End of inner exception stack trace ---
+2024-08-14 10:44:16.889 +05:30 [INF] Metadata Extraction Started at:14-Aug-24 10:44:16 AM
+2024-08-14 10:44:16.904 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs at line 181: Form File Path-D:\Machine Test\WinFormUI3Tier\Designers\frmPurchaseOrder.cs does not exists!!
+XpertStudio.Framework.Exceptions.XSException: Form File Path-D:\Machine Test\WinFormUI3Tier\Designers\frmPurchaseOrder.cs does not exists!!
+ ---> System.Exception: Form File Path-D:\Machine Test\WinFormUI3Tier\Designers\frmPurchaseOrder.cs does not exists!!
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form)
+   --- End of inner exception stack trace ---
+2024-08-14 10:44:26.759 +05:30 [INF] Metadata Extraction Started at:14-Aug-24 10:44:26 AM
+2024-08-14 10:44:26.772 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs at line 181: Form File Path-D:\Machine Test\WinFormUI3Tier\Designers\frmPurchaseOrder.cs does not exists!!
+XpertStudio.Framework.Exceptions.XSException: Form File Path-D:\Machine Test\WinFormUI3Tier\Designers\frmPurchaseOrder.cs does not exists!!
+ ---> System.Exception: Form File Path-D:\Machine Test\WinFormUI3Tier\Designers\frmPurchaseOrder.cs does not exists!!
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form)
+   --- End of inner exception stack trace ---
+2024-08-14 11:32:42.978 +05:30 [INF] Logger Intialized at:14-Aug-24 11:32:42 AM
+2024-08-14 11:32:51.730 +05:30 [INF] Metadata Extraction Started at:14-Aug-24 11:32:51 AM
+2024-08-14 11:32:51.739 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs at line 181: The solution directory does not appear in the file path.
+XpertStudio.Framework.Exceptions.XSException: The solution directory does not appear in the file path.
+ ---> System.InvalidOperationException: The solution directory does not appear in the file path.
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.GetRelativePathAfterSolutionDir(String solutionDir, String fullFilePath)
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form)
+   --- End of inner exception stack trace ---
+2024-08-14 11:33:05.229 +05:30 [INF] Metadata Extraction Started at:14-Aug-24 11:33:05 AM
+2024-08-14 11:33:05.229 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs at line 181: The solution directory does not appear in the file path.
+XpertStudio.Framework.Exceptions.XSException: The solution directory does not appear in the file path.
+ ---> System.InvalidOperationException: The solution directory does not appear in the file path.
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.GetRelativePathAfterSolutionDir(String solutionDir, String fullFilePath)
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form)
+   --- End of inner exception stack trace ---
+2024-08-14 11:47:28.380 +05:30 [INF] Logger Intialized at:14-Aug-24 11:47:28 AM
+2024-08-14 11:47:32.889 +05:30 [INF] Metadata Extraction Started at:14-Aug-24 11:47:32 AM
+2024-08-14 11:47:48.486 +05:30 [INF] Metadata Extraction Started at:14-Aug-24 11:47:48 AM
+2024-08-14 11:47:49.378 +05:30 [INF] Metadata Extraction completed at:14-Aug-24 11:47:49 AM

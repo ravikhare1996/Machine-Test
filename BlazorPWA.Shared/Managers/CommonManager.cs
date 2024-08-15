@@ -160,7 +160,7 @@ namespace BlazorPWA.Shared.Managers
             {
                 // Handle exceptions
                 Console.WriteLine($"An error occurred: {ex.Message}");
-                return null;
+                throw;
             }
         }
 
@@ -169,15 +169,15 @@ namespace BlazorPWA.Shared.Managers
             try
             {
                 var value = await _httpClient.GetStringAsync(Routes.CommonDBEndPoints.getSingleValue(query));
-
-                // Deserialize the string value to the specified type
-                return JsonConvert.DeserializeObject<T>(value);
+                // Check and replace single quotes with double quotes to make it valid JSON
+                
+                return JsonConvert.DeserializeObject<T?>(value);
             }
             catch (Exception ex)
             {
                 // Handle exceptions
                 Console.WriteLine($"An error occurred: {ex.Message}");
-                return default;
+                throw;
             }
         }
         public async Task<bool> UpdateImage(string strColName, byte[] LogoImg, string strTableName, string strWhrCls)

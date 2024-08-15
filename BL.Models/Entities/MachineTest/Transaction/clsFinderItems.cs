@@ -29,7 +29,7 @@ namespace MachineTest.Domain.Entities
 
         [Column("RowNo", Order =2)]
         [DisplayName("Row No")]
-        [GroupName("xpertGroupBox1")]
+        [GroupName("Testing")]
         [XpertRequired]
         [Key]
         public override int RowNo
@@ -40,7 +40,7 @@ namespace MachineTest.Domain.Entities
 
         [Column("Code", TypeName ="VARCHAR")]
         [DisplayName("Code")]
-        [GroupName("xpertGroupBox1")]
+        [GroupName("Testing")]
         public string? Code
         {
             get { return  _Code; }
@@ -49,7 +49,7 @@ namespace MachineTest.Domain.Entities
 
         [Column("Name", TypeName ="VARCHAR")]
         [DisplayName("Name")]
-        [GroupName("xpertGroupBox1")]
+        [GroupName("Testing")]
         [NotMapped]
         public string? Name
         {

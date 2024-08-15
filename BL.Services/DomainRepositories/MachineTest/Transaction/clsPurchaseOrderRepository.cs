@@ -1,52 +1,53 @@
-using  System;
-using  System.Collections.Generic;
-using  System.ComponentModel;
-using  Microsoft.EntityFrameworkCore;
-using  System.Linq;
-using  System.Text;
-using  System.Threading.Tasks;
-using  XpertStudio.Framework.Domain;
-using  XpertStudio.Framework.Attributes;
-using  XpertStudio.UI.Repository;
-using  XpertStudio.Common.Repository;
-using  XpertStudio.Common.Database;
-using  XpertStudio.Common.Functions;
-using  System.Data;
-using  XpertStudio.Common.Enums;
-using  XpertStudio.Common.Attributes;
-using  MachineTest.Domain.Entities;
-using  MachineTest.Services.Interfaces;
-using  common.OFM;
-using  XpertStudio.Common.Data;
-using  DynamicExpresso;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using XpertStudio.Framework.Domain;
+using XpertStudio.Framework.Attributes;
+using XpertStudio.UI.Repository;
+using XpertStudio.Common.Repository;
+using XpertStudio.Common.Database;
+using XpertStudio.Common.Functions;
+using System.Data;
+using XpertStudio.Common.Enums;
+using XpertStudio.Common.Attributes;
+using MachineTest.Domain.Entities;
+using MachineTest.Services.Interfaces;
+using common.OFM;
+using XpertStudio.Common.Data;
+using DynamicExpresso;
+using Microsoft.Data.SqlClient;
 
 namespace MachineTest.Services.DomainRepositories
 {
     [Description("Domain Repository Class")]
-    [XSCodeType(Type= XSCodeType.Standard)]
+    [XSCodeType(Type = XSCodeType.Standard)]
     public partial class clsPurchaseOrderRepository : CommonRepositoryDomainBase<clsPurchaseOrder>, IclsPurchaseOrderDataProxy
     {
         public IEnumerable<clsPurchaseOrder> GetData(string Doc_No)
         {
             try
             {
-            if (Doc_No == string.Empty)
-            {
-            return new List<clsPurchaseOrder>() { new clsPurchaseOrder() }.ToArray();
-            }
-            using (var context = GetDbContextDomain()) 
-             { 
-             var results = context.Set<clsPurchaseOrder>() 
-            .Where(p => p.ID == Doc_No) 
-             .Include(b0 => b0.POItemList) 
-             .Include(b1 => b1.PO_Items) 
-            .ToArray(); 
-             return results;
-             } 
+                if (Doc_No == string.Empty)
+                {
+                    return new List<clsPurchaseOrder>() { new clsPurchaseOrder() }.ToArray();
+                }
+                using (var context = GetDbContextDomain())
+                {
+                    var results = context.Set<clsPurchaseOrder>()
+                   .Where(p => p.ID == Doc_No)
+                    .Include(b0 => b0.POItemList)
+                    .Include(b1 => b1.PO_Items)
+                   .ToArray();
+                    return results;
+                }
             }
             catch (Exception ex)
             {
-            throw;
+                throw;
             }
         }
 
@@ -54,46 +55,73 @@ namespace MachineTest.Services.DomainRepositories
         {
             try
             {
-            using (var context = GetDbContextDomain()) 
-             { 
-            var results = context.Set<clsPurchaseOrder>()
-            .OrderByDescending(o => o.ID)
-             .Include(b0 => b0.POItemList) 
-             .Include(b1 => b1.PO_Items) 
-            .Select(q => new {
-            q.ID
-            ,q.PORemarks
-            ,q.Description
-            ,q.POVCode
-            ,q.ModifiyDate
-            ,q.CreateDate
-            ,q.PODate
-            ,q.POTotAmt
-            ,q.filePhoto
-            ,q.filePhoto_FilePath
-            ,q.filePhoto_FileName
-            ,q.filePhoto_ContentType
-            }).ToArray().Select(o => new clsPurchaseOrder()
-            {
-            ID = o.ID
-            ,PORemarks = o.PORemarks
-            ,Description = o.Description
-            ,POVCode = o.POVCode
-            ,ModifiyDate = o.ModifiyDate
-            ,CreateDate = o.CreateDate
-            ,PODate = o.PODate
-            ,POTotAmt = o.POTotAmt
-            ,filePhoto = o.filePhoto
-            ,filePhoto_FilePath = o.filePhoto_FilePath
-            ,filePhoto_FileName = o.filePhoto_FileName
-            ,filePhoto_ContentType = o.filePhoto_ContentType
-            }).Skip(start).Take(pageSize);
-             return results;
-             } 
+                using (var context = GetDbContextDomain())
+                {
+                    var results = context.Set<clsPurchaseOrder>()
+                    .OrderByDescending(o => o.ID)
+                     .Include(b0 => b0.POItemList)
+                     .Include(b1 => b1.PO_Items)
+                    .Select(q => new
+                    {
+                        q.ID
+                    ,
+                        q.PORemarks
+                    ,
+                        q.Description
+                    ,
+                        q.POVCode
+                    ,
+                        q.ModifiyDate
+                    ,
+                        q.CreateDate
+                    ,
+                        q.PODate
+                    ,
+                        q.POTotAmt
+                    ,
+                        q.filePhoto
+                    ,
+                        q.filePhoto_FilePath
+                    ,
+                        q.filePhoto_FileName
+                    ,
+                        q.filePhoto_ContentType
+                    ,
+                        q.PO_Options
+                    }).ToArray().Select(o => new clsPurchaseOrder()
+                    {
+                        ID = o.ID
+                    ,
+                        PORemarks = o.PORemarks
+                    ,
+                        Description = o.Description
+                    ,
+                        POVCode = o.POVCode
+                    ,
+                        ModifiyDate = o.ModifiyDate
+                    ,
+                        CreateDate = o.CreateDate
+                    ,
+                        PODate = o.PODate
+                    ,
+                        POTotAmt = o.POTotAmt
+                    ,
+                        filePhoto = o.filePhoto
+                    ,
+                        filePhoto_FilePath = o.filePhoto_FilePath
+                    ,
+                        filePhoto_FileName = o.filePhoto_FileName
+                    ,
+                        filePhoto_ContentType = o.filePhoto_ContentType
+                    ,
+                        PO_Options = o.PO_Options
+                    }).Skip(start).Take(pageSize);
+                    return results;
+                }
             }
             catch (Exception)
             {
-            throw;
+                throw;
             }
         }
 
@@ -101,71 +129,185 @@ namespace MachineTest.Services.DomainRepositories
         {
             try
             {
-            if (Doc_No == string.Empty)
-            {
-            return new clsPurchaseOrder();
-            }
-            using (var context = GetDbContextDomain()) 
-             { 
-             var results =await context.Set<clsPurchaseOrder>() 
-            .Where(p => p.ID == Doc_No) 
-             .Include(b0 => b0.POItemList) 
-             .Include(b1 => b1.PO_Items) 
-            .ToListAsync(); 
-             return results.FirstOrDefault();
-             } 
+                if (Doc_No == string.Empty)
+                {
+                    return new clsPurchaseOrder();
+                }
+                using (var context = GetDbContextDomain())
+                {
+                    var results = await context.Set<clsPurchaseOrder>()
+                    .Where(p => p.ID == Doc_No)
+                    .Include(b0 => b0.POItemList)
+                    .Include(b1 => b1.PO_Items)
+                    .ToListAsync();
+                    foreach (var item in results.FirstOrDefault().PO_Items)
+                    {
+                        item.ItemName =XpertCommonFunctions.myCstr(XSDBFunctionality.getSingleValue("select IName from TSPL_ITEM_MASTER where ICode='"+ item.POICode +"'"));
+                    }
+                    return results.FirstOrDefault();
+                }
             }
             catch (Exception)
             {
-            throw;
+                throw;
             }
         }
+
+        public async Task<clsPurchaseOrder> GetDataAsync2(string Doc_No)
+        {
+            if (string.IsNullOrEmpty(Doc_No))
+            {
+                return null;
+            }
+
+            using (var context = GetDbContextDomain())
+            {
+                var result = await context.Set<clsPurchaseOrder>()
+                    .Where(p => p.ID == Doc_No)
+                    .Include(b0 => b0.POItemList)
+                    .Include(b1 => b1.PO_Items)
+                    .Select(po => new clsPurchaseOrder
+                    {
+                        // Map properties of clsPurchaseOrder
+                        ID = po.ID,
+                        POItemList = po.POItemList,
+                        PO_Items = po.PO_Items.Select(item => new clsPO_Item
+                        {
+                            RowNo = item.RowNo,
+                            POICode = item.POICode,
+                            ItemName = context.Set<clsItemMaster>()
+                             .Where(im => im.ID == item.POICode)
+                             .Select(im => im.Description)
+                             .FirstOrDefault(),
+                            POIAmt = item.POIAmt,
+                            POIQty = item.POIQty,
+                            POIRate = item.POIRate,
+                            ParentID = item.ParentID,
+                            POIUOM = item.POIUOM,
+                            TotalQty = item.TotalQty,
+                        }).ToList()
+                    })
+                    .FirstOrDefaultAsync();
+
+                return result;
+            }
+        }
+        public async Task<clsPurchaseOrder> GetDataAsync3(string Doc_No)
+        {
+            if (string.IsNullOrEmpty(Doc_No))
+            {
+                return null;
+            }
+
+            using (var context = GetDbContextDomain())
+            {
+                var query = @"
+            SELECT po.*, p.POISNo, p.POICode, p.POIQty, p.POIRate, p.POIAmt, p.POIUOM, 
+            im.IName as ItemName 
+            FROM TSPL_PO po
+            INNER JOIN TSPL_PO_Item p ON po.POCode = p.POCode
+            INNER JOIN TSPL_ITEM_MASTER im ON p.POICode = im.ICode
+            WHERE po.POCode = @Doc_No";
+
+                var purchaseOrder = await context.Set<clsPurchaseOrder>()
+                    .FromSqlRaw(query, new SqlParameter("@Doc_No", Doc_No))
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync();
+
+                if (purchaseOrder != null)
+                {
+                    // Manually load and map PO_Items to include ItemName
+                    var poItemsQuery = @"
+                SELECT p.POCode,p.POISNo, p.POICode, p.POIQty, p.POIRate, p.POIAmt, p.POIUOM, 
+                im.IName as ItemName 
+                FROM TSPL_PO_Item p
+                INNER JOIN TSPL_ITEM_MASTER im ON p.POICode = im.ICode
+                WHERE p.POCode = @Doc_No";
+
+                    var poItems = await context.Set<clsPO_Item>()
+                        .FromSqlRaw(poItemsQuery, new SqlParameter("@Doc_No", Doc_No))
+                        .ToListAsync();
+
+                    purchaseOrder.PO_Items = poItems;
+                }
+
+                return purchaseOrder;
+            }
+        }
+
 
         public async Task<IEnumerable<clsPurchaseOrder>> GetAllAsync(int start, int pageSize, string SearchString = "", string OrderBy = "")
         {
             try
             {
-            using (var context = GetDbContextDomain()) 
-             { 
-            var results = await context.Set<clsPurchaseOrder>()
-            .Where(d =>d.ID.Contains(SearchString) || d.Description.Contains(SearchString) || SearchString==null || SearchString== String.Empty)
-            .OrderByDescending(o => o.ID)
-             .Include(b0 => b0.POItemList) 
-             .Include(b1 => b1.PO_Items) 
-            .Select(q => new {
-            q.ID
-            ,q.PORemarks
-            ,q.Description
-            ,q.POVCode
-            ,q.ModifiyDate
-            ,q.CreateDate
-            ,q.PODate
-            ,q.POTotAmt
-            ,q.filePhoto
-            ,q.filePhoto_FilePath
-            ,q.filePhoto_FileName
-            ,q.filePhoto_ContentType
-            }).Skip(start).Take(pageSize).ToListAsync();
-            return results.Select(o => new clsPurchaseOrder()
-            {
-            ID = o.ID
-            ,PORemarks = o.PORemarks
-            ,Description = o.Description
-            ,POVCode = o.POVCode
-            ,ModifiyDate = o.ModifiyDate
-            ,CreateDate = o.CreateDate
-            ,PODate = o.PODate
-            ,POTotAmt = o.POTotAmt
-            ,filePhoto = o.filePhoto
-            ,filePhoto_FilePath = o.filePhoto_FilePath
-            ,filePhoto_FileName = o.filePhoto_FileName
-            ,filePhoto_ContentType = o.filePhoto_ContentType
-            });
-             } 
+                using (var context = GetDbContextDomain())
+                {
+                    var results = await context.Set<clsPurchaseOrder>()
+                    .Where(d => d.ID.Contains(SearchString) || d.Description.Contains(SearchString) || SearchString == null || SearchString == String.Empty)
+                    .OrderByDescending(o => o.ID)
+                     .Include(b0 => b0.POItemList)
+                     .Include(b1 => b1.PO_Items)
+                    .Select(q => new
+                    {
+                        q.ID
+                    ,
+                        q.PORemarks
+                    ,
+                        q.Description
+                    ,
+                        q.POVCode
+                    ,
+                        q.ModifiyDate
+                    ,
+                        q.CreateDate
+                    ,
+                        q.PODate
+                    ,
+                        q.POTotAmt
+                    ,
+                        q.filePhoto
+                    ,
+                        q.filePhoto_FilePath
+                    ,
+                        q.filePhoto_FileName
+                    ,
+                        q.filePhoto_ContentType
+                    ,
+                        q.PO_Options
+                    }).Skip(start).Take(pageSize).ToListAsync();
+                    return results.Select(o => new clsPurchaseOrder()
+                    {
+                        ID = o.ID
+                    ,
+                        PORemarks = o.PORemarks
+                    ,
+                        Description = o.Description
+                    ,
+                        POVCode = o.POVCode
+                    ,
+                        ModifiyDate = o.ModifiyDate
+                    ,
+                        CreateDate = o.CreateDate
+                    ,
+                        PODate = o.PODate
+                    ,
+                        POTotAmt = o.POTotAmt
+                    ,
+                        filePhoto = o.filePhoto
+                    ,
+                        filePhoto_FilePath = o.filePhoto_FilePath
+                    ,
+                        filePhoto_FileName = o.filePhoto_FileName
+                    ,
+                        filePhoto_ContentType = o.filePhoto_ContentType
+                    ,
+                        PO_Options = o.PO_Options
+                    });
+                }
             }
             catch (Exception)
             {
-            throw;
+                throw;
             }
         }
 
@@ -174,64 +316,65 @@ namespace MachineTest.Services.DomainRepositories
             var trans = XSDBFunctionality.GetTransactin();
             try
             {
-            var conn = XSDBFunctionality.GetConnnection;
-            using (var context = GetDbContextDomain(conn,contextOwnsConnection: false))
-             { 
-            context.Database.UseTransaction(trans);
-            //get eisting entry  
-            var ExistEntity = context.Set<clsPurchaseOrder>()
-            .Where(p => p.ID == entity.ID)
-            .Include(b => b.POItemList)
-            .Include(b => b.PO_Items)
-            ;
-            if (ExistEntity != null && ExistEntity.FirstOrDefault() != null)
-            {
-            //OnBeforeUpdateExecuted  
-            OnBeforeUpdateExecuted(context, entity);
-            context.Set<clsFinderItems>().RemoveRange(ExistEntity.FirstOrDefault().POItemList);
-            context.Set<clsPO_Item>().RemoveRange(ExistEntity.FirstOrDefault().PO_Items);
-            context.SaveChanges();
-             context.Set<clsFinderItems>().AddRange(entity.POItemList);
-             context.Set<clsPO_Item>().AddRange(entity.PO_Items);
-            context.SaveChanges();
-            //trans link reference docs
-            if (ExistEntity.FirstOrDefault().Trans_Link_Data != null)
-            {
-            context.Set<XpertTransLinkData>().RemoveRange(ExistEntity.FirstOrDefault().Trans_Link_Data);
-            context.SaveChanges();
-            }
-            if (entity.Trans_Link_Data != null && entity.Trans_Link_Data.Count() > 0)
-            {
-             context.Set<XpertTransLinkData>().AddRange(entity.Trans_Link_Data);
-            context.SaveChanges();
-            }
-            //trans link data end
-            ExistEntity.FirstOrDefault().Description = entity.Description;
-            ExistEntity.FirstOrDefault().ID = entity.ID;
-            ExistEntity.FirstOrDefault().LastModifiedDatetime = DateTime.Now;
-            ExistEntity.FirstOrDefault().PORemarks = entity.PORemarks;
-            ExistEntity.FirstOrDefault().POVCode = entity.POVCode;
-            ExistEntity.FirstOrDefault().ModifiyDate = entity.ModifiyDate;
-            ExistEntity.FirstOrDefault().CreateDate = entity.CreateDate;
-            ExistEntity.FirstOrDefault().PODate = entity.PODate;
-            ExistEntity.FirstOrDefault().POTotAmt = entity.POTotAmt;
-            ExistEntity.FirstOrDefault().filePhoto = entity.filePhoto;
-            ExistEntity.FirstOrDefault().filePhoto_FilePath = entity.filePhoto_FilePath;
-            ExistEntity.FirstOrDefault().filePhoto_FileName = entity.filePhoto_FileName;
-            ExistEntity.FirstOrDefault().filePhoto_ContentType = entity.filePhoto_ContentType;
-            context.SaveChanges();
-            //OnAfterUpdateExecuted  
-            OnAfterUpdateExecuted(context, entity);
-            trans.Commit();
-            conn.Close();
-            }
-            return entity;
-            }
+                var conn = XSDBFunctionality.GetConnnection;
+                using (var context = GetDbContextDomain(conn, contextOwnsConnection: false))
+                {
+                    context.Database.UseTransaction(trans);
+                    //get eisting entry  
+                    var ExistEntity = context.Set<clsPurchaseOrder>()
+                    .Where(p => p.ID == entity.ID)
+                    .Include(b => b.POItemList)
+                    .Include(b => b.PO_Items)
+                    ;
+                    if (ExistEntity != null && ExistEntity.FirstOrDefault() != null)
+                    {
+                        //OnBeforeUpdateExecuted  
+                        OnBeforeUpdateExecuted(context, entity);
+                        context.Set<clsFinderItems>().RemoveRange(ExistEntity.FirstOrDefault().POItemList);
+                        context.Set<clsPO_Item>().RemoveRange(ExistEntity.FirstOrDefault().PO_Items);
+                        context.SaveChanges();
+                        context.Set<clsFinderItems>().AddRange(entity.POItemList);
+                        context.Set<clsPO_Item>().AddRange(entity.PO_Items);
+                        context.SaveChanges();
+                        //trans link reference docs
+                        if (ExistEntity.FirstOrDefault().Trans_Link_Data != null)
+                        {
+                            context.Set<XpertTransLinkData>().RemoveRange(ExistEntity.FirstOrDefault().Trans_Link_Data);
+                            context.SaveChanges();
+                        }
+                        if (entity.Trans_Link_Data != null && entity.Trans_Link_Data.Count() > 0)
+                        {
+                            context.Set<XpertTransLinkData>().AddRange(entity.Trans_Link_Data);
+                            context.SaveChanges();
+                        }
+                        //trans link data end
+                        ExistEntity.FirstOrDefault().Description = entity.Description;
+                        ExistEntity.FirstOrDefault().ID = entity.ID;
+                        ExistEntity.FirstOrDefault().LastModifiedDatetime = DateTime.Now;
+                        ExistEntity.FirstOrDefault().PORemarks = entity.PORemarks;
+                        ExistEntity.FirstOrDefault().POVCode = entity.POVCode;
+                        ExistEntity.FirstOrDefault().ModifiyDate = entity.ModifiyDate;
+                        ExistEntity.FirstOrDefault().CreateDate = entity.CreateDate;
+                        ExistEntity.FirstOrDefault().PODate = entity.PODate;
+                        ExistEntity.FirstOrDefault().POTotAmt = entity.POTotAmt;
+                        ExistEntity.FirstOrDefault().filePhoto = entity.filePhoto;
+                        ExistEntity.FirstOrDefault().filePhoto_FilePath = entity.filePhoto_FilePath;
+                        ExistEntity.FirstOrDefault().filePhoto_FileName = entity.filePhoto_FileName;
+                        ExistEntity.FirstOrDefault().filePhoto_ContentType = entity.filePhoto_ContentType;
+                        ExistEntity.FirstOrDefault().PO_Options = entity.PO_Options;
+                        context.SaveChanges();
+                        //OnAfterUpdateExecuted  
+                        OnAfterUpdateExecuted(context, entity);
+                        trans.Commit();
+                        conn.Close();
+                    }
+                    return entity;
+                }
             }
             catch (Exception)
             {
-            trans.Rollback();
-            throw;
+                trans.Rollback();
+                throw;
             }
         }
 
@@ -240,64 +383,65 @@ namespace MachineTest.Services.DomainRepositories
             var trans = XSDBFunctionality.GetTransactin();
             try
             {
-            var conn = XSDBFunctionality.GetConnnection;
-            using (var context = GetDbContextDomain(conn,contextOwnsConnection: false))
-             { 
-            context.Database.UseTransaction(trans);
-            //get eisting entry  
-            var ExistEntity = context.Set<clsPurchaseOrder>()
-            .Where(p => p.ID == entity.ID)
-            .Include(b => b.POItemList)
-            .Include(b => b.PO_Items)
-            ;
-            if (ExistEntity != null && ExistEntity.FirstOrDefault() != null)
-            {
-            //OnBeforeUpdateExecutedAsync  
-            await OnBeforeUpdateExecutedAsync(context, entity);
-            context.Set<clsFinderItems>().RemoveRange(ExistEntity.FirstOrDefault().POItemList);
-            context.Set<clsPO_Item>().RemoveRange(ExistEntity.FirstOrDefault().PO_Items);
-            await context.SaveChangesAsync();
-             context.Set<clsFinderItems>().AddRange(entity.POItemList);
-             context.Set<clsPO_Item>().AddRange(entity.PO_Items);
-            await context.SaveChangesAsync();
-            //trans link reference docs
-            if (ExistEntity.FirstOrDefault().Trans_Link_Data != null)
-            {
-            context.Set<XpertTransLinkData>().RemoveRange(ExistEntity.FirstOrDefault().Trans_Link_Data);
-            await context.SaveChangesAsync();
-            }
-            if (entity.Trans_Link_Data != null && entity.Trans_Link_Data.Count() > 0)
-            {
-             context.Set<XpertTransLinkData>().AddRange(entity.Trans_Link_Data);
-            await context.SaveChangesAsync();
-            }
-            //trans link data end
-            ExistEntity.FirstOrDefault().Description = entity.Description;
-            ExistEntity.FirstOrDefault().ID = entity.ID;
-            ExistEntity.FirstOrDefault().LastModifiedDatetime = DateTime.Now;
-            ExistEntity.FirstOrDefault().PORemarks = entity.PORemarks;
-            ExistEntity.FirstOrDefault().POVCode = entity.POVCode;
-            ExistEntity.FirstOrDefault().ModifiyDate = entity.ModifiyDate;
-            ExistEntity.FirstOrDefault().CreateDate = entity.CreateDate;
-            ExistEntity.FirstOrDefault().PODate = entity.PODate;
-            ExistEntity.FirstOrDefault().POTotAmt = entity.POTotAmt;
-            ExistEntity.FirstOrDefault().filePhoto = entity.filePhoto;
-            ExistEntity.FirstOrDefault().filePhoto_FilePath = entity.filePhoto_FilePath;
-            ExistEntity.FirstOrDefault().filePhoto_FileName = entity.filePhoto_FileName;
-            ExistEntity.FirstOrDefault().filePhoto_ContentType = entity.filePhoto_ContentType;
-            await context.SaveChangesAsync();
-            //OnAfterUpdateExecutedAsync  
-            await OnAfterUpdateExecutedAsync(context, entity);
-            trans.Commit();
-            conn.Close();
-            }
-            return entity;
-            }
+                var conn = XSDBFunctionality.GetConnnection;
+                using (var context = GetDbContextDomain(conn, contextOwnsConnection: false))
+                {
+                    context.Database.UseTransaction(trans);
+                    //get eisting entry  
+                    var ExistEntity = context.Set<clsPurchaseOrder>()
+                    .Where(p => p.ID == entity.ID)
+                    .Include(b => b.POItemList)
+                    .Include(b => b.PO_Items)
+                    ;
+                    if (ExistEntity != null && ExistEntity.FirstOrDefault() != null)
+                    {
+                        //OnBeforeUpdateExecutedAsync  
+                        await OnBeforeUpdateExecutedAsync(context, entity);
+                        context.Set<clsFinderItems>().RemoveRange(ExistEntity.FirstOrDefault().POItemList);
+                        context.Set<clsPO_Item>().RemoveRange(ExistEntity.FirstOrDefault().PO_Items);
+                        await context.SaveChangesAsync();
+                        context.Set<clsFinderItems>().AddRange(entity.POItemList);
+                        context.Set<clsPO_Item>().AddRange(entity.PO_Items);
+                        await context.SaveChangesAsync();
+                        //trans link reference docs
+                        if (ExistEntity.FirstOrDefault().Trans_Link_Data != null)
+                        {
+                            context.Set<XpertTransLinkData>().RemoveRange(ExistEntity.FirstOrDefault().Trans_Link_Data);
+                            await context.SaveChangesAsync();
+                        }
+                        if (entity.Trans_Link_Data != null && entity.Trans_Link_Data.Count() > 0)
+                        {
+                            context.Set<XpertTransLinkData>().AddRange(entity.Trans_Link_Data);
+                            await context.SaveChangesAsync();
+                        }
+                        //trans link data end
+                        ExistEntity.FirstOrDefault().Description = entity.Description;
+                        ExistEntity.FirstOrDefault().ID = entity.ID;
+                        ExistEntity.FirstOrDefault().LastModifiedDatetime = DateTime.Now;
+                        ExistEntity.FirstOrDefault().PORemarks = entity.PORemarks;
+                        ExistEntity.FirstOrDefault().POVCode = entity.POVCode;
+                        ExistEntity.FirstOrDefault().ModifiyDate = entity.ModifiyDate;
+                        ExistEntity.FirstOrDefault().CreateDate = entity.CreateDate;
+                        ExistEntity.FirstOrDefault().PODate = entity.PODate;
+                        ExistEntity.FirstOrDefault().POTotAmt = entity.POTotAmt;
+                        ExistEntity.FirstOrDefault().filePhoto = entity.filePhoto;
+                        ExistEntity.FirstOrDefault().filePhoto_FilePath = entity.filePhoto_FilePath;
+                        ExistEntity.FirstOrDefault().filePhoto_FileName = entity.filePhoto_FileName;
+                        ExistEntity.FirstOrDefault().filePhoto_ContentType = entity.filePhoto_ContentType;
+                        ExistEntity.FirstOrDefault().PO_Options = entity.PO_Options;
+                        await context.SaveChangesAsync();
+                        //OnAfterUpdateExecutedAsync  
+                        await OnAfterUpdateExecutedAsync(context, entity);
+                        trans.Commit();
+                        conn.Close();
+                    }
+                    return entity;
+                }
             }
             catch (Exception)
             {
-            trans.Rollback();
-            throw;
+                trans.Rollback();
+                throw;
             }
         }
 
@@ -305,32 +449,33 @@ namespace MachineTest.Services.DomainRepositories
         {
             try
             {
-            var interpreter = new Interpreter();
-            Func<clsPurchaseOrder, bool> dynamicWhere = new Func<clsPurchaseOrder, bool>(x => true);
-            if (whereExpression != null && whereExpression.Length > 0)
-             { 
-               dynamicWhere = interpreter.ParseAsDelegate<Func<clsPurchaseOrder, bool>>(whereExpression, "obj");
-             } 
-             using (var context = GetDbContextDomain())
-             { 
-             var results = await context.Set<clsPurchaseOrder>() 
-             //.Where(dynamicWhere) //not working in EF6 so it will be uncommented after upgrading to efcore6 or higher versions.
-             .Select(q => new { 
-             q.ID, 
-             q.Description, 
-             q.IsDefault 
-             }).AsQueryable().ToListAsync();
-            return results.Select(o => new FinderData()
-             { 
-             Code = o.ID, 
-             Name = o.Description, 
-             IsDefault=o.IsDefault 
-             }); 
-             } 
+                var interpreter = new Interpreter();
+                Func<clsPurchaseOrder, bool> dynamicWhere = new Func<clsPurchaseOrder, bool>(x => true);
+                if (whereExpression != null && whereExpression.Length > 0)
+                {
+                    dynamicWhere = interpreter.ParseAsDelegate<Func<clsPurchaseOrder, bool>>(whereExpression, "obj");
+                }
+                using (var context = GetDbContextDomain())
+                {
+                    var results = await context.Set<clsPurchaseOrder>()
+                    //.Where(dynamicWhere) //not working in EF6 so it will be uncommented after upgrading to efcore6 or higher versions.
+                    .Select(q => new
+                    {
+                        q.ID,
+                        q.Description,
+                        q.IsDefault
+                    }).AsQueryable().ToListAsync();
+                    return results.Select(o => new FinderData()
+                    {
+                        Code = o.ID,
+                        Name = o.Description,
+                        IsDefault = o.IsDefault
+                    });
+                }
             }
             catch (Exception)
             {
-            throw;
+                throw;
             }
         }
 
@@ -338,29 +483,29 @@ namespace MachineTest.Services.DomainRepositories
         {
             try
             {
-            int count = 0;
-            await Task.Run(() => 
-            {
-             var interpreter = new Interpreter();
-            Func<clsPurchaseOrder, bool> dynamicWhere = new Func<clsPurchaseOrder, bool>(x => true); 
-            if (whereExpression != null && whereExpression.Length > 0)
-            {
-            dynamicWhere = interpreter.ParseAsDelegate<Func<clsPurchaseOrder, bool>>(whereExpression, "obj"); 
-            }
-             using (var context = GetDbContextDomain())
-             { 
-             count=  context.Set<clsPurchaseOrder>()//.GroupBy(x => x.ID) 
-             .AsEnumerable() 
-             .Where(dynamicWhere)
-             .Count(); 
-              }
-            }
-            );
-             return  count;
+                int count = 0;
+                await Task.Run(() =>
+                {
+                    var interpreter = new Interpreter();
+                    Func<clsPurchaseOrder, bool> dynamicWhere = new Func<clsPurchaseOrder, bool>(x => true);
+                    if (whereExpression != null && whereExpression.Length > 0)
+                    {
+                        dynamicWhere = interpreter.ParseAsDelegate<Func<clsPurchaseOrder, bool>>(whereExpression, "obj");
+                    }
+                    using (var context = GetDbContextDomain())
+                    {
+                        count = context.Set<clsPurchaseOrder>()//.GroupBy(x => x.ID) 
+                    .AsEnumerable()
+                    .Where(dynamicWhere)
+                    .Count();
+                    }
+                }
+                );
+                return count;
             }
             catch (Exception)
             {
-            throw;
+                throw;
             }
         }
 
@@ -368,34 +513,34 @@ namespace MachineTest.Services.DomainRepositories
         {
             try
             {
-            var objList = new List<FinderData>();
-            await Task.Run(() =>
-            {
-            var objTr = new FinderData();
-            var qry = " select [VCode] as Code,[VName] as Name from [TSPL_VENDOR_MASTER] ";
-            var dt = XSDBFunctionality.GetDataTable(qry);
-            foreach (DataRow item in dt.Rows)
-            {
-            objTr = new FinderData();
-            objTr.Code = XpertCommonFunctions.myCstr(item["Code"]);
-            objTr.Name = XpertCommonFunctions.myCstr(item["Name"]);
-            objList.Add(objTr);
-            }
-            });
-            return objList;
+                var objList = new List<FinderData>();
+                await Task.Run(() =>
+                {
+                    var objTr = new FinderData();
+                    var qry = " select [VCode] as Code,[VName] as Name from [TSPL_VENDOR_MASTER] ";
+                    var dt = XSDBFunctionality.GetDataTable(qry);
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        objTr = new FinderData();
+                        objTr.Code = XpertCommonFunctions.myCstr(item["Code"]);
+                        objTr.Name = XpertCommonFunctions.myCstr(item["Name"]);
+                        objList.Add(objTr);
+                    }
+                });
+                return objList;
             }
             catch (Exception ex)
             {
-            Serilog.Log.Fatal(ex.ToString());
-            throw;
+                Serilog.Log.Fatal(ex.ToString());
+                throw;
             }
         }
-[XSCodeType(Type = XSCodeType.Custom)]
+        [XSCodeType(Type = XSCodeType.Custom)]
         public Task<IEnumerable<FinderData>> GetPOItemListList(string FinderType, string WhereExpression)
         {
             throw new NotImplementedException();
         }
-[XSCodeType(Type = XSCodeType.Custom)]
+        [XSCodeType(Type = XSCodeType.Custom)]
         public async Task<IEnumerable<FinderData>> GetStatusList(string FinderType, string WhereExpression)
         {
             List<FinderData> StatusList = new List<FinderData>();

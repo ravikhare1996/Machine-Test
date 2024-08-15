@@ -66,6 +66,9 @@
             Page1 = new Telerik.WinControls.UI.RadPageViewPage();
             Page2 = new Telerik.WinControls.UI.RadPageViewPage();
             xpertGroupBox1 = new XS.WinForms.Controls.XpertGroupBox();
+            xpertGroupBox3 = new XS.WinForms.Controls.XpertGroupBox();
+            xpertRadioButton2 = new XS.WinForms.Controls.XpertRadioButton();
+            xpertRadioButton1 = new XS.WinForms.Controls.XpertRadioButton();
             xpertLabel1 = new XS.WinForms.Controls.XpertLabel();
             txtItems = new XS.WinForms.Controls.XpertMultiSelctFinder();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
@@ -104,6 +107,10 @@
             Page2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)xpertGroupBox1).BeginInit();
             xpertGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)xpertGroupBox3).BeginInit();
+            xpertGroupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)xpertRadioButton2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)xpertRadioButton1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)xpertLabel1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
@@ -1267,7 +1274,7 @@
             xpertPageView1.Dock = System.Windows.Forms.DockStyle.Fill;
             xpertPageView1.Location = new System.Drawing.Point(0, 0);
             xpertPageView1.Name = "xpertPageView1";
-            xpertPageView1.SelectedPage = Page2;
+            xpertPageView1.SelectedPage = Page1;
             xpertPageView1.Size = new System.Drawing.Size(986, 392);
             xpertPageView1.TabIndex = 0;
             xpertPageView1.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
@@ -1295,18 +1302,127 @@
             xpertGroupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
             xpertGroupBox1.BorderColor = System.Drawing.Color.Empty;
             xpertGroupBox1.Control_Name = "xpertGroupBox1";
+            xpertGroupBox1.Controls.Add(xpertGroupBox3);
             xpertGroupBox1.Controls.Add(xpertLabel1);
             xpertGroupBox1.Controls.Add(txtItems);
             xpertGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             xpertGroupBox1.GroupBoxStyle = Telerik.WinControls.UI.RadGroupBoxStyle.Office;
-            xpertGroupBox1.HeaderText = "xpertGroupBox1";
+            xpertGroupBox1.HeaderText = "Testing";
             xpertGroupBox1.Location = new System.Drawing.Point(0, 0);
             xpertGroupBox1.Name = "xpertGroupBox1";
             xpertGroupBox1.Size = new System.Drawing.Size(965, 344);
             xpertGroupBox1.TabIndex = 0;
-            xpertGroupBox1.Text = "xpertGroupBox1";
+            xpertGroupBox1.Text = "Testing";
             xpertGroupBox1.Visibility_Criteria = null;
             xpertGroupBox1.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
+            // 
+            // xpertGroupBox3
+            // 
+            xpertGroupBox3.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            xpertGroupBox3.BorderColor = System.Drawing.Color.Empty;
+            xpertGroupBox3.Control_Name = null;
+            xpertGroupBox3.Controls.Add(xpertRadioButton2);
+            xpertGroupBox3.Controls.Add(xpertRadioButton1);
+            xpertGroupBox3.HeaderText = "Options";
+            xpertGroupBox3.Location = new System.Drawing.Point(194, 119);
+            xpertGroupBox3.Name = "xpertGroupBox3";
+            xpertGroupBox3.Size = new System.Drawing.Size(387, 100);
+            xpertGroupBox3.TabIndex = 2;
+            xpertGroupBox3.Text = "Options";
+            xpertGroupBox3.Visibility_Criteria = null;
+            xpertGroupBox3.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
+            // 
+            // xpertRadioButton2
+            // 
+            xpertRadioButton2.BackColor = System.Drawing.Color.White;
+            xpertRadioButton2.Calculation_Expression = null;
+            xpertRadioButton2.Calculation_Type = XS.WinForms.Controls.CalculationTypes.None;
+            xpertRadioButton2.CalculationExpression = null;
+            xpertRadioButton2.Calculative = false;
+            xpertRadioButton2.Column_Name = null;
+            xpertRadioButton2.Control_Name = null;
+            xpertRadioButton2.Create_Option = XpertStudio.Common.Enums.XpertFieldCreateOptions.UIAndModelAndTable;
+            xpertRadioButton2.Custom_Data = false;
+            xpertRadioButton2.Custom_Default = false;
+            xpertRadioButton2.Display_Name = null;
+            xpertRadioButton2.Field_Description = null;
+            xpertRadioButton2.Field_Name = "PO_Options";
+            xpertRadioButton2.Field_Type = XpertStudio.Common.Enums.XpertFieldTypes.None;
+            xpertRadioButton2.FieldCode = null;
+            xpertRadioButton2.FieldDesc = null;
+            xpertRadioButton2.FieldMaxLength = 0;
+            xpertRadioButton2.FieldName = "PO_Options";
+            xpertRadioButton2.Generated = false;
+            xpertRadioButton2.isCalculatedField = false;
+            xpertRadioButton2.IsSourceFromTable = false;
+            xpertRadioButton2.IsSourceFromValueList = false;
+            xpertRadioButton2.IsUnique = false;
+            xpertRadioButton2.Key = false;
+            xpertRadioButton2.Location = new System.Drawing.Point(191, 43);
+            xpertRadioButton2.Max_Length = 0;
+            xpertRadioButton2.MendatroryField = false;
+            xpertRadioButton2.Metadata_Type = null;
+            xpertRadioButton2.Min_Length = 0;
+            xpertRadioButton2.MyLinkLable1 = null;
+            xpertRadioButton2.MyLinkLable2 = null;
+            xpertRadioButton2.Name = "xpertRadioButton2";
+            xpertRadioButton2.ReferenceFieldDesc = null;
+            xpertRadioButton2.ReferenceFieldName = "PO_Options";
+            xpertRadioButton2.ReferenceTableName = null;
+            xpertRadioButton2.Size = new System.Drawing.Size(61, 18);
+            xpertRadioButton2.TabIndex = 3;
+            xpertRadioButton2.Text = "Option2";
+            xpertRadioButton2.Validation_Criteria = null;
+            xpertRadioButton2.Visibility_Criteria = null;
+            xpertRadioButton2.XpertDisplayMember = null;
+            xpertRadioButton2.XpertValueMember = null;
+            xpertRadioButton2.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
+            // 
+            // xpertRadioButton1
+            // 
+            xpertRadioButton1.BackColor = System.Drawing.Color.White;
+            xpertRadioButton1.Calculation_Expression = null;
+            xpertRadioButton1.Calculation_Type = XS.WinForms.Controls.CalculationTypes.None;
+            xpertRadioButton1.CalculationExpression = null;
+            xpertRadioButton1.Calculative = false;
+            xpertRadioButton1.Column_Name = null;
+            xpertRadioButton1.Control_Name = null;
+            xpertRadioButton1.Create_Option = XpertStudio.Common.Enums.XpertFieldCreateOptions.UIAndModelAndTable;
+            xpertRadioButton1.Custom_Data = false;
+            xpertRadioButton1.Custom_Default = false;
+            xpertRadioButton1.Display_Name = null;
+            xpertRadioButton1.Field_Description = null;
+            xpertRadioButton1.Field_Name = "PO_Options";
+            xpertRadioButton1.Field_Type = XpertStudio.Common.Enums.XpertFieldTypes.None;
+            xpertRadioButton1.FieldCode = null;
+            xpertRadioButton1.FieldDesc = null;
+            xpertRadioButton1.FieldMaxLength = 0;
+            xpertRadioButton1.FieldName = "PO_Options";
+            xpertRadioButton1.Generated = false;
+            xpertRadioButton1.isCalculatedField = false;
+            xpertRadioButton1.IsSourceFromTable = false;
+            xpertRadioButton1.IsSourceFromValueList = false;
+            xpertRadioButton1.IsUnique = false;
+            xpertRadioButton1.Key = false;
+            xpertRadioButton1.Location = new System.Drawing.Point(32, 43);
+            xpertRadioButton1.Max_Length = 0;
+            xpertRadioButton1.MendatroryField = false;
+            xpertRadioButton1.Metadata_Type = null;
+            xpertRadioButton1.Min_Length = 0;
+            xpertRadioButton1.MyLinkLable1 = null;
+            xpertRadioButton1.MyLinkLable2 = null;
+            xpertRadioButton1.Name = "xpertRadioButton1";
+            xpertRadioButton1.ReferenceFieldDesc = null;
+            xpertRadioButton1.ReferenceFieldName = "PO_Options";
+            xpertRadioButton1.ReferenceTableName = null;
+            xpertRadioButton1.Size = new System.Drawing.Size(61, 18);
+            xpertRadioButton1.TabIndex = 2;
+            xpertRadioButton1.Text = "Option1";
+            xpertRadioButton1.Validation_Criteria = null;
+            xpertRadioButton1.Visibility_Criteria = null;
+            xpertRadioButton1.XpertDisplayMember = null;
+            xpertRadioButton1.XpertValueMember = null;
+            xpertRadioButton1.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
             // 
             // xpertLabel1
             // 
@@ -1350,13 +1466,13 @@
             txtItems.Control_Name = "XpertMultiSelctFinder";
             txtItems.Create_Option = XpertStudio.Common.Enums.XpertFieldCreateOptions.UIAndModelAndTable;
             txtItems.Custom_Data = false;
-            txtItems.Custom_Datasource_Logic = true;
+            txtItems.Custom_Datasource_Logic = false;
             txtItems.Custom_Default = false;
             txtItems.DataSource = null;
             txtItems.Datasource_Assembly = "BlazorPWA.Client";
             txtItems.Datasource_Namespace = "BlazorPWA.Client.Pages.MachineTest.Setup";
             txtItems.Datasource_Program = "ItemMaster";
-            txtItems.Datasource_Type = XpertStudio.Common.Enums.XpertFinderConfigType.Custom;
+            txtItems.Datasource_Type = XpertStudio.Common.Enums.XpertFinderConfigType.Pages;
             txtItems.Display_Name = "Item List";
             txtItems.DisplayMember = null;
             txtItems.Enum_Name = null;
@@ -1416,7 +1532,6 @@
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             Class_File_Name = "frmPurchaseOrder.cs";
-            Class_File_Path = "D:\\Official\\Testing\\MachineTest\\MachineTest\\WinFormUI3Tier\\Designers\\frmPurchaseOrder.cs";
             Class_Name = "clsPurchaseOrder";
             ClientSize = new System.Drawing.Size(986, 430);
             Controls.Add(xpertPageView1);
@@ -1429,7 +1544,8 @@
             DomainRulesClass = "clsPurchaseOrderRules";
             EnableAddButton = true;
             ExternalAssemblies.Assemblies = (System.Collections.Generic.List<string>)resources.GetObject("resource.Assemblies");
-            File_Path = "D:\\Official\\Testing\\MachineTest\\MachineTest\\WinFormUI3Tier\\Designers\\frmPurchaseOrder.cs";
+            File_Name = "frmPurchaseOrder.cs";
+            File_Path = "D:\\Official\\XpertGitHubProjects\\MachineTest\\WinFormUI3Tier\\Designers\\frmPurchaseOrder.cs";
             Form_Name = "frmPurchaseOrder";
             Form_Type = XpertStudio.Common.Enums.XpertFormTypes.Transaction;
             Functional_Name = "PurchaseOrder";
@@ -1487,6 +1603,11 @@
             ((System.ComponentModel.ISupportInitialize)xpertGroupBox1).EndInit();
             xpertGroupBox1.ResumeLayout(false);
             xpertGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)xpertGroupBox3).EndInit();
+            xpertGroupBox3.ResumeLayout(false);
+            xpertGroupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)xpertRadioButton2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)xpertRadioButton1).EndInit();
             ((System.ComponentModel.ISupportInitialize)xpertLabel1).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
@@ -1525,5 +1646,8 @@
         private XS.WinForms.Controls.XpertGroupBox xpertGroupBox2;
         private XS.WinForms.Controls.XpertMultiSelctFinder txtItems;
         private XS.WinForms.Controls.XpertLabel xpertLabel1;
+        private XS.WinForms.Controls.XpertGroupBox xpertGroupBox3;
+        private XS.WinForms.Controls.XpertRadioButton xpertRadioButton2;
+        private XS.WinForms.Controls.XpertRadioButton xpertRadioButton1;
     }
 }
