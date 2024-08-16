@@ -732,3 +732,442 @@ XpertStudio.Framework.Exceptions.XSException: The solution directory does not ap
 2024-08-15 21:00:23.391 +05:30 [INF] Logger Intialized at:15-Aug-24 9:00:23 PM
 2024-08-15 21:00:31.456 +05:30 [INF] Metadata Extraction Started at:15-Aug-24 9:00:31 PM
 2024-08-15 21:00:32.320 +05:30 [INF] Metadata Extraction completed at:15-Aug-24 9:00:32 PM
+2024-08-15 21:21:35.576 +05:30 [INF] Logger Intialized at:15-Aug-24 9:21:35 PM
+2024-08-15 21:21:52.920 +05:30 [INF] Metadata Extraction Started at:15-Aug-24 9:21:52 PM
+2024-08-15 21:21:53.704 +05:30 [INF] Metadata Extraction completed at:15-Aug-24 9:21:53 PM
+2024-08-15 21:39:48.496 +05:30 [INF] Logger Intialized at:15-Aug-24 9:39:48 PM
+2024-08-15 21:40:01.637 +05:30 [INF] Metadata Extraction Started at:15-Aug-24 9:40:01 PM
+2024-08-15 21:40:02.402 +05:30 [INF] Metadata Extraction completed at:15-Aug-24 9:40:02 PM
+2024-08-15 21:48:42.260 +05:30 [INF] Logger Intialized at:15-Aug-24 9:48:42 PM
+2024-08-15 21:48:46.774 +05:30 [INF] Metadata Extraction Started at:15-Aug-24 9:48:46 PM
+2024-08-15 21:48:47.506 +05:30 [INF] Metadata Extraction completed at:15-Aug-24 9:48:47 PM
+2024-08-15 21:57:09.458 +05:30 [INF] Logger Intialized at:15-Aug-24 9:57:09 PM
+2024-08-15 22:02:41.932 +05:30 [INF] Metadata Extraction Started at:15-Aug-24 10:02:41 PM
+2024-08-15 22:02:42.726 +05:30 [INF] Metadata Extraction completed at:15-Aug-24 10:02:42 PM
+2024-08-15 22:08:46.894 +05:30 [INF] Logger Intialized at:15-Aug-24 10:08:46 PM
+2024-08-15 22:09:00.922 +05:30 [INF] Metadata Extraction Started at:15-Aug-24 10:09:00 PM
+2024-08-15 22:09:06.250 +05:30 [INF] Metadata Extraction Started at:15-Aug-24 10:09:06 PM
+2024-08-15 22:09:07.066 +05:30 [INF] Metadata Extraction completed at:15-Aug-24 10:09:07 PM
+2024-08-15 22:33:09.068 +05:30 [INF] Logger Intialized at:15-Aug-24 10:33:09 PM
+2024-08-15 23:16:12.676 +05:30 [INF] Logger Intialized at:15-Aug-24 11:16:12 PM
+2024-08-15 23:16:16.621 +05:30 [INF] Metadata Extraction Started at:15-Aug-24 11:16:16 PM
+2024-08-15 23:16:17.229 +05:30 [INF] Metadata Extraction completed at:15-Aug-24 11:16:17 PM
+2024-08-16 09:56:40.199 +05:30 [INF] Logger Intialized at:16-Aug-24 9:56:40 AM
+2024-08-16 09:56:54.366 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 9:56:54 AM
+2024-08-16 09:56:55.243 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 9:56:55 AM
+2024-08-16 12:45:34.873 +05:30 [INF] Logger Intialized at:16-Aug-24 12:45:34 PM
+2024-08-16 12:45:48.717 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 12:45:48 PM
+2024-08-16 12:45:49.267 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 12:45:49 PM
+2024-08-16 12:45:49.489 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs at line 77: Object reference not set to an instance of an object.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Object reference not set to an instance of an object.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Object reference not set to an instance of an object.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.<>c__DisplayClass3_0.<GetGenerator>b__0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   --- End of inner exception stack trace ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.Generate()
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm)
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm)
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm)
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm)
+   at XpertStudio.Framework.WinFormUI.XpertBaseForm.ExecuteGenerationAsync(Boolean value, Boolean IsCodeGeneration)
+   at XpertStudio.Framework.WinFormUI.XpertBaseForm.SetCodeGeneratedAsync(Boolean value)
+2024-08-16 12:45:49.489 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\4.clsRepositoryCodeGeneration.cs at line 965: Object reference not set to an instance of an object.
+XpertStudio.Framework.Exceptions.XSException: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.<>c__DisplayClass3_0.<GetGenerator>b__0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   --- End of inner exception stack trace ---
+2024-08-16 12:45:49.489 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs at line 721: Object reference not set to an instance of an object.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Object reference not set to an instance of an object.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.<>c__DisplayClass3_0.<GetGenerator>b__0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   --- End of inner exception stack trace ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.Generate()
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm)
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm)
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm)
+2024-08-16 12:45:51.863 +05:30 [INF] Issue Creation Request Failure Status:
+2024-08-16 12:45:51.863 +05:30 [INF] Issue Creation Request Failure Status:
+2024-08-16 12:45:51.863 +05:30 [INF] Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjlhYmJlNGIwLTZmMTMtNDk1ZC1hOTc4LTIzYTk4NmJlZjJhOSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJYU0lzc3VlRWRpdG9yIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiWHBlcnRzdHVkaW8iLCJXZWJBUElDb250cm9sbGVyIjpbIlJlcG9ydEV4Y2VwdGlvbkNvbnRyb2xsZXIiLCJQcm9kdWN0Q29tcG9uZW50c0NvbnRyb2xsZXIiXSwiV2ViQ29tcG9uZW50IjpbIlJlcG9ydEV4Y2VwdGlvbiIsIlJlcG9ydEV4Y2VwdGlvbkJhc2VQYWdlIiwiUmVwb3J0RXhjZXB0aW9uQ3JlYXRlIiwiUmVwb3J0RXhjZXB0aW9uRWRpdCIsIlJlcG9ydEV4Y2VwdGlvblZpZXciLCJQcm9kdWN0Q29tcG9uZW50cyJdLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJFZGl0b3IiLCJleHAiOjE3MjM4Nzg5NTEsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0IiwiYXVkIjoibG9jYWxob3N0In0.KZqkuqrVq-_ByvpD4ziV9NDSkp-SRsL3a6arF52rYcM
+2024-08-16 12:45:51.863 +05:30 [INF] Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjlhYmJlNGIwLTZmMTMtNDk1ZC1hOTc4LTIzYTk4NmJlZjJhOSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJYU0lzc3VlRWRpdG9yIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiWHBlcnRzdHVkaW8iLCJXZWJBUElDb250cm9sbGVyIjpbIlJlcG9ydEV4Y2VwdGlvbkNvbnRyb2xsZXIiLCJQcm9kdWN0Q29tcG9uZW50c0NvbnRyb2xsZXIiXSwiV2ViQ29tcG9uZW50IjpbIlJlcG9ydEV4Y2VwdGlvbiIsIlJlcG9ydEV4Y2VwdGlvbkJhc2VQYWdlIiwiUmVwb3J0RXhjZXB0aW9uQ3JlYXRlIiwiUmVwb3J0RXhjZXB0aW9uRWRpdCIsIlJlcG9ydEV4Y2VwdGlvblZpZXciLCJQcm9kdWN0Q29tcG9uZW50cyJdLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJFZGl0b3IiLCJleHAiOjE3MjM4Nzg5NTEsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0IiwiYXVkIjoibG9jYWxob3N0In0.KZqkuqrVq-_ByvpD4ziV9NDSkp-SRsL3a6arF52rYcM
+2024-08-16 12:45:51.864 +05:30 [INF] HTTP Status Code: InternalServerError
+2024-08-16 12:45:51.864 +05:30 [INF] HTTP Status Code: InternalServerError
+2024-08-16 12:45:51.864 +05:30 [INF] Response Content: 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Error</title>
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/app.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="content px-4">
+            <h1 class="text-danger">Error.</h1>
+            <h2 class="text-danger">An error occurred while processing your request.</h2>
+
+
+            <h3>Development Mode</h3>
+            <p>
+                Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.
+            </p>
+            <p>
+                <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
+                It can result in displaying sensitive information from exceptions to end users.
+                For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
+                and restarting the app.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+2024-08-16 12:45:51.864 +05:30 [INF] Response Content: 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Error</title>
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/app.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="content px-4">
+            <h1 class="text-danger">Error.</h1>
+            <h2 class="text-danger">An error occurred while processing your request.</h2>
+
+
+            <h3>Development Mode</h3>
+            <p>
+                Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.
+            </p>
+            <p>
+                <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
+                It can result in displaying sensitive information from exceptions to end users.
+                For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
+                and restarting the app.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+2024-08-16 12:45:51.864 +05:30 [INF] ReasonPharase: Internal Server Error
+2024-08-16 12:45:51.864 +05:30 [INF] ReasonPharase: Internal Server Error
+2024-08-16 12:50:31.227 +05:30 [INF] Logger Intialized at:16-Aug-24 12:50:31 PM
+2024-08-16 12:50:36.018 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 12:50:36 PM
+2024-08-16 12:50:36.543 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 12:50:36 PM
+2024-08-16 12:50:36.655 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\4.clsRepositoryCodeGeneration.cs at line 965: Object reference not set to an instance of an object.
+XpertStudio.Framework.Exceptions.XSException: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.<>c__DisplayClass3_0.<GetGenerator>b__0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   --- End of inner exception stack trace ---
+2024-08-16 12:55:39.529 +05:30 [INF] Logger Intialized at:16-Aug-24 12:55:39 PM
+2024-08-16 12:55:47.009 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 12:55:47 PM
+2024-08-16 12:55:47.541 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 12:55:47 PM
+2024-08-16 12:55:47.651 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\4.clsRepositoryCodeGeneration.cs at line 965: Object reference not set to an instance of an object.
+XpertStudio.Framework.Exceptions.XSException: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.<>c__DisplayClass3_0.<GetGenerator>b__0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   --- End of inner exception stack trace ---
+2024-08-16 12:55:47.651 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs at line 721: Object reference not set to an instance of an object.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Object reference not set to an instance of an object.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.<>c__DisplayClass3_0.<GetGenerator>b__0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   --- End of inner exception stack trace ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.Generate()
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm)
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm)
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm)
+2024-08-16 12:55:47.981 +05:30 [INF] Issue Creation Request Failure Status:
+2024-08-16 12:55:47.981 +05:30 [INF] Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjlhYmJlNGIwLTZmMTMtNDk1ZC1hOTc4LTIzYTk4NmJlZjJhOSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJYU0lzc3VlRWRpdG9yIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiWHBlcnRzdHVkaW8iLCJXZWJBUElDb250cm9sbGVyIjpbIlJlcG9ydEV4Y2VwdGlvbkNvbnRyb2xsZXIiLCJQcm9kdWN0Q29tcG9uZW50c0NvbnRyb2xsZXIiXSwiV2ViQ29tcG9uZW50IjpbIlJlcG9ydEV4Y2VwdGlvbiIsIlJlcG9ydEV4Y2VwdGlvbkJhc2VQYWdlIiwiUmVwb3J0RXhjZXB0aW9uQ3JlYXRlIiwiUmVwb3J0RXhjZXB0aW9uRWRpdCIsIlJlcG9ydEV4Y2VwdGlvblZpZXciLCJQcm9kdWN0Q29tcG9uZW50cyJdLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJFZGl0b3IiLCJleHAiOjE3MjM4Nzk1NDgsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0IiwiYXVkIjoibG9jYWxob3N0In0.rtQjKSzu2UWbbn1fpb_ptYUqXsMGz4kl0uJFtIDwtlQ
+2024-08-16 12:55:47.982 +05:30 [INF] HTTP Status Code: InternalServerError
+2024-08-16 12:55:47.982 +05:30 [INF] Response Content: 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Error</title>
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/app.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="content px-4">
+            <h1 class="text-danger">Error.</h1>
+            <h2 class="text-danger">An error occurred while processing your request.</h2>
+
+
+            <h3>Development Mode</h3>
+            <p>
+                Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.
+            </p>
+            <p>
+                <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
+                It can result in displaying sensitive information from exceptions to end users.
+                For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
+                and restarting the app.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+2024-08-16 12:55:47.982 +05:30 [INF] ReasonPharase: Internal Server Error
+2024-08-16 13:04:41.160 +05:30 [INF] Logger Intialized at:16-Aug-24 1:04:41 PM
+2024-08-16 13:04:48.925 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 1:04:48 PM
+2024-08-16 13:04:49.459 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 1:04:49 PM
+2024-08-16 13:09:47.024 +05:30 [INF] Logger Intialized at:16-Aug-24 1:09:47 PM
+2024-08-16 13:09:54.690 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 1:09:54 PM
+2024-08-16 13:09:55.297 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 1:09:55 PM
+2024-08-16 13:09:59.388 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs at line 721: Object reference not set to an instance of an object.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Object reference not set to an instance of an object.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.<>c__DisplayClass3_0.<GetGenerator>b__0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   --- End of inner exception stack trace ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.Generate()
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm)
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm)
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm)
+2024-08-16 13:09:59.388 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs at line 77: Object reference not set to an instance of an object.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Object reference not set to an instance of an object.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Object reference not set to an instance of an object.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.<>c__DisplayClass3_0.<GetGenerator>b__0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   --- End of inner exception stack trace ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.Generate()
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm)
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm)
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm)
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm)
+   at XpertStudio.Framework.WinFormUI.XpertBaseForm.ExecuteGenerationAsync(Boolean value, Boolean IsCodeGeneration)
+   at XpertStudio.Framework.WinFormUI.XpertBaseForm.SetCodeGeneratedAsync(Boolean value)
+2024-08-16 13:09:59.388 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\4.clsRepositoryCodeGeneration.cs at line 974: Object reference not set to an instance of an object.
+XpertStudio.Framework.Exceptions.XSException: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.<>c__DisplayClass3_0.<GetGenerator>b__0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   --- End of inner exception stack trace ---
+2024-08-16 13:12:19.671 +05:30 [INF] Logger Intialized at:16-Aug-24 1:12:19 PM
+2024-08-16 13:12:25.369 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 1:12:25 PM
+2024-08-16 13:12:26.519 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 1:12:26 PM
+2024-08-16 13:12:30.138 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\4.clsRepositoryCodeGeneration.cs at line 974: Object reference not set to an instance of an object.
+XpertStudio.Framework.Exceptions.XSException: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.<>c__DisplayClass3_0.<GetGenerator>b__0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   --- End of inner exception stack trace ---
+2024-08-16 13:15:54.153 +05:30 [INF] Logger Intialized at:16-Aug-24 1:15:54 PM
+2024-08-16 13:16:03.125 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 1:16:03 PM
+2024-08-16 13:16:03.665 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 1:16:03 PM
+2024-08-16 13:19:25.619 +05:30 [INF] Logger Intialized at:16-Aug-24 1:19:25 PM
+2024-08-16 13:19:33.181 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 1:19:33 PM
+2024-08-16 13:19:33.728 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 1:19:33 PM
+2024-08-16 13:33:13.915 +05:30 [INF] Logger Intialized at:16-Aug-24 1:33:13 PM
+2024-08-16 13:33:20.784 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 1:33:20 PM
+2024-08-16 13:33:21.494 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 1:33:21 PM
+2024-08-16 13:33:25.791 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\4.clsRepositoryCodeGeneration.cs at line 978: Object reference not set to an instance of an object.
+XpertStudio.Framework.Exceptions.XSException: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.<>c__DisplayClass3_0.<GetGenerator>b__0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   --- End of inner exception stack trace ---
+2024-08-16 13:33:25.791 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs at line 721: Object reference not set to an instance of an object.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Object reference not set to an instance of an object.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.<>c__DisplayClass3_0.<GetGenerator>b__0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   --- End of inner exception stack trace ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.Generate()
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm)
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm)
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm)
+2024-08-16 13:33:26.181 +05:30 [INF] Issue Creation Request Failure Status:
+2024-08-16 13:33:26.182 +05:30 [INF] Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjlhYmJlNGIwLTZmMTMtNDk1ZC1hOTc4LTIzYTk4NmJlZjJhOSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJYU0lzc3VlRWRpdG9yIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiWHBlcnRzdHVkaW8iLCJXZWJBUElDb250cm9sbGVyIjpbIlJlcG9ydEV4Y2VwdGlvbkNvbnRyb2xsZXIiLCJQcm9kdWN0Q29tcG9uZW50c0NvbnRyb2xsZXIiXSwiV2ViQ29tcG9uZW50IjpbIlJlcG9ydEV4Y2VwdGlvbiIsIlJlcG9ydEV4Y2VwdGlvbkJhc2VQYWdlIiwiUmVwb3J0RXhjZXB0aW9uQ3JlYXRlIiwiUmVwb3J0RXhjZXB0aW9uRWRpdCIsIlJlcG9ydEV4Y2VwdGlvblZpZXciLCJQcm9kdWN0Q29tcG9uZW50cyJdLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJFZGl0b3IiLCJleHAiOjE3MjM4ODE4MDYsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0IiwiYXVkIjoibG9jYWxob3N0In0.ieFrlX7zGfWFbE2bnZheBqTMnUhFDPNo2JM8REzT8cg
+2024-08-16 13:33:26.183 +05:30 [INF] HTTP Status Code: InternalServerError
+2024-08-16 13:33:26.183 +05:30 [INF] Response Content: 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Error</title>
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/app.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="content px-4">
+            <h1 class="text-danger">Error.</h1>
+            <h2 class="text-danger">An error occurred while processing your request.</h2>
+
+
+            <h3>Development Mode</h3>
+            <p>
+                Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.
+            </p>
+            <p>
+                <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
+                It can result in displaying sensitive information from exceptions to end users.
+                For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
+                and restarting the app.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+2024-08-16 13:33:26.183 +05:30 [INF] ReasonPharase: Internal Server Error
+2024-08-16 13:37:22.277 +05:30 [INF] Logger Intialized at:16-Aug-24 1:37:22 PM
+2024-08-16 13:37:31.874 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 1:37:31 PM
+2024-08-16 13:37:32.793 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 1:37:32 PM
+2024-08-16 13:37:37.494 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\4.clsRepositoryCodeGeneration.cs at line 978: Object reference not set to an instance of an object.
+XpertStudio.Framework.Exceptions.XSException: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.<>c__DisplayClass3_0.<GetGenerator>b__0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at XpertStudio.CodeGeneration.clsRepositoryCodeGeneration.GetGenerator(List`1 exclusions)
+   --- End of inner exception stack trace ---
+2024-08-16 13:41:51.001 +05:30 [INF] Logger Intialized at:16-Aug-24 1:41:51 PM
+2024-08-16 13:41:55.736 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 1:41:55 PM
+2024-08-16 13:41:56.771 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 1:41:56 PM
+2024-08-16 15:27:28.584 +05:30 [INF] Logger Intialized at:16-Aug-24 3:27:28 PM
+2024-08-16 15:27:39.709 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 3:27:39 PM
+2024-08-16 15:27:40.540 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 3:27:40 PM
+2024-08-16 15:34:42.497 +05:30 [INF] Logger Intialized at:16-Aug-24 3:34:42 PM
+2024-08-16 15:34:47.781 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 3:34:47 PM
+2024-08-16 15:34:48.676 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 3:34:48 PM
+2024-08-16 16:10:16.671 +05:30 [INF] Logger Intialized at:16-Aug-24 4:10:16 PM
+2024-08-16 16:12:34.887 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 4:12:34 PM
+2024-08-16 16:12:35.847 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 4:12:35 PM
+2024-08-16 16:26:12.564 +05:30 [INF] Logger Intialized at:16-Aug-24 4:26:12 PM
+2024-08-16 16:28:04.361 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 4:28:04 PM
+2024-08-16 16:28:05.234 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 4:28:05 PM
+2024-08-16 17:41:33.577 +05:30 [INF] Logger Intialized at:16-Aug-24 5:41:33 PM
+2024-08-16 17:41:40.219 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 5:41:40 PM
+2024-08-16 17:41:41.201 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 5:41:41 PM
+2024-08-16 17:45:24.238 +05:30 [INF] Logger Intialized at:16-Aug-24 5:45:24 PM
+2024-08-16 17:52:55.920 +05:30 [INF] Logger Intialized at:16-Aug-24 5:52:55 PM
+2024-08-16 17:53:00.236 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 5:53:00 PM
+2024-08-16 17:53:01.199 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 5:53:01 PM

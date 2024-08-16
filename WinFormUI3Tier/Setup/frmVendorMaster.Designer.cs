@@ -82,6 +82,7 @@
             gbxHeader.Size = new System.Drawing.Size(662, 235);
             gbxHeader.TabIndex = 0;
             gbxHeader.Text = "Basic Info";
+            gbxHeader.Visibility_Criteria = null;
             gbxHeader.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
             // 
             // txtDescription
@@ -122,6 +123,8 @@
             txtDescription.ReferenceTableName = null;
             txtDescription.Size = new System.Drawing.Size(412, 20);
             txtDescription.TabIndex = 3;
+            txtDescription.Validation_Criteria = null;
+            txtDescription.Visibility_Criteria = null;
             txtDescription.XpertDisplayMember = null;
             txtDescription.XpertValueMember = null;
             txtDescription.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
@@ -150,6 +153,8 @@
             lblDescription.SourceColumn = null;
             lblDescription.TabIndex = 2;
             lblDescription.Text = "Vendor Name";
+            lblDescription.Validation_Criteria = null;
+            lblDescription.Visibility_Criteria = null;
             lblDescription.XpertDisplayMember = null;
             lblDescription.XpertValueMember = null;
             lblDescription.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
@@ -178,6 +183,8 @@
             lblDocNo.SourceColumn = null;
             lblDocNo.TabIndex = 1;
             lblDocNo.Text = "Vendor Code";
+            lblDocNo.Validation_Criteria = null;
+            lblDocNo.Visibility_Criteria = null;
             lblDocNo.XpertDisplayMember = null;
             lblDocNo.XpertValueMember = null;
             lblDocNo.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
@@ -222,8 +229,10 @@
             txtVendorCode.Required = false;
             txtVendorCode.Size = new System.Drawing.Size(258, 24);
             txtVendorCode.TabIndex = 0;
+            txtVendorCode.Validation_Criteria = null;
             txtVendorCode.Value = "";
             txtVendorCode.ValueMember = null;
+            txtVendorCode.Visibility_Criteria = null;
             txtVendorCode.XpertDisplayMember = null;
             txtVendorCode.XpertValueMember = null;
             txtVendorCode.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
@@ -250,7 +259,8 @@
             DomainRulesClass = "clsVendorMasterRules";
             EnableAddButton = true;
             ExternalAssemblies.Assemblies = (System.Collections.Generic.List<string>)resources.GetObject("resource.Assemblies");
-            File_Path = "D:\\Official\\Testing\\MachineTest\\MachineTest\\WinFormUI3Tier\\Setup\\frmVendorMaster.cs";
+            File_Name = "frmVendorMaster.cs";
+            File_Path = "D:\\Official\\XpertGitHubProjects\\MachineTest\\WinFormUI3Tier\\Setup\\frmVendorMaster.cs";
             Form_Name = "frmVendorMaster";
             Form_Type = XpertStudio.Common.Enums.XpertFormTypes.Master;
             Functional_Name = "VendorMaster";

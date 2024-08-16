@@ -16,7 +16,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
     {
         private bool success;
         private XSTextBox<string?>? txtDescription;
-        private XSTextBox<string>? XpertNavigator;
+        private XSTextBox<string?>? txtVendorCode;
 
         [Inject]
         protected IVendorMasterManager Manager { get; set; }

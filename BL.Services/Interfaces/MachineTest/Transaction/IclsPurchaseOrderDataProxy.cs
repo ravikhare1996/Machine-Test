@@ -22,7 +22,5 @@ namespace MachineTest.Services.Interfaces
          Task<clsPurchaseOrder> GetDataAsync(string Doc_No);
 
          Task< IEnumerable<clsPurchaseOrder>> GetAllAsync(int start, int pageSize, string SearchString = "", string OrderBy = "");
-
-         Task<IEnumerable<FinderData>> GetPOVCodeList(string FinderType, string WhereExpression);
     }
 }

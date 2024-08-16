@@ -43,6 +43,9 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
         [Parameter]
         public clsPurchaseOrderVM Model { get; set; } = new clsPurchaseOrderVM();
 
+        [Inject]
+        protected IVendorMasterManager POVCodeManager { get; set; }
+
         protected IEnumerable<FinderData>? POVCodeList { get; set; }
 
         private FinderData? POVCodeValue
@@ -51,10 +54,13 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             set { 
             if (value == null)
             {
-              value = POVCodeList.FirstOrDefault(d => d.IsDefault == true);
+            _POVCodeValue = POVCodeList?.FirstOrDefault(d => d.IsDefault == true);
             }
+            else
+            {
             _POVCodeValue = value;
-            Model.POVCode = value?.Code;
+            }
+            Model.POVCode = _POVCodeValue?.Code;
              }
         }
 
@@ -87,7 +93,13 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             else
             {
               Model = await Manager.GetDataAsync(CurrentID);
-            POVCodeValue = new FinderData() { Code = Model.POVCode, Name = "NA" };
+            if (Model.POVCode!=null)
+            {
+            var POVCodeData =await POVCodeManager.GetDataAsync(Model.POVCode);
+            if (POVCodeData!=null)
+            POVCodeValue = new FinderData() { Code = POVCodeData.ID, Name = POVCodeData.Description };
+            POVCodeData=null;
+            }
             if (Model.filePhoto!=null)
             {
             _UploadedfilePhoto = new XSUploadedFile(name:Model.filePhoto_FileName,contentType:Model.filePhoto_ContentType,data:Model.filePhoto) { File_Path=Model.filePhoto_FilePath };
@@ -179,8 +191,6 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
         private async Task<IEnumerable<FinderData>>  SearchPOVCode(string value)
         {
             await Task.Delay(5);
-            POVCodeList = await Manager.GetPOVCodeList(Model);
-            POVCodeValue= POVCodeList.FirstOrDefault(val =>val.Code==Model.POVCode);
             if (string.IsNullOrEmpty(value))
             {
             return POVCodeList;
@@ -194,7 +204,13 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             {
             return string.Empty;
             }
-            return CurrentData.Code + "-" + CurrentData.Name; 
+            return CurrentData.Name; 
+        }
+
+        private async Task<string> getPOVCodeName(string? Code)
+        {
+            string? name= (string?)(await Manager.getSingleValue("select VName from TSPL_VENDOR_MASTER where VCode='" + Code + "'"));
+            return name;
         }
 
         private string DisplayPOItemList(FinderData CurrentData)

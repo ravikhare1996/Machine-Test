@@ -118,7 +118,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             {
             SelectedItem.ItemName = CurrentData.Name;
             }
-            return CurrentData.Code ; 
+            return CurrentData.Code; 
         }
 
         private FinderData GetPOICodeValue(string value)
@@ -129,6 +129,12 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             }
             POICodeValue.Code = value;
             return POICodeValue;
+        }
+
+        private async Task<string> getPOICodeName(string? Code)
+        {
+            string? name= (string?)(await Manager.getSingleValue("select IName from TSPL_ITEM_MASTER where ICode='" + Code + "'"));
+            return name;
         }
     }
 }

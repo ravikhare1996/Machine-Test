@@ -318,18 +318,5 @@ namespace MachineTest.Services.DomainServices
              throw;
             }
         }
-
-        public async virtual Task< IEnumerable<FinderData>> GetPOVCodeList(string FinderType, string WhereExpression)
-        {
-            try
-            {
-            return await  DomainDataProxy.GetPOVCodeList(FinderType,WhereExpression);
-            }
-            catch (Exception ex)
-            {
-            Serilog.Log.Fatal(ex.ToString());
-            throw;
-            }
-        }
     }
 }

@@ -79,13 +79,5 @@ namespace BlazorPWA.Server.Controllers
             throw;
             }
         }
-
-        [HttpGet]
-        [Route("GetPOVCodeList")]
-        public async virtual Task<IActionResult> GetPOVCodeList([FromQuery] string? FinderType, string? WhereExpression)
-        {
-            var data = await _Service.GetPOVCodeList(FinderType,WhereExpression);
-            return Ok(data);
-        }
     }
 }

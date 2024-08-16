@@ -78,11 +78,6 @@ namespace BlazorPWA.Shared.Routes
         {
             return $"api/PurchaseOrder/Default";
         }
-
-        public static string GetPOVCodeList(clsPurchaseOrderVM entity)
-        {
-            return $"api/PurchaseOrder/GetPOVCodeList?type={GetPOVCodeFinderType(entity)}&whereClause={GetPOVCodeFinderWhereClause(entity)}";
-        }
 [XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetPOItemListFinderType(clsPurchaseOrderVM entity)
         {

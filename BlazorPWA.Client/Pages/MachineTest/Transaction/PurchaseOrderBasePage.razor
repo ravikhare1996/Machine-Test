@@ -60,8 +60,8 @@ else
 <XSNumberBox  @ref="txtPOAmt" @bind-Value="Model.POTotAmt" Label="Amount" Variant="Variant.Text" ReadOnly=@(ReadOnly || true) />
 <XSTextBox  @ref="txtRemarks" ReadOnly=@(ReadOnly || false) Label="Remarks" HelperText="Max. 50 characters"
 @bind-Value="Model.PORemarks" For="@(() => Model.PORemarks)"/>
-<XSFinder  T="FinderData" @ref="txtVendor"  Label="Select Vendor"  @bind-Value="POVCodeValue" Required="true" ReadOnly=@(ReadOnly || false)
-SearchFunc="@SearchPOVCode"  Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
+<XSFinder  T="FinderData" @ref="txtVendor" FinderPage="typeof(VendorMaster)" FinderUrl="/MachineTest/Setup/VendorMaster" Label="Select Vendor"  @bind-Value="POVCodeValue" Required="true" ReadOnly=@(ReadOnly || false)
+Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
 AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
  ToStringFunc="@DisplayPOVCode"  /> 
 <XSNumberBox  @ref="txtDocAmt" @bind-Value="Model.Document_Amount" Label="Document Amount" Variant="Variant.Text" ReadOnly=@(ReadOnly || false) />

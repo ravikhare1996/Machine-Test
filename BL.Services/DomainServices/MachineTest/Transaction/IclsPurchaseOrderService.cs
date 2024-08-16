@@ -17,7 +17,5 @@ namespace MachineTest.Services.DomainServices
     public partial interface IclsPurchaseOrderService : IService<clsPurchaseOrder,string> , IXpertCrudFunctionsDomain<clsPurchaseOrder>
     {
          ICommand<IEnumerable<clsPurchaseOrder>> GetAllCommand(int start, int pageSize);
-
-         Task<IEnumerable<FinderData>> GetPOVCodeList(string FinderType, string WhereExpression);
     }
 }

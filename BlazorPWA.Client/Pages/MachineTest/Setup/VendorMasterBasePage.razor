@@ -49,7 +49,7 @@ else
            <MudText Class="mt-1"><strong>Basic Info</strong></MudText>
          </TitleContent>
          <ChildContent>
-<XSTextBox  @ref="XpertNavigator" ReadOnly="@(PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.Create && ReadOnly == false ?  false : true)" Label="Vendor Code" HelperText="Max. 30 characters"
+<XSTextBox  @ref="txtVendorCode" ReadOnly="@(PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.Create && ReadOnly == false ?  false : true)" Label="Vendor Code" HelperText="Max. 30 characters"
 @bind-Value="Model.ID" For="@(() => Model.ID)"/>
 <XSTextBox  @ref="txtDescription" ReadOnly=@(ReadOnly || false) Label="Vendor Name" HelperText="Max. 0 characters"
 @bind-Value="Model.Description" For="@(() => Model.Description)"/>

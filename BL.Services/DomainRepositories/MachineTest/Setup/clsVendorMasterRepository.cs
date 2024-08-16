@@ -38,7 +38,6 @@ namespace MachineTest.Services.DomainRepositories
              { 
              var results = context.Set<clsVendorMaster>() 
             .Where(p => p.ID == Doc_No) 
-            .Include(TL => TL.Trans_Link_Data)
             .ToArray(); 
              return results;
              } 
@@ -86,7 +85,6 @@ namespace MachineTest.Services.DomainRepositories
              { 
              var results =await context.Set<clsVendorMaster>() 
             .Where(p => p.ID == Doc_No) 
-            .Include(TL => TL.Trans_Link_Data)
             .ToListAsync(); 
              return results.FirstOrDefault();
              } 
@@ -135,7 +133,6 @@ namespace MachineTest.Services.DomainRepositories
             //get eisting entry  
             var ExistEntity = context.Set<clsVendorMaster>()
             .Where(p => p.ID == entity.ID)
-            .Include(TL => TL.Trans_Link_Data)
             ;
             if (ExistEntity != null && ExistEntity.FirstOrDefault() != null)
             {
@@ -184,7 +181,6 @@ namespace MachineTest.Services.DomainRepositories
             //get eisting entry  
             var ExistEntity = context.Set<clsVendorMaster>()
             .Where(p => p.ID == entity.ID)
-            .Include(TL => TL.Trans_Link_Data)
             ;
             if (ExistEntity != null && ExistEntity.FirstOrDefault() != null)
             {

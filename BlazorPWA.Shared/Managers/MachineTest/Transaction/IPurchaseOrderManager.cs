@@ -12,6 +12,5 @@ namespace BlazorPWA.Shared.Managers
     [XSCodeType(Type= XSCodeType.Standard)]
     public partial interface IPurchaseOrderManager : IGenericManager<clsPurchaseOrderVM>
     {
-         Task<IEnumerable<FinderData>?> GetPOVCodeList(clsPurchaseOrderVM entity);
     }
 }

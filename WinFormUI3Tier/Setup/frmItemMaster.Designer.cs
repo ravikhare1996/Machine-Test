@@ -429,7 +429,8 @@
             DomainRulesClass = "clsItemMasterRules";
             EnableAddButton = true;
             ExternalAssemblies.Assemblies = (System.Collections.Generic.List<string>)resources.GetObject("resource.Assemblies");
-            File_Path = "D:\\Official\\Testing\\MachineTest\\MachineTest\\WinFormUI3Tier\\Setup\\frmItemMaster.cs";
+            File_Name = "frmItemMaster.cs";
+            File_Path = "D:\\Official\\XpertGitHubProjects\\MachineTest\\WinFormUI3Tier\\Setup\\frmItemMaster.cs";
             Form_Name = "frmItemMaster";
             Form_Type = XpertStudio.Common.Enums.XpertFormTypes.Master;
             Functional_Name = "ItemMaster";
