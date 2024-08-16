@@ -1171,3 +1171,4 @@ XpertStudio.Framework.Exceptions.XSException: Object reference not set to an ins
 2024-08-16 17:52:55.920 +05:30 [INF] Logger Intialized at:16-Aug-24 5:52:55 PM
 2024-08-16 17:53:00.236 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 5:53:00 PM
 2024-08-16 17:53:01.199 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 5:53:01 PM
+2024-08-16 17:58:26.533 +05:30 [INF] Logger Intialized at:16-Aug-24 5:58:26 PM
