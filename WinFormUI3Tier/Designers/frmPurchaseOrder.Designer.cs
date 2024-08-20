@@ -1275,7 +1275,7 @@
             xpertPageView1.Dock = System.Windows.Forms.DockStyle.Fill;
             xpertPageView1.Location = new System.Drawing.Point(0, 0);
             xpertPageView1.Name = "xpertPageView1";
-            xpertPageView1.SelectedPage = Page1;
+            xpertPageView1.SelectedPage = Page2;
             xpertPageView1.Size = new System.Drawing.Size(986, 392);
             xpertPageView1.TabIndex = 0;
             xpertPageView1.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;

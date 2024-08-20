@@ -37,7 +37,7 @@ AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt -
 }
 @if (IsFinder == false)
  {
-   <TemplateColumn Title="Actions" CellClass="d-flex justify-end">
+   <TemplateColumn Title="Actions" CellClass="d-flex justify-center">
         <CellTemplate>
                     <XSButtonFAB @onclick="@(() => View(@context.Item.ID))" Color="Color.Info" StartIcon="@Icons.Material.Outlined.ReadMore" Size="Size.Small" IconSize="Size.Small" />
                     <XSButtonFAB @onclick="@(() => Edit(@context.Item.ID))" Color="Color.Tertiary" StartIcon="@Icons.Material.Outlined.Edit" Size="Size.Small" IconSize="Size.Small" />
