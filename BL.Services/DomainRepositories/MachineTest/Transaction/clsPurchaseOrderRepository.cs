@@ -38,7 +38,7 @@ namespace MachineTest.Services.DomainRepositories
              { 
              var results = context.Set<clsPurchaseOrder>() 
             .Where(p => p.ID == Doc_No) 
-             .Include(b0 => b0.POItemList) 
+             .Include(b0 => b0.PO_ItemList) 
              .Include(b1 => b1.PO_Items) 
             .ToArray(); 
              return results;
@@ -58,7 +58,7 @@ namespace MachineTest.Services.DomainRepositories
              { 
             var results = context.Set<clsPurchaseOrder>()
             .OrderByDescending(o => o.ID)
-             .Include(b0 => b0.POItemList) 
+             .Include(b0 => b0.PO_ItemList) 
              .Include(b1 => b1.PO_Items) 
             .Select(q => new {
             q.ID
@@ -111,7 +111,7 @@ namespace MachineTest.Services.DomainRepositories
              { 
              var results =await context.Set<clsPurchaseOrder>() 
             .Where(p => p.ID == Doc_No) 
-             .Include(b0 => b0.POItemList) 
+             .Include(b0 => b0.PO_ItemList) 
              .Include(b1 => b1.PO_Items) 
             .ToListAsync();
             foreach (var item in results.FirstOrDefault().PO_Items)
@@ -136,7 +136,7 @@ namespace MachineTest.Services.DomainRepositories
             var results = await context.Set<clsPurchaseOrder>()
             .Where(d =>d.ID.Contains(SearchString) || d.Description.Contains(SearchString) || SearchString==null || SearchString== String.Empty)
             .OrderByDescending(o => o.ID)
-             .Include(b0 => b0.POItemList) 
+             .Include(b0 => b0.PO_ItemList) 
              .Include(b1 => b1.PO_Items) 
             .Select(q => new {
             q.ID
@@ -189,17 +189,17 @@ namespace MachineTest.Services.DomainRepositories
             //get eisting entry  
             var ExistEntity = context.Set<clsPurchaseOrder>()
             .Where(p => p.ID == entity.ID)
-            .Include(b => b.POItemList)
+            .Include(b => b.PO_ItemList)
             .Include(b => b.PO_Items)
             ;
             if (ExistEntity != null && ExistEntity.FirstOrDefault() != null)
             {
             //OnBeforeUpdateExecuted  
             OnBeforeUpdateExecuted(context, entity);
-            context.Set<clsFinderItems>().RemoveRange(ExistEntity.FirstOrDefault().POItemList);
+            context.Set<clsFinderItems>().RemoveRange(ExistEntity.FirstOrDefault().PO_ItemList);
             context.Set<clsPO_Item>().RemoveRange(ExistEntity.FirstOrDefault().PO_Items);
             context.SaveChanges();
-             context.Set<clsFinderItems>().AddRange(entity.POItemList);
+             context.Set<clsFinderItems>().AddRange(entity.PO_ItemList);
              context.Set<clsPO_Item>().AddRange(entity.PO_Items);
             context.SaveChanges();
             //trans link reference docs
@@ -256,17 +256,17 @@ namespace MachineTest.Services.DomainRepositories
             //get eisting entry  
             var ExistEntity = context.Set<clsPurchaseOrder>()
             .Where(p => p.ID == entity.ID)
-            .Include(b => b.POItemList)
+            .Include(b => b.PO_ItemList)
             .Include(b => b.PO_Items)
             ;
             if (ExistEntity != null && ExistEntity.FirstOrDefault() != null)
             {
             //OnBeforeUpdateExecutedAsync  
             await OnBeforeUpdateExecutedAsync(context, entity);
-            context.Set<clsFinderItems>().RemoveRange(ExistEntity.FirstOrDefault().POItemList);
+            context.Set<clsFinderItems>().RemoveRange(ExistEntity.FirstOrDefault().PO_ItemList);
             context.Set<clsPO_Item>().RemoveRange(ExistEntity.FirstOrDefault().PO_Items);
             await context.SaveChangesAsync();
-             context.Set<clsFinderItems>().AddRange(entity.POItemList);
+             context.Set<clsFinderItems>().AddRange(entity.PO_ItemList);
              context.Set<clsPO_Item>().AddRange(entity.PO_Items);
             await context.SaveChangesAsync();
             //trans link reference docs
@@ -370,6 +370,33 @@ namespace MachineTest.Services.DomainRepositories
             }
             catch (Exception)
             {
+            throw;
+            }
+        }
+
+        public async virtual Task<IEnumerable<FinderData>> GetPO_ItemListList(string FinderType, string WhereExpression)
+        {
+            try
+            {
+            var objList = new List<FinderData>();
+            await Task.Run(() =>
+            {
+            var objTr = new FinderData();
+            var qry = " select [ICode] as Code,[IName] as Name from [TSPL_ITEM_MASTER] ";
+            var dt = XSDBFunctionality.GetDataTable(qry);
+            foreach (DataRow item in dt.Rows)
+            {
+            objTr = new FinderData();
+            objTr.Code = XpertCommonFunctions.myCstr(item["Code"]);
+            objTr.Name = XpertCommonFunctions.myCstr(item["Name"]);
+            objList.Add(objTr);
+            }
+            });
+            return objList;
+            }
+            catch (Exception ex)
+            {
+            Serilog.Log.Fatal(ex.ToString());
             throw;
             }
         }

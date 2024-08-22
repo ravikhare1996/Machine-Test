@@ -1172,3 +1172,305 @@ XpertStudio.Framework.Exceptions.XSException: Object reference not set to an ins
 2024-08-16 17:53:00.236 +05:30 [INF] Metadata Extraction Started at:16-Aug-24 5:53:00 PM
 2024-08-16 17:53:01.199 +05:30 [INF] Metadata Extraction completed at:16-Aug-24 5:53:01 PM
 2024-08-16 17:58:26.533 +05:30 [INF] Logger Intialized at:16-Aug-24 5:58:26 PM
+2024-08-21 16:58:40.013 +05:30 [INF] Logger Intialized at:21-Aug-24 4:58:40 PM
+2024-08-21 16:58:44.496 +05:30 [INF] Metadata Extraction Started at:21-Aug-24 4:58:44 PM
+2024-08-21 16:58:45.185 +05:30 [INF] Metadata Extraction completed at:21-Aug-24 4:58:45 PM
+2024-08-21 18:12:16.844 +05:30 [INF] Logger Intialized at:21-Aug-24 6:12:16 PM
+2024-08-21 19:40:36.588 +05:30 [INF] Metadata Extraction Started at:21-Aug-24 7:40:36 PM
+2024-08-21 19:40:46.894 +05:30 [INF] Metadata Extraction Started at:21-Aug-24 7:40:46 PM
+2024-08-21 19:40:46.908 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs at line 86: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 265
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.<>c__DisplayClass3_1.<<Analyze>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 47
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 33
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 72
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 64
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 86
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 143
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 73
+2024-08-21 19:40:46.908 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs at line 265: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+XpertStudio.Framework.Exceptions.XSException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+2024-08-21 19:40:46.908 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs at line 182: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 265
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.<>c__DisplayClass3_1.<<Analyze>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 47
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 33
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 72
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 64
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 86
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 143
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 73
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 182
+   at XpertStudio.Framework.WinFormUI.XpertBaseForm.ExecuteGenerationAsync(Boolean value, Boolean IsCodeGeneration) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\BaseForms\XpertBaseForm.cs:line 3516
+   at XpertStudio.Framework.WinFormUI.XpertBaseForm.SetCodeGeneratedAsync(Boolean value) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\BaseForms\XpertBaseForm.cs:line 3621
+2024-08-21 19:40:46.908 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs at line 72: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 265
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.<>c__DisplayClass3_1.<<Analyze>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 47
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 33
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 72
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 64
+2024-08-21 19:41:22.719 +05:30 [INF] Metadata Extraction Started at:21-Aug-24 7:41:22 PM
+2024-08-21 19:41:22.720 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs at line 265: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+XpertStudio.Framework.Exceptions.XSException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+2024-08-21 19:41:22.720 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs at line 72: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 265
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.<>c__DisplayClass3_1.<<Analyze>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 47
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 33
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 72
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 64
+2024-08-21 19:41:22.720 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs at line 86: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 265
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.<>c__DisplayClass3_1.<<Analyze>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 47
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 33
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 72
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 64
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 86
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 143
+2024-08-21 19:41:22.728 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs at line 182: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 265
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.<>c__DisplayClass3_1.<<Analyze>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 47
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 33
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 72
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 64
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 86
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 143
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 73
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 182
+   at XpertStudio.Framework.WinFormUI.XpertBaseForm.ExecuteGenerationAsync(Boolean value, Boolean IsCodeGeneration) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\BaseForms\XpertBaseForm.cs:line 3516
+   at XpertStudio.Framework.WinFormUI.XpertBaseForm.SetCodeGeneratedAsync(Boolean value) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\BaseForms\XpertBaseForm.cs:line 3621
+2024-08-21 19:42:03.049 +05:30 [INF] Metadata Extraction Started at:21-Aug-24 7:42:03 PM
+2024-08-21 19:42:03.050 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs at line 265: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+XpertStudio.Framework.Exceptions.XSException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+2024-08-21 19:42:03.050 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs at line 72: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 265
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.<>c__DisplayClass3_1.<<Analyze>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 47
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 33
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 72
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 64
+2024-08-21 19:42:03.050 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs at line 86: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 265
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.<>c__DisplayClass3_1.<<Analyze>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 47
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 33
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 72
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 64
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 86
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 143
+2024-08-21 19:42:03.057 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs at line 182: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers\frmPurchaseOrder.Designer.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 265
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.<>c__DisplayClass3_1.<<Analyze>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 47
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 33
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 72
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 64
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 86
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 143
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 73
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 182
+   at XpertStudio.Framework.WinFormUI.XpertBaseForm.ExecuteGenerationAsync(Boolean value, Boolean IsCodeGeneration) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\BaseForms\XpertBaseForm.cs:line 3516
+   at XpertStudio.Framework.WinFormUI.XpertBaseForm.SetCodeGeneratedAsync(Boolean value) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\BaseForms\XpertBaseForm.cs:line 3621
+2024-08-21 21:38:01.160 +05:30 [INF] Logger Intialized at:21-Aug-24 9:38:01 PM
+2024-08-21 21:38:09.920 +05:30 [INF] Metadata Extraction Started at:21-Aug-24 9:38:09 PM
+2024-08-21 21:38:10.875 +05:30 [INF] Metadata Extraction completed at:21-Aug-24 9:38:10 PM
+2024-08-21 21:58:30.441 +05:30 [INF] Logger Intialized at:21-Aug-24 9:58:30 PM
+2024-08-21 21:58:40.382 +05:30 [INF] Metadata Extraction Started at:21-Aug-24 9:58:40 PM
+2024-08-21 21:58:41.218 +05:30 [INF] Metadata Extraction completed at:21-Aug-24 9:58:41 PM
+2024-08-21 22:01:01.790 +05:30 [INF] Logger Intialized at:21-Aug-24 10:01:01 PM
+2024-08-21 22:01:11.101 +05:30 [INF] Metadata Extraction Started at:21-Aug-24 10:01:11 PM
+2024-08-21 22:01:11.887 +05:30 [INF] Metadata Extraction completed at:21-Aug-24 10:01:11 PM
+2024-08-21 22:04:15.778 +05:30 [INF] Logger Intialized at:21-Aug-24 10:04:15 PM
+2024-08-21 22:04:25.015 +05:30 [INF] Metadata Extraction Started at:21-Aug-24 10:04:25 PM
+2024-08-21 22:04:25.800 +05:30 [INF] Metadata Extraction completed at:21-Aug-24 10:04:25 PM
+2024-08-21 22:38:15.967 +05:30 [INF] Logger Intialized at:21-Aug-24 10:38:15 PM
+2024-08-21 22:38:25.686 +05:30 [INF] Metadata Extraction Started at:21-Aug-24 10:38:25 PM
+2024-08-21 22:38:26.232 +05:30 [INF] Metadata Extraction completed at:21-Aug-24 10:38:26 PM
+2024-08-22 09:34:32.101 +05:30 [INF] Logger Intialized at:22-Aug-24 9:34:32 AM
+2024-08-22 09:34:37.608 +05:30 [INF] Metadata Extraction Started at:22-Aug-24 9:34:37 AM
+2024-08-22 09:34:38.460 +05:30 [INF] Metadata Extraction completed at:22-Aug-24 9:34:38 AM
+2024-08-22 09:39:30.708 +05:30 [INF] Logger Intialized at:22-Aug-24 9:39:30 AM

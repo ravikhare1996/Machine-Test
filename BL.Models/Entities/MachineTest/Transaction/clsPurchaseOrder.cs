@@ -35,12 +35,12 @@ namespace MachineTest.Domain.Entities
         private string? _filePhoto_FileName;
         private string? _filePhoto_ContentType;
         private string? _PO_Options = "False";
-        private List<clsFinderItems>? _POItemList;
+        private List<clsFinderItems>? _PO_ItemList;
         private List<clsPO_Item>? _PO_Items;
 
         public clsPurchaseOrder()
         {
-            POItemList = new List<clsFinderItems>();
+            PO_ItemList = new List<clsFinderItems>();
             PO_Items = new List<clsPO_Item>();
         }
 
@@ -210,6 +210,18 @@ namespace MachineTest.Domain.Entities
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
         [XSCodeType(Type = XSCodeType.Custom)]
         [Column("filePhoto_FilePath", TypeName ="VARCHAR")]
         [DisplayName(" File Path")]
@@ -220,6 +232,18 @@ namespace MachineTest.Domain.Entities
             get { return  _filePhoto_FilePath; }
             set { _filePhoto_FilePath=value; }
         }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -352,6 +376,18 @@ namespace MachineTest.Domain.Entities
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
         [XSCodeType(Type = XSCodeType.Custom)]
         [Column("Conytent_Type", TypeName ="VARCHAR")]
         [DisplayName("Content Type")]
@@ -373,10 +409,10 @@ namespace MachineTest.Domain.Entities
         }
 
         [ForeignKey("ParentID")]
-        public virtual List<clsFinderItems>? POItemList
+        public virtual List<clsFinderItems>? PO_ItemList
         {
-            get { return  _POItemList; }
-            set { _POItemList=value; }
+            get { return  _PO_ItemList; }
+            set { _PO_ItemList=value; }
         }
 
         [ForeignKey("ParentID")]
@@ -398,6 +434,18 @@ namespace MachineTest.Domain.Entities
                 _CreateDate = value;
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

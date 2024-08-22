@@ -318,5 +318,18 @@ namespace MachineTest.Services.DomainServices
              throw;
             }
         }
+
+        public async virtual Task< IEnumerable<FinderData>> GetPO_ItemListList(string FinderType, string WhereExpression)
+        {
+            try
+            {
+            return await  DomainDataProxy.GetPO_ItemListList(FinderType,WhereExpression);
+            }
+            catch (Exception ex)
+            {
+            Serilog.Log.Fatal(ex.ToString());
+            throw;
+            }
+        }
     }
 }

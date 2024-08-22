@@ -1473,12 +1473,12 @@
             txtItems.Datasource_Assembly = "BlazorPWA.Client";
             txtItems.Datasource_Namespace = "BlazorPWA.Client.Pages.MachineTest.Setup";
             txtItems.Datasource_Program = "ItemMaster";
-            txtItems.Datasource_Type = XpertStudio.Common.Enums.XpertFinderConfigType.Pages;
+            txtItems.Datasource_Type = XpertStudio.Common.Enums.XpertFinderConfigType.Database;
             txtItems.Display_Name = "Item List";
             txtItems.DisplayMember = null;
             txtItems.Enum_Name = null;
             txtItems.Field_Description = null;
-            txtItems.Field_Name = "POItemList";
+            txtItems.Field_Name = "PO_ItemList";
             txtItems.Field_Type = XpertStudio.Common.Enums.XpertFieldTypes.MultiSelectFinder;
             txtItems.Generated = false;
             txtItems.Key = false;

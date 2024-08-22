@@ -28,7 +28,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
         private string _ImageSrcfilePhoto = string.Empty;
         private XSRadioGroup<string?>? xpertRadioButton1;
         private XSMultiSelectFinder<FinderData?>? XpertMultiSelctFinder;
-        private List<FinderData>? _POItemListValue;
+        private List<FinderData>? _PO_ItemListValue;
         private XSDataGrid<clsPO_ItemVM>? gv1;
 
         [Inject]
@@ -69,11 +69,13 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             get { return Model.POTotAmt==Model.Document_Amount? true : false; }
         }
 
-        private List<FinderData>? POItemListValue
+        protected IEnumerable<FinderData>? PO_ItemListList { get; set; }
+
+        private List<FinderData>? PO_ItemListValue
         {
-            get { return _POItemListValue; }
+            get { return _PO_ItemListValue; }
             set { 
-            _POItemListValue = value;
+            _PO_ItemListValue = value;
              }
         }
 
@@ -105,13 +107,13 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             _UploadedfilePhoto = new XSUploadedFile(name:Model.filePhoto_FileName,contentType:Model.filePhoto_ContentType,data:Model.filePhoto) { File_Path=Model.filePhoto_FilePath };
             _ImageSrcfilePhoto = XpertCommonFunctions.GetImageByByteArr(Model.filePhoto);
             }
-            if (Model.POItemList!=null)
+            if (Model.PO_ItemList!=null)
             {
-             if(POItemListValue==null)
+             if(PO_ItemListValue==null)
              {
-               POItemListValue = new List<FinderData>();
+               PO_ItemListValue = new List<FinderData>();
              }
-            POItemListValue.AddRange(Model.POItemList.Cast<IXSFinderData>().Select(item => new FinderData { Code = item.Code, Name = item.Name }));
+            PO_ItemListValue.AddRange(Model.PO_ItemList.Cast<IXSFinderData>().Select(item => new FinderData { Code = item.Code, Name = item.Name }));
             }
             }
             Context = new EditContext(Model);
@@ -213,16 +215,28 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             return name;
         }
 
-        private string DisplayPOItemList(FinderData CurrentData)
+        private async Task<IEnumerable<FinderData>>  SearchPO_ItemList(string value)
+        {
+            //await Task.Delay(5);
+            PO_ItemListList = await Manager.GetPO_ItemListList(Model);
+           // PO_ItemListValue= PO_ItemListList.FirstOrDefault(val =>val.Code==Model.PO_ItemList);
+            if (string.IsNullOrEmpty(value))
+            {
+            return PO_ItemListList;
+            }
+            return PO_ItemListList.Where(x => x.Name.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+        }
+
+        private string DisplayPO_ItemList(FinderData CurrentData)
         {
             string strList=string.Empty;
             try
             {
-             if(POItemListValue == null)
+             if(PO_ItemListValue == null)
              {
               return strList;
              }
-             foreach (var item in POItemListValue)
+             foreach (var item in PO_ItemListValue)
              {
               if (XpertCommonFunctions.myLen(strList) <= 0)
               {
@@ -241,7 +255,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             }
         }
 
-        private void SetSelectedValuesPOItemList(EventArgs e)
+        private void SetSelectedValuesPO_ItemList(EventArgs e)
         {
             try
             {
@@ -249,11 +263,11 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
              {
               return;
              }
-            POItemListValue = XpertMultiSelctFinder?.SelectedValues?.Cast<FinderData>().ToList();
-             Model.POItemList = new List<clsFinderItemsVM>();
-             foreach (var item in POItemListValue)
+            PO_ItemListValue = XpertMultiSelctFinder?.SelectedValues?.Cast<FinderData>().ToList();
+             Model.PO_ItemList = new List<clsFinderItemsVM>();
+             foreach (var item in PO_ItemListValue)
              {
-               Model.POItemList.Add(new clsFinderItemsVM() { ParentID = Model.ID, RowNo = POItemListValue.ToList().IndexOf(item) + 1, Code = item.Code, Name = item.Name});
+               Model.PO_ItemList.Add(new clsFinderItemsVM() { ParentID = Model.ID, RowNo = PO_ItemListValue.ToList().IndexOf(item) + 1, Code = item.Code, Name = item.Name});
              }
             }
             catch (Exception)

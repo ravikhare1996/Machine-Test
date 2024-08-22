@@ -118,5 +118,10 @@ namespace BlazorPWA.Shared.Managers
         {
             return await _httpClient.GetFromJsonAsync<clsPurchaseOrderVM>(Routes.PurchaseOrderEndPoints.GetDefault());
         }
+
+        public async virtual Task<IEnumerable<FinderData>?> GetPO_ItemListList(clsPurchaseOrderVM entity)
+        {
+            return await _httpClient.GetFromJsonAsync<IEnumerable<FinderData>>(Routes.PurchaseOrderEndPoints.GetPO_ItemListList(entity));
+        }
     }
 }

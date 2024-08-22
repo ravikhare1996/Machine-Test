@@ -78,6 +78,21 @@ namespace BlazorPWA.Shared.Routes
         {
             return $"api/PurchaseOrder/Default";
         }
+
+        public static string GetPO_ItemListList(clsPurchaseOrderVM entity)
+        {
+            return $"api/PurchaseOrder/GetPO_ItemListList?type={GetPO_ItemListFinderType(entity)}&whereClause={GetPO_ItemListFinderWhereClause(entity)}";
+        }
+[XSCodeType(Type= XSCodeType.Custom)]
+        public static string? GetPO_ItemListFinderType(clsPurchaseOrderVM entity)
+        {
+            return null;
+        }
+[XSCodeType(Type= XSCodeType.Custom)]
+        public static string? GetPO_ItemListFinderWhereClause(clsPurchaseOrderVM entity)
+        {
+            return null;
+        }
 [XSCodeType(Type= XSCodeType.Custom)]
         public static string? GetPOItemListFinderType(clsPurchaseOrderVM entity)
         {
