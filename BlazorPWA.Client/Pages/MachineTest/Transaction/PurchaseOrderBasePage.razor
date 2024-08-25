@@ -96,7 +96,7 @@
                                                 <MudText Class="mt-1"><strong>Testing</strong></MudText>
                                             </TitleContent>
                                             <ChildContent>
-                                                <XSMultiSelectFinder1 T="FinderData" @ref="XpertMultiSelctFinder" Label="Select Item List" @bind-SelectedValues="PO_ItemListValue" Required="true" ReadOnly=@(ReadOnly || false)
+                                                <XSMultiSelectFinder T="FinderData" @ref="txtItems" Label="Select Item List" @bind-SelectedValues="PO_ItemListValue" Required="true" ReadOnly=@(ReadOnly || false)
                                                                      Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
                                                                      AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
                                                                      @onblur="@SetSelectedValuesPO_ItemList" ToStringFunc="@DisplayPO_ItemList" SearchFunc="@SearchPO_ItemList" />
@@ -111,6 +111,17 @@
                                                     <XSRadio T="string" Value="@("Option1")" Color="Color.Primary">Option1</XSRadio>
                                                     <XSRadio T="string" Value="@("Option2")" Color="Color.Primary">Option2</XSRadio>
                                                 </XSRadioGroup>
+                                            </ChildContent>
+                                        </XSExpansionPanel>
+                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
+                                            <TitleContent>
+                                                <MudText Class="mt-1"><strong>Testing</strong></MudText>
+                                            </TitleContent>
+                                            <ChildContent>
+                                                <XSMultiSelectFinder T="FinderData" @ref="txtMultiVendor" FinderPage="typeof(VendorMaster)" FinderUrl="/MachineTest/Setup/VendorMaster" Label="Select Select Vendors" @bind-SelectedValues="VendorsValue" Required="true" ReadOnly=@(ReadOnly || false)
+                                                                     Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
+                                                                     AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
+                                                                     @onblur="@SetSelectedValuesVendors" ToStringFunc="@DisplayVendors" />
                                             </ChildContent>
                                         </XSExpansionPanel>
                                     </XSExpansionPanels>

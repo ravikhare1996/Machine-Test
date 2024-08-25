@@ -60,7 +60,7 @@
             // 
             xpertSplitContainer1.Panel1.Controls.Add(gbxHeader);
             xpertSplitContainer1.Panel2Collapsed = true;
-            xpertSplitContainer1.Size = new System.Drawing.Size(662, 235);
+            xpertSplitContainer1.Size = new System.Drawing.Size(663, 235);
             xpertSplitContainer1.SplitterDistance = 117;
             xpertSplitContainer1.TabIndex = 2;
             xpertSplitContainer1.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
@@ -79,7 +79,7 @@
             gbxHeader.HeaderText = "Basic Info";
             gbxHeader.Location = new System.Drawing.Point(0, 0);
             gbxHeader.Name = "gbxHeader";
-            gbxHeader.Size = new System.Drawing.Size(662, 235);
+            gbxHeader.Size = new System.Drawing.Size(663, 235);
             gbxHeader.TabIndex = 0;
             gbxHeader.Text = "Basic Info";
             gbxHeader.Visibility_Criteria = null;
@@ -248,10 +248,9 @@
             Class_File_Name = "frmVendorMaster.cs";
             Class_File_Path = "D:\\Official\\R$D\\BlazorTest\\MachineTest\\WinFormUI3Tier\\Setup\\frmVendorMaster.cs";
             Class_Name = "clsVendorMaster";
-            ClientSize = new System.Drawing.Size(662, 273);
+            ClientSize = new System.Drawing.Size(663, 273);
             Controls.Add(xpertSplitContainer1);
             CreateCommandServiceClass = "clsVendorMasterCreateCommand";
-            CurrentEditorType = "frmRuleEditor";
             DataProxyLayerClass = "IclsVendorMasterDataProxy";
             DeleteCommandServiceClass = "clsVendorMasterDeleteCommand";
             Doc_Prefix = "VM";

@@ -38,8 +38,9 @@ namespace MachineTest.Services.DomainRepositories
              { 
              var results = context.Set<clsPurchaseOrder>() 
             .Where(p => p.ID == Doc_No) 
-             .Include(b0 => b0.PO_ItemList) 
-             .Include(b1 => b1.PO_Items) 
+             .Include(b0 => b0.Vendors) 
+             .Include(b1 => b1.PO_ItemList) 
+             .Include(b2 => b2.PO_Items) 
             .ToArray(); 
              return results;
              } 
@@ -58,8 +59,9 @@ namespace MachineTest.Services.DomainRepositories
              { 
             var results = context.Set<clsPurchaseOrder>()
             .OrderByDescending(o => o.ID)
-             .Include(b0 => b0.PO_ItemList) 
-             .Include(b1 => b1.PO_Items) 
+             .Include(b0 => b0.Vendors) 
+             .Include(b1 => b1.PO_ItemList) 
+             .Include(b2 => b2.PO_Items) 
             .Select(q => new {
             q.ID
             ,q.PORemarks
@@ -111,8 +113,9 @@ namespace MachineTest.Services.DomainRepositories
              { 
              var results =await context.Set<clsPurchaseOrder>() 
             .Where(p => p.ID == Doc_No) 
-             .Include(b0 => b0.PO_ItemList) 
-             .Include(b1 => b1.PO_Items) 
+             .Include(b0 => b0.Vendors) 
+             .Include(b1 => b1.PO_ItemList) 
+             .Include(b2 => b2.PO_Items) 
             .ToListAsync();
             foreach (var item in results.FirstOrDefault().PO_Items)
             {
@@ -136,8 +139,9 @@ namespace MachineTest.Services.DomainRepositories
             var results = await context.Set<clsPurchaseOrder>()
             .Where(d =>d.ID.Contains(SearchString) || d.Description.Contains(SearchString) || SearchString==null || SearchString== String.Empty)
             .OrderByDescending(o => o.ID)
-             .Include(b0 => b0.PO_ItemList) 
-             .Include(b1 => b1.PO_Items) 
+             .Include(b0 => b0.Vendors) 
+             .Include(b1 => b1.PO_ItemList) 
+             .Include(b2 => b2.PO_Items) 
             .Select(q => new {
             q.ID
             ,q.PORemarks
@@ -189,6 +193,7 @@ namespace MachineTest.Services.DomainRepositories
             //get eisting entry  
             var ExistEntity = context.Set<clsPurchaseOrder>()
             .Where(p => p.ID == entity.ID)
+            .Include(b => b.Vendors)
             .Include(b => b.PO_ItemList)
             .Include(b => b.PO_Items)
             ;
@@ -196,9 +201,11 @@ namespace MachineTest.Services.DomainRepositories
             {
             //OnBeforeUpdateExecuted  
             OnBeforeUpdateExecuted(context, entity);
+            context.Set<clsPOVendor>().RemoveRange(ExistEntity.FirstOrDefault().Vendors);
             context.Set<clsFinderItems>().RemoveRange(ExistEntity.FirstOrDefault().PO_ItemList);
             context.Set<clsPO_Item>().RemoveRange(ExistEntity.FirstOrDefault().PO_Items);
             context.SaveChanges();
+             context.Set<clsPOVendor>().AddRange(entity.Vendors);
              context.Set<clsFinderItems>().AddRange(entity.PO_ItemList);
              context.Set<clsPO_Item>().AddRange(entity.PO_Items);
             context.SaveChanges();
@@ -256,6 +263,7 @@ namespace MachineTest.Services.DomainRepositories
             //get eisting entry  
             var ExistEntity = context.Set<clsPurchaseOrder>()
             .Where(p => p.ID == entity.ID)
+            .Include(b => b.Vendors)
             .Include(b => b.PO_ItemList)
             .Include(b => b.PO_Items)
             ;
@@ -263,9 +271,11 @@ namespace MachineTest.Services.DomainRepositories
             {
             //OnBeforeUpdateExecutedAsync  
             await OnBeforeUpdateExecutedAsync(context, entity);
+            context.Set<clsPOVendor>().RemoveRange(ExistEntity.FirstOrDefault().Vendors);
             context.Set<clsFinderItems>().RemoveRange(ExistEntity.FirstOrDefault().PO_ItemList);
             context.Set<clsPO_Item>().RemoveRange(ExistEntity.FirstOrDefault().PO_Items);
             await context.SaveChangesAsync();
+             context.Set<clsPOVendor>().AddRange(entity.Vendors);
              context.Set<clsFinderItems>().AddRange(entity.PO_ItemList);
              context.Set<clsPO_Item>().AddRange(entity.PO_Items);
             await context.SaveChangesAsync();

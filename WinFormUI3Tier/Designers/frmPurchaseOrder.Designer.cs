@@ -66,6 +66,8 @@
             Page1 = new Telerik.WinControls.UI.RadPageViewPage();
             Page2 = new Telerik.WinControls.UI.RadPageViewPage();
             xpertGroupBox1 = new XS.WinForms.Controls.XpertGroupBox();
+            xpertLabel2 = new XS.WinForms.Controls.XpertLabel();
+            txtMultiVendor = new XS.WinForms.Controls.XpertMultiSelctFinder();
             xpertGroupBox3 = new XS.WinForms.Controls.XpertGroupBox();
             xpertRadioButton2 = new XS.WinForms.Controls.XpertRadioButton();
             xpertRadioButton1 = new XS.WinForms.Controls.XpertRadioButton();
@@ -107,6 +109,7 @@
             Page2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)xpertGroupBox1).BeginInit();
             xpertGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)xpertLabel2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)xpertGroupBox3).BeginInit();
             xpertGroupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)xpertRadioButton2).BeginInit();
@@ -1303,6 +1306,8 @@
             xpertGroupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
             xpertGroupBox1.BorderColor = System.Drawing.Color.Empty;
             xpertGroupBox1.Control_Name = "xpertGroupBox1";
+            xpertGroupBox1.Controls.Add(xpertLabel2);
+            xpertGroupBox1.Controls.Add(txtMultiVendor);
             xpertGroupBox1.Controls.Add(xpertGroupBox3);
             xpertGroupBox1.Controls.Add(xpertLabel1);
             xpertGroupBox1.Controls.Add(txtItems);
@@ -1317,6 +1322,106 @@
             xpertGroupBox1.Visibility_Criteria = null;
             xpertGroupBox1.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
             // 
+            // xpertLabel2
+            // 
+            xpertLabel2.Calculation_Expression = null;
+            xpertLabel2.Calculation_Type = XS.WinForms.Controls.CalculationTypes.None;
+            xpertLabel2.Calculative = false;
+            xpertLabel2.Column_Name = null;
+            xpertLabel2.Control_Name = null;
+            xpertLabel2.Create_Option = XpertStudio.Common.Enums.XpertFieldCreateOptions.UIAndModelAndTable;
+            xpertLabel2.Custom_Data = false;
+            xpertLabel2.Custom_Default = false;
+            xpertLabel2.Display_Name = null;
+            xpertLabel2.Field_Description = null;
+            xpertLabel2.Field_Name = null;
+            xpertLabel2.Field_Type = XpertStudio.Common.Enums.XpertFieldTypes.None;
+            xpertLabel2.FieldName = null;
+            xpertLabel2.Generated = false;
+            xpertLabel2.Location = new System.Drawing.Point(90, 109);
+            xpertLabel2.MendatroryField = false;
+            xpertLabel2.Metadata_Type = null;
+            xpertLabel2.Name = "xpertLabel2";
+            xpertLabel2.Size = new System.Drawing.Size(80, 18);
+            xpertLabel2.SourceColumn = null;
+            xpertLabel2.TabIndex = 4;
+            xpertLabel2.Text = "Select Vendors";
+            xpertLabel2.Validation_Criteria = null;
+            xpertLabel2.Visibility_Criteria = null;
+            xpertLabel2.XpertDisplayMember = null;
+            xpertLabel2.XpertValueMember = null;
+            xpertLabel2.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
+            // 
+            // txtMultiVendor
+            // 
+            txtMultiVendor.arrDispalyMember = null;
+            txtMultiVendor.arrValueMember = null;
+            txtMultiVendor.Calculation_Expression = null;
+            txtMultiVendor.Calculation_Type = XS.WinForms.Controls.CalculationTypes.None;
+            txtMultiVendor.Calculative = false;
+            txtMultiVendor.Collection_Name = null;
+            txtMultiVendor.Column_Name = "Vendors";
+            txtMultiVendor.Control_Name = "txtMultiVendor";
+            txtMultiVendor.Create_Option = XpertStudio.Common.Enums.XpertFieldCreateOptions.UIAndModelAndTable;
+            txtMultiVendor.Custom_Data = false;
+            txtMultiVendor.Custom_Datasource_Logic = false;
+            txtMultiVendor.Custom_Default = false;
+            txtMultiVendor.DataSource = null;
+            txtMultiVendor.Datasource_Assembly = "BlazorPWA.Client";
+            txtMultiVendor.Datasource_Namespace = "BlazorPWA.Client.Pages.MachineTest.Setup";
+            txtMultiVendor.Datasource_Program = "VendorMaster";
+            txtMultiVendor.Datasource_Type = XpertStudio.Common.Enums.XpertFinderConfigType.Pages;
+            txtMultiVendor.Display_Name = "Select Vendors";
+            txtMultiVendor.DisplayMember = null;
+            txtMultiVendor.Enum_Name = null;
+            txtMultiVendor.Field_Description = null;
+            txtMultiVendor.Field_Name = "Vendors";
+            txtMultiVendor.Field_Type = XpertStudio.Common.Enums.XpertFieldTypes.None;
+            txtMultiVendor.Generated = false;
+            txtMultiVendor.Key = false;
+            txtMultiVendor.Key_Column_Name = null;
+            txtMultiVendor.Key_Property = null;
+            txtMultiVendor.Key_Value = null;
+            txtMultiVendor.Location = new System.Drawing.Point(194, 102);
+            txtMultiVendor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtMultiVendor.Max_Size = 0;
+            txtMultiVendor.MendatroryField = false;
+            txtMultiVendor.Metadata_Type = XpertStudio.Common.Enums.XpertMetadataTypes.Auto;
+            txtMultiVendor.Min_Size = 0;
+            txtMultiVendor.MinimumSize = new System.Drawing.Size(117, 23);
+            txtMultiVendor.Model_Name = null;
+            txtMultiVendor.MyFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtMultiVendor.MyLinkLable1 = xpertLabel2;
+            txtMultiVendor.MyLinkLable2 = null;
+            txtMultiVendor.MyNullText = "All";
+            txtMultiVendor.MyReadOnly = false;
+            txtMultiVendor.MyToolTipText = null;
+            txtMultiVendor.Name = "txtMultiVendor";
+            txtMultiVendor.Name_Column_Name = null;
+            txtMultiVendor.Name_Property = null;
+            txtMultiVendor.Name_Value = null;
+            txtMultiVendor.Page_Key_Property = "ID";
+            txtMultiVendor.Page_Name_Property = "Description";
+            txtMultiVendor.Query_Class_Name = null;
+            txtMultiVendor.Required = false;
+            txtMultiVendor.Section_Class = "clsPOVendor";
+            txtMultiVendor.Section_Table = "TSPL_PO_VENDOR";
+            txtMultiVendor.ShowDataSource = false;
+            txtMultiVendor.Size = new System.Drawing.Size(233, 25);
+            txtMultiVendor.SQLMethodName = null;
+            txtMultiVendor.TabIndex = 3;
+            txtMultiVendor.Table_Name = null;
+            txtMultiVendor.Tag_Column_Name = null;
+            txtMultiVendor.Tag_Property = null;
+            txtMultiVendor.Validation_Criteria = null;
+            txtMultiVendor.ValueMember = null;
+            txtMultiVendor.Visibility_Criteria = null;
+            txtMultiVendor.Web_Page_Name = "VendorMaster";
+            txtMultiVendor.Web_Page_Url = "/MachineTest/Setup/VendorMaster";
+            txtMultiVendor.XpertDisplayMember = null;
+            txtMultiVendor.XpertValueMember = null;
+            txtMultiVendor.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
+            // 
             // xpertGroupBox3
             // 
             xpertGroupBox3.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
@@ -1325,7 +1430,7 @@
             xpertGroupBox3.Controls.Add(xpertRadioButton2);
             xpertGroupBox3.Controls.Add(xpertRadioButton1);
             xpertGroupBox3.HeaderText = "Options";
-            xpertGroupBox3.Location = new System.Drawing.Point(194, 119);
+            xpertGroupBox3.Location = new System.Drawing.Point(159, 168);
             xpertGroupBox3.Name = "xpertGroupBox3";
             xpertGroupBox3.Size = new System.Drawing.Size(387, 100);
             xpertGroupBox3.TabIndex = 2;
@@ -1464,7 +1569,7 @@
             txtItems.Calculative = false;
             txtItems.Collection_Name = null;
             txtItems.Column_Name = "POItemList";
-            txtItems.Control_Name = "XpertMultiSelctFinder";
+            txtItems.Control_Name = "txtItems";
             txtItems.Create_Option = XpertStudio.Common.Enums.XpertFieldCreateOptions.UIAndModelAndTable;
             txtItems.Custom_Data = false;
             txtItems.Custom_Datasource_Logic = false;
@@ -1604,6 +1709,7 @@
             ((System.ComponentModel.ISupportInitialize)xpertGroupBox1).EndInit();
             xpertGroupBox1.ResumeLayout(false);
             xpertGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)xpertLabel2).EndInit();
             ((System.ComponentModel.ISupportInitialize)xpertGroupBox3).EndInit();
             xpertGroupBox3.ResumeLayout(false);
             xpertGroupBox3.PerformLayout();
@@ -1650,5 +1756,7 @@
         private XS.WinForms.Controls.XpertGroupBox xpertGroupBox3;
         private XS.WinForms.Controls.XpertRadioButton xpertRadioButton2;
         private XS.WinForms.Controls.XpertRadioButton xpertRadioButton1;
+        private XS.WinForms.Controls.XpertLabel xpertLabel2;
+        private XS.WinForms.Controls.XpertMultiSelctFinder txtMultiVendor;
     }
 }

@@ -1,3 +1,4 @@
+
 @inherits BasePage
 
 @using System.ComponentModel.DataAnnotations
@@ -13,39 +14,39 @@
 
 
 <AuthorizeView Context="authContext" Policy="@Policies.IsAnonymousUser" Resource="typeof(PurchaseOrderPO_ItemsGridPage)">
-    <Authorized>
-        <XSDataGrid MultiSelection="false" @ref="gv1" T="clsPO_ItemVM" Items="@GridData" EditMode="DataGridEditMode.Cell"
-                    Dense="true" Bordered="true" Hover="true" ReadOnly="false" CanCancelEdit="true"
-                    ColumnResizeMode="ResizeMode.Container"
-                    EditTrigger=DataGridEditTrigger.Manual Filterable="true" SelectedItemChanged="@RowClicked">
-            <ToolBarContent>
-                <MudText Typo="Typo.h6">Details</MudText>
-                <XSSpacer />
-                <XSButton DisableElevation=true Variant="Variant.Filled" Color="Color.Surface" @onclick="@(() => AddEmptyElement())" StartIcon="@Icons.Material.Filled.Add" IconColor="Color.Primary">Add</XSButton>
-                <XSButton DisableElevation=true Variant="Variant.Filled" Color="Color.Surface" @onclick="@(() => RemoveElement())" StartIcon="@Icons.Material.Filled.Remove" IconColor="Color.Primary">Remove</XSButton>
-            </ToolBarContent>
-            <Columns>
-                <PropertyColumn @ref="POISNo" Property="x => x.RowNo" Title="Row No" Required="false" IsEditable="true" />
-                <PropertyColumn Property="x => GetPOICodeValue(x.POICode)" Title="Item Code" Required="false" IsEditable="true">
-                    <EditTemplate>
-                        <XSFinder @ref="POICode" T="FinderData" FinderPage="typeof(ItemMaster)" FinderUrl="/MachineTest/Setup/ItemMasters" @bind-Value="POICodeValue" Required="false" ReadOnly="false"
-                                  Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
-                                  AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
-                                  ToStringFunc="@DisplayPOICode" />
-                    </EditTemplate>
-                </PropertyColumn>
-                <PropertyColumn @ref="ItemName" Property="x => x.ItemName" Title="Item Name" Required="false" IsEditable="true" />
-                <PropertyColumn @ref="Uom" Property="x => x.POIUOM" Title="UOM" Required="false" IsEditable="true" />
-                <PropertyColumn @ref="POIRate" Property="x => x.POIRate" Title="Rate" Required="false" IsEditable="true" />
-                <PropertyColumn @ref="POIQty" Property="x => x.POIQty" Title="Quantity" Required="false" IsEditable="true" AggregateDefinition="_Sum_POIQty" />
-                <PropertyColumn @ref="POIAmt" Property="x => x.POIAmt" Title="Amount" Required="false" IsEditable="false" AggregateDefinition="_Sum_POIAmt" />
-                <PropertyColumn @ref="TotalQty" Property="x => x.TotalQty" Title="Total Quantity" Required="false" IsEditable="true" />
-            </Columns>
-        </XSDataGrid>
-    </Authorized>
-    <NotAuthorized>
-        <p>You are not authorized to access this resource!!</p>
-    </NotAuthorized>
+<Authorized>
+<XSDataGrid  MultiSelection="false" @ref="gv1" T="clsPO_ItemVM" Items="@GridData" EditMode="DataGridEditMode.Cell"
+Dense="true" Bordered="true" Hover="true" ReadOnly="false" CanCancelEdit="true"
+ColumnResizeMode="ResizeMode.Container"
+EditTrigger=DataGridEditTrigger.Manual Filterable="true" SelectedItemChanged="@RowClicked">
+  <ToolBarContent>
+   <MudText Typo="Typo.h6">Details</MudText>
+   <XSSpacer />
+   <XSButton DisableElevation=true Variant="Variant.Filled" Color="Color.Surface" @onclick="@(() => AddEmptyElement())" StartIcon="@Icons.Material.Filled.Add" IconColor="Color.Primary">Add</XSButton>
+   <XSButton DisableElevation=true Variant="Variant.Filled" Color="Color.Surface" @onclick="@(() => RemoveElement())" StartIcon="@Icons.Material.Filled.Remove" IconColor="Color.Primary">Remove</XSButton>
+  </ToolBarContent>
+<Columns>
+<PropertyColumn @ref="POISNo" Property="x => x.RowNo" Title="Row No" Required="false" IsEditable="true"  />
+<PropertyColumn Property="x => GetPOICodeValue(x.POICode)" Title="Item Code" Required="false" IsEditable="true">
+<EditTemplate>
+  <XSFinder @ref="POICode" T="FinderData"  FinderPage="typeof(ItemMaster)" FinderUrl="/MachineTest/Setup/ItemMasters" @bind-Value="POICodeValue" Required="false" ReadOnly="false" 
+Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
+AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
+ ToStringFunc="@DisplayPOICode"  /> 
+</EditTemplate>
+</PropertyColumn>
+<PropertyColumn @ref="ItemName" Property="x => x.ItemName" Title="Item Name" Required="false" IsEditable="true"/>
+<PropertyColumn @ref="Uom" Property="x => x.POIUOM" Title="UOM" Required="false" IsEditable="true"/>
+<PropertyColumn @ref="POIRate" Property="x => x.POIRate" Title="Rate" Required="false" IsEditable="true"  />
+<PropertyColumn @ref="POIQty" Property="x => x.POIQty" Title="Quantity" Required="false" IsEditable="true" AggregateDefinition="_Sum_POIQty" />
+<PropertyColumn @ref="POIAmt" Property="x => x.POIAmt" Title="Amount" Required="false" IsEditable="false" AggregateDefinition="_Sum_POIAmt" />
+<PropertyColumn @ref="TotalQty" Property="x => x.TotalQty" Title="Total Quantity" Required="false" IsEditable="true"  />
+</Columns>
+</XSDataGrid>
+</Authorized>
+<NotAuthorized>
+<p>You are not authorized to access this resource!!</p>
+</NotAuthorized>
 </AuthorizeView>
 
 @code {

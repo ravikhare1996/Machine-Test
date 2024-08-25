@@ -33,11 +33,13 @@ namespace BlazorPWA.Shared.VMs
         private string? _filePhoto_FileName;
         private string? _filePhoto_ContentType;
         private string? _PO_Options = "False";
+        private List<clsPOVendorVM>? _Vendors;
         private List<clsFinderItemsVM>? _PO_ItemList;
         private List<clsPO_ItemVM>? _PO_Items;
 
         public clsPurchaseOrderVM()
         {
+            Vendors = new List<clsPOVendorVM>();
             PO_ItemList = new List<clsFinderItemsVM>();
             PO_Items = new List<clsPO_ItemVM>();
         }
@@ -166,6 +168,13 @@ namespace BlazorPWA.Shared.VMs
         {
             get { return  _PO_Options; }
             set { _PO_Options=value; }
+        }
+
+        [ForeignKey("ParentID")]
+        public virtual List<clsPOVendorVM>? Vendors
+        {
+            get { return  _Vendors; }
+            set { _Vendors=value; }
         }
 
         [ForeignKey("ParentID")]
