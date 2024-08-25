@@ -96,7 +96,7 @@
                                                 <MudText Class="mt-1"><strong>Testing</strong></MudText>
                                             </TitleContent>
                                             <ChildContent>
-                                                <XSMultiSelectFinder T="FinderData" @ref="XpertMultiSelctFinder" Label="Select Item List" @bind-SelectedValues="PO_ItemListValue" Required="true" ReadOnly=@(ReadOnly || false)
+                                                <XSMultiSelectFinder1 T="FinderData" @ref="XpertMultiSelctFinder" Label="Select Item List" @bind-SelectedValues="PO_ItemListValue" Required="true" ReadOnly=@(ReadOnly || false)
                                                                      Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
                                                                      AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
                                                                      @onblur="@SetSelectedValuesPO_ItemList" ToStringFunc="@DisplayPO_ItemList" SearchFunc="@SearchPO_ItemList" />

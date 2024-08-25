@@ -29,6 +29,7 @@ namespace BlazorPWA.Shared.Routes
         {
             return $"api/CommonDB/getSingleValue?Query={Query}";
         }
+        
         public static string ExecuteNonQuery(string? Query)
         {
             return $"api/CommonDB/ExecuteNonQuery?Query={Query}";

@@ -40,7 +40,7 @@
     <PackageReference Include="System.Text.Json">
       <Version>7.0.1</Version>
     </PackageReference>
-    <PackageReference Include="XpertStudio.Framework.Domain" Version="4.2408.2122" />
+    <PackageReference Include="XpertStudio.Framework.Domain" Version="4.2408.2417" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BlazorPWA.Common\BlazorPWA.Common.csproj" />

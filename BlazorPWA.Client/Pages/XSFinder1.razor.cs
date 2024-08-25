@@ -100,9 +100,9 @@ namespace BlazorPWA.Client.Pages
         [Parameter]
         public EventCallback<List<T>> SelectedRowsChanged { get; set; }
         protected async Task ValidateParameters(EventArgs e)
-        {
+        {            
             if (ValidatingParameters.HasDelegate)
-            {
+            {                
                 await ValidatingParameters.InvokeAsync(e);
             }
         }
@@ -401,7 +401,7 @@ namespace BlazorPWA.Client.Pages
         /// </summary>
         [Parameter]
         [Category(CategoryTypes.FormComponent.Behavior)]
-        public bool Clearable { get; set; } = false;
+        public bool Clearable { get; set; } = true;
 
         /// <summary>
         /// Button click event for clear button. Called after text and value has been cleared.

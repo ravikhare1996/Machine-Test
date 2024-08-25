@@ -103,7 +103,6 @@
                                 @BeforeItemsTemplate
                             </div>
                         }
-                        <FinderDialog1 @ref=objFinderDialog IsMultiSelectFinder="@IsMultiSelectFinder" Items="(IEnumerable<IFinderData>)_items.ToList()" OnSelectedDataChanged="OnFinderDataChanged" OnSelectedRowsChanged="OnFinderSelectedRowsChanged" SelectedData="SelectedData" />
                         //New Code(07082024)
                         if (objFinderDialog != null)
                         {
@@ -117,6 +116,8 @@
                                 objFinderDialog.SelectedFinderData = SelectedData;
                             }
                         }
+                        <FinderDialog1 @ref=objFinderDialog IsMultiSelectFinder="@IsMultiSelectFinder" Items="(IEnumerable<IFinderData>)_items.ToList()" OnSelectedDataChanged="OnFinderDataChanged" OnSelectedRowsChanged="OnFinderSelectedRowsChanged" SelectedData="SelectedData" />
+                        
                     }
 
 
