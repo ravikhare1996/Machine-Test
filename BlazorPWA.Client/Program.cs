@@ -11,7 +11,6 @@ global using MudBlazor.XS.Common.Helpers;
 global using System.Net.Http.Json;
 global using System.Security.Claims;
 global using XpertStudio.Common.Attributes;
-global using XpertStudio.Common.Dtos;
 global using XpertStudio.Common.DTOs;
 global using XpertStudio.Common.Enums;
 using BlazorPWA.Client.Shared;

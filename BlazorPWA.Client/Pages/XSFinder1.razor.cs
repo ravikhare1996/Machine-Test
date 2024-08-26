@@ -1290,5 +1290,7 @@ namespace BlazorPWA.Client.Pages
                 _XSMapper_Control = value;
             }
         }
+
+        public int TabIndex { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

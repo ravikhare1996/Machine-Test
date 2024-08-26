@@ -1495,3 +1495,6 @@ File name: 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers
 2024-08-25 19:51:22.854 +05:30 [INF] Metadata Extraction Started at:25-Aug-24 7:51:22 PM
 2024-08-25 19:51:23.603 +05:30 [INF] Metadata Extraction completed at:25-Aug-24 7:51:23 PM
 2024-08-25 20:12:53.660 +05:30 [INF] Logger Intialized at:25-Aug-24 8:12:53 PM
+2024-08-26 22:21:52.989 +05:30 [INF] Logger Intialized at:26-Aug-24 10:21:52 PM
+2024-08-26 22:22:01.684 +05:30 [INF] Metadata Extraction Started at:26-Aug-24 10:22:01 PM
+2024-08-26 22:22:02.370 +05:30 [INF] Metadata Extraction completed at:26-Aug-24 10:22:02 PM
