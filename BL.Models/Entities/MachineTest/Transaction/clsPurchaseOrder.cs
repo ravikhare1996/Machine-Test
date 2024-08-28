@@ -70,7 +70,7 @@ namespace MachineTest.Domain.Entities
             set { _Description=value; }
         }
 
-        [DefaultValue("'21-May-24 9:46:27 PM'")]
+        [DefaultValue("'21-05-2024 21:46:27'")]
         [Column("PODate")]
         [DisplayName("Date")]
         [GroupName("Header")]
@@ -101,7 +101,7 @@ namespace MachineTest.Domain.Entities
             set { _PORemarks=value; }
         }
 
-        [DefaultValue("'22-May-24 10:25:31 PM'")]
+        [DefaultValue("'22-05-2024 22:25:31'")]
         [Column("CreateDate")]
         [DisplayName("Create DateTime")]
         [GroupName("Header")]
@@ -111,7 +111,7 @@ namespace MachineTest.Domain.Entities
             set { _CreateDate=value; }
         }
 
-        [DefaultValue("'22-May-24 11:18:13 PM'")]
+        [DefaultValue("'22-05-2024 23:18:13'")]
         [Column("ModifiyDate")]
         [DisplayName("Modify Date")]
         [GroupName("Header")]
@@ -151,6 +151,9 @@ namespace MachineTest.Domain.Entities
             set { _filePhoto=value; }
         }
 
+
+
+
         [XSCodeType(Type = XSCodeType.Custom)]
         [Column("filePhoto_FilePath", TypeName ="VARCHAR")]
         [DisplayName(" File Path")]
@@ -162,6 +165,9 @@ namespace MachineTest.Domain.Entities
             set { _filePhoto_FilePath=value; }
         }
 
+
+
+
         [XSCodeType(Type = XSCodeType.Custom)]
         [Column("File_Name", TypeName ="VARCHAR")]
         [GroupName("Photograph")]
@@ -170,6 +176,9 @@ namespace MachineTest.Domain.Entities
             get { return  _filePhoto_FileName; }
             set { _filePhoto_FileName=value; }
         }
+
+
+
 
         [XSCodeType(Type = XSCodeType.Custom)]
         [Column("Conytent_Type", TypeName ="VARCHAR")]
@@ -180,6 +189,7 @@ namespace MachineTest.Domain.Entities
             get { return  _filePhoto_ContentType; }
             set { _filePhoto_ContentType=value; }
         }
+
 
         [DefaultValue("False")]
         [DisplayName("Option1")]
@@ -224,6 +234,9 @@ namespace MachineTest.Domain.Entities
             }
         }
 
+
+
+
         [NotMapped]        
         [XSCodeType(Type = XSCodeType.Custom)]
         public override DateTime? LastModifiedDatetime
@@ -235,6 +248,7 @@ namespace MachineTest.Domain.Entities
                 _ModifiyDate = value;
             }
         }
+
 
     }
 }

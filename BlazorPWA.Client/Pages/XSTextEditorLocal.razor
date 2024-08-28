@@ -1,0 +1,26 @@
+﻿@inject IJSRuntime _jsRuntime
+@inherits MudBaseInput<string>
+@using Microsoft.JSInterop
+@using BlazorPWA.Client.Pages
+
+
+<div @ref="@_toolBar">
+    @if (Toolbar != null)
+    {
+        <CascadingValue Value="Toolbar">            
+           @*  <CascadingValue Value="Fonts">
+                <ToolbarContentComp></ToolbarContentComp>
+            </CascadingValue> *@
+        </CascadingValue>
+
+    }
+
+    @ToolbarContent
+</div>
+<div id="@EditorContainerId" @ref="@_quillElement">
+    @EditorContent
+</div>
+
+@code {
+   
+}

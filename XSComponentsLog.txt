@@ -1498,3 +1498,432 @@ File name: 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers
 2024-08-26 22:21:52.989 +05:30 [INF] Logger Intialized at:26-Aug-24 10:21:52 PM
 2024-08-26 22:22:01.684 +05:30 [INF] Metadata Extraction Started at:26-Aug-24 10:22:01 PM
 2024-08-26 22:22:02.370 +05:30 [INF] Metadata Extraction completed at:26-Aug-24 10:22:02 PM
+2024-08-27 13:46:13.884 +05:30 [INF] Logger Intialized at:27-08-2024 13:46:13
+2024-08-27 13:46:17.909 +05:30 [INF] Metadata Extraction Started at:27-08-2024 13:46:17
+2024-08-27 13:46:18.562 +05:30 [INF] Metadata Extraction completed at:27-08-2024 13:46:18
+2024-08-27 15:04:35.706 +05:30 [INF] Logger Intialized at:27-08-2024 15:04:35
+2024-08-27 16:17:04.432 +05:30 [INF] Logger Intialized at:27-08-2024 16:17:04
+2024-08-27 16:17:17.336 +05:30 [INF] Metadata Extraction Started at:27-08-2024 16:17:17
+2024-08-27 16:17:23.752 +05:30 [INF] Metadata Extraction Started at:27-08-2024 16:17:23
+2024-08-27 16:17:23.756 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs at line 86: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 265
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.<>c__DisplayClass3_1.<<Analyze>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 47
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 33
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 72
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 64
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 86
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 143
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 73
+2024-08-27 16:17:23.757 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs at line 265: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+XpertStudio.Framework.Exceptions.XSException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+2024-08-27 16:17:23.756 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs at line 72: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 265
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.<>c__DisplayClass3_1.<<Analyze>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 47
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 33
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 72
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 64
+2024-08-27 16:17:23.758 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs at line 182: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 265
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.<>c__DisplayClass3_1.<<Analyze>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 47
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 33
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 72
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 64
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 86
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 143
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 73
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 182
+   at XpertStudio.Framework.WinFormUI.XpertBaseForm.ExecuteGenerationAsync(Boolean value, Boolean IsCodeGeneration) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\BaseForms\XpertBaseForm.cs:line 3524
+   at XpertStudio.Framework.WinFormUI.XpertBaseForm.SetCodeGeneratedAsync(Boolean value) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\BaseForms\XpertBaseForm.cs:line 3629
+2024-08-27 16:17:26.136 +05:30 [INF] Issue Creation Request Failure Status:
+2024-08-27 16:17:26.136 +05:30 [INF] Issue Creation Request Failure Status:
+2024-08-27 16:17:26.136 +05:30 [INF] Issue Creation Request Failure Status:
+2024-08-27 16:17:26.137 +05:30 [INF] Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjlhYmJlNGIwLTZmMTMtNDk1ZC1hOTc4LTIzYTk4NmJlZjJhOSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJYU0lzc3VlRWRpdG9yIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiWHBlcnRzdHVkaW8iLCJXZWJBUElDb250cm9sbGVyIjpbIlJlcG9ydEV4Y2VwdGlvbkNvbnRyb2xsZXIiLCJQcm9kdWN0Q29tcG9uZW50c0NvbnRyb2xsZXIiXSwiV2ViQ29tcG9uZW50IjpbIlJlcG9ydEV4Y2VwdGlvbiIsIlJlcG9ydEV4Y2VwdGlvbkJhc2VQYWdlIiwiUmVwb3J0RXhjZXB0aW9uQ3JlYXRlIiwiUmVwb3J0RXhjZXB0aW9uRWRpdCIsIlJlcG9ydEV4Y2VwdGlvblZpZXciLCJQcm9kdWN0Q29tcG9uZW50cyJdLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJFZGl0b3IiLCJleHAiOjE3MjQ4NDIwNDYsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0IiwiYXVkIjoibG9jYWxob3N0In0.AcbvJFVyGbo3DYcxTnkYIVH_XNv7k3d2kJXXBffDKXI
+2024-08-27 16:17:26.137 +05:30 [INF] Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjlhYmJlNGIwLTZmMTMtNDk1ZC1hOTc4LTIzYTk4NmJlZjJhOSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJYU0lzc3VlRWRpdG9yIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiWHBlcnRzdHVkaW8iLCJXZWJBUElDb250cm9sbGVyIjpbIlJlcG9ydEV4Y2VwdGlvbkNvbnRyb2xsZXIiLCJQcm9kdWN0Q29tcG9uZW50c0NvbnRyb2xsZXIiXSwiV2ViQ29tcG9uZW50IjpbIlJlcG9ydEV4Y2VwdGlvbiIsIlJlcG9ydEV4Y2VwdGlvbkJhc2VQYWdlIiwiUmVwb3J0RXhjZXB0aW9uQ3JlYXRlIiwiUmVwb3J0RXhjZXB0aW9uRWRpdCIsIlJlcG9ydEV4Y2VwdGlvblZpZXciLCJQcm9kdWN0Q29tcG9uZW50cyJdLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJFZGl0b3IiLCJleHAiOjE3MjQ4NDIwNDYsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0IiwiYXVkIjoibG9jYWxob3N0In0.AcbvJFVyGbo3DYcxTnkYIVH_XNv7k3d2kJXXBffDKXI
+2024-08-27 16:17:26.137 +05:30 [INF] Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjlhYmJlNGIwLTZmMTMtNDk1ZC1hOTc4LTIzYTk4NmJlZjJhOSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJYU0lzc3VlRWRpdG9yIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiWHBlcnRzdHVkaW8iLCJXZWJBUElDb250cm9sbGVyIjpbIlJlcG9ydEV4Y2VwdGlvbkNvbnRyb2xsZXIiLCJQcm9kdWN0Q29tcG9uZW50c0NvbnRyb2xsZXIiXSwiV2ViQ29tcG9uZW50IjpbIlJlcG9ydEV4Y2VwdGlvbiIsIlJlcG9ydEV4Y2VwdGlvbkJhc2VQYWdlIiwiUmVwb3J0RXhjZXB0aW9uQ3JlYXRlIiwiUmVwb3J0RXhjZXB0aW9uRWRpdCIsIlJlcG9ydEV4Y2VwdGlvblZpZXciLCJQcm9kdWN0Q29tcG9uZW50cyJdLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJFZGl0b3IiLCJleHAiOjE3MjQ4NDIwNDYsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0IiwiYXVkIjoibG9jYWxob3N0In0.AcbvJFVyGbo3DYcxTnkYIVH_XNv7k3d2kJXXBffDKXI
+2024-08-27 16:17:26.138 +05:30 [INF] HTTP Status Code: InternalServerError
+2024-08-27 16:17:26.138 +05:30 [INF] HTTP Status Code: InternalServerError
+2024-08-27 16:17:26.138 +05:30 [INF] HTTP Status Code: InternalServerError
+2024-08-27 16:17:26.138 +05:30 [INF] Response Content: 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Error</title>
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/app.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="content px-4">
+            <h1 class="text-danger">Error.</h1>
+            <h2 class="text-danger">An error occurred while processing your request.</h2>
+
+
+            <h3>Development Mode</h3>
+            <p>
+                Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.
+            </p>
+            <p>
+                <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
+                It can result in displaying sensitive information from exceptions to end users.
+                For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
+                and restarting the app.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+2024-08-27 16:17:26.138 +05:30 [INF] ReasonPharase: Internal Server Error
+2024-08-27 16:17:26.138 +05:30 [INF] Response Content: 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Error</title>
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/app.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="content px-4">
+            <h1 class="text-danger">Error.</h1>
+            <h2 class="text-danger">An error occurred while processing your request.</h2>
+
+
+            <h3>Development Mode</h3>
+            <p>
+                Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.
+            </p>
+            <p>
+                <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
+                It can result in displaying sensitive information from exceptions to end users.
+                For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
+                and restarting the app.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+2024-08-27 16:17:26.138 +05:30 [INF] ReasonPharase: Internal Server Error
+2024-08-27 16:17:26.138 +05:30 [INF] Response Content: 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Error</title>
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/app.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="content px-4">
+            <h1 class="text-danger">Error.</h1>
+            <h2 class="text-danger">An error occurred while processing your request.</h2>
+
+
+            <h3>Development Mode</h3>
+            <p>
+                Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.
+            </p>
+            <p>
+                <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
+                It can result in displaying sensitive information from exceptions to end users.
+                For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
+                and restarting the app.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+2024-08-27 16:17:26.138 +05:30 [INF] ReasonPharase: Internal Server Error
+2024-08-27 16:17:39.894 +05:30 [INF] Metadata Extraction Started at:27-08-2024 16:17:39
+2024-08-27 16:17:39.895 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs at line 265: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+XpertStudio.Framework.Exceptions.XSException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+2024-08-27 16:17:39.895 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs at line 72: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 265
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.<>c__DisplayClass3_1.<<Analyze>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 47
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 33
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 72
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 64
+2024-08-27 16:17:39.895 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs at line 86: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 265
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.<>c__DisplayClass3_1.<<Analyze>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 47
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 33
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 72
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 64
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 86
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 143
+2024-08-27 16:17:39.900 +05:30 [ERR] An exception occurred in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs at line 182: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+ ---> System.IO.FileNotFoundException: Could not find file 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'.
+File name: 'D:\Official\XpertGitHubProjects\MachineTest\BlazorPWA.Client\Pages\XSTextEditorLocal.razor.Designer.cs'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 229
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSAnalyzerBase.GetCompilationUnitRoot() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSAnalyzerBase.cs:line 265
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.<>c__DisplayClass3_1.<<Analyze>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 47
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 33
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSEventsAnalyzer.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSEventsAnalyzer.cs:line 72
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 64
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSWinFormAnalyzerBase.Analyze(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSWinFormAnalyzerBase.cs:line 86
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.<>c__DisplayClass2_0.<<ExtractMetadata>b__0>d.MoveNext() in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 143
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 73
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSMetadataExtractor.ExtractMetadata(IXpertBaseForm form) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSMetadataExtractor.cs:line 182
+   at XpertStudio.Framework.WinFormUI.XpertBaseForm.ExecuteGenerationAsync(Boolean value, Boolean IsCodeGeneration) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\BaseForms\XpertBaseForm.cs:line 3524
+   at XpertStudio.Framework.WinFormUI.XpertBaseForm.SetCodeGeneratedAsync(Boolean value) in D:\Official\XpertGitHubProjects\XpertStudio\XpertStudio.Framework.FormDesigner\BaseForms\XpertBaseForm.cs:line 3629
+2024-08-27 16:17:40.119 +05:30 [INF] Issue Creation Request Failure Status:
+2024-08-27 16:17:40.119 +05:30 [INF] Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjlhYmJlNGIwLTZmMTMtNDk1ZC1hOTc4LTIzYTk4NmJlZjJhOSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJYU0lzc3VlRWRpdG9yIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiWHBlcnRzdHVkaW8iLCJXZWJBUElDb250cm9sbGVyIjpbIlJlcG9ydEV4Y2VwdGlvbkNvbnRyb2xsZXIiLCJQcm9kdWN0Q29tcG9uZW50c0NvbnRyb2xsZXIiXSwiV2ViQ29tcG9uZW50IjpbIlJlcG9ydEV4Y2VwdGlvbiIsIlJlcG9ydEV4Y2VwdGlvbkJhc2VQYWdlIiwiUmVwb3J0RXhjZXB0aW9uQ3JlYXRlIiwiUmVwb3J0RXhjZXB0aW9uRWRpdCIsIlJlcG9ydEV4Y2VwdGlvblZpZXciLCJQcm9kdWN0Q29tcG9uZW50cyJdLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJFZGl0b3IiLCJleHAiOjE3MjQ4NDIwNjAsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0IiwiYXVkIjoibG9jYWxob3N0In0.Ikd9HCfdUGGY54XFH6vSDaZ4qy_7vsuhxEf-BMctXiI
+2024-08-27 16:17:40.119 +05:30 [INF] Issue Creation Request Failure Status:
+2024-08-27 16:17:40.119 +05:30 [INF] Issue Creation Request Failure Status:
+2024-08-27 16:17:40.119 +05:30 [INF] HTTP Status Code: InternalServerError
+2024-08-27 16:17:40.119 +05:30 [INF] Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjlhYmJlNGIwLTZmMTMtNDk1ZC1hOTc4LTIzYTk4NmJlZjJhOSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJYU0lzc3VlRWRpdG9yIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiWHBlcnRzdHVkaW8iLCJXZWJBUElDb250cm9sbGVyIjpbIlJlcG9ydEV4Y2VwdGlvbkNvbnRyb2xsZXIiLCJQcm9kdWN0Q29tcG9uZW50c0NvbnRyb2xsZXIiXSwiV2ViQ29tcG9uZW50IjpbIlJlcG9ydEV4Y2VwdGlvbiIsIlJlcG9ydEV4Y2VwdGlvbkJhc2VQYWdlIiwiUmVwb3J0RXhjZXB0aW9uQ3JlYXRlIiwiUmVwb3J0RXhjZXB0aW9uRWRpdCIsIlJlcG9ydEV4Y2VwdGlvblZpZXciLCJQcm9kdWN0Q29tcG9uZW50cyJdLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJFZGl0b3IiLCJleHAiOjE3MjQ4NDIwNjAsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0IiwiYXVkIjoibG9jYWxob3N0In0.Ikd9HCfdUGGY54XFH6vSDaZ4qy_7vsuhxEf-BMctXiI
+2024-08-27 16:17:40.119 +05:30 [INF] HTTP Status Code: InternalServerError
+2024-08-27 16:17:40.119 +05:30 [INF] Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjlhYmJlNGIwLTZmMTMtNDk1ZC1hOTc4LTIzYTk4NmJlZjJhOSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJYU0lzc3VlRWRpdG9yIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiWHBlcnRzdHVkaW8iLCJXZWJBUElDb250cm9sbGVyIjpbIlJlcG9ydEV4Y2VwdGlvbkNvbnRyb2xsZXIiLCJQcm9kdWN0Q29tcG9uZW50c0NvbnRyb2xsZXIiXSwiV2ViQ29tcG9uZW50IjpbIlJlcG9ydEV4Y2VwdGlvbiIsIlJlcG9ydEV4Y2VwdGlvbkJhc2VQYWdlIiwiUmVwb3J0RXhjZXB0aW9uQ3JlYXRlIiwiUmVwb3J0RXhjZXB0aW9uRWRpdCIsIlJlcG9ydEV4Y2VwdGlvblZpZXciLCJQcm9kdWN0Q29tcG9uZW50cyJdLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJFZGl0b3IiLCJleHAiOjE3MjQ4NDIwNjAsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0IiwiYXVkIjoibG9jYWxob3N0In0.Ikd9HCfdUGGY54XFH6vSDaZ4qy_7vsuhxEf-BMctXiI
+2024-08-27 16:17:40.119 +05:30 [INF] Response Content: 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Error</title>
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/app.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="content px-4">
+            <h1 class="text-danger">Error.</h1>
+            <h2 class="text-danger">An error occurred while processing your request.</h2>
+
+
+            <h3>Development Mode</h3>
+            <p>
+                Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.
+            </p>
+            <p>
+                <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
+                It can result in displaying sensitive information from exceptions to end users.
+                For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
+                and restarting the app.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+2024-08-27 16:17:40.119 +05:30 [INF] ReasonPharase: Internal Server Error
+2024-08-27 16:17:40.119 +05:30 [INF] Response Content: 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Error</title>
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/app.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="content px-4">
+            <h1 class="text-danger">Error.</h1>
+            <h2 class="text-danger">An error occurred while processing your request.</h2>
+
+
+            <h3>Development Mode</h3>
+            <p>
+                Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.
+            </p>
+            <p>
+                <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
+                It can result in displaying sensitive information from exceptions to end users.
+                For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
+                and restarting the app.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+2024-08-27 16:17:40.119 +05:30 [INF] ReasonPharase: Internal Server Error
+2024-08-27 16:17:40.119 +05:30 [INF] HTTP Status Code: InternalServerError
+2024-08-27 16:17:40.119 +05:30 [INF] Response Content: 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Error</title>
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/app.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="content px-4">
+            <h1 class="text-danger">Error.</h1>
+            <h2 class="text-danger">An error occurred while processing your request.</h2>
+
+
+            <h3>Development Mode</h3>
+            <p>
+                Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.
+            </p>
+            <p>
+                <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
+                It can result in displaying sensitive information from exceptions to end users.
+                For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
+                and restarting the app.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+2024-08-27 16:17:40.119 +05:30 [INF] ReasonPharase: Internal Server Error
+2024-08-28 12:58:27.409 +05:30 [INF] Logger Intialized at:28-08-2024 12:58:27
+2024-08-28 12:58:34.961 +05:30 [INF] Metadata Extraction Started at:28-08-2024 12:58:34
+2024-08-28 12:58:35.735 +05:30 [INF] Metadata Extraction completed at:28-08-2024 12:58:35
