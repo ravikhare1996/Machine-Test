@@ -7,6 +7,8 @@ using XpertStudio.Common.Functions;
 using System.Data;
 using BlazorPWA.Shared.VMs;
 using Microsoft.JSInterop;
+using Blazored.TextEditor;
+using System.Reflection;
 
 namespace BlazorPWA.Client.Pages.MachineTest.Setup
 {
@@ -17,6 +19,10 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         private bool success;
         private XSTextBox<string?>? txtDescription;
         private XSTextBox<string?>? txtVendorCode;
+        private XSTextEditor? xpertTextEditor1;
+
+        XSTextEditorLocal QuillHtml;
+        string QuillHTMLContent;
 
         [Inject]
         protected IVendorMasterManager Manager { get; set; }
@@ -47,12 +53,18 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
             {
               ReadOnly = CrudType == XpertCrudTypes.View ? true : false;
             }
+
+            //textEditor code
+            if (!String.IsNullOrEmpty(Model.TextEditor)) 
+            {
+                QuillHTMLContent = Model.TextEditor;
+            }
             StateHasChanged();
         }
 
         private async Task  OnCreate(EditContext context)
         {
-            Model=await Manager.SaveAsync(Model);
+            Model =await Manager.SaveAsync(Model);
             success = true;
             StateHasChanged();
             _snackBar.Add("Record Added.", MudBlazor.Severity.Success);
@@ -102,6 +114,12 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
             {
               Model=await  Manager.GetDataAsync(CurrentID);
             }
+        }
+
+        public async void GetHTML()
+        {
+            Model.TextEditor = await this.QuillHtml.GetHTML();
+            StateHasChanged();
         }
     }
 }

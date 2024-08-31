@@ -44,6 +44,7 @@
 
 	<ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Blazored.TextEditor" Version="1.1.0" />
     <PackageReference Include="CsvHelper" Version="31.0.4" />
     <PackageReference Include="DynamicExpresso.Core" Version="2.13.0" />
     <PackageReference Include="Mapster" Version="7.3.0" />

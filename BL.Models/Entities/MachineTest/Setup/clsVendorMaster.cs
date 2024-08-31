@@ -23,6 +23,7 @@ namespace MachineTest.Domain.Entities
     {
         private string? _ID = "Auto";
         private string? _Description;
+        private string? _TextEditor;
 
         public clsVendorMaster() { }
 
@@ -47,6 +48,14 @@ namespace MachineTest.Domain.Entities
         {
             get { return  _Description; }
             set { _Description=value; }
+        }
+
+        [Column("TextEditor", TypeName = "VARCHAR")]
+        [GroupName("Basic Info")]
+        public string? TextEditor
+        {
+            get { return  _TextEditor; }
+            set { _TextEditor=value; }
         }
 
     }

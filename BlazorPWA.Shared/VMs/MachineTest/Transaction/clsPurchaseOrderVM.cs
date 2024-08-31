@@ -64,7 +64,7 @@ namespace BlazorPWA.Shared.VMs
             set { _Description=value; }
         }
 
-        [DefaultValue("'21-May-24 9:46:27 PM'")]
+        [DefaultValue("'21-05-2024 21:46:27'")]
         [DisplayName("Date")]
         [GroupName("Header")]
         public DateTime? PODate
@@ -92,7 +92,7 @@ namespace BlazorPWA.Shared.VMs
             set { _PORemarks=value; }
         }
 
-        [DefaultValue("'22-May-24 10:25:31 PM'")]
+        [DefaultValue("'22-05-2024 22:25:31'")]
         [DisplayName("Create DateTime")]
         [GroupName("Header")]
         public DateTime? CreateDate
@@ -101,7 +101,7 @@ namespace BlazorPWA.Shared.VMs
             set { _CreateDate=value; }
         }
 
-        [DefaultValue("'22-May-24 11:18:13 PM'")]
+        [DefaultValue("'22-05-2024 23:18:13'")]
         [DisplayName("Modify Date")]
         [GroupName("Header")]
         public DateTime? ModifiyDate
