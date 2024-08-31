@@ -96,7 +96,7 @@
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="FluentValidation" Version="11.4.0" />
     <PackageReference Include="System.Text.Json" Version="7.0.3" />
-    <PackageReference Include="XpertStudio.Framework.WinFormUI" Version="4.2408.2622" />
+    <PackageReference Include="XpertStudio.Framework.WinFormUI" Version="4.2408.2915" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="appsettings.json" />

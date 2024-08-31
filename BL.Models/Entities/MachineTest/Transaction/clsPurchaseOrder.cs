@@ -35,13 +35,11 @@ namespace MachineTest.Domain.Entities
         private string? _filePhoto_FileName;
         private string? _filePhoto_ContentType;
         private string? _PO_Options = "False";
-        private List<clsPOVendor>? _Vendors;
         private List<clsFinderItems>? _PO_ItemList;
         private List<clsPO_Item>? _PO_Items;
 
         public clsPurchaseOrder()
         {
-            Vendors = new List<clsPOVendor>();
             PO_ItemList = new List<clsFinderItems>();
             PO_Items = new List<clsPO_Item>();
         }
@@ -151,6 +149,8 @@ namespace MachineTest.Domain.Entities
             set { _filePhoto=value; }
         }
 
+
+
         [XSCodeType(Type = XSCodeType.Custom)]
         [Column("filePhoto_FilePath", TypeName ="VARCHAR")]
         [DisplayName(" File Path")]
@@ -162,6 +162,8 @@ namespace MachineTest.Domain.Entities
             set { _filePhoto_FilePath=value; }
         }
 
+
+
         [XSCodeType(Type = XSCodeType.Custom)]
         [Column("File_Name", TypeName ="VARCHAR")]
         [GroupName("Photograph")]
@@ -170,6 +172,8 @@ namespace MachineTest.Domain.Entities
             get { return  _filePhoto_FileName; }
             set { _filePhoto_FileName=value; }
         }
+
+
 
         [XSCodeType(Type = XSCodeType.Custom)]
         [Column("Conytent_Type", TypeName ="VARCHAR")]
@@ -181,6 +185,7 @@ namespace MachineTest.Domain.Entities
             set { _filePhoto_ContentType=value; }
         }
 
+
         [DefaultValue("False")]
         [DisplayName("Option1")]
         [GroupName("Options")]
@@ -188,13 +193,6 @@ namespace MachineTest.Domain.Entities
         {
             get { return  _PO_Options; }
             set { _PO_Options=value; }
-        }
-
-        [ForeignKey("ParentID")]
-        public virtual List<clsPOVendor>? Vendors
-        {
-            get { return  _Vendors; }
-            set { _Vendors=value; }
         }
 
         [ForeignKey("ParentID")]
@@ -224,6 +222,8 @@ namespace MachineTest.Domain.Entities
             }
         }
 
+
+
         [NotMapped]        
         [XSCodeType(Type = XSCodeType.Custom)]
         public override DateTime? LastModifiedDatetime
@@ -235,6 +235,7 @@ namespace MachineTest.Domain.Entities
                 _ModifiyDate = value;
             }
         }
+
 
     }
 }

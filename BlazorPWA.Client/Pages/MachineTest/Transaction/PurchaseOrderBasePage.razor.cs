@@ -27,8 +27,6 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
         private IXSUploadedFile? _UploadedfilePhoto;
         private string _ImageSrcfilePhoto = string.Empty;
         private XSRadioGroup<string?>? xpertRadioButton1;
-        private XSMultiSelectFinder<FinderData?>? txtMultiVendor;
-        private List<FinderData>? _VendorsValue;
         private XSMultiSelectFinder<FinderData?>? txtItems;
         private List<FinderData>? _PO_ItemListValue;
         private XSDataGrid<clsPO_ItemVM>? gv1;
@@ -71,14 +69,6 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             get { return Model.POTotAmt==Model.Document_Amount? true : false; }
         }
 
-        private List<FinderData>? VendorsValue
-        {
-            get { return _VendorsValue; }
-            set { 
-            _VendorsValue = value;
-             }
-        }
-
         protected IEnumerable<FinderData>? PO_ItemListList { get; set; }
 
         private List<FinderData>? PO_ItemListValue
@@ -116,14 +106,6 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             {
             _UploadedfilePhoto = new XSUploadedFile(name:Model.filePhoto_FileName,contentType:Model.filePhoto_ContentType,data:Model.filePhoto) { File_Path=Model.filePhoto_FilePath };
             _ImageSrcfilePhoto = XpertCommonFunctions.GetImageByByteArr(Model.filePhoto);
-            }
-            if (Model.Vendors!=null)
-            {
-             if(VendorsValue==null)
-             {
-               VendorsValue = new List<FinderData>();
-             }
-            VendorsValue.AddRange(Model.Vendors.Cast<IXSFinderData>().Select(item => new FinderData { Code = item.Code, Name = item.Name }));
             }
             if (Model.PO_ItemList!=null)
             {
@@ -231,55 +213,6 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
         {
             string? name= (string?)(await Manager.getSingleValue("select VName from TSPL_VENDOR_MASTER where VCode='" + Code + "'"));
             return name;
-        }
-
-        private string DisplayVendors(FinderData CurrentData)
-        {
-            string strList=string.Empty;
-            try
-            {
-             if(VendorsValue == null)
-             {
-              return strList;
-             }
-             foreach (var item in VendorsValue)
-             {
-              if (XpertCommonFunctions.myLen(strList) <= 0)
-              {
-                strList = strList + item.Code + "-" + item.Name;
-              }
-              else
-              {
-                strList = strList + "," + item.Code + "-" + item.Name;
-              }
-             }
-            return strList;
-            }
-            catch (Exception)
-            {
-             throw;
-            }
-        }
-
-        private void SetSelectedValuesVendors(EventArgs e)
-        {
-            try
-            {
-             if (txtMultiVendor?.SelectedValues == null)
-             {
-              return;
-             }
-            VendorsValue = txtMultiVendor?.SelectedValues?.Cast<FinderData>().ToList();
-             Model.Vendors = new List<clsPOVendorVM>();
-             foreach (var item in VendorsValue)
-             {
-               Model.Vendors.Add(new clsPOVendorVM() { ParentID = Model.ID, RowNo = VendorsValue.ToList().IndexOf(item) + 1, Code = item.Code, Name = item.Name});
-             }
-            }
-            catch (Exception)
-            {
-             throw;
-            }
         }
 
         private async Task<IEnumerable<FinderData>>  SearchPO_ItemList(string value)

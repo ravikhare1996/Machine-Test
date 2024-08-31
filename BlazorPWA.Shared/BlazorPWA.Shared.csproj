@@ -25,7 +25,7 @@
 	<ItemGroup>
 	  <PackageReference Include="FluentValidation" Version="11.4.0" />
 	  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
-	  <PackageReference Include="XpertStudio.Framework.Domain" Version="4.2408.2622" />
+	  <PackageReference Include="XpertStudio.Framework.Domain" Version="4.2408.2915" />
 	</ItemGroup>
 
 	<ItemGroup>

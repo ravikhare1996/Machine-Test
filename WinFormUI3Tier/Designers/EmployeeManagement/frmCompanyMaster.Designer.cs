@@ -1865,7 +1865,6 @@
             EnableAddButton = true;
             ExternalAssemblies.Assemblies = (System.Collections.Generic.List<string>)resources.GetObject("resource.Assemblies");
             File_Path = "D:\\Official\\Testing\\MachineTest\\MachineTest\\WinFormUI3Tier\\Designers\\EmployeeManagement\\frmCompanyMaster.cs";
-            Form_Name = "frmCompanyName";
             Form_Type = XpertStudio.Common.Enums.XpertFormTypes.Master;
             Functional_Name = "Company_Master";
             IServiceLayerClass = "IclsCompanyMasterService";

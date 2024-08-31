@@ -16,164 +16,153 @@
 
 
 <AuthorizeView Context="authContext" Policy="@Policies.IsAnonymousUser" Resource="typeof(PurchaseOrderBasePage)">
-    <Authorized>
-        @if (PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.Create)
+<Authorized>
+@if(PageType==XpertStudio.Common.Enums.BlazorPWAPageTypes.Create)
+{
+<h1>Create Purchase Order</h1>
+}
+else if(PageType==XpertStudio.Common.Enums.BlazorPWAPageTypes.Edit)
+{
+<h1>Edit Purchase Order</h1>
+}
+else if(PageType==XpertStudio.Common.Enums.BlazorPWAPageTypes.Delete)
+{
+<h1>Delete Purchase Order</h1>
+}
+else if(PageType==XpertStudio.Common.Enums.BlazorPWAPageTypes.View)
+{
+<h1>View Purchase Order</h1> 
+}
+else
+{
+<h1>Purchase Order</h1>
+}
+<br/>
+<EditForm  Model="@Model" OnValidSubmit="OnValidSubmit">
+<DataAnnotationsValidator/>
+<XSGrid>
+ <MudItem xs="12" sm="10">
+  <XSCard>
+   <MudCardContent>
+     <XSTabs Elevation="2" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa - 6">
+<MudTabPanel Text="General">
+     <XSExpansionPanels MultiExpansion="true">
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>Header</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSTextBox  @ref="txtPOCode" ReadOnly="@(PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.Create && ReadOnly == false ?  false : true)" Label="PO No" HelperText="Max. 10 characters"
+@bind-Value="Model.ID" For="@(() => Model.ID)"/>
+<XSTextBox  @ref="txtComments" ReadOnly=@(ReadOnly || false) Label="Comments" HelperText="Max. 50 characters"
+@bind-Value="Model.Description" For="@(() => Model.Description)"/>
+<XSDatePicker  @ref="dtpPODate" Label="Date" @bind-Date="Model.PODate" ReadOnly=@(ReadOnly || false) DateFormat="dd/MM/yyyy"/>
+<XSNumberBox  @ref="txtPOAmt" @bind-Value="Model.POTotAmt" Label="Amount" Variant="Variant.Text" ReadOnly=@(ReadOnly || true) />
+<XSTextBox  @ref="txtRemarks" ReadOnly=@(ReadOnly || false) Label="Remarks" HelperText="Max. 50 characters"
+@bind-Value="Model.PORemarks" For="@(() => Model.PORemarks)"/>
+<XSFinder  T="FinderData" @ref="txtVendor" FinderPage="typeof(VendorMaster)" FinderUrl="/MachineTest/Setup/VendorMaster" Label="Select Vendor"  @bind-Value="POVCodeValue" Required="true" ReadOnly=@(ReadOnly || false)
+Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
+AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
+ ToStringFunc="@DisplayPOVCode"  /> 
+<XSNumberBox  @ref="txtDocAmt" @bind-Value="Model.Document_Amount" Label="Document Amount" Variant="Variant.Text" ReadOnly=@(ReadOnly || false) />
+         </ChildContent>
+       </XSExpansionPanel>
+@if (Visible_gbxDetails)
+{
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>Details</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<PurchaseOrderPO_ItemsGridPage ParentID="@Model.ID"  Model = "Model" GridData = "Model.PO_Items" >
+</PurchaseOrderPO_ItemsGridPage >
+         </ChildContent>
+       </XSExpansionPanel>
+}
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>Photograph</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSImage DisplayImage="true" ImageSrc="@_ImageSrcfilePhoto" Width="164" Height="104" ObjectFit="ObjectFit.Fill" Fluid="false" Hidden="false" T="IBrowserFile" AppendMultipleFiles="false"  @ref="pcbPhoto"  Disabled=@(ReadOnly || false) MaxSize="1" MinSize="0"  CurrentFile="_UploadedfilePhoto" OnOpenFile="OnfilePhotoOpen" OnFilesChanged="OnfilePhotoChanged" />
+         </ChildContent>
+       </XSExpansionPanel>
+     </XSExpansionPanels>
+</MudTabPanel>
+<MudTabPanel Text="Others">
+     <XSExpansionPanels MultiExpansion="true">
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>Testing</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSMultiSelectFinder  T="FinderData" @ref="txtItems"  Label="Select Item List"  @bind-SelectedValues="PO_ItemListValue" Required="true" ReadOnly=@(ReadOnly || false)
+ Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
+AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
+@onblur="@SetSelectedValuesPO_ItemList" ToStringFunc="@DisplayPO_ItemList" SearchFunc="@SearchPO_ItemList" /> 
+         </ChildContent>
+       </XSExpansionPanel>
+       <XSExpansionPanel IsExpanded=true HideIcon=true>
+         <TitleContent>
+           <MudText Class="mt-1"><strong>Options</strong></MudText>
+         </TitleContent>
+         <ChildContent>
+<XSRadioGroup @ref="xpertRadioButton1" @bind-Value="Model.PO_Options">
+<XSRadio T="string" Value="@("Option1")" Color="Color.Primary">Option1</XSRadio>
+<XSRadio T="string" Value="@("Option2")" Color="Color.Primary">Option2</XSRadio>
+</XSRadioGroup>
+         </ChildContent>
+       </XSExpansionPanel>
+     </XSExpansionPanels>
+</MudTabPanel>
+    </XSTabs>
+   </MudCardContent>
+   <MudCardContent>
+     <XSExpansionPanels MultiExpansion="true">
+     </XSExpansionPanels>
+   </MudCardContent>
+   <MudCardActions>
+     <XSButton ButtonType="ButtonType.Button" Variant="Variant.Outlined" Color="Color.Primary" OnClick="NavigateToIndex" Class="mr - 4">Back</XSButton>
+     @if(CrudType==XpertStudio.Common.Enums.XpertCrudTypes.Create)
+      {
+        <XSButton ButtonType="ButtonType.Reset" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Reset</XSButton>
+        <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Save</XSButton>
+      }
+      @if(CrudType==XpertStudio.Common.Enums.XpertCrudTypes.Edit)
+       {
+         <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Edit</XSButton>
+       }
+       @if(CrudType==XpertStudio.Common.Enums.XpertCrudTypes.Delete)
         {
-            <h1>Create Purchase Order</h1>
+          <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Delete</XSButton>
         }
-        else if (PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.Edit)
-        {
-            <h1>Edit Purchase Order</h1>
-        }
-        else if (PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.Delete)
-        {
-            <h1>Delete Purchase Order</h1>
-        }
-        else if (PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.View)
-        {
-            <h1>View Purchase Order</h1>
-        }
-        else
-        {
-            <h1>Purchase Order</h1>
-        }
-        <br />
-        <EditForm Model="@Model" OnValidSubmit="OnValidSubmit">
-            <DataAnnotationsValidator />
-            <XSGrid>
-                <MudItem xs="12" sm="10">
-                    <XSCard>
-                        <MudCardContent>
-                            <XSTabs Elevation="2" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa - 6">
-                                <MudTabPanel Text="General">
-                                    <XSExpansionPanels MultiExpansion="true">
-                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                            <TitleContent>
-                                                <MudText Class="mt-1"><strong>Header</strong></MudText>
-                                            </TitleContent>
-                                            <ChildContent>
-                                                <XSTextBox @ref="txtPOCode" ReadOnly="@(PageType == XpertStudio.Common.Enums.BlazorPWAPageTypes.Create && ReadOnly == false ?  false : true)" Label="PO No" HelperText="Max. 10 characters"
-                                                           @bind-Value="Model.ID" For="@(() => Model.ID)" />
-                                                <XSTextBox @ref="txtComments" ReadOnly=@(ReadOnly || false) Label="Comments" HelperText="Max. 50 characters"
-                                                           @bind-Value="Model.Description" For="@(() => Model.Description)" />
-                                                <XSDatePicker @ref="dtpPODate" Label="Date" @bind-Date="Model.PODate" ReadOnly=@(ReadOnly || false) DateFormat="dd/MM/yyyy" />
-                                                <XSNumberBox @ref="txtPOAmt" @bind-Value="Model.POTotAmt" Label="Amount" Variant="Variant.Text" ReadOnly=@(ReadOnly || true) />
-                                                <XSTextBox @ref="txtRemarks" ReadOnly=@(ReadOnly || false) Label="Remarks" HelperText="Max. 50 characters"
-                                                           @bind-Value="Model.PORemarks" For="@(() => Model.PORemarks)" />
-                                                <XSFinder T="FinderData" @ref="txtVendor" FinderPage="typeof(VendorMaster)" FinderUrl="/MachineTest/Setup/VendorMaster" Label="Select Vendor" @bind-Value="POVCodeValue" Required="true" ReadOnly=@(ReadOnly || false)
-                                                          Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
-                                                          AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
-                                                          ToStringFunc="@DisplayPOVCode" />
-                                                <XSNumberBox @ref="txtDocAmt" @bind-Value="Model.Document_Amount" Label="Document Amount" Variant="Variant.Text" ReadOnly=@(ReadOnly || false) />
-                                            </ChildContent>
-                                        </XSExpansionPanel>
-                                        @if (Visible_gbxDetails)
-                                        {
-                                            <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                                <TitleContent>
-                                                    <MudText Class="mt-1"><strong>Details</strong></MudText>
-                                                </TitleContent>
-                                                <ChildContent>
-                                                    <PurchaseOrderPO_ItemsGridPage ParentID="@Model.ID" Model="Model" GridData="Model.PO_Items">
-                                                    </PurchaseOrderPO_ItemsGridPage>
-                                                </ChildContent>
-                                            </XSExpansionPanel>
-                                        }
-                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                            <TitleContent>
-                                                <MudText Class="mt-1"><strong>Photograph</strong></MudText>
-                                            </TitleContent>
-                                            <ChildContent>
-                                                <XSImage DisplayImage="true" ImageSrc="@_ImageSrcfilePhoto" Width="164" Height="104" ObjectFit="ObjectFit.Fill" Fluid="false" Hidden="false" T="IBrowserFile" AppendMultipleFiles="false" @ref="pcbPhoto" Disabled=@(ReadOnly || false) MaxSize="1" MinSize="0" CurrentFile="_UploadedfilePhoto" OnOpenFile="OnfilePhotoOpen" OnFilesChanged="OnfilePhotoChanged" />
-                                            </ChildContent>
-                                        </XSExpansionPanel>
-                                    </XSExpansionPanels>
-                                </MudTabPanel>
-                                <MudTabPanel Text="Others">
-                                    <XSExpansionPanels MultiExpansion="true">
-                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                            <TitleContent>
-                                                <MudText Class="mt-1"><strong>Testing</strong></MudText>
-                                            </TitleContent>
-                                            <ChildContent>
-                                                <XSMultiSelectFinder T="FinderData" @ref="txtItems" Label="Select Item List" @bind-SelectedValues="PO_ItemListValue" Required="true" ReadOnly=@(ReadOnly || false)
-                                                                     Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
-                                                                     AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
-                                                                     @onblur="@SetSelectedValuesPO_ItemList" ToStringFunc="@DisplayPO_ItemList" SearchFunc="@SearchPO_ItemList" />
-                                            </ChildContent>
-                                        </XSExpansionPanel>
-                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                            <TitleContent>
-                                                <MudText Class="mt-1"><strong>Options</strong></MudText>
-                                            </TitleContent>
-                                            <ChildContent>
-                                                <XSRadioGroup @ref="xpertRadioButton1" @bind-Value="Model.PO_Options">
-                                                    <XSRadio T="string" Value="@("Option1")" Color="Color.Primary">Option1</XSRadio>
-                                                    <XSRadio T="string" Value="@("Option2")" Color="Color.Primary">Option2</XSRadio>
-                                                </XSRadioGroup>
-                                            </ChildContent>
-                                        </XSExpansionPanel>
-                                        <XSExpansionPanel IsExpanded=true HideIcon=true>
-                                            <TitleContent>
-                                                <MudText Class="mt-1"><strong>Testing</strong></MudText>
-                                            </TitleContent>
-                                            <ChildContent>
-                                                <XSMultiSelectFinder T="FinderData" @ref="txtMultiVendor" FinderPage="typeof(VendorMaster)" FinderUrl="/MachineTest/Setup/VendorMaster" Label="Select Select Vendors" @bind-SelectedValues="VendorsValue" Required="true" ReadOnly=@(ReadOnly || false)
-                                                                     Immediate="true" CoerceValue="true" ResetValueOnEmptyText="true"
-                                                                     AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"
-                                                                     @onblur="@SetSelectedValuesVendors" ToStringFunc="@DisplayVendors" />
-                                            </ChildContent>
-                                        </XSExpansionPanel>
-                                    </XSExpansionPanels>
-                                </MudTabPanel>
-                            </XSTabs>
-                        </MudCardContent>
-                        <MudCardContent>
-                            <XSExpansionPanels MultiExpansion="true">
-                            </XSExpansionPanels>
-                        </MudCardContent>
-                        <MudCardActions>
-                            <XSButton ButtonType="ButtonType.Button" Variant="Variant.Outlined" Color="Color.Primary" OnClick="NavigateToIndex" Class="mr - 4">Back</XSButton>
-                            @if (CrudType == XpertStudio.Common.Enums.XpertCrudTypes.Create)
-                            {
-                                <XSButton ButtonType="ButtonType.Reset" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Reset</XSButton>
-                                <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Save</XSButton>
-                            }
-                            @if (CrudType == XpertStudio.Common.Enums.XpertCrudTypes.Edit)
-                            {
-                                <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Edit</XSButton>
-                            }
-                            @if (CrudType == XpertStudio.Common.Enums.XpertCrudTypes.Delete)
-                            {
-                                <XSButton ButtonType="ButtonType.Submit" Variant="Variant.Outlined" Color="Color.Primary" Class="mr - 4">Delete</XSButton>
-                            }
-                        </MudCardActions>
-                    </XSCard>
-                </MudItem>
-                @if (ShowValidationSummary == true)
-                {
-                    <MudItem xs="12" sm="2">
-                        <XSPaper Class="pa - 4 mud - height - full">
-                            <MudText Typo="Typo.subtitle2">Validation Summary</MudText>
-                            @if (success)
-                            {
-                                <MudText Color="Color.Success">Success</MudText>
-                            }
-                            else
-                            {
-                                <MudText Color="@Color.Error">
-                                    <ValidationSummary />
-                                </MudText>
-                            }
-                        </XSPaper>
-                    </MudItem>
-                }
-            </XSGrid>
-        </EditForm>
-    </Authorized>
-    <NotAuthorized>
-        <p>You are not authorized to access this resource!!</p>
-    </NotAuthorized>
+   </MudCardActions>
+  </XSCard>
+ </MudItem>
+@if (ShowValidationSummary==true)
+ {
+   <MudItem xs="12" sm="2">
+    <XSPaper Class="pa - 4 mud - height - full">
+     <MudText Typo="Typo.subtitle2">Validation Summary</MudText>
+     @if (success)
+      {
+       <MudText Color="Color.Success">Success</MudText>
+      }
+     else
+      {
+       <MudText Color="@Color.Error">
+        <ValidationSummary />
+       </MudText>
+      }
+    </XSPaper>
+   </MudItem>
+ }
+</XSGrid>
+</EditForm>
+</Authorized>
+<NotAuthorized>
+<p>You are not authorized to access this resource!!</p>
+</NotAuthorized>
 </AuthorizeView>
 
 @code {

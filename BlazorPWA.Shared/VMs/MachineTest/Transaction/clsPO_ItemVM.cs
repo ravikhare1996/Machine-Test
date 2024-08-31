@@ -41,7 +41,6 @@ namespace BlazorPWA.Shared.VMs
         [DisplayName("Item Code")]
         [GroupName("Details")]
         [MaxLength(32767)]
-        [MinLength(1)]
         public string POICode
         {
             get { return  _POICode; }
@@ -51,7 +50,6 @@ namespace BlazorPWA.Shared.VMs
         [DisplayName("Item Name")]
         [GroupName("Details")]
         [NotMapped]
-        [MinLength(5)]
         public string ItemName
         {
             get { return  _ItemName; }
@@ -60,7 +58,6 @@ namespace BlazorPWA.Shared.VMs
 
         [DisplayName("UOM")]
         [GroupName("Details")]
-        [MinLength(1)]
         public string POIUOM
         {
             get { return  _POIUOM; }
