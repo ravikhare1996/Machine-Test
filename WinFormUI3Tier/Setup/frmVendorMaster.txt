@@ -1,0 +1,2 @@
+﻿Alter Table TSPL_VENDOR_MASTER
+Add TextEditor VARCHAR(Max) NULL;
