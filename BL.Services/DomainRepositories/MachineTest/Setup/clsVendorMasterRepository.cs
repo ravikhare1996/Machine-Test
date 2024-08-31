@@ -59,10 +59,12 @@ namespace MachineTest.Services.DomainRepositories
             .Select(q => new {
             q.ID
             ,q.Description
+            ,q.TextEditor
             }).ToArray().Select(o => new clsVendorMaster()
             {
             ID = o.ID
             ,Description = o.Description
+            ,TextEditor = o.TextEditor
             }).Skip(start).Take(pageSize);
              return results;
              } 
@@ -85,7 +87,7 @@ namespace MachineTest.Services.DomainRepositories
              { 
              var results =await context.Set<clsVendorMaster>() 
             .Where(p => p.ID == Doc_No) 
-            .ToListAsync(); 
+            .ToListAsync();
              return results.FirstOrDefault();
              } 
             }
@@ -107,11 +109,13 @@ namespace MachineTest.Services.DomainRepositories
             .Select(q => new {
             q.ID
             ,q.Description
+            ,q.TextEditor
             }).Skip(start).Take(pageSize).ToListAsync();
             return results.Select(o => new clsVendorMaster()
             {
             ID = o.ID
             ,Description = o.Description
+            ,TextEditor = o.TextEditor
             });
              } 
             }
@@ -153,6 +157,7 @@ namespace MachineTest.Services.DomainRepositories
             ExistEntity.FirstOrDefault().Description = entity.Description;
             ExistEntity.FirstOrDefault().ID = entity.ID;
             ExistEntity.FirstOrDefault().LastModifiedDatetime = DateTime.Now;
+            ExistEntity.FirstOrDefault().TextEditor = entity.TextEditor;
             context.SaveChanges();
             //OnAfterUpdateExecuted  
             OnAfterUpdateExecuted(context, entity);
@@ -201,6 +206,7 @@ namespace MachineTest.Services.DomainRepositories
             ExistEntity.FirstOrDefault().Description = entity.Description;
             ExistEntity.FirstOrDefault().ID = entity.ID;
             ExistEntity.FirstOrDefault().LastModifiedDatetime = DateTime.Now;
+            ExistEntity.FirstOrDefault().TextEditor = entity.TextEditor;
             await context.SaveChangesAsync();
             //OnAfterUpdateExecutedAsync  
             await OnAfterUpdateExecutedAsync(context, entity);
