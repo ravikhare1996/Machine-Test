@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorPWA.Server", "BlazorP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorPWA.Shared", "BlazorPWA.Shared\BlazorPWA.Shared.csproj", "{8F27C890-FFF5-4521-85EB-92CCF1DA46A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorPWA.Common", "BlazorPWA.Common\BlazorPWA.Common.csproj", "{972BDAC8-851C-4711-B0C5-BB03076B60A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorPWA.Common", "BlazorPWA.Common\BlazorPWA.Common.csproj", "{972BDAC8-851C-4711-B0C5-BB03076B60A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

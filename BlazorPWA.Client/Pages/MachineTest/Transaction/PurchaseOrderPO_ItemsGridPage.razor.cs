@@ -84,10 +84,13 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             GridData.Add(new clsPO_ItemVM(){ RowNo= GridData.Count +1,ParentID= ParentID });
         }
 
-        private void RowClicked(clsPO_ItemVM item)
+        private async Task RowClicked(clsPO_ItemVM item)
         {
-            SelectedItem = item;
-            POICodeValue = GetPOICodeValue(item.POICode);
+            await Task.Run(() =>
+            {
+                SelectedItem = item;
+                POICodeValue = GetPOICodeValue(item.POICode);
+            });            
         }
 
         private void RemoveElement()

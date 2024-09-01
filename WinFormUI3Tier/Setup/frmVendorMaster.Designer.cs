@@ -31,21 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVendorMaster));
             xpertSplitContainer1 = new XS.WinForms.Controls.XpertSplitContainer();
             gbxHeader = new XS.WinForms.Controls.XpertGroupBox();
+            xpertTextEditor1 = new XS.WinForms.Controls.XpertTextEditor();
             txtDescription = new XS.WinForms.Controls.XpertTextBox();
             lblDescription = new XS.WinForms.Controls.XpertLabel();
             lblDocNo = new XS.WinForms.Controls.XpertLabel();
             txtVendorCode = new XS.WinForms.Controls.XpertNavigator();
-            xpertTextEditor1 = new XS.WinForms.Controls.XpertTextEditor();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)xpertSplitContainer1).BeginInit();
             xpertSplitContainer1.Panel1.SuspendLayout();
             xpertSplitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gbxHeader).BeginInit();
             gbxHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)xpertTextEditor1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtDescription).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lblDescription).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lblDocNo).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)xpertTextEditor1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -87,6 +87,53 @@
             gbxHeader.Text = "Basic Info";
             gbxHeader.Visibility_Criteria = null;
             gbxHeader.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
+            // 
+            // xpertTextEditor1
+            // 
+            xpertTextEditor1.BackColor = System.Drawing.Color.White;
+            xpertTextEditor1.Calculation_Expression = null;
+            xpertTextEditor1.Calculation_Type = XS.WinForms.Controls.CalculationTypes.None;
+            xpertTextEditor1.CalculationExpression = null;
+            xpertTextEditor1.Calculative = false;
+            xpertTextEditor1.Column_Name = null;
+            xpertTextEditor1.Control_Name = null;
+            xpertTextEditor1.Create_Option = XpertStudio.Common.Enums.XpertFieldCreateOptions.UIAndModelAndTable;
+            xpertTextEditor1.Custom_Data = false;
+            xpertTextEditor1.Custom_Default = false;
+            xpertTextEditor1.Display_Name = null;
+            xpertTextEditor1.Field_Description = null;
+            xpertTextEditor1.Field_Name = "TextEditor";
+            xpertTextEditor1.Field_Type = XpertStudio.Common.Enums.XpertFieldTypes.None;
+            xpertTextEditor1.FieldCode = null;
+            xpertTextEditor1.FieldDesc = null;
+            xpertTextEditor1.FieldMaxLength = 0;
+            xpertTextEditor1.FieldName = "TextEditor";
+            xpertTextEditor1.Generated = false;
+            xpertTextEditor1.isCalculatedField = false;
+            xpertTextEditor1.IsSourceFromTable = false;
+            xpertTextEditor1.IsSourceFromValueList = false;
+            xpertTextEditor1.IsUnique = false;
+            xpertTextEditor1.Key = false;
+            xpertTextEditor1.Location = new System.Drawing.Point(2, 18);
+            xpertTextEditor1.Max_Length = 0;
+            xpertTextEditor1.MendatroryField = false;
+            xpertTextEditor1.Metadata_Type = null;
+            xpertTextEditor1.Min_Length = 0;
+            xpertTextEditor1.MyLinkLable1 = null;
+            xpertTextEditor1.MyLinkLable2 = null;
+            xpertTextEditor1.Name = "xpertTextEditor1";
+            xpertTextEditor1.ReferenceFieldDesc = null;
+            xpertTextEditor1.ReferenceFieldName = "TextEditor";
+            xpertTextEditor1.ReferenceTableName = null;
+            xpertTextEditor1.Size = new System.Drawing.Size(659, 176);
+            xpertTextEditor1.TabIndex = 4;
+            xpertTextEditor1.TabStop = false;
+            xpertTextEditor1.Text = "xpertTextEditor1";
+            xpertTextEditor1.Validation_Criteria = null;
+            xpertTextEditor1.Visibility_Criteria = null;
+            xpertTextEditor1.XpertDisplayMember = null;
+            xpertTextEditor1.XpertValueMember = null;
+            xpertTextEditor1.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
             // 
             // txtDescription
             // 
@@ -240,52 +287,6 @@
             txtVendorCode.XpertValueMember = null;
             txtVendorCode.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
             // 
-            // xpertTextEditor1
-            // 
-            xpertTextEditor1.Calculation_Expression = null;
-            xpertTextEditor1.Calculation_Type = XS.WinForms.Controls.CalculationTypes.None;
-            xpertTextEditor1.CalculationExpression = null;
-            xpertTextEditor1.Calculative = false;
-            xpertTextEditor1.Column_Name = null;
-            xpertTextEditor1.Control_Name = null;
-            xpertTextEditor1.Create_Option = XpertStudio.Common.Enums.XpertFieldCreateOptions.UIAndModelAndTable;
-            xpertTextEditor1.Custom_Data = false;
-            xpertTextEditor1.Custom_Default = false;
-            xpertTextEditor1.Display_Name = null;
-            xpertTextEditor1.Field_Description = null;
-            xpertTextEditor1.Field_Name = "TextEditor";
-            xpertTextEditor1.Field_Type = XpertStudio.Common.Enums.XpertFieldTypes.None;
-            xpertTextEditor1.FieldCode = null;
-            xpertTextEditor1.FieldDesc = null;
-            xpertTextEditor1.FieldMaxLength = 0;
-            xpertTextEditor1.FieldName = "TextEditor";
-            xpertTextEditor1.Generated = false;
-            xpertTextEditor1.isCalculatedField = false;
-            xpertTextEditor1.IsSourceFromTable = false;
-            xpertTextEditor1.IsSourceFromValueList = false;
-            xpertTextEditor1.IsUnique = false;
-            xpertTextEditor1.Key = false;
-            xpertTextEditor1.Location = new System.Drawing.Point(2, 18);
-            xpertTextEditor1.Max_Length = 0;
-            xpertTextEditor1.MendatroryField = false;
-            xpertTextEditor1.Metadata_Type = null;
-            xpertTextEditor1.Min_Length = 0;
-            xpertTextEditor1.MyLinkLable1 = null;
-            xpertTextEditor1.MyLinkLable2 = null;
-            xpertTextEditor1.Name = "xpertTextEditor1";
-            xpertTextEditor1.ReferenceFieldDesc = null;
-            xpertTextEditor1.ReferenceFieldName = "TextEditor";
-            xpertTextEditor1.ReferenceTableName = null;
-            xpertTextEditor1.Size = new System.Drawing.Size(659, 176);
-            xpertTextEditor1.TabIndex = 4;
-            xpertTextEditor1.TabStop = false;
-            xpertTextEditor1.Text = "xpertTextEditor1";
-            xpertTextEditor1.Validation_Criteria = null;
-            xpertTextEditor1.Visibility_Criteria = null;
-            xpertTextEditor1.XpertDisplayMember = null;
-            xpertTextEditor1.XpertValueMember = null;
-            xpertTextEditor1.XS_Skip = XpertStudio.Common.Enums.XS_SkipTypes.None;
-            // 
             // frmVendorMaster
             // 
             ApproveCommandVisibility = false;
@@ -310,7 +311,6 @@
             ExternalAssemblies.Assemblies = (System.Collections.Generic.List<string>)resources.GetObject("resource.Assemblies");
             File_Name = "frmVendorMaster.cs";
             File_Path = "D:\\Official\\XpertGitHubProjects\\MachineTest\\WinFormUI3Tier\\Setup\\frmVendorMaster.cs";
-            Form_Name = "frmVendorMaster";
             Form_Type = XpertStudio.Common.Enums.XpertFormTypes.Master;
             Functional_Name = "VendorMaster";
             IServiceLayerClass = "IclsVendorMasterService";
@@ -338,10 +338,10 @@
             ((System.ComponentModel.ISupportInitialize)gbxHeader).EndInit();
             gbxHeader.ResumeLayout(false);
             gbxHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)xpertTextEditor1).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtDescription).EndInit();
             ((System.ComponentModel.ISupportInitialize)lblDescription).EndInit();
             ((System.ComponentModel.ISupportInitialize)lblDocNo).EndInit();
-            ((System.ComponentModel.ISupportInitialize)xpertTextEditor1).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
             PerformLayout();

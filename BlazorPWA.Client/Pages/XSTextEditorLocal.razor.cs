@@ -1,8 +1,8 @@
 ﻿using Blazored.TextEditor;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components;
-using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Components.Web;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using XpertStudio.Common.Controls;
 using XpertStudio.Common.Functions;
 using XS.WinForms.Controls;
@@ -33,7 +33,6 @@ namespace BlazorPWA.Client.Pages
             }
         }
         private string? _Value;
-        [Parameter]
         public string? Value
         {
             get { return _Value; }

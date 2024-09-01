@@ -15,6 +15,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Pages\XSTextEditorLocal.razor.cs" />
 	  <Compile Remove="Services\AuthService\AuthService.cs" />
 	  <Compile Remove="Services\AuthService\IAuthService.cs" />
 	  <Compile Remove="Services\IPersonService.cs" />
@@ -33,6 +34,7 @@
 	  <Content Remove="Pages\Account\Login.razor" />
 	  <Content Remove="Pages\Account\Logout.razor" />
 	  <Content Remove="Pages\Account\Register.razor" />
+	  <Content Remove="Pages\XSTextEditorLocal.razor" />
 	  <Content Remove="Shared\Components\ToolTip.razor" />
 	  <Content Remove="wwwroot\service-worker.js" />
 	  <Content Remove="wwwroot\service-worker.published.js" />
@@ -49,7 +51,7 @@
     <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Localization" Version="6.0.28" />
     <PackageReference Include="System.Security.Cryptography.Pkcs" Version="6.0.4" />
-    <PackageReference Include="XS.MudBlazor" Version="4.2408.2915" />
+    <PackageReference Include="XS.MudBlazor" Version="4.2409.120" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
 	</ItemGroup>
 

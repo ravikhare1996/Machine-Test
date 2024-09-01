@@ -7,22 +7,17 @@ using XpertStudio.Common.Functions;
 using System.Data;
 using BlazorPWA.Shared.VMs;
 using Microsoft.JSInterop;
-using Blazored.TextEditor;
-using System.Reflection;
 
 namespace BlazorPWA.Client.Pages.MachineTest.Setup
 {
-    [XSProgram(Module= "MachineTest", Program= "VendorMaster")]
-    [XSCodeType(Type= XSCodeType.Standard)]
+    [XSProgram(Module = "MachineTest", Program = "VendorMaster")]
+    [XSCodeType(Type = XSCodeType.Standard)]
     public partial class VendorMasterBasePage
     {
         private bool success;
         private XSTextBox<string?>? txtDescription;
         private XSTextBox<string?>? txtVendorCode;
         private XSTextEditor? xpertTextEditor1;
-
-        XSTextEditorLocal QuillHtml;
-        string QuillHTMLContent;
 
         [Inject]
         protected IVendorMasterManager Manager { get; set; }
@@ -36,50 +31,44 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
         [Parameter]
         public clsVendorMasterVM Model { get; set; } = new clsVendorMasterVM();
 
-        protected async override Task  OnInitializedAsync()
+        protected async override Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
             //get all Lists
-            if (CrudType==XpertCrudTypes.Create )
+            if (CrudType == XpertCrudTypes.Create)
             {
-              Model = new clsVendorMasterVM();
+                Model = new clsVendorMasterVM();
             }
             else
             {
-              Model = await Manager.GetDataAsync(CurrentID);
+                Model = await Manager.GetDataAsync(CurrentID);
             }
             Context = new EditContext(Model);
-            if (ReadOnly==false)
+            if (ReadOnly == false)
             {
-              ReadOnly = CrudType == XpertCrudTypes.View ? true : false;
-            }
-
-            //textEditor code
-            if (!String.IsNullOrEmpty(Model.TextEditor)) 
-            {
-                QuillHTMLContent = Model.TextEditor;
+                ReadOnly = CrudType == XpertCrudTypes.View ? true : false;
             }
             StateHasChanged();
         }
 
-        private async Task  OnCreate(EditContext context)
+        private async Task OnCreate(EditContext context)
         {
-            Model =await Manager.SaveAsync(Model);
+            Model = await Manager.SaveAsync(Model);
             success = true;
             StateHasChanged();
             _snackBar.Add("Record Added.", MudBlazor.Severity.Success);
             UriHelper.NavigateTo("/MachineTest/Setup/VendorMasterEdit/" + Model.ID);
         }
 
-        private async Task  OnEdit(EditContext context)
+        private async Task OnEdit(EditContext context)
         {
-            Model=await Manager.EditAsync(Model);
+            Model = await Manager.EditAsync(Model);
             success = true;
             StateHasChanged();
             _snackBar.Add("Record Updated.", MudBlazor.Severity.Success);
         }
 
-        private async Task  OnDelete(EditContext context)
+        private async Task OnDelete(EditContext context)
         {
             await Manager.DeleteAsync(Model.ID);
             success = true;
@@ -88,38 +77,33 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
             UriHelper.NavigateTo("/MachineTest/Setup/VendorMaster/");
         }
 
-        protected void  NavigateToIndex()
+        protected void NavigateToIndex()
         {
-            if (PageHistoryState.GetGoBackPage()!=null)
+            if (PageHistoryState.GetGoBackPage() != null)
             {
-              UriHelper.NavigateTo(PageHistoryState.GetGoBackPage());
+                UriHelper.NavigateTo(PageHistoryState.GetGoBackPage());
             }
         }
 
-        private async void  OnValidSubmit(EditContext context)
+        private async void OnValidSubmit(EditContext context)
         {
-            if (CrudType==XpertCrudTypes.Create)
+            Model.TextEditor =await xpertTextEditor1?.GetHtml();
+            if (CrudType == XpertCrudTypes.Create)
             {
-            await OnCreate(context);
+                await OnCreate(context);
             }
-            else if (CrudType==XpertCrudTypes.Edit)
+            else if (CrudType == XpertCrudTypes.Edit)
             {
-              await OnEdit(context);
+                await OnEdit(context);
             }
             else if (CrudType == XpertCrudTypes.Delete)
             {
-              await OnDelete(context);
+                await OnDelete(context);
             }
-            else if (CrudType==XpertCrudTypes.View)
+            else if (CrudType == XpertCrudTypes.View)
             {
-              Model=await  Manager.GetDataAsync(CurrentID);
+                Model = await Manager.GetDataAsync(CurrentID);
             }
-        }
-
-        public async void GetHTML()
-        {
-            Model.TextEditor = await this.QuillHtml.GetHTML();
-            StateHasChanged();
         }
     }
 }

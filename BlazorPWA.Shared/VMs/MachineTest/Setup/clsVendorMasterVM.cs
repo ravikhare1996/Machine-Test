@@ -21,7 +21,7 @@ namespace BlazorPWA.Shared.VMs
     {
         private string? _ID = "Auto";
         private string? _Description;
-        private string? _TextEditor;
+        private string? _TextEditor = "xpertTextEditor1";
 
         public clsVendorMasterVM() { }
 
@@ -46,6 +46,7 @@ namespace BlazorPWA.Shared.VMs
             set { _Description=value; }
         }
 
+        [DefaultValue("xpertTextEditor1")]
         [GroupName("Basic Info")]
         public string? TextEditor
         {

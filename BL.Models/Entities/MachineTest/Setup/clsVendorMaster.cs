@@ -23,7 +23,7 @@ namespace MachineTest.Domain.Entities
     {
         private string? _ID = "Auto";
         private string? _Description;
-        private string? _TextEditor;
+        private string? _TextEditor = "xpertTextEditor1";
 
         public clsVendorMaster() { }
 
@@ -50,7 +50,7 @@ namespace MachineTest.Domain.Entities
             set { _Description=value; }
         }
 
-        [Column("TextEditor", TypeName = "VARCHAR")]
+        [DefaultValue("xpertTextEditor1")]
         [GroupName("Basic Info")]
         public string? TextEditor
         {
