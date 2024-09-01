@@ -87,7 +87,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Setup
 
         private async void OnValidSubmit(EditContext context)
         {
-            Model.TextEditor =await xpertTextEditor1?.GetHtml();
+            Model.TextEditor = await xpertTextEditor1?.GetHtml();
             if (CrudType == XpertCrudTypes.Create)
             {
                 await OnCreate(context);

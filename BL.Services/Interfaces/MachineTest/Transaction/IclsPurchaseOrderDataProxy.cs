@@ -24,5 +24,7 @@ namespace MachineTest.Services.Interfaces
          Task< IEnumerable<clsPurchaseOrder>> GetAllAsync(int start, int pageSize, string SearchString = "", string OrderBy = "");
 
          Task<IEnumerable<FinderData>> GetPO_ItemListList(string FinderType, string WhereExpression);
+
+         Task<IEnumerable<FinderData>> GetPOICodeList(string FinderType, string WhereExpression);
     }
 }

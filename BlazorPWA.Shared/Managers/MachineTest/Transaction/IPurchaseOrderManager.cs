@@ -13,5 +13,7 @@ namespace BlazorPWA.Shared.Managers
     public partial interface IPurchaseOrderManager : IGenericManager<clsPurchaseOrderVM>
     {
          Task<IEnumerable<FinderData>?> GetPO_ItemListList(clsPurchaseOrderVM entity);
+
+         Task<IEnumerable<FinderData>?> GetPOICodeList(clsPO_ItemVM entity);
     }
 }

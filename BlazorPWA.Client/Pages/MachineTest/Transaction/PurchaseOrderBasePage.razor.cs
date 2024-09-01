@@ -197,7 +197,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             {
             return POVCodeList;
             }
-            return POVCodeList.Where(x => x.Name.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+            return POVCodeList.Where(x => (x.Code.Contains(value, StringComparison.InvariantCultureIgnoreCase)|| x.Name.Contains(value, StringComparison.InvariantCultureIgnoreCase)));
         }
 
         private string DisplayPOVCode(FinderData CurrentData)
@@ -223,7 +223,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             {
             return PO_ItemListList;
             }
-            return PO_ItemListList.Where(x => x.Name.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+            return PO_ItemListList.Where(x => (x.Code.Contains(value, StringComparison.InvariantCultureIgnoreCase)|| x.Name.Contains(value, StringComparison.InvariantCultureIgnoreCase)));
         }
 
         private string DisplayPO_ItemList(FinderData CurrentData)

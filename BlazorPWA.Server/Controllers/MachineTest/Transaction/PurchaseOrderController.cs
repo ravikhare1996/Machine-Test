@@ -87,5 +87,13 @@ namespace BlazorPWA.Server.Controllers
             var data = await _Service.GetPO_ItemListList(FinderType,WhereExpression);
             return Ok(data);
         }
+
+        [HttpGet]
+        [Route("GetPOICodeList")]
+        public async virtual Task<IActionResult> GetPOICodeList([FromQuery] string? FinderType, string? WhereExpression)
+        {
+            var data = await _Service.GetPOICodeList(FinderType,WhereExpression);
+            return Ok(data);
+        }
     }
 }

@@ -36,7 +36,7 @@
     <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.410601">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="XpertStudio.UI.Domain" Version="4.2409.120" />
+    <PackageReference Include="XpertStudio.UI.Domain" Version="4.2409.122" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DomainServices\" />

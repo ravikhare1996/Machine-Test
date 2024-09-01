@@ -19,5 +19,7 @@ namespace MachineTest.Services.DomainServices
          ICommand<IEnumerable<clsPurchaseOrder>> GetAllCommand(int start, int pageSize);
 
          Task<IEnumerable<FinderData>> GetPO_ItemListList(string FinderType, string WhereExpression);
+
+         Task<IEnumerable<FinderData>> GetPOICodeList(string FinderType, string WhereExpression);
     }
 }

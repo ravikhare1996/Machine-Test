@@ -10,7 +10,7 @@ using BlazorPWA.Shared.VMs;
 
 namespace BlazorPWA.Client.Pages.MachineTest.Transaction
 {
-    [XSCodeType(Type= XSCodeType.Standard)]
+    [XSCodeType(Type = XSCodeType.Standard)]
     public partial class PurchaseOrderPO_ItemsGridPage
     {
         private List<string> editEvents = new();
@@ -24,9 +24,9 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
         private PropertyColumn<clsPO_ItemVM, string>? Uom;
         private PropertyColumn<clsPO_ItemVM, decimal?>? POIRate;
         private PropertyColumn<clsPO_ItemVM, decimal?>? POIQty;
-        private AggregateDefinition<clsPO_ItemVM> _Sum_POIQty = new AggregateDefinition<clsPO_ItemVM>{Type = AggregateType.Sum,DisplayFormat = "Total: {value}"};
+        private AggregateDefinition<clsPO_ItemVM> _Sum_POIQty = new AggregateDefinition<clsPO_ItemVM> { Type = AggregateType.Sum, DisplayFormat = "Total: {value}" };
         private PropertyColumn<clsPO_ItemVM, decimal?>? POIAmt;
-        private AggregateDefinition<clsPO_ItemVM> _Sum_POIAmt = new AggregateDefinition<clsPO_ItemVM>{Type = AggregateType.Sum,DisplayFormat = "Total: {value}"};
+        private AggregateDefinition<clsPO_ItemVM> _Sum_POIAmt = new AggregateDefinition<clsPO_ItemVM> { Type = AggregateType.Sum, DisplayFormat = "Total: {value}" };
         private PropertyColumn<clsPO_ItemVM, decimal?>? TotalQty;
 
         [Parameter]
@@ -41,47 +41,38 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
         [Inject]
         public IPurchaseOrderManager Manager { get; set; }
 
-        [Inject]
-        protected IItemMasterManager POICodeManager { get; set; }
-
         protected IEnumerable<FinderData>? POICodeList { get; set; }
 
         private FinderData? POICodeValue
         {
             get { return _POICodeValue; }
-            set { 
-            if (value == null)
+            set
             {
-             _POICodeValue = POICodeList?.FirstOrDefault(d => d.IsDefault == true);
+                if (value == null)
+                {
+                    _POICodeValue = POICodeList?.FirstOrDefault(d => d.IsDefault == true);
+                }
+                else
+                {
+                    _POICodeValue = value;
+                }
+                SelectedItem.POICode = value?.Code;
             }
-            else
-            {
-            _POICodeValue = value;
-            }
-            SelectedItem.POICode = value?.Code;
-             }
         }
 
-        protected async override Task  OnInitializedAsync()
+        protected async override Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
-            if (SelectedItem==null)
+            if (SelectedItem == null)
             {
-            SelectedItem = new clsPO_ItemVM();
-            }
-            if (SelectedItem.POICode!=null)
-            {
-            var POICodeData =await POICodeManager.GetDataAsync(SelectedItem.POICode);
-            if (POICodeData!=null)
-            POICodeValue = new FinderData() { Code = POICodeData.ID, Name = POICodeData.Description };
-            POICodeData=null;
+                SelectedItem = new clsPO_ItemVM();
             }
             StateHasChanged();
         }
 
         private void AddEmptyElement()
         {
-            GridData.Add(new clsPO_ItemVM(){ RowNo= GridData.Count +1,ParentID= ParentID });
+            GridData.Add(new clsPO_ItemVM() { RowNo = GridData.Count + 1, ParentID = ParentID });
         }
 
         private async Task RowClicked(clsPO_ItemVM item)
@@ -90,45 +81,47 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             {
                 SelectedItem = item;
                 POICodeValue = GetPOICodeValue(item.POICode);
-            });            
+            });
         }
 
         private void RemoveElement()
         {
-            if (SelectedItem!=null)
+            if (SelectedItem != null)
             {
-            GridData.Remove(SelectedItem);
+                GridData.Remove(SelectedItem);
             }
         }
 
-        private async Task<IEnumerable<FinderData>>  SearchPOICode(string value)
+        private async Task<IEnumerable<FinderData>> SearchPOICode(string value)
         {
             await Task.Delay(5);
+            POICodeList = await Manager.GetPOICodeList(SelectedItem);
+            POICodeValue = POICodeList.FirstOrDefault(val => val.Code == SelectedItem.POICode);
             if (string.IsNullOrEmpty(value))
             {
-            return POICodeList;
+                return POICodeList;
             }
-            return POICodeList.Where(x => x.Name.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+            return POICodeList.Where(x => (x.Code.Contains(value, StringComparison.InvariantCultureIgnoreCase) || x.Name.Contains(value, StringComparison.InvariantCultureIgnoreCase)));
         }
 
         private string DisplayPOICode(FinderData CurrentData)
         {
             if (CurrentData == null)
             {
-            return string.Empty;
+                return string.Empty;
             }
             if (SelectedItem != null)
             {
-            SelectedItem.ItemName = CurrentData.Name;
+                SelectedItem.ItemName = CurrentData.Name;
             }
-            return CurrentData.Code; 
+            return CurrentData.Code;
         }
 
         private FinderData GetPOICodeValue(string value)
         {
             if (POICodeValue == null)
             {
-            POICodeValue=new FinderData();
+                POICodeValue = new FinderData();
             }
             POICodeValue.Code = value;
             return POICodeValue;
@@ -136,7 +129,7 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
 
         private async Task<string> getPOICodeName(string? Code)
         {
-            string? name= (string?)(await Manager.getSingleValue("select IName from TSPL_ITEM_MASTER where ICode='" + Code + "'"));
+            string? name = (string?)(await Manager.getSingleValue("select IName from TSPL_ITEM_MASTER where ICode='" + Code + "'"));
             return name;
         }
     }
