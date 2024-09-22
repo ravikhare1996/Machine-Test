@@ -66,9 +66,9 @@
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.2.0" />
-    <PackageReference Include="XpertStudio.UI.Domain" Version="4.2409.122" />
+    <PackageReference Include="XpertStudio.UI.Domain" Version="4.2409.2220" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
-    <PackageReference Include="XS.ASPNetCore.Server" Version="4.2409.122" />
+    <PackageReference Include="XS.ASPNetCore.Server" Version="4.2409.2220" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -103,5 +103,24 @@
 	  <Folder Include="UserAccountManager\" />
 	</ItemGroup>
 
+  <Target Name="CopyPackagesToOtherDrive" AfterTargets="Build">
+    <PropertyGroup>
+      <GitUser>$(GIT_USER)</GitUser>
+      <!-- Ensure GIT_USER is set -->
+    </PropertyGroup>
 
+    <!-- Log GitUser and TargetDir to the output window for debugging -->
+    <Message Importance="high" Text="GitUser: $(GitUser)" />
+    <Message Importance="high" Text="TargetDir: $(TargetDir)" />
+
+    <!-- Ensure the destination folder exists -->
+    <MakeDir Directories="D:\Official\Exes\$(GitUser)\" />
+
+    <!-- Copy all files from TargetDir to the specified destination folder -->
+    <ItemGroup>
+      <FilesToCopy Include="$(TargetDir)*.*" />
+    </ItemGroup>
+
+    <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="D:\Official\Exes\$(GitUser)\" ContinueOnError="true" />
+  </Target>
 </Project>

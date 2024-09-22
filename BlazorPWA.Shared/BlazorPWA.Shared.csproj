@@ -26,7 +26,7 @@
 	  <PackageReference Include="Blazored.TextEditor" Version="1.1.0" />
 	  <PackageReference Include="FluentValidation" Version="11.4.0" />
 	  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
-	  <PackageReference Include="XpertStudio.Framework.Domain" Version="4.2409.122" />
+	  <PackageReference Include="XpertStudio.Framework.Domain" Version="4.2409.2220" />
 	</ItemGroup>
 
 	<ItemGroup>

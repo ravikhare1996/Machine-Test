@@ -132,5 +132,12 @@ namespace BlazorPWA.Client.Pages.MachineTest.Transaction
             string? name = (string?)(await Manager.getSingleValue("select IName from TSPL_ITEM_MASTER where ICode='" + Code + "'"));
             return name;
         }
+        private async Task CheckOnBlurInGridCell(EventArgs e)
+        {
+            await Task.Run(() =>
+            {
+                Console.WriteLine("Test");
+            });
+        }
     }
 }

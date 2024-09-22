@@ -39,6 +39,11 @@
                 <PropertyColumn @ref="POIQty" Property="x => x.POIQty" Title="Quantity" Required="false" IsEditable="true" AggregateDefinition="_Sum_POIQty" />
                 <PropertyColumn @ref="POIAmt" Property="x => x.POIAmt" Title="Amount" Required="false" IsEditable="false" AggregateDefinition="_Sum_POIAmt" />
                 <PropertyColumn @ref="TotalQty" Property="x => x.TotalQty" Title="Total Quantity" Required="false" IsEditable="true" />
+                <TemplateColumn Title="Total Qty New" IsEditable=true>
+                    <EditTemplate>
+                        <XSNumberBox T="decimal?" @bind-value="context.Item.TotalQty" @onblur="CheckOnBlurInGridCell" Placeholder="Total Qty" Disabled="false" Required="true" ReadOnly="false" />
+                    </EditTemplate>
+                </TemplateColumn>
             </Columns>
         </XSDataGrid>
     </Authorized>
