@@ -456,7 +456,7 @@
             dtpModifyDate.Size = new System.Drawing.Size(150, 20);
             dtpModifyDate.TabIndex = 17;
             dtpModifyDate.TabStop = false;
-            dtpModifyDate.Text = "22-05-2024 11:18 PM";
+            dtpModifyDate.Text = "22/05/2024 11:18 PM";
             dtpModifyDate.Validation_Criteria = null;
             dtpModifyDate.Value = new System.DateTime(2024, 5, 22, 23, 18, 13, 551);
             dtpModifyDate.Visibility_Criteria = null;
@@ -565,7 +565,7 @@
             dtpCreateDateTime.Size = new System.Drawing.Size(150, 20);
             dtpCreateDateTime.TabIndex = 14;
             dtpCreateDateTime.TabStop = false;
-            dtpCreateDateTime.Text = "22-05-2024 10:25 PM";
+            dtpCreateDateTime.Text = "22/05/2024 10:25 PM";
             dtpCreateDateTime.Validation_Criteria = null;
             dtpCreateDateTime.Value = new System.DateTime(2024, 5, 22, 22, 25, 31, 234);
             dtpCreateDateTime.Visibility_Criteria = null;
@@ -1114,7 +1114,7 @@
             dtpPODate.Size = new System.Drawing.Size(140, 20);
             dtpPODate.TabIndex = 8;
             dtpPODate.TabStop = false;
-            dtpPODate.Text = "21-05-2024";
+            dtpPODate.Text = "21/05/2024";
             dtpPODate.Validation_Criteria = null;
             dtpPODate.Value = new System.DateTime(2024, 5, 21, 21, 46, 27, 98);
             dtpPODate.Visibility_Criteria = null;

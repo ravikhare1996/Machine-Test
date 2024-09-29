@@ -44,7 +44,7 @@ namespace MachineTest.Services.DomainRepositories
              return results;
              } 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             throw;
             }

@@ -68,7 +68,7 @@ namespace MachineTest.Domain.Entities
             set { _Description=value; }
         }
 
-        [DefaultValue("'21-May-24 9:46:27 PM'")]
+        [DefaultValue("'05/21/2024 9:46:27 PM'")]
         [Column("PODate")]
         [DisplayName("Date")]
         [GroupName("Header")]
@@ -99,7 +99,7 @@ namespace MachineTest.Domain.Entities
             set { _PORemarks=value; }
         }
 
-        [DefaultValue("'22-May-24 10:25:31 PM'")]
+        [DefaultValue("'05/22/2024 10:25:31 PM'")]
         [Column("CreateDate")]
         [DisplayName("Create DateTime")]
         [GroupName("Header")]
@@ -109,7 +109,7 @@ namespace MachineTest.Domain.Entities
             set { _CreateDate=value; }
         }
 
-        [DefaultValue("'22-May-24 11:18:13 PM'")]
+        [DefaultValue("'05/22/2024 11:18:13 PM'")]
         [Column("ModifiyDate")]
         [DisplayName("Modify Date")]
         [GroupName("Header")]
@@ -153,6 +153,7 @@ namespace MachineTest.Domain.Entities
 
 
 
+
         [XSCodeType(Type = XSCodeType.Custom)]
         [Column("filePhoto_FilePath", TypeName ="VARCHAR")]
         [DisplayName(" File Path")]
@@ -168,6 +169,7 @@ namespace MachineTest.Domain.Entities
 
 
 
+
         [XSCodeType(Type = XSCodeType.Custom)]
         [Column("File_Name", TypeName ="VARCHAR")]
         [GroupName("Photograph")]
@@ -176,6 +178,7 @@ namespace MachineTest.Domain.Entities
             get { return  _filePhoto_FileName; }
             set { _filePhoto_FileName=value; }
         }
+
 
 
 
@@ -227,6 +230,7 @@ namespace MachineTest.Domain.Entities
                 _CreateDate = value;
             }
         }
+
 
 
 

@@ -60,7 +60,7 @@ namespace BlazorPWA.Server.Controllers
             {
             return await base.Delete(id);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             throw;
             }
@@ -74,7 +74,7 @@ namespace BlazorPWA.Server.Controllers
             {
             return await base.GetCount(WhereExpression);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             throw;
             }
