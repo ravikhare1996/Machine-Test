@@ -1532,3 +1532,97 @@ File name: 'D:\Official\XpertGitHubProjects\MachineTest\WinFormUI3Tier\Designers
 2024-09-29 15:34:52.919 +05:30 [INF] Logger Intialized at:09/29/2024 3:34:52 PM
 2024-09-29 15:34:57.110 +05:30 [INF] Metadata Extraction Started at:09/29/2024 3:34:57 PM
 2024-09-29 15:34:57.664 +05:30 [INF] Metadata Extraction completed at:09/29/2024 3:34:57 PM
+2024-09-29 15:42:32.222 +05:30 [INF] Logger Intialized at:09/29/2024 3:42:32 PM
+2024-09-29 15:42:38.584 +05:30 [INF] Metadata Extraction Started at:09/29/2024 3:42:38 PM
+2024-09-29 15:42:39.142 +05:30 [INF] Metadata Extraction completed at:09/29/2024 3:42:39 PM
+2024-09-29 15:42:39.220 +05:30 [ERR] An exception thrown at location -Object reference not set to an instance of an object. StackTrace:   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 208
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 67 in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs at line 80: Object reference not set to an instance of an object.
+XpertStudio.Framework.Exceptions.XSException: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 208
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 67
+   --- End of inner exception stack trace ---
+2024-09-29 15:42:42.593 +05:30 [ERR] An exception thrown at location -Object reference not set to an instance of an object. StackTrace:   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 208
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 67 in XSExceptionLogger at line 54: Object reference not set to an instance of an object.
+XpertStudio.Framework.Exceptions.XSException: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 208
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 67
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger.Log(XSException exception, String filePath, Int32 lineNumber) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSExceptionLogger.cs:line 157
+   at XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger.<>c__DisplayClass1_0.<<PerformLogging>b__0>d.MoveNext() in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSExceptionLogger.cs:line 99
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger.PerformLogging(Exception exception, String filePath, Int32 lineNumber) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSExceptionLogger.cs:line 37
+2024-09-29 15:42:46.786 +05:30 [INF] Metadata Extraction Started at:09/29/2024 3:42:46 PM
+2024-09-29 15:42:46.820 +05:30 [INF] Metadata Extraction completed at:09/29/2024 3:42:46 PM
+2024-09-29 15:42:46.822 +05:30 [ERR] An exception thrown at location -Object reference not set to an instance of an object. StackTrace:   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 208
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 67 in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs at line 80: Object reference not set to an instance of an object.
+XpertStudio.Framework.Exceptions.XSException: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 208
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 67
+   --- End of inner exception stack trace ---
+2024-09-29 15:42:47.074 +05:30 [ERR] An exception thrown at location -Object reference not set to an instance of an object. StackTrace:   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 208
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 67 in XSExceptionLogger at line 54: Object reference not set to an instance of an object.
+XpertStudio.Framework.Exceptions.XSException: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 208
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 67
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger.Log(XSException exception, String filePath, Int32 lineNumber) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSExceptionLogger.cs:line 157
+   at XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger.<>c__DisplayClass1_0.<<PerformLogging>b__0>d.MoveNext() in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSExceptionLogger.cs:line 99
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger.PerformLogging(Exception exception, String filePath, Int32 lineNumber) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSExceptionLogger.cs:line 37
+2024-09-29 15:54:36.136 +05:30 [INF] Logger Intialized at:09/29/2024 3:54:36 PM
+2024-09-29 15:54:40.697 +05:30 [INF] Metadata Extraction Started at:09/29/2024 3:54:40 PM
+2024-09-29 15:54:41.249 +05:30 [INF] Metadata Extraction completed at:09/29/2024 3:54:41 PM
+2024-09-29 15:54:41.310 +05:30 [ERR] An exception thrown at location -Object reference not set to an instance of an object. StackTrace:   at XpertStudio.CodeGeneration.clsDomainCodeGeneration.Generate() in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\1.clsDomainCodeGeneration.cs:line 51
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 216
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 68 in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs at line 81: Object reference not set to an instance of an object.
+XpertStudio.Framework.Exceptions.XSException: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.CodeGeneration.clsDomainCodeGeneration.Generate() in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\1.clsDomainCodeGeneration.cs:line 51
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 216
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 68
+   --- End of inner exception stack trace ---
+2024-09-29 15:54:41.735 +05:30 [ERR] An exception thrown at location -Object reference not set to an instance of an object. StackTrace:   at XpertStudio.CodeGeneration.clsDomainCodeGeneration.Generate() in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\1.clsDomainCodeGeneration.cs:line 51
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 216
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 68 in XSExceptionLogger at line 54: Object reference not set to an instance of an object.
+XpertStudio.Framework.Exceptions.XSException: Object reference not set to an instance of an object.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at XpertStudio.CodeGeneration.clsDomainCodeGeneration.Generate() in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\CodeGeneration\1.clsDomainCodeGeneration.cs:line 51
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCodeTransaction(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 216
+   at XpertStudio.Framework.WinFormUI.Components.XSCodeGenerator.GenerateCode(IXpertDomainBaseForm frm) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSCodeGenerator.cs:line 68
+   --- End of inner exception stack trace ---
+   at XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger.Log(XSException exception, String filePath, Int32 lineNumber) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSExceptionLogger.cs:line 157
+   at XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger.<>c__DisplayClass1_0.<<PerformLogging>b__0>d.MoveNext() in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSExceptionLogger.cs:line 99
+--- End of stack trace from previous location ---
+   at XpertStudio.Framework.WinFormUI.Components.XSExceptionLogger.PerformLogging(Exception exception, String filePath, Int32 lineNumber) in D:\GitLabRepositories\PanchRaj\XpertStudio\XpertStudio.Framework.FormDesigner\Components\XSExceptionLogger.cs:line 37
+2024-09-29 16:45:19.437 +05:30 [INF] Logger Intialized at:09/29/2024 4:45:19 PM
+2024-09-29 16:45:26.869 +05:30 [INF] Metadata Extraction Started at:09/29/2024 4:45:26 PM
+2024-09-29 16:45:27.416 +05:30 [INF] Metadata Extraction completed at:09/29/2024 4:45:27 PM
+2024-09-29 16:52:54.492 +05:30 [INF] Metadata Extraction Started at:09/29/2024 4:52:54 PM
+2024-09-29 16:52:54.565 +05:30 [INF] Metadata Extraction completed at:09/29/2024 4:52:54 PM
+2024-09-29 16:54:42.244 +05:30 [INF] Metadata Extraction Started at:09/29/2024 4:54:42 PM
+2024-09-29 16:54:42.312 +05:30 [INF] Metadata Extraction completed at:09/29/2024 4:54:42 PM
+2024-09-29 17:12:31.584 +05:30 [INF] Metadata Extraction Started at:09/29/2024 5:12:31 PM
+2024-09-29 17:12:31.762 +05:30 [INF] Metadata Extraction completed at:09/29/2024 5:12:31 PM
+2024-09-29 17:28:05.973 +05:30 [INF] Logger Intialized at:09/29/2024 5:28:05 PM
+2024-09-29 17:28:10.537 +05:30 [INF] Metadata Extraction Started at:09/29/2024 5:28:10 PM
+2024-09-29 17:28:11.311 +05:30 [INF] Metadata Extraction completed at:09/29/2024 5:28:11 PM
+2024-09-29 17:48:42.549 +05:30 [INF] Logger Intialized at:09/29/2024 5:48:42 PM
+2024-09-29 17:48:47.218 +05:30 [INF] Metadata Extraction Started at:09/29/2024 5:48:47 PM
+2024-09-29 17:48:48.097 +05:30 [INF] Metadata Extraction completed at:09/29/2024 5:48:48 PM
+2024-09-29 17:52:51.570 +05:30 [INF] Metadata Extraction Started at:09/29/2024 5:52:51 PM
+2024-09-29 17:52:51.692 +05:30 [INF] Metadata Extraction completed at:09/29/2024 5:52:51 PM
+2024-09-29 17:54:39.494 +05:30 [INF] Metadata Extraction Started at:09/29/2024 5:54:39 PM
+2024-09-29 18:00:16.572 +05:30 [INF] Logger Intialized at:09/29/2024 6:00:16 PM
+2024-09-29 18:00:19.159 +05:30 [INF] Metadata Extraction Started at:09/29/2024 6:00:19 PM
+2024-09-29 18:00:19.952 +05:30 [INF] Metadata Extraction completed at:09/29/2024 6:00:19 PM
+2024-09-29 18:01:16.246 +05:30 [INF] Metadata Extraction Started at:09/29/2024 6:01:16 PM
+2024-09-29 18:01:16.372 +05:30 [INF] Metadata Extraction completed at:09/29/2024 6:01:16 PM
+2024-09-29 18:42:47.913 +05:30 [INF] Logger Intialized at:09/29/2024 6:42:47 PM
+2024-09-29 18:42:52.627 +05:30 [INF] Metadata Extraction Started at:09/29/2024 6:42:52 PM
+2024-09-29 18:42:53.436 +05:30 [INF] Metadata Extraction completed at:09/29/2024 6:42:53 PM
+2024-09-29 18:43:55.453 +05:30 [INF] Metadata Extraction Started at:09/29/2024 6:43:55 PM
+2024-09-29 18:43:55.564 +05:30 [INF] Metadata Extraction completed at:09/29/2024 6:43:55 PM

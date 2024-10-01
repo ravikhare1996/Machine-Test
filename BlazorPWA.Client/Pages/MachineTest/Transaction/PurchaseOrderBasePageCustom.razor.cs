@@ -11,7 +11,7 @@ using System.Globalization;
 
 namespace BlazorPWA.Client.Pages.MachineTest.Transaction
 {
-
+    //Test
     public partial class PurchaseOrderBasePage
     {
         private async Task GetCreateDateAsync(EventArgs e)
